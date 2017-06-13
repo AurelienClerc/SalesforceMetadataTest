@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr">
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Metadata WebSite</title>
+	</head>
+	<body>
+		<h1>Bondour Petit Scarabée</h1>
+		<form method="post" action="../controller/script.php">
+		   	<p>
+		       	<label for="clients">Client : </label><br />
+		       	<select name="clients" id="clients">
+		           <option value="MERMET">MERMET</option>
+		           <option value="NEOVIA">NEOVIA</option>
+		           <option value="ISQ">ISQ</option>
+		           <option value="LEASEPLAN">LEASEPLAN</option>
+		           <option value="GAC">GAC</option>
+		           <option value="EXTERNA">EXTERNA</option>
+		           <option value="GROUPE FED">GROUPE FED</option>
+		           <option value="NEXIALOG">NEXIALOG</option>
+		       	</select>
+	   		</p>
+	   		<p>
+	   			Username : <br />
+	   			<input type="email" value name="username" id="username">
+	   		</p>
+	   		<p>
+	   			Password : <br />
+	   			<input type="password" name="pw" id="password">
+	   		</p>
+	   		<p>
+	   			<input type="radio" name="organisation" value="production" id="production" /> <label for="production">Production</label>
+	   			<input type="radio" name="organisation" value="sandbox" id="sandbox" /> <label for="sandbox">SandBox</label><br />
+	   		</p>
+	   	</form>
+	</body>
+</html>
