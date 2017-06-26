@@ -1,0 +1,22 @@
+<apex:component >
+    <apex:attribute name="rowNum" type="String" description=""/>
+	<apex:attribute name="datePiece" type="String" description=""/>
+	<apex:attribute name="numPiece" type="String" description=""/>
+	<apex:attribute name="numCompte" type="String" description=""/>
+	<apex:attribute name="recap" type="Note_De_Frais_Recap__c" description=""/>
+	<apex:attribute name="total" type="Decimal" description=""/>
+  
+	<apex:outputPanel rendered="{!total > 0}">
+		<tr>
+	        <td>{!recap.Collaborateur__r.Societe__c}</td>
+	        <td>{!rowNum}</td>
+			<td>{!datePiece}</td>
+			<td>{!numPiece}</td>
+			<td>{!numCompte}</td>
+	        <td>{!UPPER(recap.Collaborateur__r.LastName)}</td>
+	        <td>{!total}</td>
+	        <td></td>
+	        <td>{!recap.Collaborateur__r.Code_analytique__c}</td>
+        </tr>
+	</apex:outputPanel>
+</apex:component>

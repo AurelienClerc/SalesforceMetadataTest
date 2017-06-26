@@ -1,0 +1,267 @@
+<apex:page standardController="Event" extensions="AppNDFevenementCtrl" showHeader="false" sidebar="false" >
+
+    <apex:outputText value="{!Event.ActivityDate}" style="display:none;"/>
+    <apex:variable value="{!''}" var="BRPREFIX"></apex:variable>
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'jquery.min.js')}"/>
+    
+    <script type="text/javascript">
+        $$ = jQuery.noConflict();
+    
+        var jsonAttr = {!sNature},
+            pays = "{!Pays}",
+            tipNum = "{!$ObjectType.Note_De_Frais_Depense__c.Fields.Num_PJ__c.inlineHelpText}";
+            
+        $$().ready(function() {
+            
+           $$('.helpButton,.helpButtonOn').live('mouseover',function(){
+                $$(this).prop('class', 'helpButtonOn');
+           });
+           
+           $$('.helpButton,.helpButtonOn').live('mouseout',function(){
+                $$(this).prop('class', 'helpButton');
+           });
+           
+           initToolTip();
+          
+           evalAllData();
+           
+           $$('.nature').change(function(){
+               evalData($$(this));
+           });
+           
+           
+          
+        });
+        
+        $$('.ht,.ttc,.tva').live('keyup', function(){
+              $$(this).val($$(this).val().replace(/\./g, ','));
+        });
+           
+        function spinner(link){
+            $$('.'+link).html('<img src="{!$Resource.spinnerSmall}"/>');
+        }
+        
+        function refresh(){
+        
+            $$('.linkAddRow').html('{!$Label.APPNDF_AjouterUneDepense}');
+            $$('.linkAddRowKilo').html('{!$Label.APPNDF_AjouterKM}');
+           
+            evalAllData();
+       
+            $$('.nature,.natureKilo').change(function(){
+                evalData($$(this));
+            });
+        }
+        
+        function initToolTip(){
+        
+            $$('.num_pj').each(function(){
+                $$(this).prop('title', tipNum);
+            });
+            
+        }
+        
+        function evalAllData(){
+            $$('.nature,.natureKilo').each(function(){
+               evalData($$(this));
+            });
+        }
+        
+        function remDisable(){
+            $$('input,textarea').each(function(){
+               $$(this).prop('disabled', false);
+            });
+        }
+        
+        function evalData(line){
+           if(line.closest('div').prop('class') == 'natureKilo'){
+               line.closest('tr').find('span[name=helpBtn]').children('img.helpOrb').prop('title',jsonAttr[line.closest('tr').find('select').val()]['aide']);
+           }else{
+               if(!line.val()){
+                   line.closest('tr').find('input,textarea').val('').prop('disabled', true);
+                   line.closest('tr').find('span[name=helpBtn]').children('img.helpOrb').prop('title', 'Sélectionner un type de dépense');
+               }else{
+               
+                   line.closest('tr').find('span[name=helpBtn]').children('img.helpOrb').prop('title', jsonAttr[line.val()]['aide']);
+                   if( pays != 'BR' ){
+                       switch(jsonAttr[line.val()]['type']){
+                           case 'HT':
+                               line.closest('tr').find('input.ttc').val('').prop('disabled', true);
+                               line.closest('tr').find('input.ht,input.num_pj,input.tva,textarea.desc').prop('disabled', false);
+                               break;
+                           case 'TTC':
+                               line.closest('tr').find('input.tva,input.ht').val('').prop('disabled', true);
+                               line.closest('tr').find('input.ttc,input.num_pj,textarea.desc').prop('disabled', false);
+                               break;
+                           default:
+                               break;
+                       }
+                   }else{
+                        line.closest('tr').find('input.ttc,input.num_pj,textarea.desc').prop('disabled', false);
+                   }
+                }
+            }
+        }
+    </script>
+    <style>
+        .bPageHeader {
+            display:none;
+        }
+        
+        .new{
+            color:#015ba7;
+            font-weight:bold;
+        }
+
+        .helpOrb{
+            background-image:url(/img/help/helpOrbs.gif);
+            background-position:0 0;
+            width:20px;
+            height:15px;
+        }
+        
+        
+        .helpButton,.helpButtonOn{
+        position:relative;
+        }
+        .helpButton .helpOrb{
+        background-position:top left;
+        }
+        .helpButtonOn .helpOrb{
+        background-position:top right;
+        }
+    </style>
+   
+<apex:sectionHeader title="{!$ObjectType.Note_De_Frais__c.LabelPlural}"/>       
+<apex:form >
+    <apex:PageMessages id="messages"/>
+    <apex:pageBlock tabStyle="Note_De_Frais__c">
+         <apex:outputPanel style="float:right;" rendered="{!(bNDFexiste == false)}" styleClass="new" title="Cette note de frais n'est pas encore enregistrée">New</apex:outputPanel>
+         <apex:pageBlockButtons >
+              <apex:commandButton onclick="remDisable();" action="{!saveRecords}" value="{!$Label.APPNDF_Enregistrer}"/>
+              <apex:commandButton onclick="remDisable();" action="{!saveRecordsAndClose}" value="{!$Label.APPNDF_EnregistrerEtFermer}"/>
+              <apex:commandButton onclick="if(!window.confirm('{!$Label.APPNDF_DelWithChildren}'))return false;" action="{!deleteAll}" value="{!$Label.APPNDF_Supprimer}" rendered="{!bNDFexiste}"/>
+              <apex:commandButton action="{!URLFOR('/apex/AppNDFevenementView', null,IF(bHasEvent, [id = Event.Id, idNDF = oNDF.Id, refresh = $CurrentPage.parameters.refresh, appro = $CurrentPage.parameters.appro], [idNDF = oNDF.Id, refresh = $CurrentPage.parameters.refresh, appro = $CurrentPage.parameters.appro]))}" value="{!$Label.APPNDF_Annuler}" rendered="{!bNDFexiste}"/>
+         </apex:pageBlockButtons>
+         <apex:pageBlockSection columns="2" rendered="{!bHasEvent}">
+              <span style="display:none;">{!Event.WhatId}</span>
+              <span style="display:none;">{!Event.What.Type}</span>
+              <span style="display:none;">{!Event.AccountId}</span>            
+              <apex:outputField value="{!Event.OwnerId}" label="{!$ObjectType.Event.fields.OwnerId.Label}"/>
+              <apex:outputField value="{!Event.ActivityDateTime}" label="{!$ObjectType.Event.fields.StartDateTime.Label}"/>
+              <apex:outputField value="{!Event.Subject}" label="{!$ObjectType.Event.fields.Subject.Label}"/>
+              <apex:outputField value="{!Event.EndDateTime}" label="{!$ObjectType.Event.fields.EndDateTime.Label}"/>
+         </apex:pageBlockSection>
+         <apex:pageBlockSection columns="1">
+              <apex:inputField value="{!oNDF.Date_Des_Frais__c}" rendered="{!!bHasEvent}"/>
+              <!-- <apex:inputTextarea value="{!oNDF.Description__c}" rows="3" cols="60"/> -->
+         </apex:pageBlockSection>
+         <apex:pageBlockSection title="{!$Label.APPNDF_Depenses}" id="depenseSection" columns="1" >              
+            <apex:actionStatus onstop="refresh()" id="statusTable"/>
+            <apex:dataTable value="{!lsDepense}" var="depense" id="depenses" cellspacing="0" cellpadding="0" styleClass="depensesTable list" rowClasses="odd,even" headerClass="headerRow">
+                <apex:column width="120">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Nature_Depense__c.Label}</apex:facet>
+                    <div class="requiredInput">
+                        <div class="requiredBlock"></div>
+                        <apex:selectList styleClass="nature" value="{!depense.Nature_Depense__c}" size="1">
+                            <apex:selectOptions value="{!lsNatureOption}"></apex:selectOptions>
+                        </apex:selectList>
+                        <span class="helpButton" name="helpBtn">
+                            <img src="/s.gif" class="helpOrb" title=""/>
+                        </span>
+                    </div>
+                </apex:column>
+                <apex:column width="1" >
+                    <div class="requiredInput">
+                        <div class="requiredBlock" style="display:none"></div>
+                        <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Num_PJ__c.Label}</apex:facet>
+                        <apex:inputField style="width:70px" value="{!depense.Num_PJ__c}" styleClass="num_pj"/>
+                    </div>
+                </apex:column>   
+                <apex:column width="1">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Montant_TTC__c.Label}</apex:facet>
+                    <apex:inputField style="width:70px" value="{!depense.Montant_TTC__c}" styleClass="ttc"/>
+                </apex:column>    
+                <apex:column width="1" rendered="{!Pays == 'FR'}">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Montant_HT__c.Label}</apex:facet>
+                    <apex:inputField style="width:70px" value="{!depense.Montant_HT__c}" styleClass="ht"/>
+                </apex:column>
+                <apex:column width="1" rendered="{!Pays == 'FR'}">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Montant_TVA__c.Label}</apex:facet>
+                    <apex:inputField style="width:70px" value="{!depense.Montant_TVA__c}" styleClass="tva"/>
+                </apex:column>
+                <apex:column width="1">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Description__c.Label}</apex:facet>
+                    <apex:inputTextarea style="width:150px" rows="1" value="{!depense.Description__c}" styleClass="desc"/>
+                </apex:column>
+                <apex:column width="1">
+                    <apex:facet name="header">{!$Label.APPNDF_Action}</apex:facet>
+                    <apex:commandLink onclick="if(!window.confirm('{!$Label.APPNDF_JSConfirmDelete}'))return false;spinner('linkDelRow{!depense.Temp_Key__c}')" action="{!deleteRow}" value="{!$Label.APPNDF_Supprimer}" reRender="depenses,messages" styleClass="linkDelRow{!depense.Temp_Key__c}" status="statusTable">
+                        <apex:param name="TempKey" value="{!depense.Temp_Key__c}" assignTo="{!sTempKeySelected}"/>
+                        <apex:param name="Type" value="Autre_Frais{!BRPREFIX}" assignTo="{!sType}"/>
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column width="1" rendered="{!oNdf.Pays__c != 'BR'}">
+                    <apex:facet name="header">{!$Label.APPNDF_Etat}</apex:facet>
+                    <apex:outputPanel title="{!$Label.APPNDF_frais_non_ajoutes}" styleClass="new" rendered="{!depense.id == null}">New</apex:outputPanel>
+                </apex:column>
+                <apex:column width="1" rendered="{!oNdf.Pays__c == 'BR'}">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.StatutClientBR__c.Label}</apex:facet>
+                    <apex:inputField style="width:70px" value="{!depense.StatutClientBR__c}"/>
+                </apex:column>
+            </apex:dataTable>
+            <apex:commandLink onclick="spinner('linkAddRow')" action="{!addRow}" value="{!$Label.APPNDF_AjouterUneDepense}" reRender="depenses" styleClass="linkAddRow" status="statusTable">
+               <apex:param name="Type" value="Autre_Frais{!BRPREFIX}" assignTo="{!sType}"/>
+            </apex:commandLink>
+        </apex:pageBlockSection>
+        
+        <apex:pageBlockSection title="{!$Label.APPNDF_FraisKilo}" id="fraisKiloSection" columns="1" >              
+            <apex:actionStatus onstop="refresh()" id="statusTableKilo"/>
+            <apex:dataTable value="{!lsDepenseKilo}" id="fraisKilos" var="fraisKilo" cellspacing="0" cellpadding="0" styleClass="depensesTable list" rowClasses="odd,even" headerClass="headerRow">
+                <apex:column width="1">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Nature_Depense__c.Label}</apex:facet>
+                    <div class="natureKilo">
+                        <apex:selectList value="{!fraisKilo.Nature_Depense__c}" size="1" disabled="true">
+                            <apex:selectOptions value="{!lsNatureOptionKilo}"></apex:selectOptions>
+                        </apex:selectList>
+                        <span class="helpButton" name="helpBtn">
+                            <img src="/s.gif" class="helpOrb" title=""/>
+                        </span>
+                    </div>
+                </apex:column>    
+                <apex:column width="1">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Nombre_De_Kilometres__c.Label}</apex:facet>
+                    <apex:inputField style="width:70px" value="{!fraisKilo.Nombre_De_Kilometres__c}" styleClass="nb_kilo"/>
+                </apex:column>    
+                <apex:column width="1">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Indemnites_Kilometriques__c.Label}</apex:facet>
+                    <apex:inputField style="width:70px" value="{!fraisKilo.Indemnites_Kilometriques__c}" styleClass="indemnite"/>
+                </apex:column>
+                <apex:column width="1">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Description__c.Label}</apex:facet>
+                    <apex:inputTextarea style="width:150px" rows="1" value="{!fraisKilo.Description__c}" styleClass="desc"/>
+                </apex:column>
+                <apex:column width="1">
+                    <apex:facet name="header">{!$Label.APPNDF_Action}</apex:facet>
+                    <apex:commandLink onclick="if(!window.confirm('{!$Label.APPNDF_JSConfirmDelete}'))return false;spinner('linkDelRowKilo{!fraisKilo.Temp_Key__c}')" action="{!deleteRow}" value="{!$Label.APPNDF_Supprimer}" reRender="fraisKilos,messages" styleClass="linkDelRowKilo{!fraisKilo.Temp_Key__c}" status="statusTableKilo">
+                        <apex:param name="TempKey" value="{!fraisKilo.Temp_Key__c}" assignTo="{!sTempKeySelected}"/>
+                        <apex:param name="Type" value="Frais_Kilometrique" assignTo="{!sType}"/>
+                    </apex:commandLink>
+                </apex:column>
+                <apex:column width="1" rendered="{!oNdf.Pays__c != 'BR'}">
+                    <apex:facet name="header">{!$Label.APPNDF_Etat}</apex:facet>
+                    <apex:outputPanel title="{!$Label.APPNDF_frais_non_ajoutes}" styleClass="new" rendered="{!fraisKilo.id == null}">New</apex:outputPanel>
+                </apex:column>
+                <apex:column width="1" rendered="{!oNdf.Pays__c == 'BR'}">
+                    <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.StatutClientBR__c.Label}</apex:facet>
+                    <apex:inputField style="width:70px" value="{!fraisKilo.StatutClientBR__c}"/>
+                </apex:column>
+            </apex:dataTable>
+            <apex:commandLink onclick="spinner('linkAddRowKilo')" action="{!addRow}" value="{!$Label.APPNDF_AjouterKM}" reRender="fraisKilos" styleClass="linkAddRowKilo" status="statusTableKilo">
+                <apex:param name="Type" value="Frais_Kilometrique" assignTo="{!sType}"/>
+            </apex:commandLink>
+        </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

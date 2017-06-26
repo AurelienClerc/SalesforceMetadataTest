@@ -1,0 +1,81 @@
+<apex:page controller="PortailATctrl" showHeader="false" sidebar="false"  applyHtmlTag="false">
+	
+	<apex:composition template="{!$Site.Template}">
+		<apex:define name="title">Espace documentaire</apex:define>
+		
+		
+		
+		<apex:define name="header">
+			<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.1.min.js"></script>
+			<script type="text/javascript" src="{!URLFOR($Resource.BootstrapPrefixed, '/js/bootstrap.min.js')}"></script>
+			<style>
+				
+				.panel-heading{
+					padding: inherit !important;
+				}
+				
+				.panel-title a{
+					display: inline-block;
+					width: 100%;
+					padding: 10px 15px;
+				}
+				
+				.documents li a{
+					display: block;
+					padding: 10px 20px;
+    				border-left: 3px solid #5279AB;
+					margin-bottom: 5px;
+				}
+				
+				.documents li a:hover{
+					text-decoration: none;
+					background-color: #ECF3F9;
+				}
+				
+				.documents .documentDescription{
+					color: #333;
+					margin-top: 15px;
+				}
+				
+				
+			</style>
+			
+			
+		</apex:define>
+			
+		 <apex:define name="body">
+			<h2 >Espace documentaire</h2>
+			
+			<div class="row">
+				<div class="panel-group">
+					<apex:repeat value="{!documents}" var="docsOfCategory">
+						<div class="panel panel-default">
+							<div class="panel-heading" role="tab" id="headingOne">
+								<h4 class="panel-title"><a role="button" data-toggle="collapse" data-parent="#accordion" href="#{!docsOfCategory[0].Id}" aria-expanded="true" aria-controls="collapseOne">{!docsOfCategory[0].Categorie__c}</a></h4>
+							</div>
+							<div id="{!docsOfCategory[0].Id}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+								<div class="panel-body">
+									<ul class="documents list-unstyled">
+										<apex:repeat value="{!docsOfCategory}" var="document">
+											<li>
+												<a href="{!IF(document.Attachments.size == 1, '/PortailATMP/servlet/servlet.FileDownload?file=' & document.Attachments[0].Id, IF(CONTAINS(document.LienSite__c, 'http'), document.LienSite__c, 'http://' + document.LienSite__c))}" target="_blank">
+													<span class="glyphicon {!IF(document.Attachments.size == 1, 'glyphicon-file', 'glyphicon-link')}"></span>
+													<h5>{!document.Name}</h5>
+													<apex:outputPanel layout="block" rendered="{!!ISBLANK(document.Description__c)}" styleClass="documentDescription">
+														<apex:outputField value="{!document.Description__c}" />
+													</apex:outputPanel>
+												</a>
+											</li>
+										</apex:repeat>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</apex:repeat>
+				</div>
+			
+			</div>
+		 </apex:define>
+	</apex:composition>
+	
+</apex:page>

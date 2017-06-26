@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Pago</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Pagos</value>
+    </caseValues>
+    <fields>
+        <label>Fecha del cobro</label>
+        <name>Date_encaissement__c</name>
+    </fields>
+    <fields>
+        <label>Factura</label>
+        <name>Facture__c</name>
+        <relationshipLabel>Cobros</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Importe ants IVA</label>
+        <name>Montant_HT__c</name>
+    </fields>
+    <fields>
+        <label>Importe IVA incluido</label>
+        <name>Montant_TTC__c</name>
+    </fields>
+    <fields>
+        <label>Polo</label>
+        <name>Pole__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Encaissement</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>N° Pago</nameFieldLabel>
+    <validationRules>
+        <errorMessage><!-- La date d&apos;encaissement doit obligatoirement être inférieure ou égale à la date du jour. --></errorMessage>
+        <name>Date_Encaissement_inf_eguale_Date_dujour</name>
+    </validationRules>
+    <webLinks>
+        <label>Nueva colección</label>
+        <name>Nouveau_encaissement</name>
+    </webLinks>
+</CustomObjectTranslation>

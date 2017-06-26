@@ -1,0 +1,745 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Mission CIR</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Missions CIR</value>
+    </caseValues>
+    <fields>
+        <label><!-- Année CIR --></label>
+        <name>Annee_CIR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auditeurs financiers --></label>
+        <name>Auditeurs_financiers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement - Audit --></label>
+        <name>Avancement_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement - Contrôle --></label>
+        <name>Avancement_Controle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement - Justif --></label>
+        <name>Avancement_Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement - Valo --></label>
+        <name>Avancement_Valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement --></label>
+        <name>Avancement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Chiffre d&apos;affaire --></label>
+        <name>ChiffreAffaire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Clé unique --></label>
+        <name>CleUnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultants exterieurs --></label>
+        <name>Consultants_exterieurs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultants fiscalistes --></label>
+        <name>Consultants_fiscalistes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultants scientifiques --></label>
+        <name>Consultants_scientifiques__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contrat --></label>
+        <name>Contrat__c</name>
+        <relationshipLabel><!-- Missions CIR --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Coût de la mission (Estimé) --></label>
+        <name>Cout_mission_Estime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût de la mission (Réelle) --></label>
+        <name>Cout_mission_Reelle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût de la mission (Théorique) --></label>
+        <name>Cout_mission_Theorique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût standard INNO advance --></label>
+        <name>Cout_standard_INNO_advance__c</name>
+        <relationshipLabel><!-- Missions CIR --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date d’envoi Valorisation --></label>
+        <name>DateEnvoiValorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Validation Périmètre --></label>
+        <name>DateValidationPerimetreRecap__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date contractuelle ou fixée par le manager. Date figée --></help>
+        <label><!-- Date Initiale échéance DT --></label>
+        <name>Date_Initiale_echeance_DT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date début Audit --></label>
+        <name>Date_debut_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date début justification --></label>
+        <name>Date_debut_justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date début valorisation --></label>
+        <name>Date_debut_valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date du dernier DT rendu --></label>
+        <name>Date_dernier_DT_rendu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date fin Audit --></label>
+        <name>Date_fin_audit__c</name>
+    </fields>
+    <fields>
+        <help><!-- Calculée automatiquement avec le MAX des Dates d&apos;échéance DT des valorisations associées --></help>
+        <label><!-- Date fin justification --></label>
+        <name>Date_fin_justification_recap__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date fin valorisation --></label>
+        <name>Date_fin_valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de lancement de mission --></label>
+        <name>Date_lancement_mission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Groupe --></label>
+        <name>Groupe__c</name>
+        <picklistValues>
+            <masterLabel>ADISSEO</masterLabel>
+            <translation><!-- ADISSEO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AIR LIQUIDE</masterLabel>
+            <translation><!-- AIR LIQUIDE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AKKA TECHNOLOGIES</masterLabel>
+            <translation><!-- AKKA TECHNOLOGIES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AMADEUS</masterLabel>
+            <translation><!-- AMADEUS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ANDRA</masterLabel>
+            <translation><!-- ANDRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ATOS</masterLabel>
+            <translation><!-- ATOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BOUYGUES TELECOM</masterLabel>
+            <translation><!-- BOUYGUES TELECOM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BOUYGUES TRAVAUX PUBLICS</masterLabel>
+            <translation><!-- BOUYGUES TRAVAUX PUBLICS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CGG</masterLabel>
+            <translation><!-- CGG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CLIMESPACE</masterLabel>
+            <translation><!-- CLIMESPACE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CREDIT AGRICOLE</masterLabel>
+            <translation><!-- CREDIT AGRICOLE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DIAGNOSTICA STAGO</masterLabel>
+            <translation><!-- DIAGNOSTICA STAGO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EDF</masterLabel>
+            <translation><!-- EDF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELECTRICITE DE STRASBOURG</masterLabel>
+            <translation><!-- ELECTRICITE DE STRASBOURG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENEDIS (ERDF)</masterLabel>
+            <translation><!-- ENEDIS (ERDF) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ENGIE</masterLabel>
+            <translation><!-- ENGIE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IFF</masterLabel>
+            <translation><!-- IFF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INEO</masterLabel>
+            <translation><!-- INEO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LORD CORPORATION</masterLabel>
+            <translation><!-- LORD CORPORATION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LVMH</masterLabel>
+            <translation><!-- LVMH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MAISADOUR</masterLabel>
+            <translation><!-- MAISADOUR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MARS CHOCOLAT FRANCE</masterLabel>
+            <translation><!-- MARS CHOCOLAT FRANCE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MIKROS - IMAGE</masterLabel>
+            <translation><!-- MIKROS - IMAGE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NEXTER SYSTEMS</masterLabel>
+            <translation><!-- NEXTER SYSTEMS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTIS</masterLabel>
+            <translation><!-- OTIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PIERRE FABRE SA</masterLabel>
+            <translation><!-- PIERRE FABRE SA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ROBERT BOSCH FRANCE</masterLabel>
+            <translation><!-- ROBERT BOSCH FRANCE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ROULLIER</masterLabel>
+            <translation><!-- ROULLIER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAFRAN</masterLabel>
+            <translation><!-- SAFRAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAGEMCOM SAS</masterLabel>
+            <translation><!-- SAGEMCOM SAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAINT GOBAIN</masterLabel>
+            <translation><!-- SAINT GOBAIN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAP</masterLabel>
+            <translation><!-- SAP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SEGULA</masterLabel>
+            <translation><!-- SEGULA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SERVIER</masterLabel>
+            <translation><!-- SERVIER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SNCF</masterLabel>
+            <translation><!-- SNCF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TARKETT</masterLabel>
+            <translation><!-- TARKETT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>UNION INVIVO</masterLabel>
+            <translation><!-- UNION INVIVO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VALEO</masterLabel>
+            <translation><!-- VALEO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VINCI</masterLabel>
+            <translation><!-- VINCI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VIRBAC SA</masterLabel>
+            <translation><!-- VIRBAC SA --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Contrôle Qualité 2 --></label>
+        <name>INNOcontroleQualite__c</name>
+        <relationshipLabel><!-- Missions CIR --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Managers --></label>
+        <name>Managers__c</name>
+    </fields>
+    <fields>
+        <help><!-- Somme des montants des valorisations associées à cette mission --></help>
+        <label><!-- Montant du CIR définitif option 1 --></label>
+        <name>Montant_CIR_definitif_option1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Somme des montants des valorisations associées à cette mission --></help>
+        <label><!-- Montant du CIR définitif option 2 --></label>
+        <name>Montant_CIR_definitif_option2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Somme des montants des valorisations associées à cette mission --></help>
+        <label><!-- Montant du CIR définitif option 3 --></label>
+        <name>Montant_CIR_definitif_option3__c</name>
+    </fields>
+    <fields>
+        <help><!-- Somme des montants des valorisations associées à cette mission --></help>
+        <label><!-- Montant CIR définitif retenu(après dédu) --></label>
+        <name>Montant_CIR_definitif_optionFinale__c</name>
+    </fields>
+    <fields>
+        <help><!-- Somme des montants des valorisations associées à cette mission --></help>
+        <label><!-- Montant total des dépenses option 1 --></label>
+        <name>Montant_total_depenses_option1__c</name>
+    </fields>
+    <fields>
+        <help><!-- Somme des montants des valorisations associées à cette mission --></help>
+        <label><!-- Montant total des dépenses option 2 --></label>
+        <name>Montant_total_depenses_option2__c</name>
+    </fields>
+    <fields>
+        <help><!-- Somme des montants des valorisations associées à cette mission --></help>
+        <label><!-- Montant total des dépenses option 3 --></label>
+        <name>Montant_total_depenses_option3__c</name>
+    </fields>
+    <fields>
+        <help><!-- Somme des montants des valorisations associées à cette mission --></help>
+        <label><!-- Montant total dép. retenu (avant dédu) --></label>
+        <name>Montant_total_depenses_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de CF en cours --></label>
+        <name>NombreCFenCours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Audit --></label>
+        <name>Nombre_jours_programmes_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Consultant --></label>
+        <name>Nombre_jours_programmes_Consultant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Contrôle --></label>
+        <name>Nombre_jours_programmes_Controle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Justif --></label>
+        <name>Nombre_jours_programmes_Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Manager --></label>
+        <name>Nombre_jours_programmes_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés- Rédacteur RO --></label>
+        <name>Nombre_jours_programmes_Redacteur_RO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Rédacteur --></label>
+        <name>Nombre_jours_programmes_Redacteur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Superviseur --></label>
+        <name>Nombre_jours_programmes_Superviseur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Total --></label>
+        <name>Nombre_jours_programmes_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Valo --></label>
+        <name>Nombre_jours_programmes_Valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Audit --></label>
+        <name>Nombre_jours_theoriques_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Consultant --></label>
+        <name>Nombre_jours_theoriques_Consultant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Contrôle --></label>
+        <name>Nombre_jours_theoriques_Controle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Justif --></label>
+        <name>Nombre_jours_theoriques_Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Manager --></label>
+        <name>Nombre_jours_theoriques_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques- Rédacteur RO --></label>
+        <name>Nombre_jours_theoriques_Redacteur_RO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Rédacteur --></label>
+        <name>Nombre_jours_theoriques_Redacteur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Superviseur --></label>
+        <name>Nombre_jours_theoriques_Superviseur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Total --></label>
+        <name>Nombre_jours_theoriques_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Valo --></label>
+        <name>Nombre_jours_theoriques_Valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Audit --></label>
+        <name>Nombre_jours_travailles_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Consultant --></label>
+        <name>Nombre_jours_travailles_Consultant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Contrôle --></label>
+        <name>Nombre_jours_travailles_Controle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Justif --></label>
+        <name>Nombre_jours_travailles_Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Manager --></label>
+        <name>Nombre_jours_travailles_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés- Rédacteur RO --></label>
+        <name>Nombre_jours_travailles_Redacteur_RO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Rédacteur --></label>
+        <name>Nombre_jours_travailles_Redacteur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Superviseur --></label>
+        <name>Nombre_jours_travailles_Superviseur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Valo --></label>
+        <name>Nombre_jours_travailles_Valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Total --></label>
+        <name>Nombre_jours_travailles_total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phase --></label>
+        <name>Phase__c</name>
+        <picklistValues>
+            <masterLabel>Audit</masterLabel>
+            <translation><!-- Audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactif / en attente de lancement</masterLabel>
+            <translation><!-- Inactif / en attente de lancement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactif / en attente de renouvellement</masterLabel>
+            <translation><!-- Inactif / en attente de renouvellement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Justification</masterLabel>
+            <translation><!-- Justification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminée</masterLabel>
+            <translation><!-- Terminée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminée - Dossier à 0</masterLabel>
+            <translation><!-- Terminée - Dossier à 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valorisation</masterLabel>
+            <translation><!-- Valorisation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Prestataire Avocat --></label>
+        <name>PrestataireAvocat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prestataire CAC --></label>
+        <name>PrestataireCAC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prestataire EC --></label>
+        <name>PrestataireEC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rédacteurs scientifiques --></label>
+        <name>Redacteurs_scientifiques__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rentabilité de la mission (Estimée) --></label>
+        <name>Rentabilite_mission_Estimee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rentabilité de la mission (Réelle) --></label>
+        <name>Rentabilite_mission_Reelle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rentabilité de la mission (Théorique) --></label>
+        <name>Rentabilite_mission_Theorique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Statut --></label>
+        <name>Statut__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux CII --></label>
+        <name>TauxCII__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux CIR --></label>
+        <name>Taux_CIR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech Mission Id INNO V1 --></label>
+        <name>TechMissionIdINNOV1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de valos avec Date DT --></label>
+        <name>TechNombreDateDTValorisations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre total de valorisations --></label>
+        <name>TechNombreTotalValorisations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temps théorique plafond --></label>
+        <name>TempsTheoriquePlafond__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temps théorique initial --></label>
+        <name>Temps_theorique_mission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temps théorique sur l&apos;opportunité --></label>
+        <name>Temps_theorique_opportunite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tous DT rendus --></label>
+        <name>TousDTrendus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Trigramme type de mission --></label>
+        <name>TrigrammeTypeMission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type de mission --></label>
+        <name>TypeMission__c</name>
+        <picklistValues>
+            <masterLabel>AS - Dépôt collaboratif</masterLabel>
+            <translation><!-- AS - Dépôt collaboratif --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Dépôt mono-entreprise</masterLabel>
+            <translation><!-- AS - Dépôt mono-entreprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Etude d&apos;opportunité</masterLabel>
+            <translation><!-- AS - Etude d&apos;opportunité --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Management collaboratif</masterLabel>
+            <translation><!-- AS - Management collaboratif --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Management mono-entreprise</masterLabel>
+            <translation><!-- AS - Management mono-entreprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Plan de financement</masterLabel>
+            <translation><!-- AS - Plan de financement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agrément</masterLabel>
+            <translation><!-- Agrément --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assistance technique à contrôle</masterLabel>
+            <translation><!-- Assistance technique à contrôle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audit de l&apos;égibilité</masterLabel>
+            <translation><!-- Audit de l&apos;égibilité --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audit méthode CIR</masterLabel>
+            <translation><!-- Audit méthode CIR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autres</masterLabel>
+            <translation><!-- Autres --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIJV</masterLabel>
+            <translation><!-- CIJV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIMA</masterLabel>
+            <translation><!-- CIMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIR / CII Classique</masterLabel>
+            <translation><!-- CIR / CII Classique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIR International</masterLabel>
+            <translation><!-- CIR International --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIR optimisation</masterLabel>
+            <translation><!-- CIR optimisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conseil</masterLabel>
+            <translation><!-- Conseil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Controlling R&amp;D</masterLabel>
+            <translation><!-- Controlling R&amp;D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crédit Impôt Collection</masterLabel>
+            <translation><!-- Crédit Impôt Collection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DI - Dépôt</masterLabel>
+            <translation><!-- DI - Dépôt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DI - Liquidation</masterLabel>
+            <translation><!-- DI - Liquidation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dossier justificatif</masterLabel>
+            <translation><!-- Dossier justificatif --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gestion du risque</masterLabel>
+            <translation><!-- Gestion du risque --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IAS 38</masterLabel>
+            <translation><!-- IAS 38 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing de l&apos;innovation</masterLabel>
+            <translation><!-- Marketing de l&apos;innovation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobilisation de créances et préfinancement</masterLabel>
+            <translation><!-- Mobilisation de créances et préfinancement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>O2T</masterLabel>
+            <translation><!-- O2T --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organisation R&amp;D</masterLabel>
+            <translation><!-- Organisation R&amp;D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Propriété intellectuelle</masterLabel>
+            <translation><!-- Propriété intellectuelle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statut JEI</masterLabel>
+            <translation><!-- Statut JEI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valorisation</masterLabel>
+            <translation><!-- Valorisation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Nombre d&apos;interlocuteurs --></label>
+        <name>renta_nb_interlocuteurs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de projets à auditer --></label>
+        <name>renta_nb_proj__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de projets à rédiger --></label>
+        <name>renta_nb_redacs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de sites --></label>
+        <name>renta_nb_sites__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de valorisations --></label>
+        <name>renta_nb_valo__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Mission CIR 2</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- AS --></label>
+        <name>AS</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CIN --></label>
+        <name>CIN</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CIR --></label>
+        <name>CIR</name>
+    </recordTypes>
+    <sharingReasons>
+        <label><!-- Equipe Consulting --></label>
+        <name>Equipe_Consulting</name>
+    </sharingReasons>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Le temps théorique de la mission ne peut pas être supérieur au temps théorique de l&apos;opportunité pour la première année de la mission. --></errorMessage>
+        <name>INNO_jours_estimes_sup_opportunite</name>
+    </validationRules>
+</CustomObjectTranslation>

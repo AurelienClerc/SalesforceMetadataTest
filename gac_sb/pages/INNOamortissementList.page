@@ -1,0 +1,135 @@
+<apex:page standardController="INNOvalo__c" extensions="INNOamortissementListCtrl" title="Liste des {!LOWER($Label['AppCIR' + tab + 'Pluriel'])}" sidebar="false" tabStyle="INNOmission__c" readonly="true">
+	
+	<apex:composition template="INNOmissionTemplate">
+		
+		<apex:define name="header">
+		
+		    <apex:includeScript value="{!URLFOR($Resource.dataTables, 'jquery.dataTables.min.js')}"/>
+			<apex:styleSheet value="{!URLFOR($Resource.dataTables, 'dataTables.css')}"/>
+			
+		    <script type="text/javascript">
+			    
+			    
+			    $$().ready(function() {
+				   
+					initAmortissementsDataTable();
+				} );
+				
+				function initAmortissementsDataTable(){
+					oTable = $$('#listeAmortissements').dataTable({
+					        bJQueryUI		: true,
+					        aLengthMenu		: [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
+					        iDisplayLength 	: 100,
+					        sPaginationType	: "full_numbers",
+					        aaSorting		: [[ 1, "asc" ]]
+					        
+				    });
+				}
+				
+				
+			</script>
+		</apex:define>
+		
+		
+		<apex:define name="body">
+			
+			
+			<apex:iframe src="{!URLFOR('apex/INNOcommentaireValo', null, [valoId = valoId, tab = tab, core.apexpages.devmode.url = 0])}" height="120px" width="100%" scrolling="true"/>
+			
+			<apex:form >
+			
+				<apex:pageBlock id="listeAmortissementsContainer" title="Liste des {!LOWER($Label['AppCIR' + tab + 'Pluriel'])}">
+					<apex:pageBlockButtons location="top">
+						<apex:commandButton action="{!URLFOR('/apex/INNOamortissementEdit', null, [valoId = valoId, tab = tab])}" value="Nouveau" immediate="true" rendered="{!missionReadWrite}"/>
+
+						<apex:commandButton immediate="true" action="{!URLFOR('/apex/INNOimport', null, [valoId = valoId, tab = tab]) }" value="Importer en masse" rendered="{!missionReadWrite}"/>
+						<apex:commandButton action="{!URLFOR('/apex/INNOamortissementTauxRD', null, [id = valoId, valoId = valoId, tab = tab])}" value="Modifier en masse les méthodes de calcul du taux R&D" immediate="true" rendered="{!missionReadWrite && tab == 'amortissement'}"/>
+						
+						<c:INNOreportLink valoName="{!INNOvalo__c.Name}" reportName="{!tab}"/>
+						
+						<apex:outputLink value="{!URLFOR('/apex/INNOdeleteAllRecords', null, [objectName = 'INNOamortissement__c', recordType = tab, valoId = valoId, retURL = $CurrentPage.URL])}" styleClass="deleteAllRecordsLink"  onclick="if(!confirm('Voulez-vous vraiment supprimer tous les {!LOWER($Label['AppCIR' + tab + 'Pluriel'])} de cette valorisation? \nCette action est irréversible.')) return false;" rendered="{!missionReadWrite}">
+							Supprimer tout
+						</apex:outputLink>
+					</apex:pageBlockButtons>
+					
+					<!-- Ne pas mettre de apex:datatable car trop lourd -->
+					<table id="listeAmortissements">
+						<thead>
+							<tr>
+								<th>Action</th>
+								<th>Désignation</th>
+								<th>N° d'immobilisation</th>
+								<th>Département</th>
+								<th>Projet</th>
+								<th>Annuité d'amortissement</th>
+								<th>Montant R&amp;D retenu</th>
+							</tr>
+						</thead>
+					
+						<tbody>
+						<apex:repeat value="{!amortissements}" var="amortissement" >
+							<!-- Colonne actions -->
+							<tr>
+								<td>
+									<apex:outputLink value="{!URLFOR('/apex/INNOamortissementEdit')}" styleClass="actionLink">
+										Modifier
+										<apex:param name="id" value="{!amortissement.id}"/>
+										<apex:param name="valoId" value="{!valoId}"/>
+										<apex:param name="tab" value="{!tab}"/>
+									</apex:outputLink>&nbsp;|&nbsp;
+									<apex:outputLink value="{!URLFOR('/apex/INNOdeleteRecord', null, [recordId = amortissement.id, retURL = $CurrentPage.URL])}" onclick="if(!confirm('Voulez-vous continuer ?')) return false;" styleClass="actionLink">
+										 Suppr.
+									</apex:outputLink>
+								</td>
+								
+								<td>
+									<apex:outputLink value="{!URLFOR('/apex/INNOamortissementView')}">
+										{!amortissement.Name}
+										<apex:param name="id" value="{!amortissement.id}"/>
+										<apex:param name="valoId" value="{!valoId}"/>
+										<apex:param name="tab" value="{!tab}"/>
+									</apex:outputLink>
+								</td>
+									
+								<td>{!amortissement.Num_immobilisation__c}</td>
+									
+								<td>{!amortissement.Departement__r.Name}</td>
+								
+								<td>{!amortissement.Projet__r.Name}</td>
+
+								<td>{!amortissement.Annuite_amortissement__c}</td>
+									
+								<!-- Pas affiché pour les amo de brevet car le taux est toujours de 100% -->
+								<td>
+									<span class="valueOption1"><c:Format currency="€" value="{!amortissement.Montant_RD_retenu_option1__c}" /></span> / 
+									<span class="valueOption2"><c:Format currency="€" value="{!amortissement.Montant_RD_retenu_option2__c}" /></span> / 
+									<span class="valueOption3"><c:Format currency="€" value="{!amortissement.Montant_RD_retenu_option3__c}" /></span>
+								</td>
+							</tr>
+						</apex:repeat>
+						</tbody>
+						
+						<tfoot>
+							<td>TOTAL</td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td></td>
+							<td>
+								<span class="valueOption1"><c:Format currency="€" value="{!valo['Total_' + tab + '_option1__c']}" /></span> / 
+								<span class="valueOption2"><c:Format currency="€" value="{!valo['Total_' + tab + '_option2__c']}" /></span> / 
+								<span class="valueOption3"><c:Format currency="€" value="{!valo['Total_' + tab + '_option3__c']}" /></span>
+							</td>
+						
+						</tfoot>
+					</table>
+				</apex:pageBlock>
+			
+			</apex:form>
+			
+			<c:INNOpieceJointe />
+		</apex:define>
+	</apex:composition>
+
+</apex:page>

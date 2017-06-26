@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Coût standard INNO advance</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Coûts standards INNO advance</value>
+    </caseValues>
+    <fields>
+        <label><!-- Coût Standard Rédacteur --></label>
+        <name>Cout_Standard_Redacteur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût standard Consultant --></label>
+        <name>Cout_standard_Consultant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût standard Manager --></label>
+        <name>Cout_standard_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût standard Rédacteur RO --></label>
+        <name>Cout_standard_Redacteur_RO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût standard Superviseur --></label>
+        <name>Cout_standard_Superviseur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prod id --></label>
+        <name>Prod_id__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Présentation Coût standard INNO advance 2</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

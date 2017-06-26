@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>[OLD] TimeSheet CIR</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>[OLD] TimeSheets CIR</value>
+    </caseValues>
+    <fields>
+        <label><!-- Date --></label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Durée --></label>
+        <name>Duree__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hors phase - Audit --></label>
+        <name>Hors_phase_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hors phase - Justification --></label>
+        <name>Hors_phase_Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Hors phase - Valorisation --></label>
+        <name>Hors_phase_Valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mission CIR --></label>
+        <name>Mission_CIR__c</name>
+        <relationshipLabel><!-- [OLD] TimeSheets CIR --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Passée --></label>
+        <name>Passee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phase --></label>
+        <name>Phase__c</name>
+        <picklistValues>
+            <masterLabel>AS/DI</masterLabel>
+            <translation><!-- AS/DI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Administratif</masterLabel>
+            <translation><!-- Administratif --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audit</masterLabel>
+            <translation><!-- Audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Avant-Vente / AO</masterLabel>
+            <translation><!-- Avant-Vente / AO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CP</masterLabel>
+            <translation><!-- CP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contrôle</masterLabel>
+            <translation><!-- Contrôle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Disponibilité</masterLabel>
+            <translation><!-- Disponibilité --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Formation</masterLabel>
+            <translation><!-- Formation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Justification</masterLabel>
+            <translation><!-- Justification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valorisation</masterLabel>
+            <translation><!-- Valorisation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Phase technique --></label>
+        <name>Phase_technique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Semaine --></label>
+        <name>Semaine__c</name>
+    </fields>
+    <fields>
+        <label><!-- Théorique --></label>
+        <name>Theorique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Utilisateur --></label>
+        <name>Utilisateur__c</name>
+        <relationshipLabel><!-- [OLD] TimeSheets CIR --></relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation TimeSheet CIR</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- La durée de la TimeSheet doit être comprise entre 0 et 1 --></errorMessage>
+        <name>Duree_entre_0_et_1</name>
+    </validationRules>
+</CustomObjectTranslation>

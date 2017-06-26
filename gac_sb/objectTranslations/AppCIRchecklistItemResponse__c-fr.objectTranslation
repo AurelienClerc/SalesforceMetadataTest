@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>[OLD] Réponse à un élément de Checklist</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Réponses à un élément de Checklist</value>
+    </caseValues>
+    <fields>
+        <label><!-- Commentaire Approbation --></label>
+        <name>ApprovalComment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effectué --></label>
+        <name>Checked__c</name>
+    </fields>
+    <fields>
+        <label><!-- Element de Checklist --></label>
+        <name>ChecklistItem__c</name>
+        <relationshipLabel><!-- Réponses à un élément de Checklist --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Commentaire --></label>
+        <name>Comment__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mission --></label>
+        <name>Mission__c</name>
+        <relationshipLabel><!-- Réponses à un élément de Checklist --></relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

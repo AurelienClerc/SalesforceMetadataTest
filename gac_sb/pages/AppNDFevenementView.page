@@ -1,0 +1,52 @@
+<apex:page standardController="Event" extensions="AppNDFevenementCtrl" showHeader="false" sidebar="false" >
+<script>
+    function colorPageBlock(pageblock, color) {
+        if (pageblock != null)
+            pageblock.firstChild.style.cssText = "background-color: " + color + ";";
+    }
+    
+</script>
+
+<apex:outputPanel rendered="{!$CurrentPage.parameters.refresh == '1'}">
+    <script>
+        window.opener.location.href = "/apex/{!IF($CurrentPage.parameters.appro == 'true', 'AppNDFsingleRecap', 'AppNDFrecap')}?id={!oNDFrecap.Id}";;
+    </script>
+</apex:outputPanel>
+
+
+<apex:outputText value="{!Event.ActivityDate}" style="display:none;"/>
+   
+<apex:sectionHeader title="{!$ObjectType.Note_De_Frais__c.LabelPlural}" />       
+<apex:form >            
+    <apex:pageBlock tabStyle="Note_De_Frais__c">
+         <apex:pageBlockButtons >
+             <apex:commandButton action="{!URLFOR('/apex/AppNDFevenementEdit', null, [idRecap = oNDFrecap.Id,idNDF = oNDF.Id,refresh = $CurrentPage.parameters.refresh, appro = $CurrentPage.parameters.appro, id = IF(bHasEvent, Event.Id, '')])}" value="{!$Label.APPNDF_Modifier}"/>
+             <apex:commandButton onclick="if(!window.confirm('{!$Label.APPNDF_DelWithChildren}'))return false;" action="{!deleteAll}" value="{!$Label.APPNDF_Supprimer}" rendered="{!bNDFexiste}"/>
+         </apex:pageBlockButtons>
+         <apex:pageBlockSection columns="2" rendered="{!bHasEvent}">
+              <apex:outputField value="{!Event.OwnerId}" label="{!$ObjectType.Event.fields.OwnerId.Label}"/>
+              <apex:outputField value="{!Event.ActivityDateTime}" label="{!$ObjectType.Event.fields.StartDateTime.Label}"/>
+              <apex:outputField value="{!Event.Subject}" label="{!$ObjectType.Event.fields.Subject.Label}"/>
+              <apex:outputField value="{!Event.EndDateTime}" label="{!$ObjectType.Event.fields.EndDateTime.Label}"/>
+         </apex:pageBlockSection>
+         <!-- <apex:pageBlockSection columns="1">
+              <apex:outputField value="{!oNDF.Description__c}" label="Description"/>
+         </apex:pageBlockSection> -->
+         <br />
+         <apex:pageBlockSection columns="1" id="sectionRecap2">
+             <c:AppNDFtableauRecap oNDF="{!oNDF}"/>
+         </apex:pageBlockSection>
+         
+         <script>colorPageBlock(document.getElementById("{!$Component.sectionRecap}"), "#A4A4A4");</script>
+         
+         <apex:pageBlockSection title="{!$Label.APPNDF_Depenses}" id="depenseSection" columns="1">
+             <c:AppNDFtableauDepense sType="depense" lsDepense="{!lsDepense}" sPays="{!oNDF.Pays__c}"/>
+         </apex:pageBlockSection>
+        
+         <apex:pageBlockSection title="{!$Label.APPNDF_FraisKilo}" id="fraisKiloSection" columns="1" >              
+             <c:AppNDFtableauDepense sType="frais" lsDepense="{!lsDepenseKilo}" sPays="{!oNDF.Pays__c}"/>
+         </apex:pageBlockSection>
+        
+    </apex:pageBlock>
+</apex:form>
+</apex:page>

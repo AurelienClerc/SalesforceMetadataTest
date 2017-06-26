@@ -1,0 +1,457 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingCriteriaRules>
+        <fullName>Acces_missions_ACS_to_CMENEUX</fullName>
+        <accessLevel>Read</accessLevel>
+        <description>Accès à toutes les missions ACS pour CMENEUX</description>
+        <label>Accès missions ACS to CMENEUX</label>
+        <sharedTo>
+            <group>Acces_missions_ACS</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>ACS</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Bresil_avec_DAF</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Bresil avec DAF</label>
+        <sharedTo>
+            <role>DAF</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>LDB</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Commerce_IL_Modification_Missions_IL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Commerce IL : Modification Missions IL</label>
+        <sharedTo>
+            <role>GRANDS_COMPTES_OPTI_CC</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>IL</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Missions_ACS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Missions ACS</label>
+        <sharedTo>
+            <roleAndSubordinates>Pole_ACS</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>ACS</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Partage_mission_Dir_BU_TAT</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Partage mission Dir BU TAT</label>
+        <sharedTo>
+            <role>DIRECTION_COMMERCIALE_OPTI</role>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>TAT</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Role_et_subordonnees_Pole_TAT_2</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Rôle et subordonnés : Pôle TAT 2</label>
+        <sharedTo>
+            <roleAndSubordinates>Pole_TAT</roleAndSubordinates>
+        </sharedTo>
+        <criteriaItems>
+            <field>RecordTypeId</field>
+            <operation>equals</operation>
+            <value>TAT</value>
+        </criteriaItems>
+        <criteriaItems>
+            <field>OwnerId</field>
+            <operation>equals</operation>
+            <value>005D0000001v8zB</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingCriteriaRules>
+        <fullName>Senior_Manager_CIR_CLA</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Sénior Manager Christophe Laloup.
+Accès sur les missions de Sébastien SEBBAN.</description>
+        <label>Senior Manager CIR CLA</label>
+        <sharedTo>
+            <group>Senior_Manager_CIR_CLA</group>
+        </sharedTo>
+        <criteriaItems>
+            <field>OwnerId</field>
+            <operation>equals</operation>
+            <value>005D0000002a0S3</value>
+        </criteriaItems>
+    </sharingCriteriaRules>
+    <sharingOwnerRules>
+        <fullName>Acces_ALL_Missions_SGP_Consulting</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Accès ALL Missions SGP Consulting</label>
+        <sharedTo>
+            <role>SINGAPOUR_PIC</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SINGAPOUR_PIC</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Acces_Missions_ADV_INNO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Permet à l&apos;ADV INNO de voir les missions de chacun.</description>
+        <label>Accès Missions ADV INNO</label>
+        <sharedTo>
+            <role>Pole_INNO_Service_Facturation</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Pole_INNO_Service_Facturation</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Acces_Missions_ADV_INNO_To_ADV_OPTI</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Accès Missions ADV INNO To ADV OPTI</label>
+        <sharedTo>
+            <role>Pole_OPTI_Service_Facturation</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Pole_INNOVATION</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Acces_Missions_ADV_OPTI_To_ADV_INNO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Accès Missions ADV OPTI To ADV INNO</label>
+        <sharedTo>
+            <role>Pole_INNOVATION</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Pole_OPTI_Service_Facturation</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Acces_Missions_ADV_OPTI_To_DC_OPTI</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Rôle : Pôle OPTI Service Facturation</description>
+        <label>Accès Missions ADV OPTI To DC OPTI</label>
+        <sharedTo>
+            <role>DIRECTION_COMMERCIALE_OPTI</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Pole_OPTI_Service_Facturation</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Acces_Missions_Inactif_Users_To_Recouvrement</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Accès Missions Inactif Users To Recouvrement</label>
+        <sharedTo>
+            <role>Pole_INNOVATION</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>FRANCE_INACTIF_USERS</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Acces_mission_Opti_To_LLECA</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Accès mission Opti To LLECA</label>
+        <sharedTo>
+            <group>Acces_all_mission_to_LLECA</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>GACFRANCE</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Bresil_avec_Compta_FR</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Bresil avec Compta FR</label>
+        <sharedTo>
+            <role>Comptabilite</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>GACBRASIL</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Canada_Mission_To_CANADA_FINANCE</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Canada Mission To CANADA FINANCE</label>
+        <sharedTo>
+            <role>GACCANADA</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>GACCANADA</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Canada_Mission_To_Finance</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Canada Mission To Finance</label>
+        <sharedTo>
+            <group>FINANCE_FRANCE</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>GACCANADA</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Consultant_ACS_to_DC_OPTI</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Consultant ACS to DC OPTI</label>
+        <sharedTo>
+            <role>DIRECTION_COMMERCIALE_OPTI</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Pole_ACS_CONSULTANT</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Consultant_Fiscaliste_to_ADV</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Consultant Fiscaliste to ADV</label>
+        <sharedTo>
+            <role>FISCALITE_CONSULTANT</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Pole_INNO_Service_Facturation</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Consultant_Fiscaliste_to_Consultant_Technique_CIR</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Consultant Fiscaliste to Consultant Technique CIR</label>
+        <sharedTo>
+            <role>FISCALITE_CONSULTANT</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Pole_SCIENTIFIQUE</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Consultant_Fiscaliste_to_France_Inactifs_Users</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Consultant Fiscaliste to France Inactifs Users</label>
+        <sharedTo>
+            <role>FISCALITE_CONSULTANT</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>FRANCE_INACTIF_USERS</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Consultants_Technique_IL</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Consultants Technique IL</label>
+        <sharedTo>
+            <role>Pole_IL_CONSULTANT</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Pole_IL_CONSULTANT</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Espagne_avec_Compte_FR</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Espagne avec Compte FR</label>
+        <sharedTo>
+            <role>Comptabilite</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>GACSPAIN</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Herve_DURAND_To_Valerie_CALBINI</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Hervé DURAND To Valérie CALBINI</label>
+        <sharedTo>
+            <group>INNO_FI</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>INNO_FI</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Manager_INNO_to_Commerce_INNO</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Manager INNO to Commerce INNO</label>
+        <sharedTo>
+            <role>SCIENTIFIQUE_MANAGER</role>
+        </sharedTo>
+        <sharedFrom>
+            <group>INNO_Commerce</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Manager_INNO_to_Inactif_User</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Manager INNO to Inactif User</label>
+        <sharedTo>
+            <role>SCIENTIFIQUE_MANAGER</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>FRANCE_INACTIF_USERS</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Manager_INNO_to_Manager_INNO</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Manager INNO to Manager INNO</label>
+        <sharedTo>
+            <role>SCIENTIFIQUE_MANAGER</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>SCIENTIFIQUE_MANAGER</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Mission_DAF_to_Service_Factu</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Mission DAF to Service Factu</label>
+        <sharedTo>
+            <role>Pole_INNO_Service_Facturation</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>DAF</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Mission_Partage_BR</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Mission - Partage BR</label>
+        <sharedTo>
+            <group>BRASIL_ViewAllMission</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>GACBRASIL</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Missions_Facturations_France</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Missions Facturations France</label>
+        <sharedTo>
+            <roleAndSubordinates>FINANCE</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>GACFRANCE</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Missions_INNO_to_Commerce</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Missions INNO to Commerce</label>
+        <sharedTo>
+            <group>INNO_Commerce</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Pole_INNOVATION</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Missions_Pole_INNOVATION</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Missions Pôle INNOVATION</label>
+        <sharedTo>
+            <role>Pole_INNOVATION</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Pole_INNOVATION</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Partage_Missions_Pole_OPTI_Service_Facturation</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Partage Missions Pôle OPTI Service Facturation</label>
+        <sharedTo>
+            <role>Pole_OPTI_Service_Facturation</role>
+        </sharedTo>
+        <sharedFrom>
+            <role>Pole_OPTI_Service_Facturation</role>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Partage_mission_import_Joris</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Partage mission import Joris</label>
+        <sharedTo>
+            <roleAndSubordinates>Pole_TAT</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Pole_TAT</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Pole_DI</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Pôle DI</label>
+        <sharedTo>
+            <roleAndSubordinates>Pole_DI</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>Pole_DI</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Pole_OPTI_Service_Facturation</fullName>
+        <accessLevel>Edit</accessLevel>
+        <description>Pärtage en lecture écriture avec SBE</description>
+        <label>Pôle OPTI Service Facturation</label>
+        <sharedTo>
+            <role>Pole_OPTI_Service_Facturation</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinatesInternal>GACFRANCE</roleAndSubordinatesInternal>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Singapore_Mission_To_SINGAPORE</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Singapore Mission To  SINGAPORE</label>
+        <sharedTo>
+            <role>GAC_SINGAPOUR</role>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>GAC_SINGAPOUR</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Spain_avec_Spain</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>Spain avec Spain</label>
+        <sharedTo>
+            <roleAndSubordinates>GACSPAIN</roleAndSubordinates>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>GACSPAIN</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+    <sharingOwnerRules>
+        <fullName>Technique_to_Commerce</fullName>
+        <accessLevel>Read</accessLevel>
+        <label>Technique to Commerce</label>
+        <sharedTo>
+            <group>OPTI_Commerce</group>
+        </sharedTo>
+        <sharedFrom>
+            <group>OPTI_Consultants_Techniques</group>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

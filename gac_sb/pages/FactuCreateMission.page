@@ -1,0 +1,33 @@
+<apex:page standardController="Contract" extensions="FactuCreateMissionCtrl" action="{!createMission}">
+    <apex:form id="ContractInitDatas">  
+        <apex:inputHidden value="{!Contract.ContractNumber}"/>
+        <apex:inputHidden value="{!Contract.RecordType.DeveloperName}"/>
+        <apex:inputHidden value="{!Contract.Account.Name}"/>
+        <apex:inputHidden value="{!Contract.Account.Id}"/>
+        <apex:inputHidden value="{!Contract.Conditions_de_renouvellement__c}"/>
+        <apex:inputHidden value="{!Contract.Conditions_de_facturation__c}"/>
+        <apex:inputHidden value="{!Contract.Conditions_de_paiement__c}"/>
+        <apex:inputHidden value="{!Contract.Conditions_de_remuneration__c}"/>
+        <apex:inputHidden value="{!Contract.Precision_facturation__c}"/>
+        <apex:inputHidden value="{!Contract.Precision_paiement__c}"/>
+        <apex:inputHidden value="{!Contract.Precision_remuneration__c}"/>
+        <apex:inputHidden value="{!Contract.Consultant_Commercial__c}"/>
+        <apex:inputHidden value="{!Contract.Consultant_Commercial__r.Name}"/>
+        <apex:inputHidden value="{!Contract.Conditions_particuli_res__c}"/>
+        <apex:inputHidden value="{!Contract.ContractTerm}"/>
+        <apex:inputHidden value="{!Contract.Preavis_de_resiliation__c}"/>
+        <apex:inputHidden value="{!Contract.Remuneratuin_future__c}"/>
+        <apex:inputHidden value="{!Contract.Taux_de_remuneration__c}"/>
+        
+        
+        <apex:inputHidden value="{!Contract.Statut_deploiement_AT_Advance__c}"/>
+        <apex:inputHidden value="{!Contract.AT_Advance__c}"/>
+        <apex:inputHidden value="{!Contract.Nombre_de_licence_AT_Advance__c}"/>
+        <apex:inputHidden value="{!Contract.Risk_Pro_Online__c}"/>
+        <apex:inputHidden value="{!Contract.Conditions_AT_Advance_Risk_Pro_Online__c}"/>
+        <apex:inputHidden value="{!Contract.Modalit_de_facturation__c}"/>
+        <apex:inputHidden value="{!Contract.Montant_forfait__c}"/>
+        <apex:inputHidden value="{!Contract.Periode_Facturation_forfait__c}"/>
+        
+    </apex:form>
+</apex:page>

@@ -1,0 +1,8 @@
+<apex:page showHeader="false" sidebar="false">
+
+    <script type="text/javascript">
+         
+        window.opener.location.href='/apex/{!$CurrentPage.parameters.page}?id={!$CurrentPage.parameters.idRecap}';
+        window.close();
+    </script>
+</apex:page>

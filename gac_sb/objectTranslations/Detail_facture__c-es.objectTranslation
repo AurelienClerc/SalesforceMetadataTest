@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Detalle de la factura</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Detalles de la factura</value>
+    </caseValues>
+    <fields>
+        <label>Descripción</label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label>Factura</label>
+        <name>Facture__c</name>
+        <relationshipLabel>Detalles Facturas</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Monto HT</label>
+        <name>Montant_HT__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ordre d&apos;affichage sur la facture --></help>
+        <label>Orden</label>
+        <name>Ordre__c</name>
+    </fields>
+    <fields>
+        <label><!-- Réclamation --></label>
+        <name>R_clamation__c</name>
+    </fields>
+    <fields>
+        <label><!-- % des crédits --></label>
+        <name>des_credits__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Détail facture</layout>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Detalle de la factura</nameFieldLabel>
+</CustomObjectTranslation>

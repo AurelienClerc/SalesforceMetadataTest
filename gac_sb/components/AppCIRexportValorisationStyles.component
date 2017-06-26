@@ -1,0 +1,341 @@
+<apex:component layout="none">
+
+<Styles xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
+    <Style ss:ID="default">
+        <Alignment ss:Vertical="Center"/>
+        <Font ss:FontName="Arial"/>
+    </Style>
+    
+    <Style ss:ID="bold" ss:Parent="default">
+        <Font ss:FontName="Arial" ss:Bold="1"/>
+    </Style>
+    
+    <Style ss:ID="percent" ss:Parent="default">
+        <Font ss:FontName="Arial" x:Family="Swiss"/>
+        <NumberFormat ss:Format="0.0%"/>
+    </Style>
+    
+    <Style ss:ID="euro" ss:Parent="default">
+        <Font ss:FontName="Arial" x:Family="Swiss"/>
+        <NumberFormat ss:Format="_-* #,##0\ €_-;\-* #,##0\ €_-;_-* -\ €_-;_-@_-"/>
+    </Style>
+    
+    <Style ss:ID="boldBGblue" ss:Parent="bold">
+        <Interior ss:Color="#C5D9F1" ss:Pattern="Solid"/>
+    </Style>
+    
+    <Style ss:ID="BGblue" ss:Parent="default">
+        <Interior ss:Color="#C5D9F1" ss:Pattern="Solid"/>
+    </Style>
+    
+    <Style ss:ID="center" ss:Parent="default">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+    </Style>
+    
+    <Style ss:ID="centerBold" ss:Parent="bold">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+    </Style>
+    
+    <Style ss:ID="H1red">
+        <Alignment ss:Vertical="Center"/>
+        <Font ss:FontName="Arial" ss:Size="14" ss:Color="red"/>
+    </Style>
+    
+    <Style ss:ID="blueBold">
+        <Alignment ss:Vertical="Center"/>
+        <Font ss:FontName="Arial" ss:Color="#004992" ss:Bold="1"/>
+    </Style>
+    
+    <Style ss:ID="blueBoldItalic" ss:Parent="blueBold">
+        <Font ss:FontName="Arial" ss:Color="#004992" ss:Bold="1" ss:Italic="1" x:Family="Swiss"/>
+    </Style>
+    
+    <Style ss:ID="redItalic">
+        <Alignment ss:Vertical="Center"/>
+        <Font ss:FontName="Arial"  ss:Color="red" ss:Italic="1"/>
+    </Style>
+    
+    <Style ss:ID="smallItalic">
+        <Alignment ss:Vertical="Center"/>
+        <Font ss:FontName="Arial"  ss:Italic="1" ss:Size="9"/>
+    </Style>
+    
+    <Style ss:ID="redCenterBorderBlue2222" ss:Parent="center">
+        <Font ss:FontName="Arial" ss:Color="red" />
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#004992"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#004992"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#004992"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="#004992"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="integer" ss:Parent="center">
+        <NumberFormat ss:Format="#,##0"/>
+    </Style>
+    
+    <Style ss:ID="integerCenter" ss:Parent="integer">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+    </Style>
+    
+    
+    <Style ss:ID="integerCenterRedBoldBorderBlack1100" ss:Parent="integerCenter">
+        <Font ss:FontName="Arial" ss:Color="red" ss:Bold="1" x:Family="Swiss"/>
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="percentCenter" ss:Parent="percent">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+    </Style>
+    
+    <Style ss:ID="percentCenterBGblue" ss:Parent="percentCenter">
+        <Interior ss:Color="#C5D9F1" ss:Pattern="Solid"/>
+    </Style>
+    
+    <Style ss:ID="euroCenter" ss:Parent="euro">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+    </Style>
+    
+    <Style ss:ID="euroBGblue" ss:Parent="euro">
+        <Interior ss:Color="#C5D9F1" ss:Pattern="Solid"/>
+    </Style>
+    
+    <Style ss:ID="borderBlack1000" ss:Parent="default">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="borderBlack0100" ss:Parent="default">
+        <Borders>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="centerBoldBorderBlack1000" ss:Parent="borderBlack1000">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+        <Font ss:FontName="Arial" ss:Bold="1"/>
+    </Style>
+    
+    <Style ss:ID="borderBlack1100" ss:Parent="default">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="borderBlack1001" ss:Parent="default">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="boldBorderBlack0010" ss:Parent="bold">
+        <Borders>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="centerBoldBorderBlack0010" ss:Parent="boldBorderBlack0010">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+    </Style>
+    
+    <Style ss:ID="boldBorderBlack0110" ss:Parent="bold">
+        <Borders>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="centerBoldBorderBlack0110" ss:Parent="boldBorderBlack0110">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+    </Style>
+    
+    <Style ss:ID="boldBorderBlack2000" ss:Parent="bold">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="integerCenterBoldBorderBlack0001" ss:Parent="integerCenter">
+        
+        <Font ss:FontName="Arial" ss:Bold="1"/>
+        <Borders>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="integerCenterBoldBorderBlack2000" ss:Parent="integer">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+        <Font ss:FontName="Arial" ss:Bold="1"/>
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="integerCenterBoldBorderBlack1100" ss:Parent="integer">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+        <Font ss:FontName="Arial" ss:Bold="1"/>
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="euroBoldBorderBlack2000" ss:Parent="euro">
+        <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+        <Font ss:FontName="Arial" ss:Bold="1"/>
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="percentCenterBoldBorderBlack2000" ss:Parent="percentCenter">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+        <Font ss:FontName="Arial" ss:Bold="1"/>
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="boldBorderBlack2020" ss:Parent="bold">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+        </Borders>
+    </Style>
+
+    <Style ss:ID="centerBoldBorderBlack2020" ss:Parent="centerBold">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="euroBoldBorderBlack2020" ss:Parent="euro">
+        <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+        <Font ss:FontName="Arial" ss:Bold="1"/>
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="2" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="boldBorderBlack1010" ss:Parent="bold">
+        <Alignment ss:Vertical="Center" />
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="centerBoldBorderBlack1010" ss:Parent="boldBorderBlack1010">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+    </Style>
+    
+    <Style ss:ID="euroBoldBorderBlack1010" ss:Parent="euro">
+        <Alignment ss:Vertical="Center" ss:WrapText="1"/>
+        <Font ss:FontName="Arial" ss:Bold="1"/>
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="boldBorderBlack0011" ss:Parent="bold">
+        <Borders>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="centerBoldBorderBlack0011" ss:Parent="boldBorderBlack0011">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center" ss:WrapText="1"/>
+    </Style>
+    
+    <Style ss:ID="dateCenter" ss:Parent="center">
+        <NumberFormat ss:Format="Short Date"/>
+    </Style>
+    
+    <Style ss:ID="whiteBGdarkblue" >
+        <Alignment ss:Vertical="Center"/>
+        <Font ss:FontName="Arial" ss:Size="11" ss:Color="white"/>
+        <Interior ss:Color="#004992" ss:Pattern="Solid"/>
+    </Style>
+    
+    <Style ss:ID="whiteCenterBGdarkblue" ss:Parent="whiteBGdarkblue">
+        <Alignment ss:Vertical="Center" ss:Horizontal="Center"/>
+    </Style>
+    
+    <Style ss:ID="whiteCenterBGdarkblueBorderBlack1111" ss:Parent="whiteCenterBGdarkblue">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="whiteBGdarkblueBorderBlack1001White0010" ss:Parent="whiteBGdarkblue">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="white"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="whiteBGdarkblueBorderBlack0001White1010" ss:Parent="whiteBGdarkblue">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="white"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="white"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="integerBlackCenterBGblue" ss:Parent="integerCenter">
+        <Font ss:FontName="Arial" ss:Size="11" ss:Color="black" />
+        <Interior ss:Color="#0070c0" ss:Pattern="Solid"/>
+    </Style>
+    
+    <Style ss:ID="integerBlackBoldCenterBGblue" ss:Parent="integerBlackCenterBGblue">
+        <Font ss:FontName="Arial" ss:Size="11" ss:Color="black" ss:Bold="1"/>
+    </Style>
+    
+    <Style ss:ID="whiteBoldBGblue" >
+        <Alignment ss:Vertical="Center"/>
+        <Font ss:FontName="Arial" ss:Size="11" ss:Color="white" ss:Bold="1"/>
+        <Interior ss:Color="#0070c0" ss:Pattern="Solid"/>
+    </Style>
+    
+    <Style ss:ID="whiteBoldBGblueBorderBlack1111" ss:Parent="whiteBoldBGblue">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="integerBlackCenterBGblueBorderBlack1111" ss:Parent="integerBlackCenterBGblue">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+    
+    <Style ss:ID="integerBlackBoldCenterBGblueBorderBlack1111" ss:Parent="integerBlackBoldCenterBGblue">
+        <Borders>
+            <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+            <Border ss:Position="Left" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="black"/>
+        </Borders>
+    </Style>
+</Styles>
+</apex:component>

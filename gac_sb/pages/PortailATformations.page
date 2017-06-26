@@ -1,0 +1,215 @@
+<apex:page controller="PortailATctrl" showHeader="false" sidebar="false"  applyHtmlTag="false">
+    
+    <apex:composition template="{!$Site.Template}">
+        <apex:define name="title">Formations</apex:define>
+        
+        <apex:define name="header">
+            <style>
+                .formation td{
+                    vertical-align: top;
+                }
+                
+                .message{
+                    border-style: none;
+                    border-left: 4px solid #1b809e;
+                    background-color: #D4E7ED;
+                    margin-bottom: 40px;
+                    padding: 20px;
+                }
+                
+                .message h4{
+                    display: none !important;
+                }
+                
+                .dateDropdown{
+                    display: none;
+                }
+                
+                #inscriptionDatesContainer{
+                    position: absolute;
+                    z-index: 100;
+                    width: 100%;
+                    padding-right: 30px;
+                }
+                #inscriptionDates{
+                     height: inherit !important;
+                     float: left;
+                     padding: 0;
+                }
+                   
+                #inscriptionDates li {
+                    padding: 5px 10px; 
+                    z-index: 200;
+                    background-color: white;
+                    float: left;
+                    width: 100%;
+                    cursor: pointer;
+                    list-style: none;
+                    margin: 0;
+                }
+                
+                #inscriptionDates li .address{
+                    display: inline-block;
+                    font-size: 12px;
+                    line-height: 14px;
+                    color: #777;
+                }
+                
+                #inscriptionDates li:not(.init) { 
+                    display: none;
+                    background-color: #F3F3F3;
+                    border-bottom: 1px solid #DDD;
+                }
+                
+                #inscriptionDates li:not(.init):hover{
+                    background-color: #ECECEC;
+                }
+                
+                #inscriptionDates li.init::after{
+                    content: "\e114";
+                    font-family: 'Glyphicons Halflings';
+                    float: right;
+                }
+                
+                #inscriptionDates.opened li.init, #inscriptionDates.opened li.init .address{
+                    color: #DADADA;
+                }
+            </style>
+            
+            <script type="text/javascript" src="///code.jquery.com/jquery-2.2.1.min.js"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.BootstrapPrefixed, '/js/bootstrap.min.js')}"></script>
+
+            
+            
+            <script type="text/javascript">
+                
+                $(function(){
+                    $("#inscriptionDates").on("click", ".init", function() {
+                        $(this).parent().addClass('opened').children('li:not(.init)').slideDown();
+                    });
+                    
+                    $("#inscriptionDates").on("click", "li:not(.init)", function() {
+                        document.getElementById('{!$Component.form.inscriptionSelectedFormation}').value = $(this).data('formationDateId');
+                        $("#inscriptionDates").removeClass('opened').children('.init').html($(this).html());
+                        $("#inscriptionDates").children('li:not(.init)').slideUp();
+                    }); 
+                    
+                });
+                        
+                function initInscriptionDates(formationId){
+                    
+                    var inscriptionDatesUL = $('#inscriptionDates');
+                    var formationDatesUL = $('#formation_' + formationId + ' ul.dateDropdown');
+                    
+                    var formationDatesLIs = '<li class="init">' + formationDatesUL.find('li:first').html() + '</li>' 
+                                                + formationDatesUL.html()
+                                                + '<li data-formation-date-id=""><strong>Formation en interne</strong><br /><span class="address">Décrivez votre besoin dans le commentaire</span></li>';
+                    
+                    document.getElementById('{!$Component.form.inscriptionSelectedFormation}').value = formationDatesUL.find('li:first').data('formationDateId');
+                    inscriptionDatesUL.html(formationDatesLIs);
+                }
+            </script>
+            
+            
+        </apex:define>
+            
+         <apex:define name="body">
+            
+            <h2 >Prochaines formations</h2>
+            
+            <apex:pageMessages />
+        
+            <apex:repeat value="{!formations}" var="formation">
+                <apex:outputPanel layout="none" rendered="{!formation.DatesFormationPortail__r.size > 0}">
+                    <div class="well formation" id="formation_{!formation.Id}" >
+                        <h4>{!formation.Name}</h4>
+                        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal" style="float:right" onclick="initInscriptionDates('{!formation.Id}');">Dates &amp; Inscription</button>
+                        <br />
+                        <br />
+                        <strong>Programme :</strong>
+                        <br />
+                        <br />
+                        <apex:outputField value="{!formation.Programme__c}" />
+                        <ul class="dateDropdown">
+                            <apex:repeat value="{!formation.DatesFormationPortail__r}" var="dateFormation">
+                                <li data-formation-date-id="{!dateFormation.Id}">
+                                    <strong><apex:outputField value="{!dateFormation.Date__c}" /> {!dateFormation.Horaires__c}</strong>
+                                    <br />
+                                    <span class="address">
+                                        <apex:outputField value="{!dateFormation.Lieu__c}" />
+                                    </span>
+                                </li>
+                            </apex:repeat>
+                        </ul>
+                    </div>
+                </apex:outputPanel>
+            </apex:repeat>
+            
+            
+            <!-- Modal inscription -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <apex:form styleClass="form-horizontal" id="form">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">Inscription</h4>
+                            </div>
+                            <div class="modal-body">
+                            
+                                <div class="form-group">
+                                    <apex:outputLabel value="Date" styleClass="col-sm-3 control-label"/>
+                                    <div class="col-sm-9" style="height:60px">
+                                        <apex:inputHidden value="{!inscriptionSelectedFormation}" id="inscriptionSelectedFormation" />
+                                        <div id="inscriptionDatesContainer">
+                                            <ul id="inscriptionDates" class="form-control">
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <apex:outputLabel value="Prénom" for="inscriptionFirstName" styleClass="col-sm-3 control-label"/>
+                                    <div class="col-sm-9">
+                                        <apex:inputField value="{!myContact.FirstName}" styleClass="form-control" id="inscriptionFirstName" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <apex:outputLabel value="Nom" for="inscriptionLastName" styleClass="col-sm-3 control-label"/>
+                                    <div class="col-sm-9">
+                                        <apex:inputField value="{!myContact.LastName}" styleClass="form-control" id="inscriptionLastName" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <apex:outputLabel value="Email" for="inscriptionEmail" styleClass="col-sm-3 control-label"/>
+                                    <div class="col-sm-9">
+                                        <apex:inputField value="{!myContact.Email}" styleClass="form-control" id="inscriptionEmail" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <apex:outputLabel value="Fonction" for="inscriptionTitle" styleClass="col-sm-3 control-label"/>
+                                    <div class="col-sm-9">
+                                        <apex:inputField value="{!myContact.Title}" styleClass="form-control" id="inscriptionTitle" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <apex:outputLabel value="Commentaire" for="inscriptionComment" styleClass="col-sm-3 control-label"/>
+                                    <div class="col-sm-9">
+                                        <apex:inputTextArea value="{!inscriptionComment}" styleClass="form-control" rows="3" style="height: auto;"/>
+                                    </div>
+                                </div>
+                        
+                                
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                                <apex:commandButton value="Envoyer" action="{!sendInscriptionEmail}" styleClass="btn btn-primary" />
+                            </div>
+                        </apex:form>
+                    </div>
+                </div>
+            </div>
+            
+         </apex:define>
+    </apex:composition>
+    
+</apex:page>

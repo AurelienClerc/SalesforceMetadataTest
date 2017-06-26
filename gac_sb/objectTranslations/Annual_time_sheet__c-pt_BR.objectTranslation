@@ -1,0 +1,630 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value><!-- Annual time sheet --></value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value><!-- Annual time sheet --></value>
+    </caseValues>
+    <fields>
+        <label>Comentário de time sheet</label>
+        <name>Comentario_del_time_sheet__c</name>
+    </fields>
+    <fields>
+        <label>Consultor</label>
+        <name>Consultant__c</name>
+        <picklistValues>
+            <masterLabel>Adriano Araujo</masterLabel>
+            <translation><!-- Adriano Araujo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aitor LEGORBURU</masterLabel>
+            <translation><!-- Aitor LEGORBURU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alberto VERDU</masterLabel>
+            <translation><!-- Alberto VERDU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alexis URCELAY</masterLabel>
+            <translation><!-- Alexis URCELAY --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Alvaro PALACIOS</masterLabel>
+            <translation><!-- Alvaro PALACIOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ana Julia VECINO</masterLabel>
+            <translation><!-- Ana Julia VECINO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Antonio LEAL</masterLabel>
+            <translation><!-- Antonio LEAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Aranzazu OLAZABAL</masterLabel>
+            <translation><!-- Aranzazu OLAZABAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Camila Donizette</masterLabel>
+            <translation><!-- Camila Donizette --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Daniel PASCUAL GONZALEZ</masterLabel>
+            <translation><!-- Daniel PASCUAL GONZALEZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Danilo Pereira</masterLabel>
+            <translation><!-- Danilo Pereira --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Débora Beraldo</masterLabel>
+            <translation><!-- Débora Beraldo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Edwin Lima</masterLabel>
+            <translation><!-- Edwin Lima --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fabiane Gorge</masterLabel>
+            <translation><!-- Fabiane Gorge --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fernanda Falcheti</masterLabel>
+            <translation><!-- Fernanda Falcheti --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fernando Schaffer</masterLabel>
+            <translation><!-- Fernando Schaffer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gemma SANCHIZ</masterLabel>
+            <translation><!-- Gemma SANCHIZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gilson Kohs</masterLabel>
+            <translation><!-- Gilson Kohs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gregory Correa</masterLabel>
+            <translation><!-- Gregory Correa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Igor GONZALEZ</masterLabel>
+            <translation><!-- Igor GONZALEZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Imanol BERASALUZE</masterLabel>
+            <translation><!-- Imanol BERASALUZE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Itziar ONAINDIA</masterLabel>
+            <translation><!-- Itziar ONAINDIA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jon ARRATE</masterLabel>
+            <translation><!-- Jon ARRATE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jon Andoni DOCANDO</masterLabel>
+            <translation><!-- Jon Andoni DOCANDO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jose Antonio CANO</masterLabel>
+            <translation><!-- Jose Antonio CANO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jose Antonio MARTINEZ</masterLabel>
+            <translation><!-- Jose Antonio MARTINEZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Juliana Alves</masterLabel>
+            <translation><!-- Juliana Alves --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Kizkitza AURREKOETXEA</masterLabel>
+            <translation><!-- Kizkitza AURREKOETXEA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laura G.GASTAÑAGA</masterLabel>
+            <translation><!-- Laura G.GASTAÑAGA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Laura GARCIA</masterLabel>
+            <translation><!-- Laura GARCIA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Luis GUTIERREZ</masterLabel>
+            <translation><!-- Luis GUTIERREZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Macarena BAREÑO</masterLabel>
+            <translation><!-- Macarena BAREÑO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marcos RUANO</masterLabel>
+            <translation><!-- Marcos RUANO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marcus Carraschi</masterLabel>
+            <translation><!-- Marcus Carraschi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mariano Lamarca</masterLabel>
+            <translation><!-- Mariano Lamarca --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mikel IBAÑEZ</masterLabel>
+            <translation><!-- Mikel IBAÑEZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miriam BUSTO</masterLabel>
+            <translation><!-- Miriam BUSTO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Miriam CAMARA</masterLabel>
+            <translation><!-- Miriam CAMARA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>New Trainee</masterLabel>
+            <translation><!-- New Trainee --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paula REVUELTA</masterLabel>
+            <translation><!-- Paula REVUELTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pilar BURGUEÑO</masterLabel>
+            <translation><!-- Pilar BURGUEÑO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Raquel VEGA</masterLabel>
+            <translation><!-- Raquel VEGA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Richard Medina</masterLabel>
+            <translation><!-- Richard Medina --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rosa DE LIMA</masterLabel>
+            <translation><!-- Rosa DE LIMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roseli Carvalho</masterLabel>
+            <translation><!-- Roseli Carvalho --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rubén POZUELO</masterLabel>
+            <translation><!-- Rubén POZUELO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silvia CASTRO</masterLabel>
+            <translation><!-- Silvia CASTRO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Silvia DE LUIS</masterLabel>
+            <translation><!-- Silvia DE LUIS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tania GONZALEZ LEDESMA</masterLabel>
+            <translation><!-- Tania GONZALEZ LEDESMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tania SANCHEZ</masterLabel>
+            <translation><!-- Tania SANCHEZ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veronica MEDRANO</masterLabel>
+            <translation><!-- Veronica MEDRANO --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Tipo de consultor</label>
+        <name>Consultant_type__c</name>
+        <picklistValues>
+            <masterLabel>Consulting</masterLabel>
+            <translation>Consultor</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contábil</masterLabel>
+            <translation><!-- Contábil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coordenador</masterLabel>
+            <translation><!-- Coordenador --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Estagiário</masterLabel>
+            <translation><!-- Estagiário --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Europeos</masterLabel>
+            <translation><!-- Europeos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>External consultant</masterLabel>
+            <translation><!-- External consultant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RH</masterLabel>
+            <translation><!-- RH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seguimiento</masterLabel>
+            <translation><!-- Seguimiento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Técnico</masterLabel>
+            <translation><!-- Técnico --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Hourly cost --></label>
+        <name>Hourly_cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mês --></label>
+        <name>Mes__c</name>
+        <picklistValues>
+            <masterLabel>Abril</masterLabel>
+            <translation><!-- Abril --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agosto</masterLabel>
+            <translation><!-- Agosto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dezembro</masterLabel>
+            <translation><!-- Dezembro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fevereiro</masterLabel>
+            <translation><!-- Fevereiro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Janeiro</masterLabel>
+            <translation><!-- Janeiro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Julho</masterLabel>
+            <translation><!-- Julho --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Junho</masterLabel>
+            <translation><!-- Junho --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Maio</masterLabel>
+            <translation><!-- Maio --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Março</masterLabel>
+            <translation><!-- Março --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Novembro</masterLabel>
+            <translation><!-- Novembro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outubro</masterLabel>
+            <translation><!-- Outubro --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Setembro</masterLabel>
+            <translation><!-- Setembro --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Projeto</label>
+        <name>Mission_concerned__c</name>
+        <relationshipLabel><!-- Annual time sheet --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- National Grants --></label>
+        <name>National_Grants__c</name>
+        <picklistValues>
+            <masterLabel>+ INNOVA 2013</masterLabel>
+            <translation><!-- + INNOVA 2013 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AEESD</masterLabel>
+            <translation><!-- AEESD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>APOYO A LA INNOVACION</masterLabel>
+            <translation><!-- APOYO A LA INNOVACION --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BASQUE INDUSTRY 4.0</masterLabel>
+            <translation><!-- BASQUE INDUSTRY 4.0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BERRIKERTU</masterLabel>
+            <translation><!-- BERRIKERTU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BIZKAIA CREATIVA</masterLabel>
+            <translation><!-- BIZKAIA CREATIVA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDTI</masterLabel>
+            <translation><!-- CDTI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CENTROS</masterLabel>
+            <translation><!-- CENTROS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DDFF</masterLabel>
+            <translation><!-- DDFF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DFA</masterLabel>
+            <translation><!-- DFA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DFB</masterLabel>
+            <translation><!-- DFB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DFG</masterLabel>
+            <translation><!-- DFG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EEA GRANTS</masterLabel>
+            <translation><!-- EEA GRANTS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EFICIENCIA ENERG</masterLabel>
+            <translation><!-- EFICIENCIA ENERG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ELKARTEK</masterLabel>
+            <translation><!-- ELKARTEK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ETORGAI</masterLabel>
+            <translation><!-- ETORGAI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EU</masterLabel>
+            <translation><!-- EU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EUROPEOS</masterLabel>
+            <translation><!-- EUROPEOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EVALUACIONES</masterLabel>
+            <translation><!-- EVALUACIONES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EVE</masterLabel>
+            <translation><!-- EVE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FIJO MENSUAL</masterLabel>
+            <translation><!-- FIJO MENSUAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FIJO TRIMESTRIAL</masterLabel>
+            <translation><!-- FIJO TRIMESTRIAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GAITEK</masterLabel>
+            <translation><!-- GAITEK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GAUZATU</masterLabel>
+            <translation><!-- GAUZATU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GLOBAL LEHIAN</masterLabel>
+            <translation><!-- GLOBAL LEHIAN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>HAZITEK</masterLabel>
+            <translation><!-- HAZITEK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>I+D+I AGRARIO</masterLabel>
+            <translation><!-- I+D+I AGRARIO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IKERTU</masterLabel>
+            <translation><!-- IKERTU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INDUSTRIA DIGITALA</masterLabel>
+            <translation><!-- INDUSTRIA DIGITALA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INNCORPORA</masterLabel>
+            <translation><!-- INNCORPORA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INNOBIDE</masterLabel>
+            <translation><!-- INNOBIDE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INNPACTO</masterLabel>
+            <translation><!-- INNPACTO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INNTERCONECTA</masterLabel>
+            <translation><!-- INNTERCONECTA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>LEHIABIDE</masterLabel>
+            <translation><!-- LEHIABIDE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MEDIOAMBIENTE</masterLabel>
+            <translation><!-- MEDIOAMBIENTE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NEOTEC</masterLabel>
+            <translation><!-- NEOTEC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NET</masterLabel>
+            <translation><!-- NET --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTROS GV</masterLabel>
+            <translation><!-- OTROS GV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTROS MADRID</masterLabel>
+            <translation><!-- OTROS MADRID --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OTROS NACIONAL</masterLabel>
+            <translation><!-- OTROS NACIONAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PLAN COMPETITIVIDAD</masterLabel>
+            <translation><!-- PLAN COMPETITIVIDAD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PLANES MINETUR</masterLabel>
+            <translation><!-- PLANES MINETUR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PROINTER</masterLabel>
+            <translation><!-- PROINTER --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RENOVE MAQUINARIA</masterLabel>
+            <translation><!-- RENOVE MAQUINARIA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RETOS</masterLabel>
+            <translation><!-- RETOS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAIOTEK</masterLabel>
+            <translation><!-- SAIOTEK --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>VARIOS</masterLabel>
+            <translation><!-- VARIOS --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Number of estimated hours --></label>
+        <name>Number_of_hour_done__c</name>
+    </fields>
+    <fields>
+        <label>Número de horas</label>
+        <name>Number_of_hours_really_done__c</name>
+    </fields>
+    <fields>
+        <label><!-- Planification de facturation --></label>
+        <name>Planification_de_facturation__c</name>
+        <relationshipLabel><!-- Annual time sheet --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Proyecto / Concepto --></label>
+        <name>Proyecto_Concepto2__c</name>
+        <relationshipLabel><!-- Annual time sheet --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Proyecto / Concepto (name) --></label>
+        <name>Proyecto_Concepto__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total estimated cost --></label>
+        <name>Total_cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total real cost --></label>
+        <name>Total_real_cost__c</name>
+    </fields>
+    <fields>
+        <label>Ano</label>
+        <name>Year_concerned__c</name>
+        <picklistValues>
+            <masterLabel>2012</masterLabel>
+            <translation><!-- 2012 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2013</masterLabel>
+            <translation><!-- 2013 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2014</masterLabel>
+            <translation><!-- 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation>2016</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2017</masterLabel>
+            <translation>2017</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2018</masterLabel>
+            <translation>2018</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2019</masterLabel>
+            <translation>2019</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2020</masterLabel>
+            <translation>2020</translation>
+        </picklistValues>
+    </fields>
+    <gender><!-- Feminine --></gender>
+    <layouts>
+        <layout>Annual time sheet BR layout</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Seguimiento --></label>
+            <section>Seguimiento</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Annual time sheet layout</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Seguimiento --></label>
+            <section>Seguimiento</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel><!-- Annual time sheet name --></nameFieldLabel>
+    <recordTypes>
+        <label><!-- Annual Time Sheet LDB --></label>
+        <name>Annual_Time_Sheet_BR</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Annual Time Sheet CSL --></label>
+        <name>Annual_Time_Sheet_CSL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Annual Time Sheet ES --></label>
+        <name>Annual_Time_Sheet_ES</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Annual Time Sheet FND --></label>
+        <name>Annual_Time_Sheet_FND</name>
+    </recordTypes>
+    <webLinks>
+        <label><!-- New_Annual_TimeSheet --></label>
+        <name>New_Annual_TimeSheet</name>
+    </webLinks>
+</CustomObjectTranslation>

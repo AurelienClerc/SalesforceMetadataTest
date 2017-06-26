@@ -1,0 +1,253 @@
+<apex:page standardController="INNOvalo__c" extensions="INNOamortissementListCtrl" title="Modification des méthodes de calcul du taux R&D des {!LOWER($Label['AppCIR' + tab + 'Pluriel'])}" sidebar="false" tabStyle="INNOmission__c">
+    
+    <apex:composition template="INNOmissionTemplate">
+        
+        <apex:define name="header">
+        
+            <apex:includeScript value="{!URLFOR($Resource.dataTables, 'jquery.dataTables.min.js')}"/>
+            <apex:styleSheet value="{!URLFOR($Resource.dataTables, 'dataTables.css')}"/>
+            <apex:includeScript value="{!URLFOR($Resource.AppCIR, 'js/TauxRDFunctions.js')}"/>
+            
+            <script type="text/javascript">
+                
+                
+                $$().ready(function() {
+                   
+                    initAmortissementsTauxDataTable();
+                    
+                } );
+                
+                function initAmortissementsTauxDataTable(){
+                    oTableTaux = $$('.listeAmortissementsTauxID').dataTable({
+                            bJQueryUI       : true,
+                            sDom            : 't<"F"ip>',
+                            bLengthChange   : false,
+                            iDisplayLength  : -1,
+                            aaSorting       : [[ 0, "asc" ]],
+                            aoColumns       : [
+                                                  null,
+                                                  null,
+                                                  null,
+                                                  null,
+                                                  { "bSortable": false },
+                                                  { "bSortable": false },
+                                                  { "bSortable": false },
+                                                  { "bSortable": false }
+                                                ] 
+                    });
+                }
+                
+                
+                
+            </script>
+            
+        </apex:define>
+        
+        
+        <apex:define name="body">
+        
+            
+            <apex:outputLink value="/apex/INNOamortissementList" styleClass="retLink">
+                « Retour à la liste des dotations aux amortissements
+                <apex:param name="valoId" value="{!valoId}"/>
+                <apex:param name="tab" value="{!tab}"/>
+            </apex:outputLink>
+            
+            <apex:form rendered="{!tab == 'amortissement'}">
+                
+                <apex:inputHidden value="{!INNOvalo__c.Entite__c}" />
+                
+                <apex:pageBlock title="Récapitulatif des taux R&D par méthode de calcul">
+                
+                    <apex:pageMessages />
+                    <apex:pageMessage summary="Les taux R&D présentés ci-dessous sont calculés en fonction des taux R&D des salariés, jeunes docteurs et mises à dispositions rattachés à la mission." severity="info" strength="2"  />
+
+                    <table id="recapValo">
+                        <thead>
+                            <tr class="ui-widget-header">
+                                <th>Département</th>
+                                <th style="width:200px;">Méthode de calcul</th>
+                                <th>Taux R&amp;D option 1</th>
+                                <th>Taux R&amp;D option 2</th>
+                                <th>Taux R&amp;D option 3</th>
+                            </tr>
+                        </thead>
+                        
+                        <tbody>
+                            <tr>
+                                <td rowspan="2">Tous</td>
+                                <td>Moyenne des sommes</td>
+                                <td class="valueOption1">{!tauxRDcls.tauxRD['all'].moyenneSommesOpt1} %</td>
+                                <td class="valueOption2">{!tauxRDcls.tauxRD['all'].moyenneSommesOpt2} %</td>
+                                <td class="valueOption3">{!tauxRDcls.tauxRD['all'].moyenneSommesOpt3} %</td>
+                            </tr>
+                            <tr>
+                                <td>Somme des moyennes</td>
+                                <td class="valueOption1">{!tauxRDcls.tauxRD['all'].sommeMoyennesOpt1} %</td>
+                                <td class="valueOption2">{!tauxRDcls.tauxRD['all'].sommeMoyennesOpt2} %</td>
+                                <td class="valueOption3">{!tauxRDcls.tauxRD['all'].sommeMoyennesOpt3} %</td>
+                            </tr>
+                            
+                            <apex:repeat value="{!departements}" var="dept">
+                                <tr>
+                                    <td rowspan="2">{!dept.Name}</td>
+                                    <td>Moyenne des sommes</td>
+                                    <td class="valueOption1">{!tauxRDcls.tauxRD[dept.Id].moyenneSommesOpt1} %</td>
+                                    <td class="valueOption2">{!tauxRDcls.tauxRD[dept.Id].moyenneSommesOpt2} %</td>
+                                    <td class="valueOption3">{!tauxRDcls.tauxRD[dept.Id].moyenneSommesOpt3} %</td>
+                                </tr>
+                                <tr>
+                                    <td>Somme des moyennes</td>
+                                    <td class="valueOption1">{!tauxRDcls.tauxRD[dept.Id].sommeMoyennesOpt1} %</td>
+                                    <td class="valueOption2">{!tauxRDcls.tauxRD[dept.Id].sommeMoyennesOpt2} %</td>
+                                    <td class="valueOption3">{!tauxRDcls.tauxRD[dept.Id].sommeMoyennesOpt3} %</td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    
+                    </table>
+                
+                </apex:pageBlock>   
+                    
+                    
+                    
+                <br />
+                <br />
+                    
+                    
+                    
+                    
+                <apex:pageBlock title="Modifier en masse les méthodes de calcul du taux R&D" >
+                    
+                    <apex:pageBlockButtons rendered="{!missionReadWrite}">
+                        <apex:commandButton action="{!saveMethodeCalculTauxRD}" value="Enregistrer" onclick="if(!confirm('Attention, cette action est irréversible et écrasera les anciens taux R&D saisis.\nVoulez-vous continuer ?')) return false;"/>
+                        <apex:commandButton action="{!URLFOR('/apex/INNOamortissementList', null, [valoId = valoId, tab = tab])}" value="Annuler" immediate="true" >
+                        
+                        </apex:commandButton>
+                    </apex:pageBlockButtons>
+                    
+                    <apex:pageMessage summary="Vous pouvez ici modifier en masse la méthode de calcul du taux R&D des {!LOWER($Label['AppCIR' + tab + 'Pluriel'])}" severity="info" strength="2" >
+                        Les cellules&nbsp;<span style="border: dashed 2px #91D108">&nbsp;encadrées en vert&nbsp;</span>&nbsp;correspondent à la méthode de calcul actuellement utilisée pour la dépense.
+                        <br />
+                        Si vous cliquez sur une&nbsp;<div class="ui-widget-header" style="display:inline; padding:2px;">&nbsp;case à cocher <input type="checkbox" disabled="disabled"/>&nbsp;</div>&nbsp;de l'en-tête du tableau, cela modifiera toutes les dépenses actuellement visibles dans le tableau (celles qui répondent aux critères des filtres et de la recherche)
+                    </apex:pageMessage>
+
+                    
+                    <!-- Filtres -->
+                    <div class="filterHeader ui-widget-header">
+                        <div>
+                            <apex:image value="{!URLFOR($Resource.icons, 'fatcow/Filter-Add.png')}" style="float:left; margin: -5px 15px 0 0;"/>
+                            <div style="width:110px;"><strong>Filtres:</strong></div>
+                            <div style="width:90px;">Département:</div>
+                            <select onchange="oTableTaux.fnFilter(this.value != 'nOnE' ? this.value : '', 1);" style="float:left;margin-right: 100px;">
+                                <option value="nOnE">Tous</option>
+                                <apex:repeat value="{!departements}" var="dept">
+                                    <option value="{!dept.Name}">{!dept.Name}</option>                  
+                                </apex:repeat>
+                            </select>
+                            <div style="width:90px;">Projet:</div>
+                            <select onchange="oTableTaux.fnFilter(this.value != 'nOnE' ? this.value : '', 2);" style="float:left;margin-right: 100px;">
+                                <option value="nOnE">Tous</option>
+                                <apex:repeat value="{!projets}" var="projet">
+                                    <option value="{!projet.Name}">{!projet.Name}</option>                  
+                                </apex:repeat>
+                            </select>
+                            <div style="width:100px;">Rechercher:</div>
+                            <input type="text" onkeyup="oTableTaux.fnFilter(this.value, null)"/>
+                        </div>
+                    </div>
+                        
+                        
+                    <!-- Datatable -->
+                    
+                    <apex:dataTable value="{!amortissements}" var="amortissement" id="listeAmortissementsTaux" styleClass="listeAmortissementsTauxID">
+                        
+                        <apex:column >
+                            <apex:facet name="header">
+                                <apex:outputPanel layout="none">
+                                    Désignation
+                                    <apex:outputPanel rendered="{!tab == 'amortissement'}" layout="none">
+                                        <br />(N° d'immobilisation)
+                                    </apex:outputPanel>
+                                </apex:outputPanel>
+                            </apex:facet>
+                            <apex:outputLink value="{!URLFOR('/apex/INNOamortissementView')}">
+                                {!amortissement.Name} 
+                                {!IF(tab == 'amortissement', '(' + amortissement.Num_immobilisation__c + ')', '')}
+                                <apex:param name="id" value="{!amortissement.id}"/>
+                                <apex:param name="valoId" value="{!valoId}"/>
+                                <apex:param name="tab" value="{!tab}"/>
+                            </apex:outputLink>
+                        </apex:column>
+                            
+                        <apex:column >
+                            <apex:facet name="header">Département</apex:facet>
+                            {!amortissement.Departement__r.Name}
+                        </apex:column>
+                        
+                        <apex:column value="{!amortissement.Projet__c}">
+                            <apex:facet name="header">Projet</apex:facet>
+                        </apex:column>
+                        
+                        <apex:column styleClass="{!IF(amortissement.Methode_de_calcul__c == 'Manuelle', 'currentMethod', '')}">
+                            <apex:facet name="header">Manuelle</apex:facet>
+                            <apex:outputPanel layout="none" rendered="{!amortissement.Methode_de_calcul__c == 'Manuelle'}">
+                                <apex:inputCheckbox value="{!tauxRDupdates[amortissement.Id + '_manuelle'].selected}" styleClass="checkbox_manuelle" />
+                                <span class="valueOption1">{!amortissement.Taux_RD_option1__c} %</span>&nbsp;/&nbsp;
+                                <span class="valueOption2">{!amortissement.Taux_RD_option2__c} %</span>&nbsp;/&nbsp;
+                                <span class="valueOption3">{!amortissement.Taux_RD_option3__c} %</span>
+                            </apex:outputPanel>
+                        </apex:column>
+                        
+                        <apex:column styleClass="{!IF(amortissement.Methode_de_calcul__c == 'Moyenne des sommes', 'currentMethod', '')}">
+                            <apex:facet name="header">
+                                Moyenne des sommes
+                                <input type="checkbox" value="moyenneSommes" onChange="tauxRDfunctions.onChangeMethodeCalculColonne($$(this));"/>
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!tauxRDupdates[amortissement.Id + '_moyenneSommes'].selected}" styleClass="checkbox_moyenneSommes" />
+                            <span class="valueOption1">{!tauxRDcls.tauxRD['all'].moyenneSommesOpt1} %</span>&nbsp;/&nbsp;
+                            <span class="valueOption2">{!tauxRDcls.tauxRD['all'].moyenneSommesOpt2} %</span>&nbsp;/&nbsp;
+                            <span class="valueOption3">{!tauxRDcls.tauxRD['all'].moyenneSommesOpt3} %</span>
+                        </apex:column>
+                        
+                        <apex:column styleClass="{!IF(amortissement.Methode_de_calcul__c == 'Somme des moyennes', 'currentMethod', '')}">
+                            <apex:facet name="header">
+                                Somme des moyennes
+                                <input type="checkbox" value="sommeMoyennes" onChange="tauxRDfunctions.onChangeMethodeCalculColonne($$(this));"/>
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!tauxRDupdates[amortissement.Id + '_sommeMoyennes'].selected}" styleClass="checkbox_sommeMoyennes"/>
+                            <span class="valueOption1">{!tauxRDcls.tauxRD['all'].sommeMoyennesOpt1} %</span>&nbsp;/&nbsp;
+                            <span class="valueOption2">{!tauxRDcls.tauxRD['all'].sommeMoyennesOpt2} %</span>&nbsp;/&nbsp;
+                            <span class="valueOption3">{!tauxRDcls.tauxRD['all'].sommeMoyennesOpt3} %</span>
+                        </apex:column>
+                        
+                        <apex:column styleClass="{!IF(amortissement.Methode_de_calcul__c == 'Moyenne des sommes du département', 'currentMethod', '')}">
+                            <apex:facet name="header">
+                                Moyenne des sommes<br />du département
+                                <input type="checkbox" value="moyenneSommesDepartements" onChange="tauxRDfunctions.onChangeMethodeCalculColonne($$(this));"/>   
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!tauxRDupdates[amortissement.Id + '_moyenneSommesDepartements'].selected}" styleClass="checkbox_moyenneSommesDepartements" onchange="tauxRDfunctions.onChangeMethodeCalcul($$(this));"/>
+                            <span class="valueOption1">{!tauxRDcls.tauxRD[amortissement.Departement__c].moyenneSommesOpt1} %</span>&nbsp;/&nbsp;
+                            <span class="valueOption2">{!tauxRDcls.tauxRD[amortissement.Departement__c].moyenneSommesOpt2} %</span>&nbsp;/&nbsp;
+                            <span class="valueOption3">{!tauxRDcls.tauxRD[amortissement.Departement__c].moyenneSommesOpt3} %</span>
+                        </apex:column>
+                        
+                        <apex:column styleClass="{!IF(amortissement.Methode_de_calcul__c == 'Somme des moyennes du département', 'currentMethod', '')}">
+                            <apex:facet name="header">
+                                Somme des moyennes<br />du département
+                                <input type="checkbox" value="sommeMoyennesDepartements" onChange="tauxRDfunctions.onChangeMethodeCalculColonne($$(this));"/>
+                            </apex:facet>
+                            <apex:inputCheckbox value="{!tauxRDupdates[amortissement.Id + '_sommeMoyennesDepartements'].selected}" styleClass="checkbox_sommeMoyennesDepartements" onchange="tauxRDfunctions.onChangeMethodeCalcul($$(this));"/>
+                            <span class="valueOption1">{!tauxRDcls.tauxRD[amortissement.Departement__c].sommeMoyennesOpt1} %</span>&nbsp;/&nbsp;
+                            <span class="valueOption2">{!tauxRDcls.tauxRD[amortissement.Departement__c].sommeMoyennesOpt2} %</span>&nbsp;/&nbsp;
+                            <span class="valueOption3">{!tauxRDcls.tauxRD[amortissement.Departement__c].sommeMoyennesOpt3} %</span>
+                        </apex:column>
+                        
+                    </apex:dataTable>
+                </apex:pageBlock>
+                
+            </apex:form>
+        </apex:define>
+    </apex:composition>
+
+</apex:page>

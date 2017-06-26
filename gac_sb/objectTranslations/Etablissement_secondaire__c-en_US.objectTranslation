@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Other Implementation</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Other implementations</value>
+    </caseValues>
+    <fields>
+        <label>Account</label>
+        <name>Account__c</name>
+        <relationshipLabel>Other Implementations</relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Utilisez le moteur de recherche pour retrouver un code à partir de son libellé --></help>
+        <label><!-- Code NAF 2 --></label>
+        <name>Code_NAF_2__c</name>
+        <relationshipLabel>Implementations</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Zip/postal Code</label>
+        <name>Code_postal__c</name>
+    </fields>
+    <fields>
+        <help><!-- Le champ code risque est pré-rempli avec le code NAF1 connu pour cet établissement. Ce code risque est incomplet et a peut être changé. Si vous avez besoin de ce code, vous devez le vérifier et le compléter (3 chiffres suivis de 2 lettres). --></help>
+        <label><!-- Code risque --></label>
+        <name>Code_risque__c</name>
+    </fields>
+    <fields>
+        <label>Comments</label>
+        <name>Commentaires__c</name>
+    </fields>
+    <fields>
+        <label><!-- Correspondance SIREN --></label>
+        <name>Correspondance_SIREN__c</name>
+    </fields>
+    <fields>
+        <label>State/Province</label>
+        <name>D_partement_R_gion__c</name>
+    </fields>
+    <fields>
+        <label>Size</label>
+        <name>Effectif_site__c</name>
+    </fields>
+    <fields>
+        <label>Legal status</label>
+        <name>Forme_juridique__c</name>
+        <picklistValues>
+            <masterLabel>Administration</masterLabel>
+            <translation><!-- Administration --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Affaire personnelle</masterLabel>
+            <translation><!-- Affaire personnelle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agent commercial</masterLabel>
+            <translation><!-- Agent commercial --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Association</masterLabel>
+            <translation><!-- Association --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Associé gérant</masterLabel>
+            <translation><!-- Associé gérant --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Caisse d&apos;épargne</masterLabel>
+            <translation><!-- Caisse d&apos;épargne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Centre technique</masterLabel>
+            <translation><!-- Centre technique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collectivité territoriale</masterLabel>
+            <translation><!-- Collectivité territoriale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Comité d&apos;entreprise</masterLabel>
+            <translation><!-- Comité d&apos;entreprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coopérative</masterLabel>
+            <translation><!-- Coopérative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EARL (Exploitation agricole à responsabilité limitée)</masterLabel>
+            <translation><!-- EARL (Exploitation agricole à responsabilité limitée) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EPIC (Établissement public à caractère industriel et commercial)</masterLabel>
+            <translation><!-- EPIC (Établissement public à caractère industriel et commercial) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>EURL (Entreprise unipersonnelle à responsabilité limitée)</masterLabel>
+            <translation><!-- EURL (Entreprise unipersonnelle à responsabilité limitée) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Etablissement public</masterLabel>
+            <translation><!-- Etablissement public --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Exploitation agricole</masterLabel>
+            <translation><!-- Exploitation agricole --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fondation</masterLabel>
+            <translation><!-- Fondation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fund Priv</masterLabel>
+            <translation><!-- Fund Priv --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fund Pub</masterLabel>
+            <translation><!-- Fund Pub --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GEIE (Groupement européen d&apos;intérêt économique)</masterLabel>
+            <translation><!-- GEIE (Groupement européen d&apos;intérêt économique) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>GIE (Groupement d&apos;intérêt économique)</masterLabel>
+            <translation><!-- GIE (Groupement d&apos;intérêt économique) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MEI</masterLabel>
+            <translation><!-- MEI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OPI</masterLabel>
+            <translation><!-- OPI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>OPrl</masterLabel>
+            <translation><!-- OPrl --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Officier public</masterLabel>
+            <translation><!-- Officier public --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organisme privé</masterLabel>
+            <translation><!-- Organisme privé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Profession libérale</masterLabel>
+            <translation><!-- Profession libérale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S.A.L.</masterLabel>
+            <translation><!-- S.A.L. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S.A.U.</masterLabel>
+            <translation><!-- S.A.U. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S.C.</masterLabel>
+            <translation><!-- S.C. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S.L.L.</masterLabel>
+            <translation><!-- S.L.L. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>S.L.N.E.</masterLabel>
+            <translation><!-- S.L.N.E. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA directoire</masterLabel>
+            <translation><!-- SA directoire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SA monegasque</masterLabel>
+            <translation><!-- SA monegasque --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SARL</masterLabel>
+            <translation><!-- SARL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SAS Unipersonnelle</masterLabel>
+            <translation><!-- SAS Unipersonnelle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>SOC.COM.</masterLabel>
+            <translation><!-- SOC.COM. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soc. commandite/action</masterLabel>
+            <translation><!-- Soc. commandite/action --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soc. en participation</masterLabel>
+            <translation><!-- Soc. en participation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Société civile</masterLabel>
+            <translation><!-- Société civile --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Société civilie immobilière</masterLabel>
+            <translation><!-- Société civilie immobilière --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Société coopérative</masterLabel>
+            <translation><!-- Société coopérative --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Société de fait</masterLabel>
+            <translation><!-- Société de fait --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Société en Commandite simple</masterLabel>
+            <translation><!-- Société en Commandite simple --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Société en action simple</masterLabel>
+            <translation><!-- Société en action simple --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Société en nom collectif</masterLabel>
+            <translation><!-- Société en nom collectif --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Société mutuelle</masterLabel>
+            <translation><!-- Société mutuelle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Société étrangère</masterLabel>
+            <translation><!-- Société étrangère --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Syndicat</masterLabel>
+            <translation><!-- Syndicat --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>U.T.E.</masterLabel>
+            <translation><!-- U.T.E. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Univ Priv</masterLabel>
+            <translation><!-- Univ Priv --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Univ Pub</masterLabel>
+            <translation><!-- Univ Pub --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Libellé NAF 2 --></label>
+        <name>Libell_NAF__c</name>
+    </fields>
+    <fields>
+        <label><!-- NEQ (Numéro d&apos;Entreprise du Québec) --></label>
+        <name>NEQ_Num_ro_d_Entreprise_du_Qu_bec__c</name>
+    </fields>
+    <fields>
+        <label><!-- Numéro d’Identification Provincial --></label>
+        <name>Num_ro_d_Identification_Provincial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Numéro d’Entreprise Fédéral --></label>
+        <name>Numero_d_Entreprise_Federal__c</name>
+    </fields>
+    <fields>
+        <label>Country</label>
+        <name>Pays__c</name>
+    </fields>
+    <fields>
+        <label><!-- Piste --></label>
+        <name>Piste__c</name>
+        <relationshipLabel>Other Implementations</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Raison sociale --></label>
+        <name>Raison_sociale__c</name>
+    </fields>
+    <fields>
+        <label>Street</label>
+        <name>Rue__c</name>
+    </fields>
+    <fields>
+        <label><!-- SIREN --></label>
+        <name>SIREN__c</name>
+    </fields>
+    <fields>
+        <label>Registration number</label>
+        <name>SIRET__c</name>
+    </fields>
+    <fields>
+        <label>Fax</label>
+        <name>Telecopie__c</name>
+    </fields>
+    <fields>
+        <label>Phone</label>
+        <name>Telephone__c</name>
+    </fields>
+    <fields>
+        <label><!-- V1_old_Zone VT --></label>
+        <name>V1_old_Zone_VT__c</name>
+        <picklistValues>
+            <masterLabel>Non</masterLabel>
+            <translation><!-- Non --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oui</masterLabel>
+            <translation><!-- Oui --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>City</label>
+        <name>Ville__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zones concernées --></label>
+        <name>Zones_concernees__c</name>
+        <picklistValues>
+            <masterLabel>VT</masterLabel>
+            <translation><!-- VT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZAFR</masterLabel>
+            <translation><!-- ZAFR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZRD</masterLabel>
+            <translation><!-- ZRD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ZRR</masterLabel>
+            <translation><!-- ZRR --></translation>
+        </picklistValues>
+    </fields>
+    <layouts>
+        <layout>CANADA Présentation Etablissement secondaire</layout>
+        <sections>
+            <label><!-- Coordonnées --></label>
+            <section>Coordonnées</section>
+        </sections>
+        <sections>
+            <label><!-- Identité --></label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires --></label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Présentation Etablissement secondaire</layout>
+        <sections>
+            <label><!-- Coordonnées --></label>
+            <section>Coordonnées</section>
+        </sections>
+        <sections>
+            <label><!-- Identité --></label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires --></label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP Présentation Etablissement secondaire</layout>
+        <sections>
+            <label><!-- Coordonnées --></label>
+            <section>Coordonnées</section>
+        </sections>
+        <sections>
+            <label><!-- Identité --></label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires --></label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Implementation name</nameFieldLabel>
+    <recordTypes>
+        <label><!-- CANADA Etablissement secondaire record type --></label>
+        <name>CANADA_Etablissement_secondaire_record_type</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Etablissement secondaire record type --></label>
+        <name>Etablissement_secondaire_record_type</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SGP Etablissement secondaire record type --></label>
+        <name>SGP_Etablissement_secondaire_record_type</name>
+    </recordTypes>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- Le numéro de SIREN de l&apos;établissement secondaire doit correspondre au numéro de SIREN de l&apos;établissement principal. --></errorMessage>
+        <name>ES_Coherence_des_SIREN</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Nouvel_tablissement --></label>
+        <name>Nouvel_tablissement</name>
+    </webLinks>
+</CustomObjectTranslation>

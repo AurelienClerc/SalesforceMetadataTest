@@ -1,0 +1,555 @@
+<apex:page controller="INNOtimeSheetPlanningCtrl2" extensions="INNOtimeSheet" sidebar="false" tabStyle="INNOmission__c" title="Planning">
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <apex:styleSheet value="{!URLFOR($Resource.AppCIR, 'css/style.css')}"/>
+    <apex:styleSheet value="{!URLFOR($Resource.jQuery, 'css/AppCIR/jquery-ui-1.8.23.custom.css')}"/>
+    <!--<script src="{!URLFOR($Resource.AppCIR, 'js/PlanningFunctions.js')}" ></script>-->
+    
+    <c:INNOtimeSheetSubMenu />
+    
+    <apex:sectionHeader title="Planning" />
+    
+   
+   
+    
+    <style>
+
+        #planning td.theoretic{
+            background-image: url('{!URLFOR($Resource.AppCIR, 'images/BG_stripes.png')}');
+            color: #999;
+        }
+        .planning td.phaseName {
+            padding-left:15px;
+        }
+        .planning span.color{
+            width:30px;
+            float:left;
+            margin-right:15px;
+        }
+        .planning span.colorMoreTime{
+            background-color: #e00000;
+        }
+        .planning span.colorLessTime{
+            background-color: #ffcc00;
+        }
+        .planning span.colorNoTime{
+            background-color: #ff944d;
+        }
+        .legende{
+            margin-bottom:20px;
+        }
+        
+    </style>
+    
+    
+    <style>
+        
+        #planning .consultantName, #planning .missionName, #planning .phaseName{
+            visibility: visible;
+        }
+        
+        
+        #planningBottom{
+            margin-top: 100px;
+            
+        }
+        
+        #loadingNexts{
+            width: 250px;
+            color: #777;
+            font-size: 18px;
+            text-align: center;
+            margin: auto;
+            margin-top: 50px;
+            border: solid 1px #AAA;
+            border-radius: 5px;
+            padding: 7px;
+            
+        }
+        
+        /*merge*/
+        #planning th.consultantName {
+            background-color: #efefef;
+        }
+        
+        #planning tr.consultantTopRow td{
+            height: 0;
+            padding: 0;
+            border: none;
+        }
+    </style>
+   
+    <apex:form >
+        <apex:outputPanel layout="block" styleClass="filterHeader ui-widget-header" >
+            <div  style="clear:both">
+                
+                <apex:image value="{!URLFOR($Resource.icons, 'fatcow/Filter-Add.png')}" style="float:left; margin: -5px 15px 0 0;"/>
+                <div style="width:90px;"><strong>Filtres:</strong></div>
+                
+                <apex:outputPanel layout="none" rendered="{!userIsManager}">
+                    <div style="padding-right: 20px;">Manager:</div>
+                    <div style="float:left; margin-right: 30px;padding-top: 0;">
+                        <apex:inputField value="{!dummyEquipeManager.Utilisateur__c}" />
+                    </div>
+                </apex:outputPanel>
+                
+                <apex:outputPanel layout="none" rendered="{!userIsManager || userIsSuperviseur}">
+                    <div style="padding-right: 20px;">Consultant:</div>
+                    <div style="float:left; margin-right: 30px;padding-top: 0;">
+                        <apex:inputField value="{!dummyEquipeConsultant.Utilisateur__c}"/>
+                    </div>
+                </apex:outputPanel>
+                
+                <div style="padding-right: 20px;">Mission:</div>
+                <div style="float:left; margin-right: 30px;padding-top: 0;">
+                    <apex:inputField value="{!dummyEquipeConsultant.MissionCIR__c}" required="false"/>
+                </div>
+                
+                <div style="padding-right: 20px;">Phase:</div>
+                <div style="float:left; margin-right: 30px;padding-top: 0;">
+                    <apex:selectList size="1" value="{!selectedPhaseFilter}" style="width: 120px;">
+                        <apex:selectOptions value="{!availablePhasesFilter}"/>
+                    </apex:selectList>
+                </div>
+                
+                <div style="padding-right: 20px;">Statut Consultant:</div>
+                <div style="float:left; margin-right: 30px;padding-top: 0;">
+                    <apex:selectList size="1" value="{!selectedActivityFilter}" style="width: 120px;">
+                        <apex:selectOptions value="{!availableActivityFilter}"/>
+                    </apex:selectList>
+                </div>
+                
+                <apex:commandButton action="{!applyFilters}" value="Valider"/>
+            </div>
+        </apex:outputPanel>
+    </apex:form>  
+    
+    <apex:pageMessages />
+    
+    <apex:pageMessage title="Aucune Timesheet existante" rendered="{!consultantsJSON == '[]'}" severity="WARNING" strength="2" />
+    
+    <apex:outputPanel layout="none">
+        <table class="planning legende">
+            <tr>
+                <td class="consultantName">Légende</td>
+                <td class="phaseName">
+                    <span class="color colorNoTime">&nbsp;</span>
+                    Aucun temps saisi
+                </td>
+                <td class="phaseName">
+                    <span class="color colorLessTime">&nbsp;</span>
+                    Temps saisi &lt;= théorique
+                </td>
+                <td class="phaseName">
+                    <span class="color colorMoreTime">&nbsp;</span>
+                    Temps saisi &gt; théorique
+                </td>
+            </tr>
+        </table>
+    </apex:outputPanel>
+    
+    
+    <div id="planningTop"></div>
+    <table id="planning" class="planning">
+        
+    </table>
+    
+    <div id="loadingNexts">Chargement ...</div>
+    <div id="planningBottom"></div>
+    
+    
+    <script>
+        $('select[id$=_mlktp]').hide();
+        var othersTimes = {!otherTimesForMissionFilterJSON};
+        
+        var consultants = {!consultantsJSON};
+        var monthsInfos = {!monthsJSON};
+        
+        var saveTimeSheetRemoteAction = '{!$RemoteAction.INNOtimeSheetPlanningCtrl2.saveTimeSheet}';
+        
+        
+        $(document).ready(function(){
+    
+            Planning.initPlanning();
+            
+            $('#planning tr.phaseRow.editable td.day').click(function(event){
+                
+                if(event.target.nodeName == 'TD')
+                    Planning.showDayEditMode($(this));
+            });
+            
+            $('#planning tr.phaseRow.editable td.day').draggable({
+                addClasses : false,
+                snap: '#planning tr.phaseRow.editable td.day',
+                snapMode: 'inner',
+                revert : 'invalid',
+                revertDuration : 300,
+                appendTo: '#planning',
+                helper: 'clone',
+                start : function(event, ui){
+                    //On ne peut pas déplacer une cellule sans temps saisi
+                    if(!this.innerHTML)
+                        event.preventDefault();
+                }
+            }).droppable({
+                accept: '#planning tr.phaseRow.editable td.day', 
+                addClasses: false,
+                drop:function(event, ui){
+                    Planning.showDayEditMode
+                    
+                    
+                    
+                    
+                    var elt = $(this).html('<input type="text" value="' + $(ui.draggable).html() + '"/>').find('input');
+                    Planning.hideDayEditMode($(ui.draggable).html('<input type="text" value="" />').find('input'));
+                    window.setTimeout(function(){
+                        Planning.hideDayEditMode(elt);
+                    }, 500);
+                    
+                }
+            });
+            
+            
+            $('#planning tr.phaseRow').on('keypress', 'input', function(event){
+                if(event.keyCode == 13)
+                    Planning.hideDayEditMode($(this));
+            });
+            
+            $('#planning tr.phaseRow').on('blur', 'input', function(event){
+                Planning.hideDayEditMode($(this));
+                    
+            });
+            
+        
+            
+            var timer;
+
+            $(window).scroll(function() {
+                // if(timer) 
+                //  window.clearTimeout(timer);
+                
+            
+                // timer = window.setTimeout(function() {
+                    Planning.refreshScroll();
+                // }, 50);
+            });
+            
+        });
+        
+        
+        
+        
+        
+        Planning = {
+            
+            planningHeaderDays : null,
+            
+            planningTop : $('#planningTop'),
+            planningBottom : $('#planningBottom'),
+            
+            allDays : [],
+            
+            headerFixed : false,
+            fixedConsultantId : null,
+            consultantsChunkSize : 2,
+            consultantsChunkIndex : 0,
+            
+            consultantRowsTop : [],
+            
+            isLoading : true,
+            
+            editModeEnabled : false,
+            
+            daysHtml : '',
+            
+            initPlanning : function(){
+            
+                if(consultants == '[]'){
+                    document.getElementById('loadingNexts').style.display = 'none';
+                }
+                else{
+                    this.drawHeader();
+                    this.drawConsultantsRowsChunk();
+                }
+            },
+            
+            drawHeader : function(){
+                var tableHtml = '<thead id="planningHeader">' + 
+                                    '<tr>' + 
+                                        '<th rowspan="2" class="consultantName"></th>';
+                
+                var headerDaysHtml = '';
+                
+                var tableWidth = 270;
+                
+                for(var m = 0; m < monthsInfos.length; m++){
+                    tableHtml +=        '<th class="month" colspan="' + monthsInfos[m].days.length + '">' + monthsInfos[m].name + '</th>'
+                    for(var d = 0; d < monthsInfos[m].days.length; d++){
+                        headerDaysHtml += '<th class="day ' + (monthsInfos[m].days[d].isFriday ? 'weekEnd' : '') + '" data-date="' + monthsInfos[m].days[d].dateFormatted + '">' + monthsInfos[m].days[d].d.substring(monthsInfos[m].days[d].d.lastIndexOf('-') + 1) + '</th>';
+                        this.daysHtml += '<td class="day day_' + monthsInfos[m].days[d].dateFormatted + (monthsInfos[m].days[d].isFriday ? ' weekEnd' : '') + '" data-date="' + monthsInfos[m].days[d].dateFormatted + '"></td>';
+                        this.allDays.push(monthsInfos[m].days[d].dateFormatted);
+                        tableWidth += 21;
+                    }
+                }
+                
+                tableHtml +=        '</tr>' + 
+                                    '<tr id="planningDays">' + 
+                                        headerDaysHtml + 
+                                    '</tr>' +
+                                '</thead>' + 
+                                '<tbody id="planningBody" >' + 
+                                '</tbody>';
+                
+                
+                document.getElementById('planning').innerHTML = tableHtml;
+                // document.getElementById('planning').style.width = tableWidth + 'px';
+                // document.getElementById('planningHeader').style.width = tableWidth + 'px';
+                document.head.innerHTML += '<style> #planning, #planning thead, #planning tr{width: ' + tableWidth + 'px;}</style>';
+                this.planningHeaderDays = $('#planning > thead');
+                
+            },
+            
+            drawConsultantsRowsChunk : function(){
+                this.isLoading = true;
+                var consultantsChunk = consultants.slice(this.consultantsChunkIndex, this.consultantsChunkIndex + this.consultantsChunkSize);
+                
+                this.consultantsChunkIndex += this.consultantsChunkSize;
+                
+                if(consultantsChunk.length <= 0){
+                    document.getElementById('loadingNexts').style.display = 'none';
+                    return;
+                }
+                
+                var rowsHtml = '';
+                
+                for(var c = 0; c < consultantsChunk.length; c++){
+                    rowsHtml += '<tr class="consultantTopRow" id="consultantTop_' + consultantsChunk[c].userId + '"><td colspan="' + this.allDays.length + 1 + '" ></td></tr>' + 
+                                '<tr class="consultantRow" data-user-id="' + consultantsChunk[c].userId + '" id="consultant_' + consultantsChunk[c].userId + '">' + 
+                                    '<td class="consultantName">' + consultantsChunk[c].userName + '</td>' + 
+                                    this.daysHtml + 
+                                '</tr>';
+                    
+                    for(var m = 0; m < consultantsChunk[c].missions.length; m++){
+                        rowsHtml += '<tr class="missionRow" >' + 
+                                        '<td class="missionName">' + (consultantsChunk[c].missions[m].mission ? consultantsChunk[c].missions[m].mission.Name : 'Général') + '</td>' + 
+                                        this.daysHtml + 
+                                    '</tr>';
+                        
+                        for(var p = 0; p < consultantsChunk[c].missions[m].usedPhases.length; p++){
+                            rowsHtml += '<tr class="phaseRow ' + (consultantsChunk[c].missions[m].editable ? 'editable' : '') + '" data-mission-id="' + (consultantsChunk[c].missions[m].mission ? consultantsChunk[c].missions[m].mission.Id : '') + '" data-phase="' + consultantsChunk[c].missions[m].usedPhases[p].phaseTechnique + '" data-user-id="' + consultantsChunk[c].userId + '" id="phaseRow_' + consultantsChunk[c].userId + '_' + (consultantsChunk[c].missions[m].mission ? consultantsChunk[c].missions[m].mission.Id : 'general') + '_' + consultantsChunk[c].missions[m].usedPhases[p].phaseTechnique + '">' + 
+                                            '<td class="phaseName">' + 
+                                            '<span class="color ' + consultantsChunk[c].missions[m].usedPhases[p].colorClass + '">&nbsp;</span>' +
+                                            consultantsChunk[c].missions[m].usedPhases[p].phase +
+                                            '<span style="width:30px;text-align:center;float:right;">' + consultantsChunk[c].missions[m].usedPhases[p].indicateurDelta + '</span>' +
+                                            '</td>' + 
+                                            this.daysHtml + 
+                                        '</tr>';
+                        }           
+                    }
+                }
+                document.getElementById('planningBody').innerHTML += rowsHtml;
+                this.consultantRowsTop = $('#planning tr.consultantTopRow');
+                this.drawTimeSheets(consultantsChunk);
+            },
+            
+            drawTimeSheets : function(consultantsChunk){
+                
+                for(var c = 0; c < consultantsChunk.length; c++){
+                    
+                    var totalsByDay = {};
+                    
+                    //Rempli les cellule avec les TS
+                    for(var i = 0; i < consultantsChunk[c].timeSheets.length; i++){
+                        var timeSheet = consultantsChunk[c].timeSheets[i];
+                        //console.log(timeSheets[i].mission + '-' + timeSheets[i].phase)
+                        
+                        var row = document.getElementById('phaseRow_' + timeSheet.xUser + '_' + timeSheet.mission + '_' + timeSheet.phase);
+                        if(row){
+                            var cell = row.getElementsByClassName('day_' + timeSheet.dateStr)[0];
+                            if(cell){
+                                if(!totalsByDay[timeSheet.dateStr])
+                                    totalsByDay[timeSheet.dateStr] = 0;
+                                    
+                                totalsByDay[timeSheet.dateStr] += toFloat(timeSheet.duree);
+                                
+                                cell.innerHTML = timeSheet.duree;
+                                if(timeSheet.theorique)
+                                    cell.className += ' theoretic';
+                            }
+                        }
+                    }
+                    
+                    if(othersTimes[consultantsChunk[c].userId]){
+                        $.each(othersTimes[consultantsChunk[c].userId], function(date, totalOtherMissions){
+                            console.log(date)   
+                            console.log(totalOtherMissions) 
+                            
+                            if(!totalsByDay[date])
+                                totalsByDay[date] = 0;
+                                
+                            totalsByDay[date] += toFloat(totalOtherMissions);
+                        });
+                    }
+                    
+                    
+                
+                    $.each(totalsByDay, function(date, duration){
+                        Planning.drawDayTotal(consultantsChunk[c].userId, date, duration);
+                    });
+                }
+                this.isLoading = false;
+            
+            },
+        
+            
+            showDayEditMode : function(elt){
+                if(!this.editModeEnabled){
+                    
+                    elt.html('<input type="text" value="' + elt.html() + '" />').find('input').focus();
+                    this.editModeEnabled = true;
+                }
+            },
+            
+            hideDayEditMode : function(elt){
+                var td = elt.parent();
+                var date = td.data('date');
+                var parentTR = elt.closest('tr');
+                var userId = parentTR.data('userId');
+                var duree = elt.val();
+                
+                
+                if(this.calculatingDayTotal(userId, date)){
+                    
+                    elt.attr('class', 'waiting');
+                    Visualforce.remoting.Manager.invokeAction(
+                        saveTimeSheetRemoteAction, 
+                        parentTR.data('missionId') || 'general', date, parentTR.data('phase'), duree, userId, 
+                        function(result, event){
+                            
+                            if(event.status && result) {
+                                elt.attr('class', 'success');
+                                Planning.editModeEnabled = false;
+                                var theoretic = (duree != '' && elt.parent().hasClass('isFuture'));
+                                elt.parent().html(duree).toggleClass('theoretic', theoretic);
+            
+                            }else { 
+                                elt.attr('class', 'error');
+                            }   
+            
+                        }
+                    );
+                    
+                }
+                else{
+                    elt.attr('class', 'error');
+                }
+                
+                
+            },
+            
+            
+            
+            calculatingDayTotal : function(userId, date){
+                var totalOfDay = 0;
+                if(othersTimes[userId]){
+                    totalOfDay = toFloat(othersTimes[userId][date]);
+                }
+        
+                $('#planning tr.phaseRow[data-user-id=' + userId + '] > td.day_' + date).each(function(){
+                    if(this.childNodes.length){
+                        totalOfDay += toFloat(this.childNodes[0].nodeName == 'INPUT' ? this.childNodes[0].value : this.innerHTML);
+                    }
+                })
+                
+                this.drawDayTotal(userId, date, totalOfDay);
+                
+                return totalOfDay <= 1;
+            },
+            
+            drawDayTotal : function(userId, date, duration){
+                duration = Math.round( duration * 100) / 100;
+                var totalTD = $('#consultant_' + userId + ' > td.day_' + date);
+                
+                totalTD.removeClass().addClass('day day_' + date + ' rate_' + (duration < 0.8 ? 'green' : (duration < 0.9 ? 'orange' : 'red')));
+                totalTD.html(duration == 0 ? '' : duration);
+                
+            },
+    
+            
+            refreshScroll : function(){ 
+                //Fixe en haut de la page le Header du planning lorsque qu'il sort de la page
+                if(this.isScrolledIntoView( this.planningTop )){
+                    if(this.headerFixed){
+                        this.planningHeaderDays.removeClass('fixed');
+                        this.headerFixed = false;
+                    }
+                }
+                else{
+                    if(!this.headerFixed){
+                        this.planningHeaderDays.addClass('fixed');
+                        this.headerFixed = true;
+                    }
+                }
+                
+                
+                //Fixe en haut de la page la ligne du consultant lorsque qu'elle sort de la page
+                var lastHiddenConsultantId;
+                this.consultantRowsTop.each(function(){
+                    if(this.className.indexOf('fixed') < 0 && !Planning.isScrolledIntoViewTop( $(this))){
+                        lastHiddenConsultantId = this.id;
+                    }
+                });
+                
+                if(lastHiddenConsultantId != this.fixedConsultantId){
+                    this.fixedConsultantId = lastHiddenConsultantId;
+                    $('tr.consultantRow').removeClass('fixed');
+    
+                    if(lastHiddenConsultantId)
+                        $('#' + lastHiddenConsultantId.replace('Top', '')).addClass('fixed');
+                }
+                
+                
+                if(this.isScrolledIntoView( this.planningBottom )){
+                    if(!this.isLoading)
+                        this.drawConsultantsRowsChunk();
+                }
+                    
+            },
+            
+            /**
+            *   Dit si l'element $oElem est visible ou caché par le scroll de la page (uniquement caché par le haut)
+            */
+            isScrolledIntoView : function($oElem){
+        
+                var docViewTop = $(window).scrollTop();
+                var docViewBottom = docViewTop + $(window).height();
+                
+                var elemTop = $oElem.offset().top;
+                var elemBottom = elemTop + $oElem.height();
+                
+                return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
+
+                
+            },
+            
+            isScrolledIntoViewTop : function($oElem){
+        
+                var docViewTop = $(window).scrollTop();
+                
+                var elemTop = $oElem.offset().top;
+                
+                return (elemTop >= docViewTop);
+            }
+        }
+        
+        function toFloat(val){
+            if(!val)
+                return 0;
+            
+            return parseFloat(val);
+        }
+        
+    </script>
+    
+</apex:page>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Permet de bloquer la facturation antérieure à une date</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Date_blocage__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Aucune création de facture possible antérieure ou égale à la date indiquée</inlineHelpText>
+        <label>Date blocage</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <label>FacturationSetting</label>
+    <visibility>Public</visibility>
+</CustomObject>

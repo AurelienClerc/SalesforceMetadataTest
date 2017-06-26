@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Projet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Projets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Chef de projet --></label>
+        <name>Chef_de_projet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires --></label>
+        <name>Commentaires__c</name>
+    </fields>
+    <fields>
+        <label><!-- Département --></label>
+        <name>Departement__c</name>
+        <relationshipLabel><!-- Projets --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Difficultés techniques / Incertitudes technologiques --></help>
+        <label><!-- Difficultés techniques --></label>
+        <name>Difficultes_techniques__c</name>
+    </fields>
+    <fields>
+        <help><!-- Etat de l&apos;art / Motivations à l&apos;origine du projet --></help>
+        <label><!-- Etat de l&apos;art --></label>
+        <name>Etat_de_art__c</name>
+    </fields>
+    <fields>
+        <help><!-- Existence de documents justificatifs et nature --></help>
+        <label><!-- Existence de documents justificatifs --></label>
+        <name>Existence_documents_justificatifs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Heures R&amp;D option 1 --></label>
+        <name>Heures_RD_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Heures R&amp;D option 2 --></label>
+        <name>Heures_RD_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Heures R&amp;D option 3 --></label>
+        <name>Heures_RD_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Id d&apos;import --></label>
+        <name>ImportId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Jours R&amp;D option 1 --></label>
+        <name>Jours_RD_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Jours R&amp;D option 2 --></label>
+        <name>Jours_RD_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Jours R&amp;D option 3 --></label>
+        <name>Jours_RD_option3__c</name>
+    </fields>
+    <fields>
+        <help><!-- Si le projet est inclus dans un ensemble de projets, précisez le nom de cet ensemble. --></help>
+        <label><!-- Nom du regroupement de projet --></label>
+        <name>Nom_regroupement_projet__c</name>
+    </fields>
+    <fields>
+        <label><!-- N° de projet --></label>
+        <name>Num_projet__c</name>
+    </fields>
+    <fields>
+        <help><!-- Objectifs du projet / Buts techniques visés --></help>
+        <label><!-- Objectifs du projet --></label>
+        <name>Objectifs_projet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prod Id --></label>
+        <name>Prod_Id__c</name>
+    </fields>
+    <fields>
+        <help><!-- Progrès accomplis / Avancée des connaissances --></help>
+        <label><!-- Progrès accomplis --></label>
+        <name>Progres_accomplis__c</name>
+    </fields>
+    <fields>
+        <help><!-- Travaux menés : Grandes orientations et étapes --></help>
+        <label><!-- Travaux menés --></label>
+        <name>Travaux_menes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+        <picklistValues>
+            <masterLabel>brevetPM</masterLabel>
+            <translation><!-- brevetPM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>normalisation</masterLabel>
+            <translation><!-- normalisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>projet</masterLabel>
+            <translation><!-- projet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>veille</masterLabel>
+            <translation><!-- veille --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Valorisation --></label>
+        <name>Valorisation__c</name>
+        <relationshipLabel><!-- Projets --></relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Présentation Projet 2</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Accord de principe</masterLabel>
+        <translation>In principle agreement</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Fermée gagnée</masterLabel>
+        <translation>Closed win</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Fermée: refus de l&apos;offre</masterLabel>
+        <translation>Closed : proposal turned down</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Fermée: refus du RDV</masterLabel>
+        <translation>Closed : meeting turned down</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Négociation</masterLabel>
+        <translation>Negotiation</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Proposition Envoyée</masterLabel>
+        <translation>Proposal sent</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Proposition validée</masterLabel>
+        <translation><!-- Proposition validée --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pré-qualification</masterLabel>
+        <translation>Pre-qualification</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Qualification en cours</masterLabel>
+        <translation>Qualification in process</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Qualifiée cible</masterLabel>
+        <translation>Qualified target</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV effectué</masterLabel>
+        <translation>Meeting done</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV pris</masterLabel>
+        <translation>Appointment taken</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV validé</masterLabel>
+        <translation>Appointment approved</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV à prendre</masterLabel>
+        <translation>Appointment to be taken</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV à repositionner</masterLabel>
+        <translation><!-- RDV à repositionner --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

@@ -1,0 +1,93 @@
+<apex:page controller="PortailATctrl" showHeader="false" sidebar="false"  applyHtmlTag="false">
+    
+    <apex:composition template="{!$Site.Template}">
+        <apex:define name="title">Factures</apex:define>
+        
+        <apex:define name="header">
+            <style>
+
+            </style>
+            
+            
+        </apex:define>
+            
+         <apex:define name="body">
+            <h2 >Factures</h2>
+            
+            <div class="well">
+                <h4>Factures en attente de règlement</h4>
+                <br />
+                <table class="table table-hover">
+                    
+                    <thead>
+                        <tr>
+                            <th>N° de facture</th>
+                            <th>Etablissement</th>
+                            <th>Objet</th>
+                            <th>Statut</th>
+                            <th>Montant HT</th>
+                            <th>Montant TTC</th>
+                            <th>Echéance</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!factures}" var="fact">
+                            <tr>
+                                <td nowrap="nowrap">{!fact.Name}</td>
+                                <td nowrap="nowrap"><a href="/PortailATetablissements?id={!fact.Planificiations_de_facturation__r[0].Etablissement__c}">{!fact.Planificiations_de_facturation__r[0].Etablissement__r.Ville__c}{!IF(ISBLANK(fact.Planificiations_de_facturation__r[0].Etablissement__r.Entite__c), '', ' - ' + fact.Planificiations_de_facturation__r[0].Etablissement__r.Entite__c)}</a></td>
+                                <td>
+                                    <apex:repeat value="{!fact.Details_facture__r}" var="factItem">
+                                        <apex:outputText value="{!SUBSTITUTE(factItem.Description__c,'<br><br>','<br>')}<br />" rendered="{!!ISBLANK(factItem.Description__c)}" escape="false" />
+                                    </apex:repeat>
+                                </td>
+                                <td nowrap="nowrap">A payer</td>
+                                <td nowrap="nowrap"><apex:outputField value="{!fact.Montant_HT__c}" /></td>
+                                <td nowrap="nowrap"><apex:outputField value="{!fact.Montant_TTC__c}" /></td>
+                                <td nowrap="nowrap"><apex:outputField value="{!fact.Echeance__c}" /></td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </div>
+            
+                        
+                        
+            <div class="well">
+                <h4>Factures à émettre</h4>
+                <br />
+                <table class="table table-hover">
+                    
+                    <thead>
+                        <tr>
+                            <th>Dossiers salariés</th>
+                            <th>Etablissement</th>
+                            <th>Statut</th>
+                            <th>Montant HT</th>
+                            <th>Date prévue</th>
+                            <th>Période concernée</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <apex:repeat value="{!previsionsFactures}" var="prev">
+                            <tr>
+                                <td>{!prev.Dossier_salarie__c}</td>
+                                <td><a href="/PortailATetablissements?id={!prev.Etablissement__c}">{!prev.Etablissement__r.Ville__c}{!IF(ISBLANK(prev.Etablissement__r.Entite__c), '', ' - ' + prev.Etablissement__r.Entite__c)}</a></td>
+                                <td>{!prev.Motif_attente_facturation__c}</td>
+                                <td><apex:outputField value="{!prev.Prevision_HT__c}"/></td>
+                                <td>
+                                    <apex:outputField value="{!prev.Date_prevue__c}" rendered="{!prev.Motif_attente_facturation__c == 'Prêt à facturer'}"/>
+                                    <apex:outputText value="{!YEAR(prev.Date_prevue__c)}" rendered="{!prev.Motif_attente_facturation__c != 'Prêt à facturer'}"/>
+                                </td>
+                                <td><apex:outputField value="{!prev.Periode_debut__c}"/>&nbsp;-&nbsp;<apex:outputField value="{!prev.Periode_fin__c}"/></td>
+                            </tr>
+                        </apex:repeat>
+                    </tbody>
+                </table>
+            </div>
+
+         </apex:define>
+    </apex:composition>
+    
+    
+
+</apex:page>

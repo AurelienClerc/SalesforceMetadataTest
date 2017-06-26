@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Activé</masterLabel>
+        <translation>Ativado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Clos</masterLabel>
+        <translation>Fechado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Non activé</masterLabel>
+        <translation>Não Ativado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Processus d&apos;approbation en cours</masterLabel>
+        <translation>No processo de aprovação</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

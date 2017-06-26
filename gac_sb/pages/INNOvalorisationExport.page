@@ -1,0 +1,2020 @@
+<apex:page standardController="INNOvalo__c" extensions="INNOvalorisationExportCtrl" action="{!initDatas}" sidebar="false" showHeader="false" showChat="false" readOnly="true" contentType="application/vnd.ms-excel#{!fileName}.xls">{!xmlHeader}
+
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:html="http://www.w3.org/TR/REC-html40" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet" xmlns:x="urn:schemas-microsoft-com:office:excel">
+  
+    <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+        <Author>Global Approach Consulting</Author>
+        <LastAuthor>Global Approach Consulting</LastAuthor>
+        <Created>{!dateNowFormated}</Created>
+        <LastSaved>{!dateNowFormated}</LastSaved>
+        <Company>Global Approach Consulting</Company>
+        <Version>1</Version>
+    </DocumentProperties>
+    
+    <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+        <WindowHeight>8535</WindowHeight>
+        <WindowWidth>12345</WindowWidth>
+        <WindowTopX>480</WindowTopX>
+        <WindowTopY>90</WindowTopY>
+        <ProtectStructure>False</ProtectStructure>
+        <ProtectWindows>False</ProtectWindows>
+    </ExcelWorkbook>
+    
+    <c:AppCIRexportValorisationStyles />
+    
+    <apex:variable var="apos" value="'"/>
+    
+    <Worksheet ss:Name="Société">
+        <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="60" ss:DefaultRowHeight="15">
+            <Column ss:Width="220"/>
+            <Column ss:StyleID="center" ss:Width="170"/>
+            <Column ss:Width="220"/>
+            <Row ss:Height="72.75"/>
+            <Row ss:Height="18.75">
+                <Cell ss:StyleID="H1red"><Data ss:Type="String">DOCUMENT CONFIDENTIEL A USAGE INTERNE</Data></Cell>
+            </Row>
+            <Row ss:Index="5" ss:Height="45.75">
+                <Cell ss:StyleID="blueBold"><Data ss:Type="String">Nom de la société :</Data></Cell>
+                <Cell ss:StyleID="redCenterBorderBlue2222"><Data ss:Type="String">{!MID(valo.Name, 9, LEN(valo.Name)-14)}</Data></Cell>
+            </Row>
+            <Row ss:Index="7">
+                <Cell ss:StyleID="bold"><Data ss:Type="String">Taux de {!IF(valo.RecordType.DeveloperName == 'CII', 'CII', 'CIR')} :</Data></Cell>
+                <Cell ss:StyleID="percentCenter"><Data ss:Type="Number">{!IF(valo.RecordType.DeveloperName == 'CII', valo.MissionCIR__r.TauxCII__c/100, valo.MissionCIR__r.Taux_CIR__c/100)}</Data></Cell>
+            </Row>
+            <Row ss:Index="8">
+                <Cell ss:StyleID="bold"><Data ss:Type="String">Option choisie :</Data></Cell>
+                <Cell ss:StyleID="percentCenter"><Data ss:Type="String">{!RIGHT(fileName,LEN(fileName)-FIND('- Option',fileName)-1)}</Data></Cell>
+            </Row>
+            <Row ss:Index="9">
+                <Cell ss:StyleID="bold"><Data ss:Type="String">Nb de personnes en {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')} :</Data></Cell>
+                <Cell ss:StyleID="integerCenter" ss:Formula="{!IF(projets.size > 0, '=COUNT(' & apos & 'Détail projets ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!C[' & TEXT(projets.size + 1) & ']:C[' & TEXT(projets.size + 1) & ']) - 1' , '')}"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+        </Table>
+        
+        <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Fiche société" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+ 
+    </Worksheet>
+    
+    <apex:variable var="personnelCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!projets.size > 0}">
+        <Worksheet ss:Name="Détail projets {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="90" ss:DefaultRowHeight="15">
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                
+                <!-- Modifs -->
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="borderBlack1000"></Cell>
+                    <Cell ss:StyleID="borderBlack1100"></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack1000" ss:MergeAcross="{!projets.size - 1}"><Data ss:Type="String">PROJETS</Data></Cell>
+                    <Cell ss:StyleID="borderBlack1001"></Cell>
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:StyleID="borderBlack1001"></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="borderBlack1001"></Cell>
+                    <Cell ss:StyleID="borderBlack1001"></Cell>
+                    <Cell ss:StyleID="borderBlack1001"></Cell>
+                </Row>
+                <!-- Modifs -->
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack0010"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack0110"><Data ss:Type="String">Prénom</Data></Cell>
+                    <apex:repeat value="{!projets}" var="projet">
+                        <Cell ss:StyleID="centerBoldBorderBlack1010"><Data ss:Type="String">{!projet.Name}</Data></Cell>
+                    </apex:repeat>
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Veille et normalisation</Data></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Total jours {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Total jours hors projets {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Total heures {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                	<Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Total heures hors projet {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                </Row>
+                
+                <!-- Modifs -->
+                <Row>
+                    <Cell ss:Index="2" ss:StyleID="borderBlack0100"></Cell>
+                    <Cell ss:Index="{!3 + projets.size}" ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    <Cell ss:Index="{!4 + projets.size}" ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:Index="{!5 + projets.size}" ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:Index="{!6 + projets.size}" ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    <Cell ss:Index="{!7 + projets.size}" ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                </Row>
+                <!-- Modifs -->
+                <apex:repeat value="{!personnelsJours}" var="personnel">
+                <apex:outputPanel layout="none" rendered="{!personnel['Heures_RD_option'+opts[personnel.RecordType.DeveloperName]+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell ss:StyleID="borderBlack0100"><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <!-- On a précalculé la ligne en APEX car c'est bien plus rapide que de boucler sur les projet en VF -->
+                    {!personnelsProjets[personnel.Id]}
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:StyleID="integerCenterBoldBorderBlack0001"><Data ss:Type="Number">{!personnelsToProjetVeille[personnel.Id]}</Data></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack0001" ss:Formula="=SUM(RC[-{!projets.size}]:RC[-1])" ><Data ss:Type="Number"></Data></Cell>
+                	<Cell ss:StyleID="integerCenterBoldBorderBlack0001"><Data ss:Type="Number">{!personnelsToProjetNoRD[personnel.Id]}</Data></Cell>
+                	<Cell ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                	<Cell ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                </Row>
+                <apex:variable var="personnelCount" value="{!personnelCount + 1}"/>
+                </apex:outputPanel>
+                </apex:repeat>
+                
+                <!-- Modifs -->
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL (Jours)</Data></Cell>
+                    <apex:repeat value="{!projets}" var="projet">
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    </apex:repeat>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000"></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000"></Cell>
+                </Row>
+                
+                <!-- Modifs -->
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="borderBlack1000"></Cell>
+                    <Cell ss:StyleID="borderBlack1100"></Cell>
+                    <Cell ss:StyleID="borderBlack1001"></Cell>
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:StyleID="borderBlack1001"></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="borderBlack1001"></Cell>
+                    <Cell ss:StyleID="borderBlack1001"></Cell>
+                    <Cell ss:StyleID="borderBlack1001"></Cell>
+                    <Cell ss:StyleID="borderBlack1001"></Cell>
+                </Row>
+                <!-- Modifs -->
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack0010"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack0110"><Data ss:Type="String">Prénom</Data></Cell>
+                    <apex:repeat value="{!projets}" var="projet">
+                        <Cell ss:StyleID="centerBoldBorderBlack1010"><Data ss:Type="String">{!projet.Name}</Data></Cell>
+                    </apex:repeat>
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Veille et normalisation</Data></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Total jours {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Total jours hors projets {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Total heures {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                	<Cell ss:StyleID="centerBoldBorderBlack0011"><Data ss:Type="String">Total heures hors projet {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                </Row>
+                
+                <!-- Modifs -->
+                <Row>
+                    <Cell ss:Index="2" ss:StyleID="borderBlack0100"></Cell>
+                    <Cell ss:Index="{!3 + projets.size}" ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    <Cell ss:Index="{!4 + projets.size}" ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:Index="{!5 + projets.size}" ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                </Row>
+                
+                <!-- Modifs -->
+                <apex:repeat value="{!personnelsHeures}" var="personnel">
+                <apex:outputPanel layout="none" rendered="{!personnel['Heures_RD_option'+opts[personnel.RecordType.DeveloperName]+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell ss:StyleID="borderBlack0100"><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <!-- On a précalculé la ligne en APEX car c'est bien plus rapide que de boucler sur les projet en VF -->
+                    {!personnelsProjets[personnel.Id]}
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:StyleID="integerCenterBoldBorderBlack0001"><Data ss:Type="Number">{!personnelsToProjetVeille[personnel.Id]}</Data></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack0001"></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack0001" ss:Formula="=SUM(RC[-{!projets.size + 3}]:RC[-4])" ><Data ss:Type="Number"></Data></Cell>
+                	<Cell ss:StyleID="integerCenterBoldBorderBlack0001"><Data ss:Type="Number">{!personnelsToProjetNoRD[personnel.Id]}</Data></Cell>
+                </Row>
+                <apex:variable var="personnelCount" value="{!personnelCount + 1}"/>
+                </apex:outputPanel>
+                </apex:repeat>
+                <!-- Modifs -->
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL (Heures)</Data></Cell>
+                    <apex:repeat value="{!projets}" var="projet">
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    </apex:repeat>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000"></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000"></Cell>
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <!-- Modifs -->
+                <Row>
+                    <Cell ss:StyleID="borderBlack1000"></Cell>
+                    <Cell ss:StyleID="borderBlack1000"></Cell>
+                    <Cell ss:StyleID="borderBlack1000"></Cell>
+                    <Cell ss:Index="{!3 + projets.size}" ss:StyleID="borderBlack1000"></Cell>
+                    <Cell ss:Index="{!4 + projets.size}" ss:StyleID="borderBlack1000"></Cell>
+                    <apex:outputPanel layout="none" rendered="{!INNOvalo__c.RecordType.DeveloperName != 'CII'}">
+                        <Cell ss:Index="{!5 + projets.size}" ss:StyleID="borderBlack1000"></Cell>
+                    </apex:outputPanel>
+                    <Cell ss:StyleID="borderBlack1000"></Cell>
+                    <Cell ss:StyleID="borderBlack1000"></Cell>
+                </Row>
+                <!-- Modifs -->
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000"></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000"></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount + 4}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!personnelCount + 4}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-2]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-2]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Synthèse du temps passé par projet" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+        </Worksheet>
+    </apex:outputPanel>
+
+	<apex:variable var="nbRowsTypesDepenses" value="{!IF(valo.RecordType.DeveloperName == 'CII', 12, 14)}" />
+	
+    <Worksheet ss:Name="Dépenses et {!IF(valo.RecordType.DeveloperName == 'CII', 'CII', 'CIR')} projets {!valo.MissionCIR__r.Annee_CIR__c}">
+        <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15">
+            <Column ss:Width="200"/>
+            <Row ss:Height="20">
+                <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+            </Row>
+            <Row ss:Height="20"></Row>
+            <Row ss:Height="20">
+                <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Poste de dépenses</Data></Cell>
+                <apex:repeat value="{!projets}" var="projet">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">{!projet.Name}</Data></Cell>
+                </apex:repeat>
+                <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Non Affecté</Data></Cell>
+                <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">TOTAL</Data></Cell>
+            </Row>
+            <Row ss:Height="20"></Row>
+            
+            <!-- Modifs -->
+			<Row ss:Height="20">
+            	<Cell><Data ss:Type="String">Heures {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+            	<apex:repeat value="{!projets}" var="projet">
+                    <Cell ss:StyleID="integer"><Data ss:Type="Number">{!depensesParTypeEtProjet['Heures'][projet.Name]}</Data></Cell>
+                </apex:repeat>
+                <Cell ss:StyleID="integer"></Cell>
+                <Cell ss:StyleID="integer" ss:Formula="=SUM(RC[-{!projets.size+1}]:RC[-1])"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <!-- Modifs -->
+            <Row ss:Height="20">
+            	<Cell><Data ss:Type="String">Jours {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+            	<apex:repeat value="{!projets}" var="projet">
+                    <Cell ss:StyleID="integer"><Data ss:Type="Number">{!depensesParTypeEtProjet['Jours'][projet.Name]}</Data></Cell>
+                </apex:repeat>
+                <Cell ss:StyleID="integer"></Cell>
+                <Cell ss:StyleID="integer" ss:Formula="=SUM(RC[-{!projets.size+1}]:RC[-1])"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <Row ss:Height="20"></Row>
+                    
+            <apex:repeat value="{!typesDepenses}" var="type">
+                <apex:outputPanel layout="none" rendered="{! (type != 'Heures') ||  !(valo.RecordType.DeveloperName == 'CII' && (type == 'Normalisations' || type == 'Veilles'))}">
+                    <Row ss:Height="20">
+                        <Cell><Data ss:Type="String">{!IF(INNOvalo__c.RecordType.DeveloperName == 'CII', SUBSTITUTE(type,'brevets','brevets et modèles'), type)}</Data></Cell>
+                        <apex:repeat value="{!projets}" var="projet">
+                            <apex:outputPanel layout="none" rendered="{!type != 'Frais de fonctionnement'}">
+                                <Cell ss:StyleID="euro"><Data ss:Type="Number">{!depensesParTypeEtProjet[type][projet.Name]}</Data></Cell>
+                            </apex:outputPanel>
+                            <apex:outputPanel layout="none" rendered="{!type == 'Frais de fonctionnement'}">
+                                <Cell ss:StyleID="euro" ss:Formula="=((R[-4]C+R[-2]C)*0.5)+R[-3]C+(R[-1]C*0.75)"><Data ss:Type="Number"></Data></Cell>
+                            </apex:outputPanel>
+                        </apex:repeat>
+                        <apex:outputPanel layout="none" rendered="{!type != 'Frais de fonctionnement'}">
+                            <Cell ss:StyleID="euro"><Data ss:Type="Number">{!depensesParTypeEtProjet[type]['Non Affecté']}</Data></Cell>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!type == 'Frais de fonctionnement'}">
+                            <Cell ss:StyleID="euro" ss:Formula="=((R[-4]C+R[-2]C)*0.5)+R[-3]C+(R[-1]C*0.75)"><Data ss:Type="Number"></Data></Cell>
+                        </apex:outputPanel>
+                        <Cell ss:StyleID="euro" ss:Formula="=SUM(RC[-{!projets.size+1}]:RC[-1])"><Data ss:Type="Number"></Data></Cell>
+                    </Row>
+                </apex:outputPanel>
+            </apex:repeat>
+
+            <Row></Row>
+            <Row ss:Height="30">
+                <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">TOTAL</Data></Cell>
+                <apex:repeat value="{!projets}" var="projet">
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!nbRowsTypesDepenses + 4}]C:R[-5]C)-SUM(R[-2]C:R[-4]C)"><Data ss:Type="Number"></Data></Cell>
+                </apex:repeat>
+                <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!nbRowsTypesDepenses + 4}]C:R[-5]C)-SUM(R[-2]C:R[-4]C)"><Data ss:Type="Number"></Data></Cell>
+                <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!nbRowsTypesDepenses + 4}]C:R[-5]C)-SUM(R[-2]C:R[-4]C)"><Data ss:Type="Number"></Data></Cell>                
+            </Row>
+           
+        </Table>        
+        <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Dépenses par type et par projet" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+    </Worksheet>
+
+    <Worksheet ss:Name="Dépenses et départements {!valo.MissionCIR__r.Annee_CIR__c}">
+        <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15">
+            <Column ss:Width="200"/>
+            <Row ss:Height="20">
+                <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+            </Row>
+            <Row ss:Height="20"></Row>
+            <Row ss:Height="20">
+                <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Poste de dépenses</Data></Cell>
+                <apex:repeat value="{!departements}" var="departement">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">{!departement.Name}</Data></Cell>
+                </apex:repeat>
+                <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Non Affecté</Data></Cell>
+                <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">TOTAL</Data></Cell>
+            </Row>
+            <Row ss:Height="20"></Row>
+            
+            <!-- Modifs -->
+            <Row ss:Height="20">
+            	<Cell><Data ss:Type="String">Heures {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+            	<apex:repeat value="{!departements}" var="departement">
+                    <Cell ss:StyleID="integer"><Data ss:Type="Number">{!depensesParTypeEtDepartement['Heures'][departement.Name]}</Data></Cell>
+                </apex:repeat>
+                <Cell ss:StyleID="integer"></Cell>
+                <Cell ss:StyleID="integer" ss:Formula="=SUM(RC[-{!departements.size+1}]:RC[-1])"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <!-- Modifs -->
+            <Row ss:Height="20">
+            	<Cell><Data ss:Type="String">Jours {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+            	<apex:repeat value="{!departements}" var="departement">
+                    <Cell ss:StyleID="integer"><Data ss:Type="Number">{!depensesParTypeEtDepartement['Jours'][departement.Name]}</Data></Cell>
+                </apex:repeat>
+                <Cell ss:StyleID="integer"></Cell>
+                <Cell ss:StyleID="integer" ss:Formula="=SUM(RC[-{!departements.size+1}]:RC[-1])"><Data ss:Type="Number"></Data></Cell>
+            </Row> 
+            <Row ss:Height="20"></Row>
+            
+            <apex:repeat value="{!typesDepenses}" var="type">
+                <apex:outputPanel layout="none" rendered="{!!(valo.RecordType.DeveloperName == 'CII' && (type == 'Normalisations' || type == 'Veilles'))}">
+                    <Row ss:Height="20">
+                        <Cell><Data ss:Type="String">{!IF(INNOvalo__c.RecordType.DeveloperName == 'CII', SUBSTITUTE(type,'brevets','brevets et modèles'), type)}</Data></Cell>
+                        <apex:repeat value="{!departements}" var="departement">
+                            <apex:outputPanel layout="none" rendered="{!type != 'Frais de fonctionnement'}">
+                                <Cell ss:StyleID="euro"><Data ss:Type="Number">{!depensesParTypeEtDepartement[type][departement.Name]}</Data></Cell>
+                            </apex:outputPanel>
+                            <apex:outputPanel layout="none" rendered="{!type == 'Frais de fonctionnement'}">
+                                <Cell ss:StyleID="euro" ss:Formula="=((R[-4]C+R[-2]C)*0.5)+R[-3]C+(R[-1]C*0.75)"><Data ss:Type="Number"></Data></Cell>
+                            </apex:outputPanel>
+                        </apex:repeat>
+                        <apex:outputPanel layout="none" rendered="{!type != 'Frais de fonctionnement'}">
+                            <Cell ss:StyleID="euro"><Data ss:Type="Number">{!depensesParTypeEtDepartement[type]['Non Affecté']}</Data></Cell>
+                        </apex:outputPanel>
+                        <apex:outputPanel layout="none" rendered="{!type == 'Frais de fonctionnement'}">
+                            <Cell ss:StyleID="euro" ss:Formula="=((R[-4]C+R[-2]C)*0.5)+R[-3]C+(R[-1]C*0.75)"><Data ss:Type="Number"></Data></Cell>
+                        </apex:outputPanel>
+                        <Cell ss:StyleID="euro" ss:Formula="=SUM(RC[-{!departements.size+1}]:RC[-1])"><Data ss:Type="Number"></Data></Cell>
+                    </Row>
+                </apex:outputPanel>
+            </apex:repeat>
+            
+            <Row></Row>
+            <Row ss:Height="30">
+                <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">TOTAL</Data></Cell>
+                <apex:repeat value="{!departements}" var="departement">
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!nbRowsTypesDepenses + 4}]C:R[-5]C)-SUM(R[-2]C:R[-4]C)"><Data ss:Type="Number"></Data></Cell>
+                </apex:repeat>
+                <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!nbRowsTypesDepenses + 4}]C:R[-5]C)-SUM(R[-2]C:R[-4]C)"><Data ss:Type="Number"></Data></Cell>
+                <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!nbRowsTypesDepenses + 4}]C:R[-5]C)-SUM(R[-2]C:R[-4]C)"><Data ss:Type="Number"></Data></Cell>                
+            </Row>
+            
+        </Table>
+        <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Dépenses par type et par département" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+    </Worksheet>
+
+    <apex:variable var="opt" value="{!opts['salarie']}"/>
+    <apex:variable var="salarieCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_salarie_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Dépenses de personnel {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Row  ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Diplôme</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Fonction</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Matricule</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date d'entrée</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de sortie</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire brut annuel</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Intéressement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Participation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire chargé</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Heures {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Total heures travaillées</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnelsHeures}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel.RecordType.DeveloperName == 'salarie' && personnel['Heures_RD_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Diplome__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Fonction__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Matricule__c}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(personnel.Date_entree__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!personnel.Date_entree__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(personnel.Date_sortie__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!personnel.Date_sortie__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_brut_annuel_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Interessement_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Participation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_RD_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-1]*(RC[-6]+RC[-5]+RC[-4])"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="salarieCount" value="{!salarieCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL (Heures {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')})</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="percentCenterBoldBorderBlack2000" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                
+                
+                <!-- Grosse Modifs -->
+                
+                
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Diplôme</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Fonction</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Matricule</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date d'entrée</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de sortie</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire brut annuel</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Intéressement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Participation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire chargé</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Jours {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Total jours travaillés</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnelsJours}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel.RecordType.DeveloperName == 'salarie' && personnel['Heures_RD_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Diplome__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Fonction__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Matricule__c}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(personnel.Date_entree__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!personnel.Date_entree__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(personnel.Date_sortie__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!personnel.Date_sortie__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_brut_annuel_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Interessement_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Participation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_RD_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-1]*(RC[-6]+RC[-5]+RC[-4])"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="salarieCount" value="{!salarieCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL (Jours {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')})</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="percentCenterBoldBorderBlack2000" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!salarieCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=R[-{!salarieCount + 5}]C+R[-2]C"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=R[-{!salarieCount + 5}]C+R[-2]C"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=R[-{!salarieCount + 5}]C+R[-2]C"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=R[-{!salarieCount + 5}]C+R[-2]C"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=R[-{!salarieCount + 5}]C+R[-2]C"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=R[-{!salarieCount + 5}]C+R[-2]C"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="percentCenterBoldBorderBlack2000" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=R[-{!salarieCount + 5}]C+R[-2]C"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Dépenses de personnel {!IF(valo.RecordType.DeveloperName == 'CII', 'd innovation', 'de recherche')}" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+    <apex:variable var="opt" value="{!opts['miseDisposition']}"/>
+    <apex:variable var="miseDispositionCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_miseDisposition_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Mise à disposition {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="85" ss:DefaultRowHeight="15" >
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Société d'appartenance</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Diplôme</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Fonction</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Matricule</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">N° facture</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de facture</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nombre {!LOWER(valo.UniteTempsDepensesPersonnel__c)} R&amp;D</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nombre {!LOWER(valo.UniteTempsDepensesPersonnel__c)} factur{!IF(valo.UniteTempsDepensesPersonnel__c == 'Jours', 'és', 'ées')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant HT</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant HT retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnels}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel.RecordType.DeveloperName == 'miseDisposition' && personnel['Heures_RD_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Societe_appartenance__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Diplome__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Fonction__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Matricule__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell></Cell>
+                    <Cell></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_RD_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-3]/RC[-2]*RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="miseDispositionCount" value="{!miseDispositionCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!miseDispositionCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!miseDispositionCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!miseDispositionCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!miseDispositionCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Dépenses de mises à disposition" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+    </apex:outputPanel>
+   
+    
+    <apex:variable var="opt" value="{!opts['jeuneDocteur']}"/>
+    <apex:variable var="jeuneDocteurCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_jeuneDocteur_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Jeunes docteurs {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Row  ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Diplôme</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Fonction</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Matricule</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date d'entrée</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de sortie</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire brut annuel</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Intéressement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Participation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire chargé</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">{!valo.UniteTempsDepensesPersonnel__c} R&amp;D</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Total {!LOWER(valo.UniteTempsDepensesPersonnel__c)} travaill{!IF(valo.UniteTempsDepensesPersonnel__c == 'Jours', 'és', 'ées')}</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux R&amp;D</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu R&amp;D</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnels}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel.RecordType.DeveloperName == 'jeuneDocteur' && personnel['Heures_RD_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Diplome__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Fonction__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Matricule__c}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(personnel.Date_entree__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!personnel.Date_entree__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(personnel.Date_sortie__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!personnel.Date_sortie__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_brut_annuel_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Interessement_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Participation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_RD_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-1]*(RC[-6]+RC[-5]+RC[-4])"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="jeuneDocteurCount" value="{!jeuneDocteurCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!jeuneDocteurCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!jeuneDocteurCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!jeuneDocteurCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!jeuneDocteurCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!jeuneDocteurCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!jeuneDocteurCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="percentCenterBoldBorderBlack2000" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=2*SUM(R[-{!jeuneDocteurCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Dépenses de jeunes docteurs" anneeCIR="{valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+    
+        </Worksheet>
+    </apex:outputPanel>
+    
+ 
+        
+    
+    <apex:variable var="opt" value="{!opts['amortissement']}"/>
+    <apex:variable var="amortissementCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_amortissement_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="DA recherche {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="80"/>
+                <Column ss:Width="90"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Désignation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">N° d'immobilisation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Projet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date d'acquisition</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant d'acquisition</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Annuité d'amortissement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux affecté à la recherche</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!amortissements}" var="amortissement"><apex:outputPanel layout="none" rendered="{!amortissement.RecordType.DeveloperName == 'amortissement' && amortissement.Annuite_amortissement__c != 0 && amortissement['Taux_RD_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!amortissement.Name}</Data></Cell>
+                    <Cell ss:StyleID="center"><Data ss:Type="String">{!amortissement.Num_immobilisation__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!amortissement.Projet__r.Name}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!amortissement.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(amortissement.Date_acquisition__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!amortissement.Date_acquisition__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!amortissement.Montant_acquisition__c}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!amortissement.Annuite_amortissement__c}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter"><Data ss:Type="Number">{!amortissement['Taux_RD_option'+opt+'__c'] / 100}</Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-2]*RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="amortissementCount" value="{!amortissementCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!amortissementCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!amortissementCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!amortissementCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Dotations aux amortissements" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+        
+        
+    </apex:outputPanel>
+    
+    
+    <apex:outputPanel layout="none" rendered="false">
+        <Worksheet ss:Name="Crédit-Bail {!valo.MissionCIR__r.Annee_CIR__c}">
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+    <apex:outputPanel layout="none" rendered="false">
+        <Worksheet ss:Name="DA sinistrées {!valo.MissionCIR__r.Annee_CIR__c}">
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+    
+    
+    <apex:variable var="opt" value="{!opts['brevetPM']}"/>
+    <apex:variable var="brevetPMFactCount" value="{!0}"/>
+    <apex:variable var="brevetPMPersCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_brevetPM_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="PM Brevet {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prestataire</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nature prestation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">N° du brevet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date dépot</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de délivrance</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">N° Pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!prestations}" var="prestation"><apex:outputPanel layout="none" rendered="{!prestation.RecordType.DeveloperName == 'brevetPM' && prestation['Montant_retenu_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!prestation.Prestataire__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!prestation.Nature_prestation__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!prestation.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="center"><Data ss:Type="String">{!prestation.Num_brevet__c}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_de_depot__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_de_depot__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_delivrance__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_delivrance__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="center"><Data ss:Type="String">{!prestation.Num_piece__c}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_piece__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_piece__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!prestation['Montant_retenu_option'+opt+'__c']}</Data></Cell>
+                </Row>
+                <apex:variable var="brevetPMFactCount" value="{!brevetPMFactCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">SOUS TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!brevetPMFactCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            
+                <Row></Row>
+                
+                <!-- Grosse Modif -->
+                
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Intéressement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Participation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire chargé</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Heures PM brevet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Total heures travaillées</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux de PM brevet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu PM brevet</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnelsHeures}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel['Heures_brevetPM_option'+opt+'__c'] != 0 }">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Interessement_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Participation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_brevetPM_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-1]*(RC[-6]+RC[-5]+RC[-4])"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="brevetPMPersCount" value="{!brevetPMPersCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">SOUS TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!brevetPMPersCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Intéressement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Participation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire chargé</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Jours PM brevet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Total jours travaillés</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux de PM brevet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu PM brevet</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnelsJours}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel['Heures_brevetPM_option'+opt+'__c'] != 0 }">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Interessement_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Participation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_brevetPM_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-1]*(RC[-6]+RC[-5]+RC[-4])"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="brevetPMPersCount" value="{!brevetPMPersCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">SOUS TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!brevetPMPersCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=R[-2]C+R[-{!brevetPMPersCount + 7}]C"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Dépenses de prise et maintenance de brevets" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+     
+    
+    <apex:variable var="opt" value="{!opts['brevetDef']}"/>
+    <apex:variable var="brevetDefCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_brevetDef_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Def Brevet {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prestataire</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nature prestation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date dépot</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de délivrance</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">N° Pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!prestations}" var="prestation"><apex:outputPanel layout="none" rendered="{!prestation.RecordType.DeveloperName == 'brevetDef' && prestation['Montant_retenu_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!prestation.Prestataire__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!prestation.Nature_prestation__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!prestation.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_de_depot__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_de_depot__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_delivrance__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_delivrance__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="center"><Data ss:Type="String">{!prestation.Num_piece__c}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_piece__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_piece__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!prestation['Montant_retenu_option'+opt+'__c']}</Data></Cell>
+                </Row>
+                <apex:variable var="brevetDefCount" value="{!brevetDefCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!brevetDefCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Défenses de brevets" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+    </apex:outputPanel>
+ 
+    
+    
+    <apex:variable var="opt" value="{!opts['amortissementBrevet']}"/>
+    <apex:variable var="amortissementBrevetCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_amortissementBrevet_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="DA Brevet {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Désignation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date d'acquisition</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant d'acquisition</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Annuité d'amortissement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux affecté à la recherche</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!amortissements}" var="amortissement"><apex:outputPanel layout="none" rendered="{!amortissement.RecordType.DeveloperName == 'amortissementBrevet' && amortissement.Annuite_amortissement__c != 0 && amortissement['Taux_RD_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!amortissement.Name}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!amortissement.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(amortissement.Date_acquisition__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!amortissement.Date_acquisition__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!amortissement.Montant_acquisition__c}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!amortissement.Annuite_amortissement__c}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter"><Data ss:Type="Number">{!amortissement['Taux_RD_option'+opt+'__c'] / 100}</Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-2]*RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="amortissementBrevetCount" value="{!amortissementBrevetCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!amortissementBrevetCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!amortissementBrevetCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!amortissementBrevetCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Amortissements de brevets" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+   
+    
+    <apex:variable var="opt" value="{!opts['normalisation']}"/>
+    <apex:variable var="normalisationCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_normalisation_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Normalisation {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Row  ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                
+                <!-- Grosse Modifs -->
+                
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Fonction</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Organisme de normalisation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire brut annuel</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Intéressement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Participation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire chargé</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Heures normalisation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Total heures travaillées</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux normalisation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant normalisation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Calcul normalisation retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnelsHeures}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel['Heures_normalisation_option'+opt+'__c'] != 0 }">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Fonction__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Organisme_normalisation__c}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_brut_annuel_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Interessement_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Participation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_normalisation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-1]*(RC[-6]+RC[-5]+RC[-4])"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=+(RC[-1]*0.5)*1.3"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="normalisationCount" value="{!normalisationCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="2"><Data ss:Type="String">SOUS-TOTAL (Heures)</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!normalisationCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!normalisationCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="percentCenterBoldBorderBlack2000" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!normalisationCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!normalisationCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Fonction</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Organisme de normalisation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire brut annuel</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Intéressement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Participation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire chargé</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Jours normalisation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Total jours travaillés</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux normalisation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant normalisation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Calcul normalisation retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnelsJours}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel['Heures_normalisation_option'+opt+'__c'] != 0 }">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Fonction__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Organisme_normalisation__c}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_brut_annuel_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Interessement_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Participation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_normalisation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-1]*(RC[-6]+RC[-5]+RC[-4])"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=+(RC[-1]*0.5)*1.3"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="normalisationCount" value="{!normalisationCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="2"><Data ss:Type="String">SOUS-TOTAL (Jours)</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!normalisationCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="integerCenterBoldBorderBlack2000" ss:Formula="=SUM(R[-{!normalisationCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="percentCenterBoldBorderBlack2000" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!normalisationCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!normalisationCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="2"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=R[-2]C+R[-{!normalisationCount + 7}]C"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Dépenses de normalisation" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+      
+    
+    <apex:variable var="opt" value="{!opts['brevetAssu']}"/>
+    <apex:variable var="brevetAssuCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_brevetAssu_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Assurance Brevets {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prestataire</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nature prestation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date dépot</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de délivrance</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">N° Pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!prestations}" var="prestation"><apex:outputPanel layout="none" rendered="{!prestation.RecordType.DeveloperName == 'brevetAssu' && prestation['Montant_retenu_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!prestation.Prestataire__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!prestation.Nature_prestation__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!prestation.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_de_depot__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_de_depot__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_delivrance__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_delivrance__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="center"><Data ss:Type="String">{!prestation.Num_piece__c}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_piece__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_piece__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!prestation['Montant_retenu_option'+opt+'__c']}</Data></Cell>
+                </Row>
+                <apex:variable var="brevetAssuCount" value="{!brevetAssuCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL (Plafonnement à 60 000 €)</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=MIN(SUM(R[-{!brevetAssuCount + 2}]C:R[-1]C),60000)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Assurances de brevets" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+
+        </Worksheet>
+    </apex:outputPanel>
+    
+    
+    <apex:variable var="opt" value="{!opts['veille']}"/>
+    <apex:variable var="veilleFactCount" value="{!0}"/>
+    <apex:variable var="veillePersCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_veille_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Veille {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prestataire</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nature prestation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">N° Pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!prestations}" var="prestation"><apex:outputPanel layout="none" rendered="{!prestation.RecordType.DeveloperName == 'veille' && prestation['Montant_retenu_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!prestation.Prestataire__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!prestation.Nature_prestation__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!prestation.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="center"><Data ss:Type="String">{!prestation.Num_piece__c}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation.Date_piece__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation.Date_piece__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!prestation['Montant_retenu_option'+opt+'__c']}</Data></Cell>
+                </Row>
+                <apex:variable var="veilleFactCount" value="{!veilleFactCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">SOUS TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!veilleFactCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <!-- Grosses Modifs -->
+                
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Intéressement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Participation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire chargé</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Heures veille</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Total heures travaillées</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux de veille</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu veille</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnelsHeures}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel['Heures_veille_option'+opt+'__c'] != 0 }">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Interessement_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Participation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_veille_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-1]*(RC[-6]+RC[-5]+RC[-4])"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="veillePersCount" value="{!veillePersCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">SOUS TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!veillePersCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                
+                
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prénom</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Intéressement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Participation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Salaire chargé</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Jours veille</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Total jours travaillés</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Taux de veille</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu veille</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                <apex:repeat value="{!personnelsJours}" var="personnel"><apex:outputPanel layout="none" rendered="{!personnel['Heures_veille_option'+opt+'__c'] != 0 }">
+                <Row>
+                    <Cell><Data ss:Type="String">{!personnel.Nom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Prenom__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!personnel.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Interessement_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Participation_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!personnel['Salaire_charge_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Heures_veille_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="integerCenter"><Data ss:Type="Number">{!personnel['Total_heures_travaillees_option'+opt+'__c']}</Data></Cell>
+                    <Cell ss:StyleID="percentCenter" ss:Formula="=RC[-2]/RC[-1]"><Data ss:Type="Number"></Data></Cell>
+                    <Cell ss:StyleID="euro" ss:Formula="=RC[-1]*(RC[-6]+RC[-5]+RC[-4])"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <apex:variable var="veillePersCount" value="{!veillePersCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">SOUS TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!veillePersCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000" ss:MergeAcross="1"><Data ss:Type="String">TOTAL (Plafonnement à 60 000 €)</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=MIN(R[-2]C+R[-{!veillePersCount + 5}]C,60000)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Dépenses de veille technologique" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+    
+    
+    <apex:variable var="opt" value="{!opts['prestataire_public']}"/>
+    <apex:variable var="opCount" value="{!0}"/>
+    <apex:variable var="opCounts" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_prestataire_public_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="OP {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prestataire</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">SIREN</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Projet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nature prestation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">N° Pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant</Data></Cell>
+                </Row>
+                
+                
+                
+                <!-- Boucle sur les différents type d'OP (avec/sans dépendance, france/etranger -->
+                <apex:repeat value="{!prestatairesPublics}" var="lineName">
+                    
+                    <Row></Row>
+                    <apex:variable var="opCountTemp" value="{!0}"/>
+                    <apex:repeat value="{!prestataires[lineName]}" var="prestation">
+                        <apex:outputPanel layout="none" rendered="{!prestation['Montant_retenu_option'+opt+'__c'] != 0}">
+                            <Row>
+                                <Cell><Data ss:Type="String">{!prestation.Prestataire__c}</Data></Cell>
+                                <Cell><Data ss:Type="String">{!prestation.SIREN__c}</Data></Cell>
+                                <Cell><Data ss:Type="String">{!prestation.Projet__r.Name}</Data></Cell>
+                                <Cell><Data ss:Type="String">{!prestation.Nature_prestation__c}</Data></Cell>
+                                <Cell><Data ss:Type="String">{!prestation.Departement__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="center"><Data ss:Type="String">{!prestation.Num_piece__c}</Data></Cell>
+                                <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation['Date_piece__c'])}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation['Date_piece__c']}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                                <Cell ss:StyleID="euro"><Data ss:Type="Number">{!prestation['Montant_retenu_option'+opt+'__c'] / 2}</Data></Cell>
+                            </Row>
+                            <apex:variable var="opCountTemp" value="{!opCountTemp + 1}"/>
+                            <apex:variable var="opCount" value="{!opCount + 1}"/>
+                        </apex:outputPanel>
+                    </apex:repeat>
+                    
+                    <Row></Row>
+                    
+                    <Row ss:Height="30">
+                        <Cell ss:StyleID="boldBorderBlack2020" ss:MergeAcross="6"><Data ss:Type="String">{!lineName}</Data></Cell>
+                        <Cell ss:StyleID="euroBoldBorderBlack2020" ss:Formula="=2*SUM(R[-{!opCountTemp + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                    </Row>
+                
+                </apex:repeat>
+                
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Opérations confiées à des organismes publics" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+        
+            
+    </apex:outputPanel>
+    
+    
+    
+    <apex:variable var="opt" value="{!opts['prestataire_agree']}"/>
+    <apex:variable var="oaCount" value="{!0}"/>
+    <apex:variable var="oaAvecFrance" value="{!0}"/>
+    <apex:variable var="oaAvecEtranger" value="{!0}"/>
+    <apex:variable var="oaSansFrance" value="{!0}"/>
+    <apex:variable var="oaSansEtranger" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_prestataire_agree_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="OA {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="300"/>
+                <Column ss:Width="150"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Prestataire</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">SIREN</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Projet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nature prestation</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">N° Pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de pièce</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant</Data></Cell>
+                </Row>
+    
+                
+                
+                <apex:variable var="row" value="{!4}"/>
+                        
+                <!-- Boucle sur les différents type d'OA (avec/sans dépendance, france/etranger -->
+                <apex:variable var="lineIndex" value="{!0}"/>
+                <apex:repeat value="{!prestatairesAgrees}" var="lineName">
+                    <Row></Row>
+                    
+                    
+                    <apex:variable var="oaCountTemp" value="{!0}"/>
+                    <apex:variable var="subPrestaCount" value="{!1}"/>
+                    <apex:variable var="categoryFormula" value=""/>
+                    <apex:variable var="previousPrestataireName" value=""/>
+                    <apex:variable var="previousPrestataireSIREN" value=""/>
+                    <apex:variable var="previousPrestataireAnneeDebutAgrement" value=""/>
+                    <apex:variable var="previousPrestataireAnneeFinAgrement" value=""/>
+                    
+                    
+                    <!-- Boucle sur les prestataire de la categorie -->
+                    <apex:repeat value="{!prestataires[lineName]}" var="prestation">
+                    
+                        <apex:outputPanel layout="none" rendered="{!prestation['Montant_retenu_option'+opt+'__c'] != 0}">
+                            
+                            <!-- Si le presta est different de celui d'avant, on ecrit la ligne de SOUS TOTAL du presta précedant -->
+                            <apex:outputPanel layout="none" rendered="{!previousPrestataireName != '' && previousPrestataireName != prestation.Prestataire__c}">
+                                
+                                <apex:variable var="categoryFormula" value="{!categoryFormula & '+R' & TEXT(row+2) & 'C8'}"/>
+                                
+                                <Row></Row>
+                                <Row>
+                                    <Cell ss:StyleID="boldBorderBlack1010"><Data ss:Type="String">SOUS-TOTAL Prestataire {!subPrestaCount}</Data></Cell>
+                                    <Cell ss:StyleID="boldBorderBlack1010"/>
+                                    <Cell ss:StyleID="boldBorderBlack1010"/>
+                                    <Cell ss:StyleID="boldBorderBlack1010"/>
+                                    <Cell ss:StyleID="boldBorderBlack1010"/>
+                                    <Cell ss:StyleID="boldBorderBlack1010"/>
+                                    <Cell ss:StyleID="boldBorderBlack1010"/>
+                                    <Cell ss:StyleID="euroBoldBorderBlack1010" ss:Formula="=SUM(R[-{!oaCountTemp + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                                </Row>
+                                <Row>
+                                    <Cell ss:StyleID="smallItalic" ss:MergeAcross="2"><Data ss:Type="String">{!previousPrestataireName} (SIREN {!previousPrestataireSIREN})<apex:outputPanel layout="none" rendered="{!!ISNULL(previousPrestataireAnneeDebutAgrement) && !ISNULL(previousPrestataireAnneeFinAgrement)}"> agréé sur la période {!previousPrestataireAnneeDebutAgrement}-{!previousPrestataireAnneeFinAgrement}</apex:outputPanel></Data></Cell>
+                                </Row>
+                                <Row></Row>
+                                
+                                <apex:variable var="row" value="{!row + 4 }"/>
+                                <apex:variable var="oaCountTemp" value="{!0}"/>
+                                <apex:variable var="subPrestaCount" value="{!subPrestaCount + 1}"/>
+                                
+                            </apex:outputPanel>
+                            
+                            
+                            <!-- Une ligne de presta -->
+                            <Row>
+                                <Cell><Data ss:Type="String">{!prestation.Prestataire__c}</Data></Cell>
+                                <Cell><Data ss:Type="String">{!prestation.SIREN__c}</Data></Cell>
+                                <Cell><Data ss:Type="String">{!prestation.Projet__r.Name}</Data></Cell>
+                                <Cell><Data ss:Type="String">{!prestation.Nature_prestation__c}</Data></Cell>
+                                <Cell><Data ss:Type="String">{!prestation.Departement__r.Name}</Data></Cell>
+                                <Cell ss:StyleID="center"><Data ss:Type="String">{!prestation.Num_piece__c}</Data></Cell>
+                                <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(prestation['Date_piece__c'])}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!prestation['Date_piece__c']}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                                <Cell ss:StyleID="euro"><Data ss:Type="Number">{!prestation['Montant_retenu_option'+opt+'__c']}</Data></Cell>
+                            </Row>
+                            
+                            <apex:variable var="row" value="{!row + 1}"/>
+                            <apex:variable var="oaCountTemp" value="{!oaCountTemp + 1}"/>
+                            <apex:variable var="oaCount" value="{!oaCount + 1}"/>
+                            <apex:variable var="previousPrestataireName" value="{!prestation.Prestataire__c}"/>
+                            <apex:variable var="previousPrestataireSIREN" value="{!prestation.SIREN__c}"/>
+                            <apex:variable var="previousPrestataireAnneeDebutAgrement" value="{!IF(ISNULL(prestation.Date_debut_agrement__c), '', 1900+prestation.Date_debut_agrement__c.year)}"/>
+                            <apex:variable var="previousPrestataireAnneeFinAgrement" value="{!IF(ISNULL(prestation.Date_fin_agrement__c), '', 1900+prestation.Date_fin_agrement__c.year)}"/>
+                        </apex:outputPanel>
+                        
+                    
+                    </apex:repeat>
+                
+                    <Row></Row>
+                    <apex:variable var="row" value="{!row + 1}"/>
+                    
+                    <!-- Ligne de SOUS TOTAL du dernier presta de la catégorie -->
+                    <apex:outputPanel layout="none" rendered="{!oaCountTemp > 0}">
+                    
+                        <apex:variable var="categoryFormula" value="{!categoryFormula & '+R' & TEXT(row+1) & 'C8'}"/>
+                    
+                        <Row>
+                            <Cell ss:StyleID="boldBorderBlack1010"><Data ss:Type="String">SOUS-TOTAL Prestataire {!subPrestaCount}</Data></Cell>
+                            <Cell ss:StyleID="boldBorderBlack1010"/>
+                            <Cell ss:StyleID="boldBorderBlack1010"/>
+                            <Cell ss:StyleID="boldBorderBlack1010"/>
+                            <Cell ss:StyleID="boldBorderBlack1010"/>
+                            <Cell ss:StyleID="boldBorderBlack1010"/>
+                            <Cell ss:StyleID="boldBorderBlack1010"/>
+                            <Cell ss:StyleID="euroBoldBorderBlack1010" ss:Formula="=SUM(R[-{!oaCountTemp + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                        </Row>
+                        <Row>
+                            <Cell ss:StyleID="smallItalic" ss:MergeAcross="2"><Data ss:Type="String">{!previousPrestataireName} (SIREN {!previousPrestataireSIREN})<apex:outputPanel layout="none" rendered="{!!ISNULL(previousPrestataireAnneeDebutAgrement) && !ISNULL(previousPrestataireAnneeFinAgrement)}"> agréé sur la période {!previousPrestataireAnneeDebutAgrement}-{!previousPrestataireAnneeFinAgrement}</apex:outputPanel></Data></Cell>
+                        </Row>
+                        
+                        <apex:variable var="row" value="{!row + 2}"/>
+                    </apex:outputPanel>
+                    
+                    <Row></Row>
+                    
+                    <Row ss:Height="30">
+                        <Cell ss:StyleID="boldBorderBlack2020" ss:MergeAcross="6"><Data ss:Type="String">{!lineName}</Data></Cell>
+                        <Cell ss:StyleID="euroBoldBorderBlack2020" ss:Formula="{!categoryFormula}"><Data ss:Type="Number"></Data></Cell>
+                    </Row>
+                    
+                    <apex:variable var="row" value="{!row + 3}"/>
+                    
+                    <apex:outputPanel layout="none" rendered="{!lineIndex == 0}">
+                        <apex:variable var="oaAvecFrance" value="{!row - 1}"/>
+                    </apex:outputPanel>
+                    
+                    <apex:outputPanel layout="none" rendered="{!lineIndex == 1}">
+                        <apex:variable var="oaAvecEtranger" value="{!row - 1}"/>
+                    </apex:outputPanel>
+                    
+                    <apex:outputPanel layout="none" rendered="{!lineIndex == 2}">
+                        <apex:variable var="oaSansFrance" value="{!row - 1}"/>
+                    </apex:outputPanel>
+                    
+                    <apex:outputPanel layout="none" rendered="{!lineIndex == 3}">
+                        <apex:variable var="oaSansEtranger" value="{!row - 1}"/>
+                    </apex:outputPanel>
+                    
+                    
+                    
+                    <apex:variable var="lineIndex" value="{!lineIndex + 1}"/>
+                </apex:repeat>
+                
+                
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Opérations confiées à des organismes agréés" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+    
+    
+    <apex:variable var="opt" value="{!opts['subvention']}"/>
+    <apex:variable var="subventionCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_subvention_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Subventions {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Organisme</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Projet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nature</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de versement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                
+                <apex:repeat value="{!subventions}" var="subvention"><apex:outputPanel layout="none" rendered="{!subvention.RecordType.DeveloperName == 'subvention' && subvention['Montant_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!subvention.Organisme__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!subvention.Projet__r.Name}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!subvention.Nature__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!subvention.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(subvention.Date_versement__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!subvention.Date_versement__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!subvention['Montant_option'+opt+'__c']}</Data></Cell>
+                </Row>
+                <apex:variable var="subventionCount" value="{!subventionCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!subventionCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Subventions de recherche perçues" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+        
+    </apex:outputPanel>
+    
+    
+    
+    <apex:variable var="opt" value="{!opts['avanceRemboursable']}"/>
+    <apex:variable var="avanceRemboursableCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_avanceRemboursable_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Avances remboursables {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Organisme</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Projet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nature</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de versement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                
+                <apex:repeat value="{!subventions}" var="subvention"><apex:outputPanel layout="none" rendered="{!subvention.RecordType.DeveloperName == 'avanceRemboursable' && subvention['Montant_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!subvention.Organisme__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!subvention.Projet__r.Name}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!subvention.Nature__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!subvention.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(subvention.Date_versement__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!subvention.Date_versement__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!subvention['Montant_option'+opt+'__c']}</Data></Cell>
+                </Row>
+                <apex:variable var="avanceRemboursableCount" value="{!avanceRemboursableCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!avanceRemboursableCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Avances remboursables" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+    
+    
+    <apex:variable var="opt" value="{!opts['remboursementAvance']}"/>
+    <apex:variable var="remboursementAvanceCount" value="{!0}"/>
+    <apex:outputPanel layout="none" rendered="{!INNOvalo__c['Total_remboursementAvance_option'+opt+'__c'] > 0}">
+        <Worksheet ss:Name="Remboursement Avance {!valo.MissionCIR__r.Annee_CIR__c}">
+            <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+                <Column ss:Width="160"/>
+                <Column ss:Width="130"/>
+                <Row ss:Height="20">
+                    <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+                </Row>
+                <Row ss:Height="20"></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Organisme</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Projet</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Nature</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Département</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Date de versement</Data></Cell>
+                    <Cell ss:StyleID="centerBoldBorderBlack2020"><Data ss:Type="String">Montant retenu</Data></Cell>
+                </Row>
+                <Row></Row>
+                
+                
+                <apex:repeat value="{!subventions}" var="subvention"><apex:outputPanel layout="none" rendered="{!subvention.RecordType.DeveloperName == 'remboursementAvance' && subvention['Montant_option'+opt+'__c'] != 0}">
+                <Row>
+                    <Cell><Data ss:Type="String">{!subvention.Organisme__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!subvention.Projet__r.Name}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!subvention.Nature__c}</Data></Cell>
+                    <Cell><Data ss:Type="String">{!subvention.Departement__r.Name}</Data></Cell>
+                    <Cell ss:StyleID="dateCenter"><apex:outputPanel layout="none" rendered="{!!ISNULL(subvention.Date_versement__c)}"><Data ss:Type="DateTime"><apex:outputText value="{0,date,yyyy-MM-dd}"><apex:param value="{!subvention.Date_versement__c}" /></apex:outputText></Data></apex:outputPanel></Cell>
+                    <Cell ss:StyleID="euro"><Data ss:Type="Number">{!subvention['Montant_option'+opt+'__c']}</Data></Cell>
+                </Row>
+                <apex:variable var="remboursementAvanceCount" value="{!remboursementAvanceCount + 1}"/></apex:outputPanel>
+                </apex:repeat>
+                <Row></Row>
+                <Row ss:Height="30">
+                    <Cell ss:StyleID="boldBorderBlack2000"><Data ss:Type="String">TOTAL</Data></Cell>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="boldBorderBlack2000"/>
+                    <Cell ss:StyleID="euroBoldBorderBlack2000" ss:Formula="=SUM(R[-{!remboursementAvanceCount + 2}]C:R[-1]C)"><Data ss:Type="Number"></Data></Cell>
+                </Row>
+            </Table>
+            
+            <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Remboursements avances" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+            
+        </Worksheet>
+    </apex:outputPanel>
+    
+    
+    <Worksheet ss:Name="Synthèse {!valo.MissionCIR__r.Annee_CIR__c}">
+        
+        
+        <Table x:FullColumns="1" x:FullRows="1" ss:StyleID="default" ss:DefaultColumnWidth="80" ss:DefaultRowHeight="15" >
+            <Column ss:Width="100"/>
+            <Column ss:Width="320"/>
+            <Column ss:Width="200"/>
+            
+            <apex:variable var="row" value="{!4}"/>
+            <apex:variable var="rowAddMore" value="{!-1}"/>
+            
+            <Row ss:Height="20">
+                <Cell ss:StyleID="blueBoldItalic" ss:Formula="=Société!R5C2"><Data ss:Type="String"></Data></Cell>
+            </Row>
+            <Row ss:Height="20"></Row>
+            <Row>
+                <Cell ss:Index="2" />
+                <Cell ss:StyleID="whiteCenterBGdarkblueBorderBlack1111"><Data ss:Type="String">Montant déterminé (€)</Data></Cell>
+            </Row>
+            
+            <apex:outputPanel layout="none" rendered="{!projets.size > 0 && personnelCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Heures {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'Détail projets {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!personnelCount + 7 - row}]C[{!projets.size + 3 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            <apex:variable var="rowAddMore" value="{!0}"/>
+            </apex:outputPanel>
+            
+            <apex:outputPanel layout="none" rendered="{!projets.size > 0 && personnelCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Jours {!IF(valo.RecordType.DeveloperName == 'CII', 'Inno', 'R&amp;D')}</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'Détail projets {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!personnelCount + 7 - row}]C[{!projets.size + 3 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!amortissementCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Dotations aux amortissements</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'DA recherche {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!amortissementCount + 6 - row}]C[{!9 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!salarieCount + miseDispositionCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Frais de personnel</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="{!IF(salarieCount > 0, apos & 'Dépenses de personnel ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(salarieCount + 6 - row) & ']C[' & TEXT(16 - 3) + ']', '')}{!IF(miseDispositionCount > 0, ' + ' & apos & 'Mise à disposition ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(miseDispositionCount + 6 - row) & ']C[' & TEXT(13 - 3) + ']', '')}"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!jeuneDocteurCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Jeunes docteurs</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'Jeunes docteurs {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!jeuneDocteurCount + 6 - row}]C[{!16 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!salarieCount + miseDispositionCount + jeuneDocteurCount  + amortissementCount > 0 }">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Frais de fonctionnement</Data></Cell>
+                <apex:outputPanel layout="none" rendered="{!valo.MissionCIR__r.Annee_CIR__c == '2009' || valo.MissionCIR__r.Annee_CIR__c == '2010'}">
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="{!IF(salarieCount > 0 && miseDispositionCount > 0, '((', '')}{!IF(salarieCount > 0, apos & 'Dépenses de personnel ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(salarieCount + 6 - row) & ']C[' & TEXT(16 - 3) + ']', '')}{!IF(miseDispositionCount > 0, ' + ' & apos & 'Mise à disposition ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(miseDispositionCount + 6 - row) & ']C[' & TEXT(13 - 3) + ']', '')} {!IF(salarieCount > 0 && miseDispositionCount > 0, ') * 0.75)', ' * 0.75')} {!IF(jeuneDocteurCount > 0, ' + ' & apos & 'Jeunes docteurs ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(jeuneDocteurCount + 6 - row) & ']C[' & TEXT(16 - 3) + ']', '')}"><Data ss:Type="Number"></Data></Cell>
+                </apex:outputPanel>
+                <apex:outputPanel layout="none" rendered="{!valo.MissionCIR__r.Annee_CIR__c != '2009' && valo.MissionCIR__r.Annee_CIR__c != '2010'}">
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="{!IF(salarieCount > 0 && miseDispositionCount > 0, '((', IF(salarieCount + miseDispositionCount > 0, '(', ''))}{!IF(salarieCount > 0, apos & 'Dépenses de personnel ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(salarieCount + 6 - row) & ']C[' & TEXT(16 - 3) + ']', '')}{!IF(miseDispositionCount > 0, ' + ' & apos & 'Mise à disposition ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(miseDispositionCount + 6 - row) & ']C[' & TEXT(13 - 3) + ']', '')} {!IF(salarieCount > 0 && miseDispositionCount > 0, ') * 0.5)', IF(salarieCount + miseDispositionCount > 0, ' * 0.5)', ''))} {!IF(jeuneDocteurCount > 0, ' + ' & apos & 'Jeunes docteurs ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(jeuneDocteurCount + 6 - row) & ']C[' & TEXT(16 - 3) + ']', '')} {!IF(amortissementCount > 0, ' + (' & apos & 'DA recherche ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(amortissementCount + 6 - row) & ']C[' & TEXT(9 - 3) + '] * 0.75)', '')}"><Data ss:Type="Number"></Data></Cell>
+                </apex:outputPanel>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!brevetPMFactCount + brevetPMPersCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Prises et maintenances de brevets</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'PM Brevet {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!brevetPMFactCount + brevetPMPersCount + 13 - row}]C[{!10 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!brevetDefCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Défenses de brevets</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'Def Brevet {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!brevetDefCount + 6 - row}]C[{!8 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!amortissementBrevetCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Dotations aux amortissements de brevets</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'DA Brevet {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!amortissementBrevetCount + 6 - row}]C[{!7 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!normalisationCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Normalisation</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'Normalisation {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!normalisationCount + 6 - row}]C[{!14 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!brevetAssuCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Assurances de brevets {!IF(valo.RecordType.DeveloperName == 'CII', 'et modèles', '')}</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'Assurance Brevets {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!brevetAssuCount + 6 - row}]C[{!8 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!veilleFactCount + veillePersCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Veille technologique</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'Veille {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!veilleFactCount + veillePersCount + 13 - row}]C[{!10 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+             
+            <apex:outputPanel layout="none" rendered="{!opCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Prestations de recherche externe (organismes publics)</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'OP {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!prestaPublicCounts[0] + 6 - row}]C[{!8 - 3}] + 'OP {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!prestaPublicCounts[0] + prestaPublicCounts[1] + 9 - row}]C[{!8 - 3}]  + 'OP {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!prestaPublicCounts[0] + prestaPublicCounts[1] + prestaPublicCounts[2] + 12 - row}]C[{!8 - 3}]  + 'OP {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!prestaPublicCounts[0] + prestaPublicCounts[1] + prestaPublicCounts[2] + prestaPublicCounts[3] + 15 - row}]C[{!8 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!oaCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Prestations de recherche externe (organismes agréés)</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'OA {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!oaAvecFrance - row}]C[{!8 - 3}] + 'OA {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!oaAvecEtranger - row}]C[{!8 - 3}]  + 'OA {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!oaSansFrance - row}]C[{!8 - 3}]  + 'OA {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!oaSansEtranger - row}]C[{!8 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:outputPanel layout="none" rendered="{!remboursementAvanceCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Remboursement avances remboursables</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="'Remboursement Avance {!valo.MissionCIR__r.Annee_CIR__c}'!R[{!remboursementAvanceCount + 6 - row}]C[{!6 - 3}]"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <apex:variable var="negativeRow" value="{!0}"/>
+            <apex:outputPanel layout="none" rendered="{!subventionCount + avanceRemboursableCount > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Subventions et avances remboursables</Data></Cell>
+                <Cell ss:StyleID="integerCenterRedBoldBorderBlack1100" ss:Formula="{!IF(subventionCount > 0, apos & 'Subventions ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(subventionCount + 6 - row) & ']C[' & TEXT(6 - 3) + ']', '')}{!IF(avanceRemboursableCount > 0, ' + ' & apos & 'Avances remboursables ' & valo.MissionCIR__r.Annee_CIR__c & apos & '!R[' & TEXT(avanceRemboursableCount + 6 - row) & ']C[' & TEXT(6 - 3) + ']', '')}"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            <apex:variable var="negativeRow" value="{!negativeRow + 1}"/>
+            </apex:outputPanel>
+             
+             
+            <apex:variable var="opt" value="{!opts['honoraires_N1']}"/>
+            <apex:outputPanel layout="none" rendered="{!!ISNULL(INNOvalo__c['Honoraires_N1_a_deduire_option'+opt+'__c']) && INNOvalo__c['Honoraires_N1_a_deduire_option'+opt+'__c'] > 0}">
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Honoraires {!TEXT(VALUE(valo.MissionCIR__r.Annee_CIR__c) - 1)} à déduire</Data></Cell>
+                <Cell ss:StyleID="integerCenterRedBoldBorderBlack1100"><Data ss:Type="Number">{!INNOvalo__c['Honoraires_N1_a_deduire_option'+opt+'__c']}</Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            <apex:variable var="negativeRow" value="{!negativeRow + 1}"/>
+            </apex:outputPanel>
+            
+            
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Montant total des dépenses</Data></Cell>
+                <apex:variable var="montantTotalFormula" value="SUM(R[-{!row - rowAddMore - 5 }]C:R[-{!negativeRow + 1}]C){!IF(negativeRow > 0 , '-SUM(R[-' & TEXT(negativeRow) & ']C:R[-1]C)','')}" />
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="={!IF(valo.RecordType.DeveloperName == 'CII', 'MIN(' + montantTotalFormula + ', 400000)', montantTotalFormula)}"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            
+            
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">{!IF(valo.RecordType.DeveloperName == 'CII', 'CII', 'CIR')} {!valo.MissionCIR__r.Annee_CIR__c} (avant déduction des honoraires)</Data></Cell>
+                <Cell ss:StyleID="integerCenterBoldBorderBlack1100" ss:Formula="='Société'!R[{!7- row}]C[{!2-3}] * R[-1]C"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            
+            
+            <Row>
+                <Cell ss:Index="2" ss:StyleID="whiteBGdarkblueBorderBlack1001White0010"><Data ss:Type="String">Honoraires {!valo.MissionCIR__r.Annee_CIR__c} à déduire</Data></Cell>
+                <Cell ss:StyleID="integerCenterRedBoldBorderBlack1100" ><Data ss:Type="Number">{!IF($CurrentPage.parameters.opt = '1' || $CurrentPage.parameters.opt = '2' || $CurrentPage.parameters.opt = '3', INNOvalo__c['Honoraires_N_a_deduire_option'+$CurrentPage.parameters.opt+'__c'], valo.Honoraires_N_a_deduire_optionFinaleManue__c)}</Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            
+            
+            <Row ss:Height="20">
+                <Cell ss:Index="2" ss:StyleID="whiteBoldBGblueBorderBlack1111"><Data ss:Type="String">Montant total des dépenses après déduction des honoraires</Data></Cell>
+                <Cell ss:StyleID="integerBlackCenterBGblueBorderBlack1111" ss:Formula="=R[-3]C-R[-1]C"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            
+            
+            <Row ss:Height="20">
+                <Cell ss:Index="2" ss:StyleID="whiteBoldBGblueBorderBlack1111"><Data ss:Type="String">{!IF(valo.RecordType.DeveloperName == 'CII', 'CII', 'CIR')} {!valo.MissionCIR__r.Annee_CIR__c} (après déduction des honoraires)</Data></Cell>
+                <Cell ss:StyleID="integerBlackBoldCenterBGblueBorderBlack1111" ss:Formula="='Société'!R[{!7- row}]C[{!2-3}] * R[-1]C"><Data ss:Type="Number"></Data></Cell>
+            </Row>
+            <apex:variable var="row" value="{!row + 1}"/>
+            
+        </Table>
+        
+        <c:AppCIRexportValorisationWorksheetOptions workSheetDescription="Synthèse" anneeCIR="{!valo.MissionCIR__r.Annee_CIR__c}" typeValo="{!valo.RecordType.DeveloperName}"/>
+        
+    </Worksheet>
+
+</Workbook>
+ 
+</apex:page>

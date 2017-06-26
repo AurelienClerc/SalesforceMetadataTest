@@ -1,0 +1,9 @@
+<apex:page controller="INNOtauxOccupationTheoriqueCtrl" sidebar="false" tabStyle="INNOmission__c" title="Taux d'occupation théorique">
+
+	<c:INNOtimeSheetSubMenu />
+	
+	<apex:sectionHeader title="Taux d'occupation théorique" />
+	
+    <c:INNOtauxOccupation myController="{!this}" />
+
+</apex:page>

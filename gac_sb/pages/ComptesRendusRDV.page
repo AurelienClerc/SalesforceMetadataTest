@@ -1,0 +1,15 @@
+<apex:page standardController="Opportunity" extensions="ComptesRendusRDVCtrl" tabStyle="Event" showchat="false">
+    <apex:dynamicComponent componentValue="{!comptesRendusRDVtabs}" rendered="{!comptesRendusRDV.size > 0}"/>
+    
+    <apex:outputText value="{!$Label.Aucun_RDV_effectue}" rendered="{!comptesRendusRDV.size == 0}"/>
+    
+    <style>
+        
+        .comptesRendusRDVtab > div.apexp{
+            overflow-y: scroll;
+            height: 175px;
+        }
+        
+    </style>
+
+</apex:page>

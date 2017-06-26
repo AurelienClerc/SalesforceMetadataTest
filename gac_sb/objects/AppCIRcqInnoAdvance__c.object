@@ -1,0 +1,1647 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>InDevelopment</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Mission_CIR__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Mission CIR</label>
+        <referenceTo>AppCIRmission__c</referenceTo>
+        <relationshipName>AppCIRcqInnoAdvance</relationshipName>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>auditAnterioriteHistorique__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Historique des contrôles fiscaux</inlineHelpText>
+        <label>Audit - Connaissance historique</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditAnteriorite__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Dossiers justificatifs</inlineHelpText>
+        <label>Audit - Connaissance dossiers</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditCrossUpAgrement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Agrément</inlineHelpText>
+        <label>Audit - Agrément</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditCrossUpAs__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>A &amp; S</inlineHelpText>
+        <label>Audit - A &amp; S</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditCrossUpAutreDetail__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Si oui, préciser</inlineHelpText>
+        <label>Audit - Autres identification Détail</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>auditCrossUpAutre__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Autres</inlineHelpText>
+        <label>Audit - Autres identification</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditCrossUpFiscalite__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Fiscalité locale</inlineHelpText>
+        <label>Audit - Fiscalité locale</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditCrossUpJei__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>JEI / CIJV / CI Collection</inlineHelpText>
+        <label>Audit - JEI / CIJV / CI Collection</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditCrossUpPropriete__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Propriété intellectuelle</inlineHelpText>
+        <label>Audit - Propriété intellectuelle</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditCrossUpTAT__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>TAT / ACS</inlineHelpText>
+        <label>Audit - TAT / ACS</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditElementFinancierDetail__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Si non, préciser la date prévue</inlineHelpText>
+        <label>Audit - Eléments financier Détail</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>auditElementFinancier__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Récupération d&apos;éléments financiers dès la fin de l&apos;audit</inlineHelpText>
+        <label>Audit - Eléments financiers</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Oui</fullName>
+                    <default>false</default>
+                    <label>Oui</label>
+                </value>
+                <value>
+                    <fullName>Non</fullName>
+                    <default>false</default>
+                    <label>Non</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>auditElementTechniqueDetail__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Si non, préciser la date prévue</inlineHelpText>
+        <label>Audit - Eléments techniques Détail</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>auditElementTechnique__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Récupération d&apos;éléments techniques dès la fin de l&apos;audit</inlineHelpText>
+        <label>Audit - Eléments techniques</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Oui</fullName>
+                    <default>false</default>
+                    <label>Oui</label>
+                </value>
+                <value>
+                    <fullName>Non</fullName>
+                    <default>false</default>
+                    <label>Non</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>auditEnjeuxMontant__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Si oui, préciser combien</inlineHelpText>
+        <label>Audit - Enjeux CIR/CII Montant</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>auditEnjeux__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Estimation des enjeux CIR/CII</inlineHelpText>
+        <label>Audit - Enjeux CIR/CII</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Pas d&apos;enjeu</fullName>
+                    <default>false</default>
+                    <label>Pas d&apos;enjeu</label>
+                </value>
+                <value>
+                    <fullName>Oui</fullName>
+                    <default>false</default>
+                    <label>Oui</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>auditIdentificationClient__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Identification de l&apos;ensemble des interlocuteurs clients</inlineHelpText>
+        <label>Audit - Identification clients</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditIdentificationGAC__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Identification de l&apos;ensemble des interlocuteurs GAC</inlineHelpText>
+        <label>Audit - Identification GAC</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditMajChamps__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Mise à jour des champs relatifs à l&apos;audit dans la fiche mission</inlineHelpText>
+        <label>Audit - Maj champs</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditNote__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Quelle note mets-tu à ton Audit ? ( / 5)</inlineHelpText>
+        <label>Audit - Note</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>auditPerimetreAutreDetail__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Si oui, préciser</inlineHelpText>
+        <label>Audit - Périmètre Détail</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>auditPerimetreAutre__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Autres</inlineHelpText>
+        <label>Audit - Autre périmètre</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditPerimetreEtude__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Bureau d&apos;étude</inlineHelpText>
+        <label>Audit - Bureau d&apos;étude</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditPerimetreMaintenance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Maintenance</inlineHelpText>
+        <label>Audit - Maintenance</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditPerimetreMarketing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Marketing</inlineHelpText>
+        <label>Audit - Marketing</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditPerimetreQualite__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Qualité / méthodes et process</inlineHelpText>
+        <label>Audit - Qualité</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditPerimetreRd__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Service R&amp;D / Laboratoire</inlineHelpText>
+        <label>Audit - Service R&amp;D</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditPerimetreSi__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Système d&apos;info</inlineHelpText>
+        <label>Audit - Système d&apos;info</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditPlanificationDeadline__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Planification de l&apos;ensemble des deadlines de la mission</inlineHelpText>
+        <label>Audit - Planification Deadlines</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>auditPointageDetail__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Si oui, préciser lesquels</inlineHelpText>
+        <label>Audit - Pointage détail</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>auditPointage__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Y-a-t-il du personnel qui ne pointe pas</inlineHelpText>
+        <label>Audit - Pointage</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Oui</fullName>
+                    <default>false</default>
+                    <label>Oui</label>
+                </value>
+                <value>
+                    <fullName>Non</fullName>
+                    <default>false</default>
+                    <label>Non</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>auditSuiviDetail__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Si non, préciser la solution prévue</inlineHelpText>
+        <label>Audit - Suivi de temps détail</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>auditSuivi__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Existence d&apos;un suivi de temps</inlineHelpText>
+        <label>Audit - Suivi de temps</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Oui</fullName>
+                    <default>false</default>
+                    <label>Oui</label>
+                </value>
+                <value>
+                    <fullName>Non</fullName>
+                    <default>false</default>
+                    <label>Non</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>avancementAudit__c</fullName>
+        <externalId>false</externalId>
+        <formula>(
+if (auditPerimetreRd__c,1,0) + 
+if (auditPerimetreEtude__c,1,0) + 
+if (auditPerimetreQualite__c,1,0) +
+if (auditPerimetreMaintenance__c,1,0) + 
+if (auditPerimetreMarketing__c,1,0) + 
+if (auditPerimetreSi__c,1,0) +
+if (auditPerimetreAutre__c,1,0) + 
+if (ISBLANK(TEXT(auditSuivi__c)),0,1) + 
+if (ISBLANK(TEXT(auditPointage__c)),0,1) + 
+if (OR(auditAnteriorite__c,auditAnterioriteHistorique__c),1,0) + 
+if (ISBLANK(TEXT(auditElementFinancier__c)),0,1) + 
+if (ISBLANK(TEXT(auditElementTechnique__c)),0,1) + 
+if (auditPlanificationDeadline__c,1,0) +
+if (auditIdentificationClient__c,1,0) +
+if (auditIdentificationGAC__c,1,0) +
+if (ISBLANK(TEXT(auditEnjeux__c)),0,1) +
+if (auditMajChamps__c,1,0)
+)
+/17</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>% Avancement Check List Audit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>avancementCIR__c</fullName>
+        <externalId>false</externalId>
+        <formula>( 
+if (cirPersonnelQualifTechnique__c,1,0) + 
+if (cirPersonnelJustifImplantation__c,1,0) + 
+if (cirPersonnelVerifJustificat__c,1,0) + 
+if (cirPersonnelIdentPersonnel__c,1,0) + 
+if (cirPersonnelAffectPersonnel__c,1,0) + 
+if (cirPersonnelNonPointants__c,1,0) + 
+if (cirPersonnelPresenceIngenieur__c,1,0) + 
+if (cirPersonnelTempsTravail__c,1,0) + 
+if (cirPersonnelDate__c,1,0) + 
+if (cirPersonnelSalaire__c,1,0) + 
+if (cirPersonnelCharge__c,1,0) + 
+if (cirPersonnelTauxCharge__c,1,0) + 
+if (cirPersonnelInteressement__c,1,0) + 
+if (cirPersonnelAnterieur__c,1,0) + 
+if (cirPersonnelRD__c,1,0) + 
+if (cirDotMaterielNeuf__c,1,0) + 
+if (cirDotDeductible__c,1,0) + 
+if (cirDotProjetValo__c,1,0) + 
+if (cirDotTauxDotation__c,1,0) + 
+if (cirDotCreditBail__c,1,0) + 
+if (cirDotAnnuite__c,1,0) + 
+if (cirDotAnterieur__c,1,0) + 
+if (cirDotSpecifique__c,1,0) + 
+if (cirExtEuropeen__c,1,0) + 
+if (cirExtPublic__c,1,0) + 
+if (cirExtPrive__c,1,0) + 
+if (cirExtProjetValo__c,1,0) + 
+if (cirExtJustifPrestation__c,1,0) + 
+if (cirExtDependance__c,1,0) + 
+if (cirExtRenonciation__c,1,0) + 
+if (cirExtFactureLibelle__c,1,0) + 
+if (cirExtFactureDate__c,1,0) + 
+if (cirExtFactureMontantHT__c,1,0) + 
+if (cirExtAnterieur__c,1,0) + 
+if (cirExtPlafond__c,1,0) + 
+if (cirVeilleNature__c,1,0) + 
+if (cirVeilleProjetValo__c,1,0) + 
+if (cirVeilleAnterieur__c,1,0) + 
+if (cirVeillePlafond__c,1,0) + 
+if (cirNormaEligible__c,1,0) + 
+if (cirNormaTempsPreparation__c,1,0) + 
+if (cirNormaJustif__c,1,0) + 
+if (cirNormaAnterieur__c,1,0) + 
+if (cirBrevetPrise__c,1,0) + 
+if (cirBrevetDefense__c,1,0) + 
+if (cirBrevetAmortissement__c,1,0) + 
+if (cirBrevetFactureDate__c,1,0) + 
+if (cirBrevetFactureMontantHT__c,1,0) + 
+if (cirBrevetAnterieur__c,1,0) + 
+if (cirRDAnterieur__c,1,0) + 
+if (cirSubvRD__c,1,0) + 
+if (cirSubvDeduite__c,1,0) + 
+if (cirSubvAnnee__c,1,0) + 
+if (cirSubvMontant__c,1,0) + 
+if (cirSubvNature__c,1,0) + 
+if (cirSubvThesard__c,1,0) + 
+if (cirSubvAgree__c,1,0) + 
+if (cirSubvCabinetRemu__c,1,0) + 
+if (cirSubvCabinetDeduction__c,1,0) + 
+if (cirSubvAnterieur__c,1,0) + 
+if (cirTotalAnterieur__c,1,0) + 
+if (cirTotalProjetValo__c,1,0) + 
+if (cirCerfaFait__c,1,0) + 
+if (cirCerfaPJ__c,1,0) + 
+if (cirMajChamps__c,1,0)
+)
+/65</formula>
+        <label>% Avancement Check List Valo CIR</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>avancementDossiers__c</fullName>
+        <externalId>false</externalId>
+        <formula>( 
+if (dotProjetValo__c,1,0) + 
+if (dotMatrice__c,1,0) + 
+if (dotIndicateurs__c,1,0) + 
+if (ISBLANK(TEXT(dotIndicateursListe__c)),0,1) + 
+if (dotRelecture__c,1,0) + 
+if (dotDJ__c,1,0) + 
+if (dotQualite__c,1,0) + 
+if (dotVerrou__c,1,0) + 
+if (dotRegroupements__c,1,0) + 
+if (OR(dotRegroupementsNo__c,dotRegroupementsYes__c),1,0) + 
+if (dotHeuresProjet__c,1,0) + 
+if (dotDescription__c,1,0) + 
+if (dotAnnexes__c,1,0) + 
+if (dotPj__c,1,0) + 
+if (dofPresentation__c,1,0) + 
+if (dofProjetValo__c,1,0) + 
+if (dofMatrice__c,1,0) + 
+if (dofAnnexes__c,1,0) + 
+if (dofMajChamps__c,1,0)
+) 
+/19</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>% Avancement Check List Dossiers</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>avancementGlobal__c</fullName>
+        <externalId>false</externalId>
+        <label>% Avancement global</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>cirBrevetAmortissement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Dotations aux amortissements des brevets acquis</inlineHelpText>
+        <label>CIR - Brevets amortissement</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirBrevetAnterieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence globale par rapport aux années antérieures</inlineHelpText>
+        <label>CIR - Brevet années antérieures</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirBrevetDefense__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>En cas de défense de brevets : prise en compte du  temps de personnel (cf. dépenses de personnel)</inlineHelpText>
+        <label>CIR - Défense</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirBrevetFactureDate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Date de la facture spécifiée</inlineHelpText>
+        <label>CIR - Brevet date facture</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirBrevetFactureMontantHT__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Montant HT indiqué</inlineHelpText>
+        <label>CIR - Brevet montant HT</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirBrevetPrise__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>S&apos;agit-il bien de la prise, maintenance et/ou défense de brevets ?</inlineHelpText>
+        <label>CIR - Prise brevets</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirCerfaFait__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Fait</inlineHelpText>
+        <label>CIR - Cerfa fait</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirCerfaPJ__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>PJ ajoutée dans IA</inlineHelpText>
+        <label>CIR - Cerfa PJ</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotAnnuite__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérifier que la valeur retenue correspond bien à l&apos;annuité de l&apos;exercice concerné ?</inlineHelpText>
+        <label>CIR - Annuité</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotAnterieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence globale par rapport aux années antérieures</inlineHelpText>
+        <label>CIR - Dotations années antérieures</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotCreditBail__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>En cas de Crédit-Bail, as-tu récupéré les attestations relatives (à joindre en annexe de la déclaration CERFA) ?</inlineHelpText>
+        <label>CIR - Crédit-Bail</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotDeductible__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Les dotations sont-elles fiscalement déductibles ?</inlineHelpText>
+        <label>CIR - Dotations déductibles</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotDerogation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Régimes dérogatoires (suramortissement, autres, …)</inlineHelpText>
+        <label>CIR - Dérogation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotFusion__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Régime de fusion - acquisition</inlineHelpText>
+        <label>CIR - Fusion</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotMaterielNeuf__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Acquisition du matériel à l&apos;état neuf</inlineHelpText>
+        <label>CIR - Matériel neuf</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotProjetValo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Chaque dotation est-elle bien reliée à un projet de recherche valorisé ?</inlineHelpText>
+        <label>CIR - Dotation sur projet valorisé</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotSinistre__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Dotations en cas de sinistre</inlineHelpText>
+        <label>CIR - Sinistre</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotSpecifique__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cas Spécifiques</inlineHelpText>
+        <label>CIR - Cas spécifiques</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirDotTauxDotation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Sait-on justifier le taux d&apos;affectation des dotations ?</inlineHelpText>
+        <label>CIR - Justitifer taux dotation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtAnterieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence globale par rapport aux années antérieures</inlineHelpText>
+        <label>CIR - Prestations années antérieures</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtDependance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Liens de dépendance de l’organisme vérifié</inlineHelpText>
+        <label>CIR - Liens de dépendance</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtEuropeen__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Prestataires européens</inlineHelpText>
+        <label>CIR - Prestataires européens</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtFactureDate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Date de la facture spécifiée</inlineHelpText>
+        <label>CIR - Prestation date facture</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtFactureLibelle__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Libellé de la facture vérifié</inlineHelpText>
+        <label>CIR - Libellé facture</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtFactureMontantHT__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Montant HT indiqué</inlineHelpText>
+        <label>CIR - Prestation montant HT</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtJustifPrestation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>A-t-on récupéré les justificatifs liées à la prestation (facture, CDC, …) ?</inlineHelpText>
+        <label>CIR - Jusitifier prestation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtPlafond__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Prise en compte du plafonnement de ce poste de dépense (ratio dépenses internes / dépenses prestées, 2 M€ si lien de dépendance, 10 M€ pour les privés, 12 M€ si publics + privés)</inlineHelpText>
+        <label>CIR - Prestations plafonnement</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtPrive__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Prestations auprès d&apos;organismes privés -&gt; vérification de l&apos;agrément (SIREN) et récupération de l&apos;attestation d&apos;agrément</inlineHelpText>
+        <label>CIR - Organismes privés</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtProjetValo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Sait-on relier chaque prestation aux projets valorisés ? -&gt; justification de l&apos;enjeu de la prestation sous-traitée dans le cadre du déroulé du projet</inlineHelpText>
+        <label>CIR - Prestation sur projet valorisé</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtPublic__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Prestations auprès d&apos;organismes publics -&gt; doublement du montant de la facture</inlineHelpText>
+        <label>CIR - Organismes publics</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirExtRenonciation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>A-t-on vérifié s&apos;il n&apos;y avait pas eu renonciation à l&apos;agrément ?</inlineHelpText>
+        <label>CIR - Renonciation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirMajChamps__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Mise à jour des champs relatifs à l&apos;audit dans la fiche mission</inlineHelpText>
+        <label>CIR - Maj champs</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirNormaAnterieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence globale par rapport aux années antérieures</inlineHelpText>
+        <label>CIR - Normalisation années antérieures</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirNormaEligible__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Organisme éligible</inlineHelpText>
+        <label>CIR - Eligible</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirNormaJustif__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Justificatifs collectés</inlineHelpText>
+        <label>CIR - Justificatifs Normalisation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirNormaTempsPreparation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Le temps de préparation de ces réunions est exclu</inlineHelpText>
+        <label>CIR - Temps de préparation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirNote__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Quelle note mets-tu à ta Valo ? ( / 5)</inlineHelpText>
+        <label>CIR - Note</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelAffectPersonnel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Affectation de chaque personnel à un projet valorisé</inlineHelpText>
+        <label>CIR - Affectation personnel</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelAnterieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence globale par rapport aux années antérieures</inlineHelpText>
+        <label>CIR - Personnel années antérieures</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelCharge__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Retraitement des charges sociales</inlineHelpText>
+        <label>CIR - Charges sociales</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelDate__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Contrôler les dates entrée / sortie / changement de statut du personnel</inlineHelpText>
+        <label>CIR - Dates</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelIdentPersonnel__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Identification de chaque personnel (attention aux homonymes possibles --&gt; correspondance avec les matricules)</inlineHelpText>
+        <label>CIR - Identification personnel</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelInteressement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Prise en compte de l&apos;intéressement / participation</inlineHelpText>
+        <label>CIR - Intéressement</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelJustifImplantation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Justifier l&apos;implication technique du personnel de support</inlineHelpText>
+        <label>CIR - Justifier implantation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelNonPointants__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Prise en compte et justification des non-pointants</inlineHelpText>
+        <label>CIR - Non pointants</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelPresenceIngenieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérifier la présence d&apos;au moins un ingénieur / chef de projet par projet valorisé</inlineHelpText>
+        <label>CIR - Présence ingénieur</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelQualifTechnique__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Qualification technique du personnel et récupération du diplôme correspondant</inlineHelpText>
+        <label>CIR - Qualification technique</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelRD__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérifier la cohérence du taux RD de la personne valorisée par rapport à sa fonction (vigilance au 100%)</inlineHelpText>
+        <label>CIR - RD</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelSalaire__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Prise en compte du salaire brut annuel</inlineHelpText>
+        <label>CIR - Salaire brut</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelTauxCharge__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence du taux de charges affecté au personnel</inlineHelpText>
+        <label>CIR - Taux de charges</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelTempsTravail__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Contrôler les valeurs du temps de travail effectif  du personnel</inlineHelpText>
+        <label>CIR - Temps de travail</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirPersonnelVerifJustificat__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérifier les justificatifs des statuts particuliers : Jeunes Docteurs, Thésard,  Mise à Disposition du personnel, Intérimaires, Stagiaires, Personnel non salarié, Inventeur</inlineHelpText>
+        <label>CIR - Vérifier justificatifs</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirRDAnterieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence par rapport année N-1</inlineHelpText>
+        <label>CIR - RD année N-1</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvAgree__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Pour les sociétés agréées qui déclarent du CIR : déduction des montants des sommes facturées à l&apos;entreprise donneuse d&apos;ordre qui bénéficie du CIR pour les travaux d&apos;innovation confiés</inlineHelpText>
+        <label>CIR - Sociétés agréées</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvAnnee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérification de l&apos;année de perception de la subvention</inlineHelpText>
+        <label>CIR - Subvention année</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvAnterieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérification de la méthode de déduction utilisée en année N-1 pour appliquer la continuité de méthode</inlineHelpText>
+        <label>CIR - Déduction années antérieures</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvCabinetDeduction__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Déduction des honoraires au résultat du cabinet de conseil</inlineHelpText>
+        <label>CIR - Cabinet déduction</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvCabinetRemu__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Rémunération au forfait du cabinet de conseil</inlineHelpText>
+        <label>CIR - Cabinet rémunération</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvDeduite__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Subventions publiques antérieurement déduites et qui ont été remboursées sur l&apos;année (à réintégrer)</inlineHelpText>
+        <label>CIR - Subvention déduite</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvMontant__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérification du montant à déduire/à réintégrer par rapport aux dépenses engagées</inlineHelpText>
+        <label>CIR - Subvention montant</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvNature__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérifier la nature de la subvention / de l&apos;avance remboursable</inlineHelpText>
+        <label>CIR - Subvention nature</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvRD__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Subventions publiques / avances remboursables perçues (à déduire) : Vérification qu&apos;il s&apos;agit bien une subvention liée à la RD</inlineHelpText>
+        <label>CIR - Subvention RD</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirSubvThesard__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérifier que lorsqu&apos;on valorise un thésard CIFRE, une subvention ANRT doit être déduite</inlineHelpText>
+        <label>CIR - Thésard CIFRE</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirTotalAnterieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence par rapport année N-1</inlineHelpText>
+        <label>CIR - Total année N-1</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirTotalProjetValo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Rattachement de l’ensemble des coûts de personnel, dotations aux amortissements et subventions à un projet donné</inlineHelpText>
+        <label>CIR - Total sur projet valorisé</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirVeilleAnterieur__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence globale par rapport aux années antérieures</inlineHelpText>
+        <label>CIR - Veille années antérieures</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirVeilleNature__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérification de la nature de la veille (abonnements, congrès, abonnement à des bases de données …) et des dates de factures relatives</inlineHelpText>
+        <label>CIR - Nature veille</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirVeillePlafond__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Prise en compte du plafonnement de ce poste de dépense (60 000€)</inlineHelpText>
+        <label>CIR - Veille plafonnement</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>cirVeilleProjetValo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Valorisation du personnel en veille (option 2) : sait-on relier la personne à un projet avec un temps cohérent (% faible) ?</inlineHelpText>
+        <label>CIR - Veille sur projet valorisé</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dofAnnexes__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Annexes de toutes les pièces justificatives (CV, diplômes, factures, contrats, …)</inlineHelpText>
+        <label>DoF - Annexes</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dofMajChamps__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Mise à jour des champs relatifs à l&apos;audit dans la fiche mission</inlineHelpText>
+        <label>DoF - Maj champs</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dofMatrice__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>A-t-on la correspondance (matrice) projet décrit / personne / heures ?</inlineHelpText>
+        <label>DoF - Matrice</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dofNote__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Quelle note mets-tu au dossier financier ? ( / 5)</inlineHelpText>
+        <label>DoF - Note</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dofPresentation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Mise en forme et présentation des éléments de valorisation</inlineHelpText>
+        <label>DoF - Présentation</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dofProjetValo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérifier que le périmètre valorisé correspond au périmètre justifié</inlineHelpText>
+        <label>DoF - Périmètre valorisé</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotAnnexes__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Annexes justificatives (fichiers sources) disponibles en cas de contrôle (archivage)</inlineHelpText>
+        <label>DoT - Annexes</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotDJ__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Description du chapeau introductif du DJ</inlineHelpText>
+        <label>DoT - DJ</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotDescription__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Description des travaux effectués par les prestataires valorisés</inlineHelpText>
+        <label>DoT - Description</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotHeuresProjet__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Cohérence entre description technique et le volume d&apos;heures du projet</inlineHelpText>
+        <label>DoT - Heures projet</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotIndicateursListe__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Liste des indicateurs</inlineHelpText>
+        <label>DoT - Liste indicateurs</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Absolu</fullName>
+                    <default>false</default>
+                    <label>Absolu</label>
+                </value>
+                <value>
+                    <fullName>Important</fullName>
+                    <default>false</default>
+                    <label>Important</label>
+                </value>
+                <value>
+                    <fullName>Sans indicateur</fullName>
+                    <default>false</default>
+                    <label>Sans indicateur</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dotIndicateurs__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Présence des indicateurs clés</inlineHelpText>
+        <label>DoT - Indicateurs</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotMatrice__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>A-t-on à 100% la correspondance (matrice) projet décrit / personne / heures ?</inlineHelpText>
+        <label>DoT - Matrice</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotNote__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Quelle note mets-tu au dossier technique ? ( / 5)</inlineHelpText>
+        <label>DoT - Note</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dotPj__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>PJ ajoutée dans IA</inlineHelpText>
+        <label>DoT - PJ</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotProjetValo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérifier que le périmètre justifié correspond au périmètre valorisé</inlineHelpText>
+        <label>DoT - Périmètre valorisé</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotProjets__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Si non, lister les projets concernés</inlineHelpText>
+        <label>DoT - Liste des projets</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>dotQualiteNote__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Note ( /5)</inlineHelpText>
+        <label>DoT - Qualité note</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>0</fullName>
+                    <default>false</default>
+                    <label>0</label>
+                </value>
+                <value>
+                    <fullName>1</fullName>
+                    <default>false</default>
+                    <label>1</label>
+                </value>
+                <value>
+                    <fullName>2</fullName>
+                    <default>false</default>
+                    <label>2</label>
+                </value>
+                <value>
+                    <fullName>3</fullName>
+                    <default>false</default>
+                    <label>3</label>
+                </value>
+                <value>
+                    <fullName>4</fullName>
+                    <default>false</default>
+                    <label>4</label>
+                </value>
+                <value>
+                    <fullName>5</fullName>
+                    <default>false</default>
+                    <label>5</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>dotQualite__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Qualité et robustesse de l&apos;information fournie par le client  ( / 5)</inlineHelpText>
+        <label>DoT - Qualité</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotRegroupementsNo__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Non</inlineHelpText>
+        <label>DoT - Regroupements non</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotRegroupementsYes__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Si oui, a-t-on la traçabilité de ces regroupements entre la donnée client initiale et le dossier final ?</inlineHelpText>
+        <label>DoT - Regroupements oui</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotRegroupements__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Des regroupements ont-ils été faits ?</inlineHelpText>
+        <label>DoT - Regroupements</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotRelecture__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Relecture orthographique et syntaxe</inlineHelpText>
+        <label>DoT - Relecture</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>dotVerrou__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Vérifier qu’un verrou technologique / incertitude technique = un état de l&apos;art</inlineHelpText>
+        <label>DoT - Verrou technologique</label>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <gender>Masculine</gender>
+    <label>[OLD] Contrôle Qualité INNO advance</label>
+    <nameField>
+        <displayFormat>CQ-{00000}</displayFormat>
+        <label>Contrôle Qualité INNO Advance</label>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Contrôles Qualité INNO advance</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

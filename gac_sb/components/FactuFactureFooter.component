@@ -1,0 +1,36 @@
+<apex:component >
+    
+    <!-- Pour l'instant je passe directement le custom setting qui provient d'un FacturationEntite__c.getInstance(nomEntité)
+    On pourrait eventuellement passé uniquement le nomEntité mais il faudrait faire un controleur pour récupérer le custom setting... -->
+    <apex:attribute name="footerInfos" description="Le custom setting"  type="FacturationEntite__c" required="true"/>
+    <apex:attribute name="penalitesDeRetardParticulieres" default="10.5" type="decimal" required="false" description="penalites de retard particulieres" />
+    {!$ObjectType.FacturationEntite__c.fields.Penalites_de_retard__c.Label}: "{!SUBSTITUTE(footerInfos.Penalites_de_retard__c,'{0}',TEXT(penalitesDeRetardParticulieres))}"
+    <br />
+    <br />
+    {!$ObjectType.FacturationEntite__c.fields.Condition_escompte__c.Label}: "{!footerInfos.Condition_escompte__c}"
+    <br />
+    <br />
+    {!$ObjectType.FacturationEntite__c.fields.Cheque_ordre__c.Label}: {!footerInfos.Cheque_ordre__c}
+    <br />
+    {!$Label.Factu_ordre_virement}: 
+    <br /><br /><br />
+    <table id="virementInfos">
+        <tr>
+            <td colspan="4">{!$ObjectType.FacturationEntite__c.fields.Virement_domiciliation__c.Label}: {!footerInfos.Virement_domiciliation__c}</td>
+        </tr>
+        <tr>
+            <td style="width: 25%;">{!$ObjectType.FacturationEntite__c.fields.Virement_code_banque__c.Label}: {!footerInfos.Virement_code_banque__c}</td>
+        <td style="width: 25%;">{!$ObjectType.FacturationEntite__c.fields.Virement_code_guichet__c.Label}: {!footerInfos.Virement_code_guichet__c}</td>
+        <td style="width: 25%;">{!$ObjectType.FacturationEntite__c.fields.Virement_num_compte__c.Label}: {!footerInfos.Virement_num_compte__c}</td>
+        <td style="width: 25%;">{!$ObjectType.FacturationEntite__c.fields.Virement_cle_rib__c.Label}: {!footerInfos.Virement_cle_rib__c}</td>
+        </tr>
+        <tr>
+            <td colspan="2">{!$ObjectType.FacturationEntite__c.fields.Virement_IBAN__c.Label}: {!footerInfos.Virement_IBAN__c}</td>
+            <td colspan="2">{!$ObjectType.FacturationEntite__c.fields.Virement_BIC__c.Label}: {!footerInfos.Virement_BIC__c}</td>
+        </tr>
+    </table>
+    <br /><br />
+    <apex:outputPanel rendered="{!footerInfos.Pays__c == ''}" id="coordonnees" layout="block" style="padding:3px;text-align:center;width:700px;color:#ffffff;background-color:#355d9b"><apex:outputField value="{!footerInfos.Coordonnees__c}"/></apex:outputPanel>
+    <apex:outputPanel rendered="{!footerInfos.Pays__c != ''}" id="pays" layout="block" style="padding:3px;text-align:center;width:700px;color:#ffffff;background-color:#355d9b">{!footerInfos.Pays__c}</apex:outputPanel>
+    <apex:outputPanel rendered="{!footerInfos.Pays__c != ''}" id="coordonnees2" layout="block" style="padding:6px;text-align:center;width:700px;"><apex:outputField value="{!footerInfos.Coordonnees__c}"/></apex:outputPanel>
+</apex:component>

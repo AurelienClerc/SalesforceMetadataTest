@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Perimetro de oportunidad</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Perimetros de oportunidad</value>
+    </caseValues>
+    <fields>
+        <label><!-- Compte --></label>
+        <name>Compte__c</name>
+        <relationshipLabel>Incluido en las oportunidades</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Opportunité --></label>
+        <name>Opportunite__c</name>
+        <relationshipLabel>Filiales atañadas</relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <nameFieldLabel>Perimetro de oportunidad</nameFieldLabel>
+</CustomObjectTranslation>

@@ -1,0 +1,10 @@
+<apex:page sidebar="false" title="TimeSheets CIR">
+
+	<!-- On affiche le template avec les onglets si c'est la timeSheet d'une mission en spécifique -->
+	<apex:include pageName="INNOmissionTemplate" rendered="{!$CurrentPage.parameters.missionId != null}"/>
+	
+	<c:INNOtimeSheetSubMenu rendered="{!($CurrentPage.Name == 'INNOtimeSheetEdit' || $CurrentPage.Name == 'innotimesheetedit') && $CurrentPage.parameters.missionId == null}"/>
+	
+	<c:INNOtimeSheetEdit />
+	
+</apex:page>

@@ -1,0 +1,38 @@
+<apex:page standardController="Facture__c" extensions="FactuFacturePDFCtrl" renderAs="{!IF(Facture__c.Entite_GAC__c != 'EIDOSTECH' && Facture__c.Entite_GAC__c != 'CONSULNOVA' && Facture__c.Entite_GAC__c != 'GAC ESPANA','html','pdf')}" standardStylesheets="false">
+	
+	<apex:outputPanel layout="none" rendered="{!Facture__c.Entite_GAC__c == 'EIDOSTECH' || Facture__c.Entite_GAC__c == 'CONSULNOVA' || Facture__c.Entite_GAC__c == 'GAC ESPANA'}">
+	<head>
+	    <style>
+		    body{
+		        font-size:14px;
+		        font-family: 'sans-serif';
+		        <apex:outputPanel layout="none" rendered="{!Facture__c.Statut__c == 'En attente'}">
+		            background: url('{!URLFOR($Resource.GACFactu, 'filigrane_facture_non_valide.jpg')}') #CCCCCC no-repeat;
+		        </apex:outputPanel>
+		    }
+		    
+		    @page {
+		        margin : 50px;
+		        margin-top : 100px;
+		        size: A4 portrait;
+		        padding :0;
+		    }
+	
+	    </style>
+	</head>
+	
+	</apex:outputPanel>
+	
+	<body>
+	
+		<apex:form >
+			<apex:inputHidden value="{!Facture__c.Entite_GAC__c}"/>
+		</apex:form>
+		
+		<c:FactuPDF_ES_eidostech Facture__c="{!Facture__c}" DetailFactuList="{!DetailFactuList}" footerInfos="{!footerInfos}" rendered="{!Facture__c.Entite_GAC__c == 'EIDOSTECH'}"/>
+		<c:FactuPDF_ES_consulnova Facture__c="{!Facture__c}" DetailFactuList="{!DetailFactuList}" footerInfos="{!footerInfos}" rendered="{!Facture__c.Entite_GAC__c == 'CONSULNOVA'}"/>
+		<c:FactuPDF_ES_gac Facture__c="{!Facture__c}" DetailFactuList="{!DetailFactuList}" footerInfos="{!footerInfos}" rendered="{!Facture__c.Entite_GAC__c == 'GAC ESPANA'}"/>
+		
+		<apex:pageMessage title="El campo 'Entidad GAC' es obligado" summary="Valores posibles: 'EIDOSTECH', 'CONSULNOVA' o 'GAC ESPANA'" severity="error" strength="2" rendered="{!Facture__c.Entite_GAC__c != 'EIDOSTECH' && Facture__c.Entite_GAC__c != 'CONSULNOVA' && Facture__c.Entite_GAC__c != 'GAC ESPANA'}"/>
+	</body>
+</apex:page>

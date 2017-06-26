@@ -1,0 +1,754 @@
+<apex:page controller="INNOimportCtrl" sidebar="false" title="{!INNOimport.pageTitle}">
+
+	<apex:composition template="INNOmissionTemplate">
+	
+		<apex:define name="header">
+			
+			<style>
+				
+				button{
+					cursor: pointer;
+				}
+				
+				#importResults{
+					width: 100%;
+					border-spacing: 0;
+					border-collapse: collapse;
+				}
+				
+				#importResults td{
+					padding: 3px;
+				}
+				
+				#importResults td.upsertIcon{
+					width: 20px;	
+				}
+				
+				#importResults thead td{
+					text-align: center;
+					background-color: #3d6f88 !important;
+					color: white;
+					font-weight: bold;
+				}
+				
+				#importResults thead td.required{
+					color: #FF6464 !important;
+				}
+				
+				#importResults thead td.upsertIcon{
+					background-color: transparent !important;
+					min-width: 20px;
+					width: 20px;
+				}
+				
+				#importResults tbody tr.insertRow td.upsertIcon{
+					background: #FFFFFF url('{!URLFOR($Resource.icons, '001_01.png')}') no-repeat 50% 50%;
+					background-size: 75%;
+				}
+				
+				#importResults tbody tr.updateRow td.upsertIcon{
+					background: #FFFFFF url('{!URLFOR($Resource.icons, 'arrow-transfer2.png')}') no-repeat 50% 50%;
+					background-size: 75%;
+				}
+				
+				#importResults .importCell{
+					border: 1px solid #0E4F6F;
+					background-color: #EFF4F6;
+					min-width: 70px;
+				}
+				
+				#importResults .importCell.hasError{
+					background-color: #cc3333;
+				}
+				
+				#importResults .importCell.hasError small{
+					color: white;
+				}
+				
+				#importResults tbody tr .upsertIcon{
+					border-left: 4px solid transparent;
+				}
+				
+				#importResults tbody tr.importSuccess .upsertIcon{
+					border-left-color: #ace631;
+				}
+				
+				#importResults tbody tr.importError .upsertIcon{
+					border-left-color: #ed6b5d;
+				}
+				
+				#progressBarContainer{
+					width: 100%;
+					height: 7px;
+				}
+
+				#progressBar{
+					width: 0%;
+					height: 100%;
+					background-color: #447790;
+					-webkit-transition: width 1s ease-in-out;
+					-moz-transition: width 1s ease-in-out;
+					transition: width 1s ease-in-out;
+				}
+				
+				#checkImportTable{
+					width: 50%;
+					border-collapse: collapse;
+					border-spacing: 0;
+				}
+				
+				#checkImportTable td{
+					border: 1px solid #555555;
+					padding: 5px;
+				}
+				
+				#checkImportTable tr.working{
+					background-color: orange;
+				}
+				
+				#checkImportTable tr.success{
+					background-color: #ace631;
+				}
+				
+				#checkImportTable .resultIcon{
+					width: 24px;
+					height: 24px;
+					margin: auto;
+				}
+				
+				#checkImportTable tr.success .resultIcon{
+					background-image: url('{!URLFOR($Resource.icons, '001_06.png')}');
+				}
+				
+				#checkImportTable tr.error{
+					background-color: #ed6b5d;
+				}
+
+				#checkImportTable tr.error .resultIcon{
+					background-image: url('{!URLFOR($Resource.icons, '001_05.png')}');
+				}
+				
+				#checkImportTable .errorDetails, #checkImportTable .successDetails{
+					display: none;
+				}
+				
+				#checkImportTable tr.error .errorDetails{
+					display: block;
+				}
+				
+				#checkImportTable tr.success .successDetails{
+					display: block;
+				}
+				
+			</style>
+		
+		</apex:define>
+		
+		<apex:define name="body">
+		
+			<apex:sectionHeader title="{!INNOimport.pageTitle}" subtitle="Imports: {!INNOimport.importTypeName}"/>
+	
+			<apex:pageMessages />
+	
+			<apex:form rendered="{!missionReadWrite}" id="form">
+				
+				<!-- Avant le 1er import -->
+				<div id="welcomeMessage">
+					<apex:pageMessage summary="Bienvenue dans l'interface d'import." severity="confirm" strength="2" >
+						Pour importer des {!LOWER(INNOimport.importTypeName)}, vous devez vous baser sur le modèle Excel "{!INNOimport.excelFileName}" que vous pouvez télécharger ici: 
+						<apex:outputLink id="downloadExcelFile" value="{!URLFOR($Resource.INNOimports, INNOimport.excelFileName)}">
+							<apex:image value="{!URLFOR($Resource.icons, 'fatcow/Table-Excel.png')}" width="16px"/>
+						</apex:outputLink>
+						<br/>
+						Une fois votre fichier rempli:
+						<ol class="instructionsList">
+							<li>Appuyez sur "<span class="shortcut">CTRL + A</span>" pour séléctionner toutes les cellules du fichier</li>
+							<li>Appuyez sur "<span class="shortcut">CTRL + C</span>" (ou clic droit > Copier) pour copier la sélection</li>
+							<li>Revenez sur cette page et appuyez sur "<span class="shortcut">CTRL + V</span>" (ou clic droit > Coller) dans la zone de texte ci-dessous</li>
+							<li>Cliquez sur le bouton "Vérifier"</li>
+						</ol>
+					</apex:pageMessage>
+				</div>
+				
+				<table id="checkImportTable">
+					<tr>
+						<td colspan="3" style="border: none; padding: 2px 0;">
+							<div id="progressBarContainer">
+								<div id="progressBar">
+									
+								</div>	
+							</div>
+						</td>
+					</tr>
+					<tr id="headerCheckImportTable" class="working" style="display: none;">
+						<td style="width:250px">Vérification des en-têtes du fichier :</td>
+						<td style="width:80px">
+							<div class="resultIcon"></div>
+						</td>
+						<td>
+							<ul>
+								
+							</ul>
+							
+							<div class="errorDetails">
+								L'en-tête du fichier comporte des erreurs.
+								<br />
+								<button onclick="ImportFunctions.checkImport(document.getElementById('importContent').value);return false;">Réesayer</button>
+							</div>
+						</td>
+					</tr>
+					
+					<tr id="bodyCheckImportTable" class="working" style="display: none;">
+						<td>Vérification des cellules du tableau :</td>
+						<td>
+							<div class="resultIcon"></div>
+						</td>
+						<td>
+							<ul>
+								<li>Lignes totales : <strong id="statCheckTotalRows" ></strong></li>
+								<li>Lignes traitées : <strong id="statCheckProcessedRows" ></strong></li>
+								<li>Lignes ignorées car vides : <strong id="statCheckEmptyRows" ></strong></li>
+								<li>Lignes erronées : <strong id="statCheckErrorRows" ></strong></li>
+								<li>Cellules erronées : <strong id="statCheckErrorCells" ></strong></li>
+							</ul>
+							
+							<div class="errorDetails">
+								Certaines cellules de votre fichier comportent des erreurs
+								<br />
+								Vous pouvez soit :
+								<ul>
+									<li>Corriger votre fichier Excel et réessayer dans la zone de texte ci-dessous. <button onclick="ImportFunctions.checkImport(document.getElementById('importContent').value);return false;">Revérifier la zone de texte</button></li>
+									<li>Corriger les cellules erronées directement dans le tableau en bas de la page. <button onclick="ImportFunctions.checkImport();return false;">Revérifier le tableau</button></li>
+								</ul>
+							</div>
+							
+							<div class="successDetails">
+								Votre fichier est valide, cliquez sur 'Importer' pour terminer l'import des données du tableau ci-dessous.
+								<br />
+								<button onclick="ImportFunctions.importRows();return false;">Importer</button>
+							</div>
+							
+						</td>	
+					</tr>
+					
+					<tr id="importProcessImportTable" class="working" style="display: none;">
+						<td>Import des données :</td>
+						<td>
+							<div class="resultIcon"></div>
+						</td>
+						<td>
+							<ul>
+								<li>Lignes totales : <strong id="statImportTotalRows" ></strong></li>
+								<li>Lignes traitées : <strong id="statImportProcessedRows" ></strong></li>
+								<li>Lignes importées : <strong id="statImportSuccessRows" ></strong></li>
+								<li>Lignes erronées : <strong id="statImportErrorRows" ></strong></li>
+							</ul>
+							
+							<div class="errorDetails">
+								
+								<br />
+								Certaines lignes n'ont pas pu être importées, survolez les lignes erronées avec la souris pour voir les erreurs.
+								<br />
+								Vous pouvez supprimer les lignes correctement importées pour pouvoir recommencer l'import depuis le début. 
+								<button onclick="rollbackImport(ImportFunctions.importId);return false;">Annuler l'import et recommencer</button>
+								<apex:actionFunction action="{!rollbackImport}" name="rollbackImport" rerender="form">
+									<apex:param name="importId" value="6"/>
+								</apex:actionFunction>
+								
+							</div>
+							
+							<div class="successDetails">
+								Import terminé avec succès
+								<br />
+								<apex:commandButton action="{!exitImport}" value="Terminer" style="padding: 2px 3px;"/>
+							</div>
+						</td>	
+					</tr>
+				</table>
+				<br />
+				<br />
+				
+				<!-- La zone de texte d'import avec son bouton "Verifier" -->
+				<div id="importContentContainer">
+					
+					<textarea style="width:100%" rows="10" id="importContent"></textarea>
+					<br />
+					
+					<button onclick="ImportFunctions.checkImport(document.getElementById('importContent').value);this.style.display = 'none'; return false;">Vérifier</button>
+				</div>
+					
+				<br />
+				
+				
+				
+				<table id="importResults">
+					<thead></thead>
+					<tbody></tbody>
+				</table>
+					
+			
+			</apex:form>
+			
+		</apex:define>
+	</apex:composition>
+	
+	<script type="text/javascript">
+		
+		ImportFunctions = {
+			
+			importType : null,
+			
+			parentId : null,
+			
+			importId : null,
+			
+			remoteActions : {},
+			
+			staticRessources : {},
+
+			headerRow : {},
+
+			rows : [],
+			
+			parsedRows : [],
+			
+			errorRows : [],
+			
+			nbSuccessRows : 0,
+			
+			nbErrorRows : 0,
+			
+			nbErrorCells : 0,
+			
+			nbEmptyRows : 0,
+			
+			chunkSize : 0,
+			
+			lastProcessedRow : 0,
+			
+			rowIndexOffset : 0,
+			
+			domSelectors : {},
+			
+			
+			init : function(importType, parentId, remoteActions, chunkSize, domSelectors){
+				this.importType = importType;
+				this.parentId = parentId;
+				this.remoteActions = remoteActions;
+				this.chunkSize = chunkSize;
+				
+				this.domSelectors = domSelectors;
+				this.domSelectors.resultsTableBody = domSelectors.resultsTable.getElementsByTagName('tbody')[0];
+				
+				this.domSelectors.resultsTable.onchange = this.updateInputValue;
+			},
+			
+			
+			updateInputValue : function(){
+				
+				if(event.target.nodeName == 'INPUT' || event.target.nodeName == 'SELECT'){
+					ImportFunctions.parsedRows[event.target.parentNode.parentNode.rowIndex - 1].cells[event.target.parentNode.cellIndex - 1].value = event.target.value;
+				}
+			},
+			
+			
+			
+			checkImport : function(importContent){
+				
+				this.resetErrors();
+				
+				if(importContent != undefined){
+					this.domSelectors.welcomeMessage.style.display = 'none';
+					this.rows = importContent.split('\n');
+					this.resetErrors(true);
+					this.checkHeader();
+				}
+				else{
+					this.lastProcessedRow = 0;
+					this.resetErrors(false);
+					this.setProgressBar(0, this.errorRows.length);
+					this.domSelectors.resultsTableBodyTRs = this.domSelectors.resultsTableBody.getElementsByTagName('tr');
+					this.recheckRowsChunk();
+					
+				}
+			},
+			
+			
+			
+			importRows : function(){
+				
+				this.lastProcessedRow = 0;
+				this.nbErrorRows = 0;
+				this.setProgressBar(1, this.parsedRows.length);
+				this.domSelectors.bodyCheckResults.getElementsByClassName('successDetails')[0].style.display = 'none';
+				this.domSelectors.importProcessResults.style.display = (this.domSelectors.importProcessResults.nodeName == 'TR' ? 'table-row' : 'block');
+				this.domSelectors.statImportTotalRows.innerHTML = this.parsedRows.length;
+				this.domSelectors.resultsTableBodyTRs = this.domSelectors.resultsTableBody.getElementsByTagName('tr');
+				this.importRowsChunk();	
+			},
+			
+			
+			
+			checkHeader : function(){
+
+				this.domSelectors.headerCheckResults.style.display = (this.domSelectors.headerCheckResults.nodeName == 'TR' ? 'table-row' : 'block');
+				
+				var that = this;
+				Visualforce.remoting.Manager.invokeAction(
+					this.remoteActions.checkHeader,
+					this.importType, this.parentId, this.rows[0],
+					function(result, event){
+						if(event.status){
+							if(result.nbErrors > 0){
+								
+								that.domSelectors.headerCheckResults.className = 'error';
+								var errorsLIs = '';
+								if(result.cells.length){
+									for(var i = 0; i < result.cells.length; i++)
+										if(result.cells[i].errorMessage)
+											errorsLIs += '<li>' + result.cells[i].errorMessage + '</li>';
+								}
+								else
+									errorsLIs = '<li>Le fichier est vide</li>';
+								
+								that.domSelectors.headerCheckResults.className = 'error';
+								that.domSelectors.headerCheckResults.getElementsByTagName('ul')[0].innerHTML = errorsLIs;
+								
+							}
+							else{
+								that.headerRow = result;
+								that.domSelectors.resultsTable.getElementsByTagName('thead')[0].innerHTML = that.getRowHtml(result);
+								that.lastProcessedRow = 1;
+								that.rowIndexOffset = 0;
+								
+								that.domSelectors.headerCheckResults.className = 'success';
+								that.domSelectors.bodyCheckResults.style.display = (that.domSelectors.bodyCheckResults.nodeName == 'TR' ? 'table-row' : 'block');
+								that.domSelectors.statCheckTotalRows.innerHTML = that.rows.length - 1;
+								
+								that.checkRowsChunk();
+								
+								that.setProgressBar(1, that.rows.length);
+							}
+						}
+						else{
+							alert(event.message);
+						}
+					},
+					{escape : false}
+				);
+			},
+			
+			
+			
+			checkRowsChunk : function(){
+				var rows = this.rows.slice(this.lastProcessedRow, this.lastProcessedRow + this.chunkSize);
+				
+				var that = this;
+				Visualforce.remoting.Manager.invokeAction(
+					this.remoteActions.checkRows,
+					this.importType, this.parentId, rows, this.rowIndexOffset, this.headerRow, 
+					function(result, event){
+						if(event.status){
+
+							that.lastProcessedRow += rows.length;
+							that.setProgressBar(that.lastProcessedRow, that.rows.length);
+							
+							that.parsedRows = that.parsedRows.concat(result);
+							that.domSelectors.resultsTableBody.innerHTML += that.getRowsHtml(result);
+							
+							
+							
+							that.domSelectors.statCheckProcessedRows.innerHTML = that.parsedRows.length;
+							that.domSelectors.statCheckErrorRows.innerHTML = that.nbErrorRows;
+							that.domSelectors.statCheckErrorCells.innerHTML = that.nbErrorCells;
+							that.domSelectors.statCheckEmptyRows.innerHTML = that.lastProcessedRow - 1 - that.parsedRows.length;
+							
+						
+							
+							if(rows.length == that.chunkSize){
+								that.rowIndexOffset += result.length;
+								that.checkRowsChunk();
+							}
+							else{
+								that.domSelectors.bodyCheckResults.className = (that.errorRows.length > 0 ? 'error' : 'success');
+								if(that.errorRows.length == 0)
+									that.domSelectors.importContentContainer.style.display = 'none';
+							}
+								
+						}
+						else{
+							alert(event.message);
+						}
+					},
+					{escape : false}
+				);
+				
+			},
+			
+			
+			
+			recheckRowsChunk : function(){
+				var rows = this.errorRows.slice(this.lastProcessedRow, this.lastProcessedRow + this.chunkSize);
+				
+				var that = this;
+				Visualforce.remoting.Manager.invokeAction(
+					this.remoteActions.recheckRows,
+					this.importType, this.parentId, rows,
+					function(result, event){
+						if(event.status){
+							
+							for(var i = 0; i < result.length; i++){
+								that.nbErrorCells -= that.parsedRows[result[i].rowIndex].nbErrors;
+								
+								that.parsedRows[result[i].rowIndex].nbErrors = result[i].nbErrors;
+								that.parsedRows[result[i].rowIndex].existingRecordId = result[i].existingRecordId;
+								that.parsedRows[result[i].rowIndex].cells = result[i].cells;
+								
+								that.updateRowHtml(result[i]);
+								
+								if(result[i].nbErrors == 0)
+									that.nbErrorRows --;
+								else
+									that.domSelectors.bodyCheckResults.className = 'error';
+							}
+							
+							that.lastProcessedRow += result.length;
+							
+							that.domSelectors.statCheckErrorRows.innerHTML = that.nbErrorRows;
+							that.domSelectors.statCheckErrorCells.innerHTML = that.nbErrorCells;
+							
+							that.setProgressBar(that.lastProcessedRow, that.errorRows.length);
+							
+							if(result.length == that.chunkSize)
+								that.recheckRowsChunk();
+							else{
+								that.cleanErrorRows();
+								that.domSelectors.bodyCheckResults.className = (that.errorRows.length > 0 ? 'error' : 'success');
+								if(that.errorRows.length == 0)
+									that.domSelectors.importContentContainer.style.display = 'none';
+							}
+						}
+						else{
+							alert(event.message);
+						}
+					},
+					{escape : false}
+				);
+			},
+			
+			
+			
+			importRowsChunk : function(){
+				var rows = this.parsedRows.slice(this.lastProcessedRow, this.lastProcessedRow + this.chunkSize);
+				
+				var that = this;
+				Visualforce.remoting.Manager.invokeAction(
+					this.remoteActions.importRows,
+					this.importType, this.parentId, this.importId, rows,
+					function(result, event){
+						if(event.status){
+							
+							that.importId = result.importId;
+							
+							
+							for(var i = 0; i < rows.length; i++){
+								if(!result.exceptionMessage && result.results[i].success){
+									that.nbSuccessRows ++;
+									that.domSelectors.resultsTableBodyTRs[result.results[i].rowIndex].className += ' importSuccess';
+								}
+								else{
+									// if(that.nbErrorRows == 0)
+									// 	that.domSelectors.importProcessResults.className = 'error';
+									
+									that.nbErrorRows ++;
+									that.domSelectors.resultsTableBodyTRs[result.results[i].rowIndex].className += ' importError';
+									
+									that.domSelectors.resultsTableBodyTRs[result.results[i].rowIndex].title = (result.exceptionMessage ? result.exceptionMessage : result.results[i].errors);
+								}
+								
+								
+				
+							}
+							
+							that.lastProcessedRow += rows.length;
+							
+							that.setProgressBar(that.lastProcessedRow, that.parsedRows.length);
+							
+							that.domSelectors.statImportProcessedRows.innerHTML = that.nbSuccessRows + that.nbErrorRows;
+							that.domSelectors.statImportSuccessRows.innerHTML = that.nbSuccessRows;
+							that.domSelectors.statImportErrorRows.innerHTML = that.nbErrorRows;
+							
+							if(rows.length == that.chunkSize)
+								that.importRowsChunk();
+							else{
+								that.domSelectors.importProcessResults.className = (that.nbErrorRows > 0 ? 'error' : 'success');
+							}
+								
+							
+						}
+						else{
+							alert(event.message);
+						}
+					},
+					{escape : false}
+				);
+			},
+			
+			
+			
+			cleanErrorRows : function(){
+				
+				var errorRows = [];
+				for(var i = 0; i < this.errorRows.length; i++){
+					if(this.errorRows[i].nbErrors > 0)
+						errorRows.push(this.errorRows[i])
+				}
+				this.errorRows = errorRows;
+				
+			},
+			
+			
+			
+			updateRowHtml : function(row){
+				this.domSelectors.resultsTableBodyTRs[row.rowIndex].className = (row.existingRecordId ? 'updateRow' : 'insertRow');
+				this.domSelectors.resultsTableBodyTRs[row.rowIndex].innerHTML = this.getRowInnerHtml(row);
+			},
+			
+			
+			
+			getRowsHtml : function(rows){
+				
+				
+				var rowsHtml = '';
+				if(rows && rows.length){
+					for(var i = 0; i < rows.length; i++){
+						rowsHtml += this.getRowHtml(rows[i]);
+					}
+				}
+				return rowsHtml;
+			},
+			
+			
+			
+			getRowHtml : function(row){
+				if(row.nbErrors > 0){
+					this.errorRows.push(row);
+					
+					// if(this.nbErrorRows == 0)
+					// 	this.domSelectors.bodyCheckResults.className = 'error';
+						
+					this.nbErrorRows ++;
+				}
+					
+				return '<tr class="' + (row.existingRecordId ? 'updateRow' : 'insertRow') + '" >' + this.getRowInnerHtml(row) + '</tr>';
+			},
+			
+			
+			
+			getRowInnerHtml : function(row){
+				var rowInnerHtml = '<td class="upsertIcon"></td>';
+
+				for(var i = 0; i < row.cells.length; i++)
+					rowInnerHtml += this.getCellHtml(row.cells[i]);
+					
+				return rowInnerHtml;
+			},
+			
+			
+			
+			getCellHtml : function(cell){
+				
+				if(cell.hasError){
+					this.nbErrorCells ++;
+					if(cell.picklistValues){
+						var cellInnerHtml = this.getSelectHtml(cell);
+					}
+					else
+						var cellInnerHtml = '<input type="text" value="' + (cell.value || '') + '" />';
+						
+					cellInnerHtml += '<br /><small>' + cell.errorMessage + '</small>';
+				}
+				else
+					var cellInnerHtml = (cell.printValue || cell.value || '');
+					
+				return '<td class="importCell' + (cell.hasError ? ' hasError' : '') + (cell.required ? ' required' : '') + '">' + cellInnerHtml + '</td>';
+				
+			},
+			
+			
+			
+			getSelectHtml : function(cell){
+				var selectHtml = '<select value="' + cell.value + '">';
+				
+				for(var i = 0; i < cell.picklistValues.length; i++){
+					selectHtml += '<option value="' + cell.picklistValues[i].value + '">' + cell.picklistValues[i].label + '</option>';
+				}
+				
+				return selectHtml + '</select>';
+			},
+			
+			
+			
+			resetErrors : function(isFirstRecheck){
+				this.domSelectors.headerCheckResults.className = (isFirstRecheck ? 'working' : 'success');
+				this.domSelectors.headerCheckResults.getElementsByTagName('ul')[0].innerHTML = '';
+				this.domSelectors.bodyCheckResults.className = 'working';
+				
+				if(isFirstRecheck){
+					this.domSelectors.resultsTableBody.innerHTML = '';
+					this.domSelectors.statCheckTotalRows.innerHTML = 0;
+					this.domSelectors.statCheckProcessedRows.innerHTML = 0;
+					this.domSelectors.statCheckEmptyRows.innerHTML = 0;
+					this.domSelectors.statCheckErrorRows.innerHTML = 0;
+					this.domSelectors.statCheckErrorCells.innerHTML = 0;
+					this.nbErrorRows = 0;
+					this.nbErrorCells = 0;
+					this.nbEmptyRows = 0;
+					this.parsedRows = [];
+					this.errorRows = [];
+				}
+			},
+			
+			
+			setProgressBar : function(processedRows, totalRows){
+				this.domSelectors.progressBar.style.width = (processedRows / totalRows * 100) + '%';
+			}
+			
+			
+		}
+		
+		
+		
+		ImportFunctions.init(
+			'{!importType}', 
+			'{!$CurrentPage.parameters.valoId}', 
+			{
+				checkHeader : '{!$RemoteAction.INNOimportCtrl.checkImportHeader}',
+				checkRows 	: '{!$RemoteAction.INNOimportCtrl.checkImportRows}',
+				recheckRows : '{!$RemoteAction.INNOimportCtrl.reCheckImportRows}',
+				importRows : '{!$RemoteAction.INNOimportCtrl.importRows}',
+			}, 
+			{!IMPORT_BATCH_SIZE},
+			{
+				welcomeMessage			: document.getElementById('welcomeMessage'), 
+				resultsTable			: document.getElementById('importResults'), 
+				progressBar 			: document.getElementById('progressBar'),
+				headerCheckResults		: document.getElementById('headerCheckImportTable'),
+				bodyCheckResults		: document.getElementById('bodyCheckImportTable'),
+				importContentContainer	: document.getElementById('importContentContainer'),
+				importProcessResults	: document.getElementById('importProcessImportTable'),
+				statCheckTotalRows 		: document.getElementById('statCheckTotalRows'),
+				statCheckProcessedRows 	: document.getElementById('statCheckProcessedRows'),
+				statCheckErrorRows 		: document.getElementById('statCheckErrorRows'),
+				statCheckErrorCells 	: document.getElementById('statCheckErrorCells'),
+				statCheckEmptyRows 		: document.getElementById('statCheckEmptyRows'),
+				statImportTotalRows 	: document.getElementById('statImportTotalRows'),
+				statImportProcessedRows	: document.getElementById('statImportProcessedRows'),
+				statImportSuccessRows	: document.getElementById('statImportSuccessRows'),
+				statImportErrorRows 	: document.getElementById('statImportErrorRows')
+				
+			});
+		
+		
+	</script>
+</apex:page>

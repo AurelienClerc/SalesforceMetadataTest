@@ -1,0 +1,51 @@
+<apex:page standardController="Mission__c" tabStyle="Mission__c">
+    
+
+    <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/versioning.css" />
+    <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/extended.css" />
+    <style>
+        .rich-tabpanel-content .bDetailBlock, .tab_dossier .bPageBlock, .tab_etab .bPageBlock, .tab_portail .bPageBlock{
+            border: none !important;
+            padding: 10px;
+        }
+    </style>
+
+
+    <apex:tabPanel switchType="client" >
+        <apex:tab label="Détails" name="details" >
+            <apex:detail subject="{!Mission__c.Id}" relatedList="false" inlineEdit="true" />
+
+            <apex:relatedList list="Planifications_de_facturation__r"/>
+
+            <apex:relatedList list="Factures__r"/>
+            <apex:relatedList list="OpenActivities"/>
+            <apex:relatedList list="ActivityHistories"/>
+            
+        </apex:tab>
+        
+        <apex:tab label="Dossiers" styleClass="tab_dossier">
+            <apex:relatedList list="DossiersSalaries__r"/>
+        </apex:tab>
+        
+        <apex:tab label="Etablissements" styleClass="tab_etab">
+            <apex:relatedList list="EtablissementsConcernes__r"/>  
+        </apex:tab>
+
+        <apex:tab label="Recours" styleClass="tab_etab">
+            <apex:relatedList list="Recours__r"/>  
+        </apex:tab>
+        
+        <apex:tab label="Portail AT/MP" styleClass="tab_portail">
+
+        	<apex:relatedList list="PartagesMissionPortail__r" rendered="{!Mission__c.Compte__r.ATVisibiliteGereeParMission__c}" />
+        	
+        	<apex:pageMessage severity="INFO" strength="2" title="Le partage par mission est désactivé sur ce compte (cf. case 'AT : visibilité gérée par mission' sur le compte)" rendered="{!!Mission__c.Compte__r.ATVisibiliteGereeParMission__c}"/>
+        	
+        </apex:tab>
+
+    </apex:tabPanel>
+
+    <apex:form >
+        <apex:inputHidden value="{!Mission__c.Compte__c}" />
+    </apex:form>
+</apex:page>

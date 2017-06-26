@@ -1,0 +1,25 @@
+<apex:page standardController="Mission__c" extensions="FactuCreatePlanificationFromMissionCtrl" action="{!createPlanification}">
+    
+    <apex:sectionHeader subtitle="{!$ObjectType.Mission__c.Label} {!Mission__c.Name}" title="{!$Label.Factu_SelectPlanifRT}"/>
+    
+    <apex:form id="MissionInitDatas">   
+        <apex:inputHidden value="{!Mission__c.Contrat__r.ContractNumber}"/>
+        <!-- Bug si inputHidden  -->
+        <span style="display:none">{!Mission__c.RecordType.DeveloperName}</span>
+        <apex:inputHidden value="{!Mission__c.Name}"/>
+        
+        <apex:pageBlock >
+            <apex:pageBlockSection showHeader="true" title="{!$Label.Factu_SelectPlanifRT}" columns="1"> 
+                <apex:selectList id="recordTypeTAT" styleclass="std" size="1" value="{!recordTypeTAT}">
+                    <apex:selectOptions value="{!recordTypeTATSelectList}"/>
+                </apex:selectList>
+            </apex:pageBlockSection>
+
+            <apex:pageBlockButtons >
+                <apex:commandButton action="{!createPlanification}" value="Suivant" />
+                <apex:commandButton value="{!$Label.Factu_Cancel}" action="{!URLFOR('/'+Mission__c.Id)}"/>
+            </apex:pageBlockButtons>
+        </apex:pageBlock>
+ 
+    </apex:form>
+</apex:page>

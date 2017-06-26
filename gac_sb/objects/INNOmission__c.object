@@ -1,0 +1,2688 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <content>INNOhome</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>INNOmissionView</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Annee_CIR__c</fullName>
+        <externalId>false</externalId>
+        <label>Année CIR</label>
+        <length>4</length>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Auditeurs_financiers__c</fullName>
+        <externalId>false</externalId>
+        <label>Auditeurs financiers</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Avancement_Audit__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Audit__c == 0, 0, Nombre_jours_travailles_Audit__c / Nombre_jours_theoriques_Audit__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement - Audit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Avancement_Controle__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Controle__c == 0, 0, Nombre_jours_travailles_Controle__c / Nombre_jours_theoriques_Controle__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement - Contrôle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Avancement_Justification__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Justification__c == 0, 0, Nombre_jours_travailles_Justification__c / Nombre_jours_theoriques_Justification__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement - Justif</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Avancement_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Valorisation__c == 0, 0, Nombre_jours_travailles_Valorisation__c / Nombre_jours_theoriques_Valorisation__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement - Valo</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Avancement__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Total__c == 0, 0, Nombre_jours_travailles_total__c / Nombre_jours_theoriques_Total__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>ChiffreAffaire__c</fullName>
+        <externalId>false</externalId>
+        <label>Chiffre d&apos;affaire</label>
+        <summarizedField>INNOvalo__c.ChiffreAffaire__c</summarizedField>
+        <summaryForeignKey>INNOvalo__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>CleUnique__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>Clé unique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Consultants_exterieurs__c</fullName>
+        <externalId>false</externalId>
+        <label>Consultants exterieurs</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consultants_fiscalistes__c</fullName>
+        <externalId>false</externalId>
+        <label>Consultants fiscalistes</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consultants_scientifiques__c</fullName>
+        <externalId>false</externalId>
+        <label>Consultants scientifiques</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Contrat__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contrat</label>
+        <referenceTo>Contract</referenceTo>
+        <relationshipName>MissionsCIR</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Cout_mission_Estime__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Cout_standard_INNO_advance__c), 
+null, 
+(Nombre_jours_programmes_Consultant__c + Nombre_jours_travailles_Consultant__c) * Cout_standard_INNO_advance__r.Cout_standard_Consultant__c + 
+(Nombre_jours_programmes_Redacteur_RO__c + Nombre_jours_travailles_Redacteur_RO__c) * Cout_standard_INNO_advance__r.Cout_standard_Redacteur_RO__c + 
+(Nombre_jours_programmes_Superviseur__c + Nombre_jours_travailles_Superviseur__c) * Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c + 
+(Nombre_jours_programmes_Manager__c + Nombre_jours_travailles_Manager__c) * Cout_standard_INNO_advance__r.Cout_standard_Manager__c +
+(Nombre_jours_programmes_Redacteur__c + Nombre_jours_travailles_Redacteur__c) * Cout_standard_INNO_advance__r.Cout_Standard_Redacteur__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coût de la mission (Estimé)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_mission_Reelle__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Cout_standard_INNO_advance__c), 
+null, 
+Nombre_jours_travailles_Consultant__c * Cout_standard_INNO_advance__r.Cout_standard_Consultant__c + 
+Nombre_jours_travailles_Redacteur_RO__c * Cout_standard_INNO_advance__r.Cout_standard_Redacteur_RO__c + 
+Nombre_jours_travailles_Superviseur__c * Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c + 
+Nombre_jours_travailles_Manager__c * Cout_standard_INNO_advance__r.Cout_standard_Manager__c +
+Nombre_jours_travailles_Redacteur__c * Cout_standard_INNO_advance__r.Cout_Standard_Redacteur__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coût de la mission (Réelle)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_mission_Theorique__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Cout_standard_INNO_advance__c), 
+null, 
+Nombre_jours_theoriques_Consultant__c * Cout_standard_INNO_advance__r.Cout_standard_Consultant__c + 
+Nombre_jours_theoriques_Redacteur_RO__c * Cout_standard_INNO_advance__r.Cout_standard_Redacteur_RO__c + 
+Nombre_jours_theoriques_Superviseur__c * Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c + 
+Nombre_jours_theoriques_Manager__c * Cout_standard_INNO_advance__r.Cout_standard_Manager__c +
+Nombre_jours_theoriques_Redacteur__c * Cout_standard_INNO_advance__r.Cout_Standard_Redacteur__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coût de la mission (Théorique)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_standard_INNO_advance__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Coût standard INNO advance</label>
+        <referenceTo>INNOcoutStandard__c</referenceTo>
+        <relationshipName>Missions_CIR</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DateEnvoiValorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d’envoi Valorisation</label>
+        <summarizedField>INNOvalo__c.Date_envoi_valorisation__c</summarizedField>
+        <summaryForeignKey>INNOvalo__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>DateValidationPerimetreRecap__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Validation Périmètre</label>
+        <summarizedField>INNOvalo__c.Date_validation_perimetre__c</summarizedField>
+        <summaryForeignKey>INNOvalo__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Date_Initiale_echeance_DT__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Date contractuelle ou fixée par le manager. Date figée</inlineHelpText>
+        <label>Date Initiale échéance DT</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_debut_Audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Date début Audit</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_debut_justification__c</fullName>
+        <externalId>false</externalId>
+        <label>Date début justification</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_debut_valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Date début valorisation</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_dernier_DT_rendu__c</fullName>
+        <externalId>false</externalId>
+        <label>Date du dernier DT rendu</label>
+        <summarizedField>INNOvalo__c.Date_rendu_DT__c</summarizedField>
+        <summaryForeignKey>INNOvalo__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Date_fin_audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Date fin Audit</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_fin_justification_recap__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Calculée automatiquement avec le MAX des Dates d&apos;échéance DT des valorisations associées</inlineHelpText>
+        <label>Date fin justification</label>
+        <summarizedField>INNOvalo__c.Date_echeance_DT__c</summarizedField>
+        <summaryForeignKey>INNOvalo__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>max</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Date_fin_valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Date fin valorisation</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_lancement_mission__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de lancement de mission</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Groupe__c</fullName>
+        <externalId>false</externalId>
+        <label>Groupe</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>ADISSEO</fullName>
+                    <default>false</default>
+                    <label>ADISSEO</label>
+                </value>
+                <value>
+                    <fullName>AIR LIQUIDE</fullName>
+                    <default>false</default>
+                    <label>AIR LIQUIDE</label>
+                </value>
+                <value>
+                    <fullName>AKKA TECHNOLOGIES</fullName>
+                    <default>false</default>
+                    <label>AKKA TECHNOLOGIES</label>
+                </value>
+                <value>
+                    <fullName>AMADEUS</fullName>
+                    <default>false</default>
+                    <label>AMADEUS</label>
+                </value>
+                <value>
+                    <fullName>ANDRA</fullName>
+                    <default>false</default>
+                    <label>ANDRA</label>
+                </value>
+                <value>
+                    <fullName>ATOS</fullName>
+                    <default>false</default>
+                    <label>ATOS</label>
+                </value>
+                <value>
+                    <fullName>BOUYGUES TELECOM</fullName>
+                    <default>false</default>
+                    <label>BOUYGUES TELECOM</label>
+                </value>
+                <value>
+                    <fullName>BOUYGUES TRAVAUX PUBLICS</fullName>
+                    <default>false</default>
+                    <label>BOUYGUES TRAVAUX PUBLICS</label>
+                </value>
+                <value>
+                    <fullName>CGG</fullName>
+                    <default>false</default>
+                    <label>CGG</label>
+                </value>
+                <value>
+                    <fullName>CLIMESPACE</fullName>
+                    <default>false</default>
+                    <label>CLIMESPACE</label>
+                </value>
+                <value>
+                    <fullName>CREDIT AGRICOLE</fullName>
+                    <default>false</default>
+                    <label>CREDIT AGRICOLE</label>
+                </value>
+                <value>
+                    <fullName>DIAGNOSTICA STAGO</fullName>
+                    <default>false</default>
+                    <label>DIAGNOSTICA STAGO</label>
+                </value>
+                <value>
+                    <fullName>EDF</fullName>
+                    <default>false</default>
+                    <label>EDF</label>
+                </value>
+                <value>
+                    <fullName>ELECTRICITE DE STRASBOURG</fullName>
+                    <default>false</default>
+                    <label>ELECTRICITE DE STRASBOURG</label>
+                </value>
+                <value>
+                    <fullName>ENEDIS (ERDF)</fullName>
+                    <default>false</default>
+                    <label>ENEDIS (ERDF)</label>
+                </value>
+                <value>
+                    <fullName>ENGIE</fullName>
+                    <default>false</default>
+                    <label>ENGIE</label>
+                </value>
+                <value>
+                    <fullName>IFF</fullName>
+                    <default>false</default>
+                    <label>IFF</label>
+                </value>
+                <value>
+                    <fullName>INEO</fullName>
+                    <default>false</default>
+                    <label>INEO</label>
+                </value>
+                <value>
+                    <fullName>LORD CORPORATION</fullName>
+                    <default>false</default>
+                    <label>LORD CORPORATION</label>
+                </value>
+                <value>
+                    <fullName>LVMH</fullName>
+                    <default>false</default>
+                    <label>LVMH</label>
+                </value>
+                <value>
+                    <fullName>MAISADOUR</fullName>
+                    <default>false</default>
+                    <label>MAISADOUR</label>
+                </value>
+                <value>
+                    <fullName>MARS CHOCOLAT FRANCE</fullName>
+                    <default>false</default>
+                    <label>MARS CHOCOLAT FRANCE</label>
+                </value>
+                <value>
+                    <fullName>MIKROS - IMAGE</fullName>
+                    <default>false</default>
+                    <label>MIKROS - IMAGE</label>
+                </value>
+                <value>
+                    <fullName>NEXTER SYSTEMS</fullName>
+                    <default>false</default>
+                    <label>NEXTER SYSTEMS</label>
+                </value>
+                <value>
+                    <fullName>OTIS</fullName>
+                    <default>false</default>
+                    <label>OTIS</label>
+                </value>
+                <value>
+                    <fullName>PIERRE FABRE SA</fullName>
+                    <default>false</default>
+                    <label>PIERRE FABRE SA</label>
+                </value>
+                <value>
+                    <fullName>ROBERT BOSCH FRANCE</fullName>
+                    <default>false</default>
+                    <label>ROBERT BOSCH FRANCE</label>
+                </value>
+                <value>
+                    <fullName>ROULLIER</fullName>
+                    <default>false</default>
+                    <label>ROULLIER</label>
+                </value>
+                <value>
+                    <fullName>SAFRAN</fullName>
+                    <default>false</default>
+                    <label>SAFRAN</label>
+                </value>
+                <value>
+                    <fullName>SAGEMCOM SAS</fullName>
+                    <default>false</default>
+                    <label>SAGEMCOM SAS</label>
+                </value>
+                <value>
+                    <fullName>SAINT GOBAIN</fullName>
+                    <default>false</default>
+                    <label>SAINT GOBAIN</label>
+                </value>
+                <value>
+                    <fullName>SAP</fullName>
+                    <default>false</default>
+                    <label>SAP</label>
+                </value>
+                <value>
+                    <fullName>SEGULA</fullName>
+                    <default>false</default>
+                    <label>SEGULA</label>
+                </value>
+                <value>
+                    <fullName>SERVIER</fullName>
+                    <default>false</default>
+                    <label>SERVIER</label>
+                </value>
+                <value>
+                    <fullName>SNCF</fullName>
+                    <default>false</default>
+                    <label>SNCF</label>
+                </value>
+                <value>
+                    <fullName>TARKETT</fullName>
+                    <default>false</default>
+                    <label>TARKETT</label>
+                </value>
+                <value>
+                    <fullName>UNION INVIVO</fullName>
+                    <default>false</default>
+                    <label>UNION INVIVO</label>
+                </value>
+                <value>
+                    <fullName>VALEO</fullName>
+                    <default>false</default>
+                    <label>VALEO</label>
+                </value>
+                <value>
+                    <fullName>VINCI</fullName>
+                    <default>false</default>
+                    <label>VINCI</label>
+                </value>
+                <value>
+                    <fullName>VIRBAC SA</fullName>
+                    <default>false</default>
+                    <label>VIRBAC SA</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>INNOcontroleQualite__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contrôle Qualité 2</label>
+        <referenceTo>INNOcontroleQualite__c</referenceTo>
+        <relationshipName>Missions_CIR_2</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Managers__c</fullName>
+        <externalId>false</externalId>
+        <label>Managers</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_definitif_option1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Somme des montants des valorisations associées à cette mission</inlineHelpText>
+        <label>Montant du CIR définitif option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_definitif_option2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Somme des montants des valorisations associées à cette mission</inlineHelpText>
+        <label>Montant du CIR définitif option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_definitif_option3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Somme des montants des valorisations associées à cette mission</inlineHelpText>
+        <label>Montant du CIR définitif option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_definitif_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Somme des montants des valorisations associées à cette mission</inlineHelpText>
+        <label>Montant CIR définitif retenu(après dédu)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_depenses_option1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Somme des montants des valorisations associées à cette mission</inlineHelpText>
+        <label>Montant total des dépenses option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_depenses_option2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Somme des montants des valorisations associées à cette mission</inlineHelpText>
+        <label>Montant total des dépenses option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_depenses_option3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Somme des montants des valorisations associées à cette mission</inlineHelpText>
+        <label>Montant total des dépenses option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_depenses_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Somme des montants des valorisations associées à cette mission</inlineHelpText>
+        <label>Montant total dép. retenu (avant dédu)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>NombreCFenCours__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de CF en cours</label>
+        <summaryFilterItems>
+            <field>INNOvalo__c.Etat_CF__c</field>
+            <operation>equals</operation>
+            <value>En cours</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOvalo__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Audit</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_programmes_Audit__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Consultant__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Consultant</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_programmes_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Consultant scientifique, Consultant fiscaliste, Consultant extérieur, Auditeur Financier</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Controle__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Contrôle</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_programmes_Controle__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Justification__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Justif</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_programmes_Justification__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Manager__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Manager</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_programmes_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Manager</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Redacteur_RO__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés- Rédacteur RO</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_programmes_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Rédacteur scientifique RO</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Redacteur__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Rédacteur</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_programmes_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Rédacteur scientifique</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Superviseur__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Superviseur</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_programmes_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Superviseur/Consultant, Superviseur</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_programmes_Audit__c + Nombre_jours_programmes_Valorisation__c + Nombre_jours_programmes_Justification__c + Nombre_jours_programmes_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours programmés - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Valo</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_programmes_Valorisation__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Audit</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_theoriques_Audit__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Consultant__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Consultant</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_theoriques_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Consultant scientifique, Consultant fiscaliste, Consultant extérieur, Auditeur Financier</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Controle__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Contrôle</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_theoriques_Controle__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Justification__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Justif</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_theoriques_Justification__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Manager__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Manager</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_theoriques_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Manager</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Redacteur_RO__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques- Rédacteur RO</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_theoriques_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Rédacteur scientifique RO</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Redacteur__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Rédacteur</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_theoriques_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Rédacteur scientifique</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Superviseur__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Superviseur</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_theoriques_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Superviseur/Consultant, Superviseur</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_theoriques_Audit__c + Nombre_jours_theoriques_Valorisation__c + Nombre_jours_theoriques_Justification__c + Nombre_jours_theoriques_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours théoriques - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Valo</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_theoriques_Valorisation__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Audit</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_travailles_Audit__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Consultant__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Consultant</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_travailles_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Consultant scientifique, Consultant fiscaliste, Consultant extérieur, Auditeur Financier</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Controle__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Contrôle</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_travailles_Controle__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Justification__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Justif</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_travailles_Justification__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Manager__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Manager</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_travailles_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Manager</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Redacteur_RO__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés- Rédacteur RO</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_travailles_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Rédacteur scientifique RO</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Redacteur__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Rédacteur</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_travailles_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Rédacteur scientifique</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Superviseur__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Superviseur</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_travailles_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>INNOequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Superviseur/Consultant, Superviseur</value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Valo</label>
+        <summarizedField>INNOequipeConsulting__c.Nombre_jours_travailles_Valorisation__c</summarizedField>
+        <summaryForeignKey>INNOequipeConsulting__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_travailles_Audit__c + Nombre_jours_travailles_Valorisation__c +  Nombre_jours_travailles_Justification__c + Nombre_jours_travailles_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours travaillés - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phase__c</fullName>
+        <externalId>false</externalId>
+        <label>Phase</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Inactif / en attente de renouvellement</fullName>
+                    <default>false</default>
+                    <label>Inactif / en attente de renouvellement</label>
+                </value>
+                <value>
+                    <fullName>Inactif / en attente de lancement</fullName>
+                    <default>false</default>
+                    <label>Inactif / en attente de lancement</label>
+                </value>
+                <value>
+                    <fullName>Audit</fullName>
+                    <default>false</default>
+                    <label>Audit</label>
+                </value>
+                <value>
+                    <fullName>Valorisation</fullName>
+                    <default>false</default>
+                    <label>Valorisation</label>
+                </value>
+                <value>
+                    <fullName>Justification</fullName>
+                    <default>false</default>
+                    <label>Justification</label>
+                </value>
+                <value>
+                    <fullName>Terminée</fullName>
+                    <default>false</default>
+                    <label>Terminée</label>
+                </value>
+                <value>
+                    <fullName>Terminée - Dossier à 0</fullName>
+                    <default>false</default>
+                    <label>Terminée - Dossier à 0</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>PrestataireAvocat__c</fullName>
+        <externalId>false</externalId>
+        <label>Prestataire Avocat</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrestataireCAC__c</fullName>
+        <externalId>false</externalId>
+        <label>Prestataire CAC</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>PrestataireEC__c</fullName>
+        <externalId>false</externalId>
+        <label>Prestataire EC</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Redacteurs_scientifiques__c</fullName>
+        <externalId>false</externalId>
+        <label>Rédacteurs scientifiques</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Rentabilite_mission_Estimee__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ChiffreAffaire__c = 0,
+null,
+(ChiffreAffaire__c - Cout_mission_Estime__c) / ChiffreAffaire__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Rentabilité de la mission (Estimée)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Rentabilite_mission_Reelle__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ChiffreAffaire__c = 0,
+null,
+(ChiffreAffaire__c - Cout_mission_Reelle__c) / ChiffreAffaire__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Rentabilité de la mission (Réelle)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Rentabilite_mission_Theorique__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ChiffreAffaire__c = 0,
+null,
+(ChiffreAffaire__c - Cout_mission_Theorique__c) / ChiffreAffaire__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Rentabilité de la mission (Théorique)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Statut__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( Phase__c , 
+&apos;Inactif / en attente de renouvellement&apos;, &apos;Inactive&apos;, 
+&apos;Inactif / en attente de lancement&apos;, &apos;Inactive&apos;, 
+&apos;Terminée&apos;, IF(NombreCFenCours__c &gt; 0, &apos;Active&apos;, &apos;Terminée&apos;), 
+&apos;Terminée - Dossier à 0&apos;, &apos;Terminée&apos;, 
+&apos;Active&apos;)</formula>
+        <label>Statut</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TauxCII__c</fullName>
+        <defaultValue>0.2</defaultValue>
+        <externalId>false</externalId>
+        <label>Taux CII</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Taux_CIR__c</fullName>
+        <externalId>false</externalId>
+        <label>Taux CIR</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>TechMissionIdINNOV1__c</fullName>
+        <externalId>false</externalId>
+        <label>Tech Mission Id INNO V1</label>
+        <length>20</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TechNombreDateDTValorisations__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de valos avec Date DT</label>
+        <summaryFilterItems>
+            <field>INNOvalo__c.Date_rendu_DT__c</field>
+            <operation>notEqual</operation>
+            <value></value>
+        </summaryFilterItems>
+        <summaryForeignKey>INNOvalo__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>TechNombreTotalValorisations__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre total de valorisations</label>
+        <summaryForeignKey>INNOvalo__c.MissionCIR__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>TempsTheoriquePlafond__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Contrat__r.Opportunite__r.renta_Total_jours_estimes_force__c != 0,
+Contrat__r.Opportunite__r.renta_Total_jours_estimes_force__c,
+Contrat__r.Opportunite__r.Total_jours_retenus__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Temps théorique plafond</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temps_theorique_mission__c</fullName>
+        <externalId>false</externalId>
+        <label>Temps théorique initial</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temps_theorique_opportunite__c</fullName>
+        <externalId>false</externalId>
+        <label>Temps théorique sur l&apos;opportunité</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TousDTrendus__c</fullName>
+        <externalId>false</externalId>
+        <formula>TechNombreDateDTValorisations__c == TechNombreTotalValorisations__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tous DT rendus</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>TrigrammeTypeMission__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(TEXT(TypeMission__c),
+&quot;Agrément&quot;,&quot;AGR&quot;,
+&quot;Assistance technique à contrôle&quot;,&quot;ATC&quot;,
+&quot;Audit de l&apos;égibilité&quot;,&quot;ELI&quot;,
+&quot;Audit méthode CIR&quot;,&quot;MET&quot;,
+&quot;CIJV&quot;,&quot;CIJV&quot;,
+&quot;CIMA&quot;,&quot;CIMA&quot;,
+&quot;CIR / CII Classique&quot;,&quot;STD (pour standard)&quot;,
+&quot;CIR optimisation&quot;,&quot;OPT&quot;,
+&quot;Conseil&quot;,&quot;CSL&quot;,
+&quot;Crédit Impôt Collection&quot;,&quot;CIC&quot;,
+&quot;Dossier justificatif&quot;,&quot;DJ&quot;,
+&quot;Mobilisation de créances et préfinancement&quot;,&quot;MOB&quot;,
+&quot;O2T&quot;,&quot;O2T&quot;,
+&quot;Statut JEI&quot;,&quot;JEI&quot;,
+&quot;Autres&quot;,&quot;DIV&quot;,
+&quot;AS - Dépôt collaboratif&quot;,&quot;DCO&quot;,
+&quot;AS - Dépôt mono-entreprise&quot;,&quot;DMO&quot;,
+&quot;AS - Etude d&apos;opportunité&quot;,&quot;EOP&quot;,
+&quot;AS - Management collaboratif&quot;,&quot;MCO&quot;,
+&quot;AS - Management mono-entreprise&quot;,&quot;MMO&quot;,
+&quot;AS - Plan de financement&quot;,&quot;FIN&quot;,
+&quot;DI - Dépôt&quot;,&quot;DEP&quot;,
+&quot;DI - Liquidation&quot;,&quot;LIQ&quot;,
+&quot;Controlling R&amp;D&quot;,&quot;CTRL&quot;,
+&quot;Gestion du risque&quot;,&quot;RISK&quot;,
+&quot;IAS 38&quot;,&quot;IAS&quot;,
+&quot;Marketing de l&apos;innovation&quot;,&quot;MKG&quot;,
+&quot;Organisation R&amp;D&quot;,&quot;ORG&quot;,
+&quot;Propriété intellectuelle&quot;,&quot;PI&quot;,
+&quot;Valorisation&quot;,&quot;VALO&quot;,
+&quot;CIR International&quot;,&quot;INTL&quot;,
+&quot;&quot;)</formula>
+        <label>Trigramme type de mission</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TypeMission__c</fullName>
+        <externalId>false</externalId>
+        <label>Type de mission</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Agrément</fullName>
+                    <default>false</default>
+                    <label>Agrément</label>
+                </value>
+                <value>
+                    <fullName>AS - Dépôt collaboratif</fullName>
+                    <default>false</default>
+                    <label>AS - Dépôt collaboratif</label>
+                </value>
+                <value>
+                    <fullName>AS - Dépôt mono-entreprise</fullName>
+                    <default>false</default>
+                    <label>AS - Dépôt mono-entreprise</label>
+                </value>
+                <value>
+                    <fullName>AS - Etude d&apos;opportunité</fullName>
+                    <default>false</default>
+                    <label>AS - Etude d&apos;opportunité</label>
+                </value>
+                <value>
+                    <fullName>AS - Management collaboratif</fullName>
+                    <default>false</default>
+                    <label>AS - Management collaboratif</label>
+                </value>
+                <value>
+                    <fullName>AS - Management mono-entreprise</fullName>
+                    <default>false</default>
+                    <label>AS - Management mono-entreprise</label>
+                </value>
+                <value>
+                    <fullName>AS - Plan de financement</fullName>
+                    <default>false</default>
+                    <label>AS - Plan de financement</label>
+                </value>
+                <value>
+                    <fullName>Assistance technique à contrôle</fullName>
+                    <default>false</default>
+                    <label>Assistance technique à contrôle</label>
+                </value>
+                <value>
+                    <fullName>Audit de l&apos;égibilité</fullName>
+                    <default>false</default>
+                    <label>Audit de l&apos;égibilité</label>
+                </value>
+                <value>
+                    <fullName>Audit méthode CIR</fullName>
+                    <default>false</default>
+                    <label>Audit méthode CIR</label>
+                </value>
+                <value>
+                    <fullName>Autres</fullName>
+                    <default>false</default>
+                    <label>Autres</label>
+                </value>
+                <value>
+                    <fullName>CIJV</fullName>
+                    <default>false</default>
+                    <label>CIJV</label>
+                </value>
+                <value>
+                    <fullName>CIMA</fullName>
+                    <default>false</default>
+                    <label>CIMA</label>
+                </value>
+                <value>
+                    <fullName>CIR / CII Classique</fullName>
+                    <default>false</default>
+                    <label>CIR / CII Classique</label>
+                </value>
+                <value>
+                    <fullName>CIR optimisation</fullName>
+                    <default>false</default>
+                    <label>CIR optimisation</label>
+                </value>
+                <value>
+                    <fullName>Conseil</fullName>
+                    <default>false</default>
+                    <label>Conseil</label>
+                </value>
+                <value>
+                    <fullName>Controlling R&amp;D</fullName>
+                    <default>false</default>
+                    <label>Controlling R&amp;D</label>
+                </value>
+                <value>
+                    <fullName>Crédit Impôt Collection</fullName>
+                    <default>false</default>
+                    <label>Crédit Impôt Collection</label>
+                </value>
+                <value>
+                    <fullName>DI - Dépôt</fullName>
+                    <default>false</default>
+                    <label>DI - Dépôt</label>
+                </value>
+                <value>
+                    <fullName>DI - Liquidation</fullName>
+                    <default>false</default>
+                    <label>DI - Liquidation</label>
+                </value>
+                <value>
+                    <fullName>Dossier justificatif</fullName>
+                    <default>false</default>
+                    <label>Dossier justificatif</label>
+                </value>
+                <value>
+                    <fullName>Gestion du risque</fullName>
+                    <default>false</default>
+                    <label>Gestion du risque</label>
+                </value>
+                <value>
+                    <fullName>IAS 38</fullName>
+                    <default>false</default>
+                    <label>IAS 38</label>
+                </value>
+                <value>
+                    <fullName>Marketing de l&apos;innovation</fullName>
+                    <default>false</default>
+                    <label>Marketing de l&apos;innovation</label>
+                </value>
+                <value>
+                    <fullName>Mobilisation de créances et préfinancement</fullName>
+                    <default>false</default>
+                    <label>Mobilisation de créances et préfinancement</label>
+                </value>
+                <value>
+                    <fullName>O2T</fullName>
+                    <default>false</default>
+                    <label>O2T</label>
+                </value>
+                <value>
+                    <fullName>Organisation R&amp;D</fullName>
+                    <default>false</default>
+                    <label>Organisation R&amp;D</label>
+                </value>
+                <value>
+                    <fullName>Propriété intellectuelle</fullName>
+                    <default>false</default>
+                    <label>Propriété intellectuelle</label>
+                </value>
+                <value>
+                    <fullName>Statut JEI</fullName>
+                    <default>false</default>
+                    <label>Statut JEI</label>
+                </value>
+                <value>
+                    <fullName>Valorisation</fullName>
+                    <default>false</default>
+                    <label>Valorisation</label>
+                </value>
+                <value>
+                    <fullName>CIR International</fullName>
+                    <default>false</default>
+                    <label>CIR International</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>renta_nb_interlocuteurs__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre d&apos;interlocuteurs</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renta_nb_proj__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de projets à auditer</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renta_nb_redacs__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de projets à rédiger</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renta_nb_sites__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de sites</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renta_nb_valo__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de valorisations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <gender>Feminine</gender>
+    <label>Mission CIR</label>
+    <nameField>
+        <label>Nom de la mission</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Missions CIR</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>AS</fullName>
+        <active>true</active>
+        <label>AS</label>
+        <picklistValues>
+            <picklist>Groupe__c</picklist>
+            <values>
+                <fullName>ADISSEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AIR LIQUIDE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AKKA TECHNOLOGIES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMADEUS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ANDRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ATOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BOUYGUES TELECOM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BOUYGUES TRAVAUX PUBLICS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CGG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLIMESPACE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CREDIT AGRICOLE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DIAGNOSTICA STAGO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EDF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ELECTRICITE DE STRASBOURG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ENEDIS %28ERDF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ENGIE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>INEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LORD CORPORATION</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LVMH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MAISADOUR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MARS CHOCOLAT FRANCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MIKROS - IMAGE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEXTER SYSTEMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTIS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PIERRE FABRE SA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ROBERT BOSCH FRANCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ROULLIER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAFRAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAGEMCOM SAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAINT GOBAIN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEGULA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SERVIER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SNCF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TARKETT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UNION INVIVO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VALEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VINCI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIRBAC SA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Phase__c</picklist>
+            <values>
+                <fullName>Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de lancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de renouvellement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Justification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée - Dossier à 0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TypeMission__c</picklist>
+            <values>
+                <fullName>AS - Dépôt collaboratif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Dépôt mono-entreprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Etude d%27opportunité</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Management collaboratif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Management mono-entreprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Plan de financement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agrément</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assistance technique à contrôle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audit de l%27égibilité</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audit méthode CIR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autres</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIJV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIR %2F CII Classique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIR optimisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conseil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Controlling R%26D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crédit Impôt Collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DI - Dépôt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DI - Liquidation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dossier justificatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gestion du risque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IAS 38</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing de l%27innovation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobilisation de créances et préfinancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O2T</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation R%26D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Propriété intellectuelle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Statut JEI</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>CIN</fullName>
+        <active>true</active>
+        <label>CIN</label>
+        <picklistValues>
+            <picklist>Groupe__c</picklist>
+            <values>
+                <fullName>ADISSEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AIR LIQUIDE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AKKA TECHNOLOGIES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMADEUS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ANDRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ATOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BOUYGUES TELECOM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BOUYGUES TRAVAUX PUBLICS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CGG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLIMESPACE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CREDIT AGRICOLE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DIAGNOSTICA STAGO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EDF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ELECTRICITE DE STRASBOURG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ENEDIS %28ERDF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ENGIE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>INEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LORD CORPORATION</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LVMH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MAISADOUR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MARS CHOCOLAT FRANCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MIKROS - IMAGE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEXTER SYSTEMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTIS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PIERRE FABRE SA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ROBERT BOSCH FRANCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ROULLIER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAFRAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAGEMCOM SAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAINT GOBAIN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEGULA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SERVIER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SNCF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TARKETT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UNION INVIVO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VALEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VINCI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIRBAC SA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Phase__c</picklist>
+            <values>
+                <fullName>Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de lancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de renouvellement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Justification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée - Dossier à 0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TypeMission__c</picklist>
+            <values>
+                <fullName>AS - Dépôt collaboratif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Dépôt mono-entreprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Etude d%27opportunité</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Management collaboratif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Management mono-entreprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Plan de financement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agrément</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assistance technique à contrôle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audit de l%27égibilité</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audit méthode CIR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autres</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIJV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIR %2F CII Classique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIR optimisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conseil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Controlling R%26D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crédit Impôt Collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DI - Dépôt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DI - Liquidation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dossier justificatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gestion du risque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IAS 38</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing de l%27innovation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobilisation de créances et préfinancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O2T</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation R%26D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Propriété intellectuelle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Statut JEI</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>CIR</fullName>
+        <active>true</active>
+        <label>CIR</label>
+        <picklistValues>
+            <picklist>Groupe__c</picklist>
+            <values>
+                <fullName>ADISSEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AIR LIQUIDE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AKKA TECHNOLOGIES</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AMADEUS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ANDRA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ATOS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BOUYGUES TELECOM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>BOUYGUES TRAVAUX PUBLICS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CGG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CLIMESPACE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CREDIT AGRICOLE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DIAGNOSTICA STAGO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>EDF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ELECTRICITE DE STRASBOURG</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ENEDIS %28ERDF%29</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ENGIE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IFF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>INEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LORD CORPORATION</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>LVMH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MAISADOUR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MARS CHOCOLAT FRANCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MIKROS - IMAGE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>NEXTER SYSTEMS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>OTIS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>PIERRE FABRE SA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ROBERT BOSCH FRANCE</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>ROULLIER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAFRAN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAGEMCOM SAS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAINT GOBAIN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SAP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SEGULA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SERVIER</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>SNCF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TARKETT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>UNION INVIVO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VALEO</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VINCI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>VIRBAC SA</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Phase__c</picklist>
+            <values>
+                <fullName>Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de lancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de renouvellement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Justification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée - Dossier à 0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>TypeMission__c</picklist>
+            <values>
+                <fullName>AS - Dépôt collaboratif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Dépôt mono-entreprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Etude d%27opportunité</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Management collaboratif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Management mono-entreprise</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS - Plan de financement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Agrément</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assistance technique à contrôle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audit de l%27égibilité</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audit méthode CIR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autres</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIJV</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIMA</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIR %2F CII Classique</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIR International</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIR optimisation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Conseil</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Controlling R%26D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Crédit Impôt Collection</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DI - Dépôt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>DI - Liquidation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Dossier justificatif</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Gestion du risque</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IAS 38</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Marketing de l%27innovation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mobilisation de créances et préfinancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>O2T</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Organisation R%26D</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Propriété intellectuelle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Statut JEI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>Equipe_Consulting__c</fullName>
+        <label>Equipe Consulting</label>
+    </sharingReasons>
+    <sharingRecalculations>
+        <className>ApexSharingRecalc_INNOmission</className>
+    </sharingRecalculations>
+    <validationRules>
+        <fullName>INNO_jours_estimes_sup_opportunite</fullName>
+        <active>true</active>
+        <errorConditionFormula>DATEVALUE(CreatedDate) &gt; Date(2016,05,31) &amp;&amp; ! !$User.ByPassValidationRules__c &amp;&amp; 
+!ISBLANK(Temps_theorique_opportunite__c) &amp;&amp; 
+!ISNULL(Temps_theorique_opportunite__c) &amp;&amp; 
+Temps_theorique_mission__c &gt; Temps_theorique_opportunite__c</errorConditionFormula>
+        <errorMessage>Le temps théorique de la mission ne peut pas être supérieur au temps théorique de l&apos;opportunité pour la première année de la mission.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

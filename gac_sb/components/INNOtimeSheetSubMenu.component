@@ -1,0 +1,41 @@
+<apex:component >
+    <style>
+        .timeSheetSubMenuItem{
+            display: inline-block;
+            background-color: #007aa5;
+            padding: 5px;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border: dotted 1px #ececec;
+            border-left: none;
+        }
+        
+        .timeSheetSubMenuItem:hover{
+            text-decoration: none;
+            background-color: #0b87b3;
+        }
+        
+        
+        <apex:outputPanel layout="none" rendered="{!$CurrentPage.parameters.missionId == null}" >
+        #timeSheetSubMenu{
+			/*margin-left: -10px;*/
+        }
+        .timeSheetSubMenuItem{
+            margin-top: 0;
+            background-color: #007F99;
+            border-top: none;
+        }
+        
+        .noSidebarCell{
+            padding-top: 0;
+        }
+        </apex:outputPanel>
+    </style>
+    <div id="timeSheetSubMenu">
+	    <apex:outputLink value="/apex/INNOtauxOccupationReel" styleClass="timeSheetSubMenuItem">Taux d'occupation réél/planifié</apex:outputLink>
+	    
+	    <apex:outputLink value="/apex/INNOtimeSheetPlanning2" styleClass="timeSheetSubMenuItem">Planning</apex:outputLink>
+    </div>
+    <br />
+</apex:component>

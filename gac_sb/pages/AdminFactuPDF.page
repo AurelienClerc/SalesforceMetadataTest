@@ -1,0 +1,149 @@
+<apex:page standardController="Facture__c" renderAs="pdf" extensions="FactuFacturePDFCtrl"  standardStylesheets="false">
+
+<head>
+    <style>
+    body{
+        font-size:13px;
+        font-family: Trebuchet MS;
+        <apex:outputPanel layout="none" rendered="{!Facture__c.Statut__c == 'En attente'}">
+            background-color: #CCCCCC;
+            background-image: url("{!URLFOR($Resource.GACFactu,'/filigrane_facture_non_valide.jpg')}");
+            background-repeat: no-repeat;
+        </apex:outputPanel>
+    }
+    
+    @page {
+        margin : 30px;
+        size: A4 portrait;
+        padding :0;
+    }
+
+    td{
+    border:0px solid black;
+    border-width:0px 0px 0px 0;
+    }
+    th{
+        border:0px solid black;
+        border-width:0px 0px 0px 0;
+        text-align:center;
+    }
+    
+    tr > td{
+        border-top-width:1px;
+    }
+    table > tr:first-child td,thead  th{
+        border-top-width:0px;
+    }
+
+    table {table-layout: fixed;-fs-table-paginate: paginate; border:1px solid black;}
+
+   .money{text-align:right;}
+   .numbers{text-align:center}
+   .tableHeader{}
+   .tdHeader{border:1px solid black;}
+
+    #virementInfos{
+        width: 700px;
+        border-spacing: 0;
+        border-collapse: collapse;
+    }
+    #virementInfos td{
+        border: 1px solid black;
+        text-align: center;
+        padding: 5px;
+    }
+        
+
+    </style>
+</head>
+
+
+<div align="left" style="margin-left:20px;margin-bottom:20px">
+    <apex:image value="{!URLFOR($Resource.GACFactu,IF(Facture__c.Pole__c == 'Opti','/LogoOpti','/logoInno') + IF(Facture__c.Statut__c != 'En attente' , '', '') + '.jpg')}" width="200"/><br />
+</div>
+
+<div style="float:left;width:52%;margin-left:20px;">
+    <table cellspacing="0" cellpadding="5" style="border:1px solid black;min-height:150px;">
+        <tr>
+            <td style="border:0px solid black;">{!IF(Facture__c.Type__c == 'Facture',$ObjectType.Facture__c.fields.Name.Label,'N° Avoir')} : &nbsp;<apex:outputField value="{!Facture__c.Name}"/></td>
+        </tr>
+        <tr>
+            <td style="border:0px solid black;">{!$ObjectType.Facture__c.fields.Date__c.Label} : &nbsp;<apex:outputField value="{!Facture__c.Date__c}"/></td>
+        </tr>
+        <tr>
+            <td style="border:0px solid black;">{!IF(Facture__c.N_r_f_rence_client__c <> '',$ObjectType.Facture__c.fields.N_r_f_rence_client__c.Label,$ObjectType.Facture__c.fields.N_compte_client__c.Label)} : &nbsp;<apex:outputField rendered="{!Facture__c.N_r_f_rence_client__c <> ''}" value="{!Facture__c.N_r_f_rence_client__c}"/><apex:outputField rendered="{!Facture__c.N_r_f_rence_client__c == ''}" value="{!Facture__c.N_compte_client__c}"/></td>
+        </tr>
+        
+    
+        <tr>
+            <td style="border:0px solid black;">{!$ObjectType.Facture__c.fields.Mode_de_paiement__c.Label} : &nbsp;<apex:outputField value="{!Facture__c.Mode_de_paiement__c}"/></td>
+        </tr>
+        <tr>
+            <td style="border:0px solid black;">{!$ObjectType.Facture__c.fields.Echeance__c.Label} : &nbsp;<apex:outputField value="{!Facture__c.Echeance__c}"/></td>
+        </tr>
+        <tr>
+            <td style="border:0px solid black;">{!$ObjectType.Facture__c.fields.Reference__c.Label} : &nbsp;<apex:outputField value="{!Facture__c.Reference__c}"/></td>
+        </tr>
+    </table>
+</div>
+
+<div style="float:left;width:40%;margin-left:15px;margin-right:20px;">
+    <table cellspacing="0" cellpadding="5" style="border:1px solid black;min-height:150px;">
+        <tr>
+            <td style="border:0px solid black;"><srtong><apex:outputField value="{!Facture__c.Client__c}"/></srtong></td>
+        </tr>
+        <tr>
+            <td style="border:0px solid black;"><apex:outputText value="{!Facture__c.Contact_facturation__r.Name}"/></td>
+        </tr>
+        <tr>
+            <td style="border:0px solid black;"><apex:outputField value="{!Facture__c.Adresse__c}"/></td>
+        </tr>
+        <tr>
+            <td style="border:0px solid black;"><apex:outputField value="{!Facture__c.TVA_Intracommunautaire__c}" rendered="{!Facture__c.TVA_Intracommunautaire__c != ''}"/></td>
+        </tr>
+    </table>
+</div>
+
+<c:FactuDetailsFacture details="{!DetailFactuList}"/>
+
+<br/>
+
+<div style="float:left;width:94%;margin-left:20px;margin-top:20px;border:1px solid black;">
+<table cellspacing="0" cellpadding="5" style="border:0px;">
+    <colgroup>
+    <col style="width:25%"/>
+    <col style="width:25%"/>
+    <col style="width:25%"/>
+    <col style="width:25%"/>
+    </colgroup>
+       <thead class="tableHeader" style="display: table-header-group; ">
+       <tr>
+           <th style="border:0px solid black;border-width:0px 1px 0px 0;"><strong>{!$ObjectType.Facture__c.fields.Montant_HT__c.Label}</strong></th>
+           <th style="border:0px solid black;border-width:0px 1px 0px 0;"><strong>{!$ObjectType.Facture__c.fields.Taux_TVA__c.Label}</strong></th>
+           <th style="border:0px solid black;border-width:0px 1px 0px 0;"><strong>{!$ObjectType.Facture__c.fields.Montant_TVA__c.Label}</strong></th>
+           <th style="border:0px solid black;border-width:0px 1px 0px 0;"><strong>{!$ObjectType.Facture__c.fields.Montant_TTC__c.Label}</strong></th>
+       </tr>
+       </thead>
+       <tbody>
+           <tr>
+            <td style="border:0px solid black;border-width:1px 1px 0px 0;text-align:center" class="money"><strong><apex:outputField value="{!Facture__c.Montant_HT__c}"/></strong></td>
+            <td style="border:0px solid black;border-width:1px 1px 0px 0;text-align:center" class="money"><strong><apex:outputField value="{!Facture__c.Taux_TVA__c}"/></strong></td>
+            <td style="border:0px solid black;border-width:1px 1px 0px 0;text-align:center" class="money"><strong><apex:outputField value="{!Facture__c.Montant_TVA__c}"/></strong></td>
+            <td style="border:0px solid black;border-width:1px 1px 0px 0;text-align:center" class="money"><strong><apex:outputField value="{!Facture__c.Montant_TTC__c}"/></strong></td>
+           </tr>
+        </tbody> 
+ </table>
+   
+
+</div>
+<br/><br/>
+
+<div style="float:left;width:90%;margin-top:20px;margin-left:15px;margin-right:15px;">
+    <c:ADMINFactuFactureFooter footerInfos="{!footerInfos}"  penalitesDeRetardParticulieres="{!Facture__c.contrat__r.Taux_de_penalite_de_retard__c}"/>
+</div>
+
+<apex:form id="nouvelleFactureForm">
+<apex:inputHidden value="{!Facture__c.Entite_GAC__c}"/>
+</apex:form>
+
+</apex:page>

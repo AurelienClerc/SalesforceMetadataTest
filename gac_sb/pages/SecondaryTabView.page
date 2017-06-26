@@ -1,0 +1,38 @@
+<apex:page Title="Autres Onglets" tabStyle="Onglets_Secondaires__tab" Name="Autres Onglets" >
+
+<apex:sectionHeader Title="Autres Onglets"> 
+</apex:sectionHeader>
+
+<p style="font-weight:bold"> Sur cette page, vous trouverez les différents onglets, moins utilisés.</p>
+
+<apex:pageBlock >
+<apex:pageBlockSection title="Facturation" columns="3">
+ <apex:pageBlockSectionItem >           <apex:outputLink value="/a14">Encaissements</apex:outputLink>           </apex:pageBlockSectionItem>
+</apex:pageBlockSection>    
+
+
+<apex:pageBlockSection title="Survey" columns="3">
+            <apex:outputLink value="/a03">Surveys</apex:outputLink>           
+            <apex:outputLink value="/a01">Survey taken</apex:outputLink>
+</apex:pageBlockSection>    
+
+
+<apex:pageBlockSection title="Paramétrage & applications" columns="3">
+            <apex:outputLink value="/a1D">Nature dépense (appli Note de frais)</apex:outputLink>          
+            <apex:outputLink value="/a07">Code NAF</apex:outputLink>
+            <apex:outputLink value="/apex/GraphicsPackVisualPharm16">Graphics Pack (Appli du même nom)</apex:outputLink>     
+</apex:pageBlockSection>   
+
+
+<apex:pageBlockSection title="Application AT" columns="3">
+            <apex:outputLink value="/a0t">Feuille de calcul</apex:outputLink>          
+            <apex:outputLink value="/a0Y">Compte employeur</apex:outputLink>
+            <apex:outputLink value="/a0q">CTN</apex:outputLink>     
+            <apex:outputLink value="/a0w">Majoration</apex:outputLink>     
+
+</apex:pageBlockSection>   
+
+
+</apex:pageBlock>
+
+</apex:page>

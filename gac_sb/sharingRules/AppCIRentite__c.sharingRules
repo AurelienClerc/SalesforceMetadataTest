@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SharingRules xmlns="http://soap.sforce.com/2006/04/metadata">
+    <sharingOwnerRules>
+        <fullName>FULL_ACCESS</fullName>
+        <accessLevel>Edit</accessLevel>
+        <label>FULL ACCESS</label>
+        <sharedTo>
+            <group>INNO_ADVANCE_FULL_ACCESS</group>
+        </sharedTo>
+        <sharedFrom>
+            <roleAndSubordinates>GAC_World_Wide</roleAndSubordinates>
+        </sharedFrom>
+    </sharingOwnerRules>
+</SharingRules>

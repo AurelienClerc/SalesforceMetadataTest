@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Dépense de personnel to projet</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Dépenses de personnel to projets</value>
+    </caseValues>
+    <fields>
+        <label><!-- Dépense de personnel --></label>
+        <name>Depense_de_personnel__c</name>
+        <relationshipLabel><!-- Dépenses de personnel to projets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Heures R&amp;D option 1 --></label>
+        <name>Heures_RD_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Heures R&amp;D option 2 --></label>
+        <name>Heures_RD_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Heures R&amp;D option 3 --></label>
+        <name>Heures_RD_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Id d&apos;import --></label>
+        <name>ImportId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant R&amp;D retenu option 1 --></label>
+        <name>Montant_RD_retenu_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant R&amp;D retenu option 2 --></label>
+        <name>Montant_RD_retenu_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant R&amp;D retenu option 3 --></label>
+        <name>Montant_RD_retenu_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nom du salarié --></label>
+        <name>Nom_salarie__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prod Id --></label>
+        <name>Prod_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projet --></label>
+        <name>Projet__c</name>
+        <relationshipLabel><!-- Dépenses de personnel to projets --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Salarié actif --></label>
+        <name>Salarie_actif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type d&apos;enregistrement du salarié --></label>
+        <name>Type_enregistrement_du_salarie__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type du projet --></label>
+        <name>Type_projet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Unité de temps 2 --></label>
+        <name>UniteTempsDepensesPersonnel2__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Dépense de personnel to projet</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

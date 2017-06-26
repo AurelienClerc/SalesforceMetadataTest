@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Objet pour la gestion des validation techniques</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>false</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Avis_technique__c</fullName>
+        <externalId>false</externalId>
+        <label>Avis technique</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Favorable</fullName>
+                    <default>false</default>
+                    <label>Favorable</label>
+                </value>
+                <value>
+                    <fullName>Défavorable</fullName>
+                    <default>false</default>
+                    <label>Défavorable</label>
+                </value>
+                <value>
+                    <fullName>Sous réserve</fullName>
+                    <default>false</default>
+                    <label>Sous réserve</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Commentaires__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>10</visibleLines>
+    </fields>
+    <fields>
+        <fullName>ETP_R_D__c</fullName>
+        <externalId>false</externalId>
+        <formula>TEXT(Opportunit__r.CIR_Effectif_RD__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>ETP R&amp;D</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Effectif__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunit__r.Account.Effectif_site__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Effectif</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Envoi_email__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Envoi un email au CA, au CC et à l&apos;assistante commerciale les informant de l&apos;état de la validation technique</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Si cochée, un email est envoyé au CA, au CC et à l&apos;assistante commerciale les informant de l&apos;état de la validation technique.</inlineHelpText>
+        <label>Envoi email</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Notre_savoir_faire_GAC_d_montr__c</fullName>
+        <description>Notre savoir faire GAC démontré sur des environnement similiares</description>
+        <externalId>false</externalId>
+        <label>Savoir faire GAC envi. similaires</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Opportunit__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Opportunité</label>
+        <referenceTo>Opportunity</referenceTo>
+        <relationshipLabel>Validations techniques</relationshipLabel>
+        <relationshipName>Validations_techniques</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Optionnel__c</fullName>
+        <externalId>false</externalId>
+        <label>Optionnel</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Soci_t_agr_e__c</fullName>
+        <externalId>false</externalId>
+        <label>Société agréée</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>oui</fullName>
+                    <default>false</default>
+                    <label>oui</label>
+                </value>
+                <value>
+                    <fullName>non</fullName>
+                    <default>false</default>
+                    <label>non</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Test_trigger__c</fullName>
+        <description>Utilisé pour le tests du trigger</description>
+        <externalId>false</externalId>
+        <label>Test trigger</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>VT_Clients_principaux_de_l_entreprise__c</fullName>
+        <description>Clients principaux de l’entreprise</description>
+        <externalId>false</externalId>
+        <label>Clients principaux de l’entreprise</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>VT_Contrats_remport_s_r_cemment__c</fullName>
+        <description>Contrats remportés récemment</description>
+        <externalId>false</externalId>
+        <label>Contrats remportés récemment</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>VT_Exemples_d_activit_s_qui_pourraient__c</fullName>
+        <description>Exemples d’activités qui pourraient être éligibles</description>
+        <externalId>false</externalId>
+        <label>Exemples activités éligibles</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>VT_Produit_Descriptif_de_l_activit__c</fullName>
+        <description>Produit/Descriptif de l’activité</description>
+        <externalId>false</externalId>
+        <label>Produit/Descriptif de l’activité</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>VT_R_f_rences_clients__c</fullName>
+        <description>Références clients</description>
+        <externalId>false</externalId>
+        <label>Références clients</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>5</visibleLines>
+    </fields>
+    <fields>
+        <fullName>societe__c</fullName>
+        <externalId>false</externalId>
+        <formula>Opportunit__r.Account.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Société</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Validation technique</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>societe__c</columns>
+        <columns>CREATED_DATE</columns>
+        <columns>LAST_UPDATE</columns>
+        <columns>UPDATEDBY_USER</columns>
+        <filterScope>Everything</filterScope>
+        <label>Tout</label>
+        <language>fr</language>
+    </listViews>
+    <nameField>
+        <displayFormat>VT-{0000}</displayFormat>
+        <label>Validation technique</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Validations techniques</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>societe__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Opportunit__c</customTabListAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

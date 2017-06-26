@@ -1,0 +1,338 @@
+<apex:component controller="INNOtimeSheetCtrl" allowDML="true">
+
+	<apex:includeScript value="{!URLFOR($Resource.jQuery, 'jquery.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.jQuery, 'ui/jquery-ui.min.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.jQuery, 'ui/i18n/jquery.ui.datepicker-fr.js')}"/>
+	<apex:includeScript value="{!URLFOR($Resource.AppCIR, 'js/TimeSheetsFunctions.js')}"/>
+	<apex:styleSheet value="{!URLFOR($Resource.jQuery, 'css/AppCIR/jquery-ui-1.8.23.custom.css')}"/>
+	<apex:styleSheet value="{!URLFOR($Resource.AppCIR, 'css/style.css')}"/>
+	
+	<style>
+	
+		.futureWeek input, input.theoretic{
+			background-image: url('{!URLFOR($Resource.AppCIR, 'images/BG_stripes.png')}');
+			color: #999;
+			border: solid 1px #AAA;
+		}
+
+		#tabsMenu{
+			margin: 0 !important;
+		}
+        .mainForm{
+            margin: 10px;
+        }
+        
+        .error1{
+            border: solid 2px red;
+        }
+		
+		.waiting1{
+		    border: dotted 2px #999;
+		}
+		
+		.success1{
+		    border: solid 2px green;
+		}
+		
+	</style>
+
+	<script type="text/javascript">
+
+		var updateMethod = '{!$RemoteAction.INNOtimeSheetCtrl.saveTimeSheet}';
+
+		$$ = jQuery.noConflict();
+	
+		$$(document).ready(function(){
+			
+			TimeSheetsFunctions.fnInitTimeSheet();
+			
+			
+			/**
+			*   Surlignage des semaine au survol des jours dans le datepicker
+			*/
+			$$('#weekPicker .ui-datepicker-calendar tr').live({
+				mouseenter : function() { 
+					$$(this).find('td:not(.ui-datepicker-week-end) a').addClass('ui-state-active'); 
+				},
+				mouseleave : function() { 
+					$$(this).find('td:not(.ui-datepicker-week-end) a').removeClass('ui-state-active'); 
+				}
+			});
+			
+			
+			/**
+			*   Actions à déclencher sur le onChange des input de durée des TimeSheets
+			*/
+			$$('#missionsList input').live('change', function(){
+				TimeSheetsFunctions.bTimeSheetChanged = true;
+				
+				//recalcul les totaux de la journée 
+				var timeSheetsIsOK = TimeSheetsFunctions.fnCalculatingTotals($$(this).parent().data('date'));
+				
+				TimeSheetsFunctions.fnCalculatingWeekTotal();
+				
+				if(timeSheetsIsOK){
+					TimeSheetsFunctions.fnUpdateCellValue(this);
+				}
+				else{
+					this.className = 'error';
+				}
+				
+			});
+			
+			/**
+			*   Filtre de recherche des missions par nom
+			*/
+			$$('#searchMission').keyup(function(){
+				TimeSheetsFunctions.fnSearchMission( $$(this).val().toLowerCase() );
+			});
+			
+			
+			/**
+			*   Checkbox "Masquer les missions inutilisée"
+			*/
+			$$('#toggleUnusedMissions').change(function(){
+			
+				TimeSheetsFunctions.fnToggleUnusedMissions(this.checked);
+				
+			});
+			
+			
+			/**
+			*   Event scroll pour vérifier si les jours de la semaine sont encore dans le cadre de la page
+			*/
+			$$(window).scroll(function(){
+				if(TimeSheetsFunctions.fnIsScrolledIntoView( $$('#daysOfWeekTop') ))
+					$$('#daysOfWeek').removeClass('fixed');
+				else
+					$$('#daysOfWeek').addClass('fixed');
+				
+			});
+			
+		});
+		
+
+
+
+
+		
+	</script>
+	
+
+	
+	<apex:form styleClass="mainForm">
+	
+	    
+		<!-- Filtres -->
+		
+		<apex:actionRegion rendered="{!$CurrentPage.parameters.missionId == null}">
+			<div class="filterHeader ui-widget-header">
+				<div>
+					<apex:image value="{!URLFOR($Resource.icons, 'fatcow/Filter-Add.png')}" style="float:left; margin: -5px 15px 0 0;"/>
+					<div style="width:100px;"><strong>Filtres:</strong></div>
+					
+					<div style="width:90px;">Rechercher:</div>
+					<input type="text" id="searchMission" style="float:left;margin-right: 50px;"/>
+					
+					<input type="checkbox" id="toggleUnusedMissions" style="float:left;"/>
+					<div style="float:inherit">
+						Masquer les missions inutilisées
+						<span id="nbUnusedMissions" style="display:none;"> (<strong>0</strong> missions masquées)</span>
+					</div>
+				  
+				</div>
+			</div>
+		</apex:actionRegion>
+
+		<div style="clear:both"></div>
+
+		<apex:pageMessage title="Un nouveau système de remplissage des TimeSheets a été mis en place: Vous n'avez plus besoin de cliquer sur le bouton 'Enregistrer', les temps s'enregistrent dès que vous sortez d'un champ" summary="L'apparence du champ change en fonction du statut: <br /><input class='waiting1' style='width:30px;' readonly/> : Sauvegarde en cours<br /><input class='error1' style='width:30px;' readonly/> : Problème lors de l'enregistrement, vérifiez en bas de la page que vous ne dépassez pas 1.0 par jour<br /><input class='success1' style='width:30px;' readonly/> : Enregistrement réussi" severity="info" strength="2" escape="false" />
+		<apex:pageMessage title="Légende:" summary="<br /><input class='theoretic' style='width:30px;margin: 0 4px;' readonly value='1'/> : Temps théorique, pensez à 'Valider la semaine' lorsqu'elle sera échue<br /><input style='width:30px; border-style: solid; border-width: 3px 5px; border-color:#DF8787' readonly /> : Hors phase, vous pouvez tout de même saisir des temps" severity="info" strength="2" escape="false" />
+		
+
+		<apex:commandButton action="{!URLFOR('/apex/INNOtimeSheetEdit', null, [missionId = null])}" rendered="{!$CurrentPage.parameters.missionId != null}" value="Afficher toutes les missions" immediate="true" />
+		<br />
+		
+		
+		<br />
+		
+		<!-- Remplissage des TimeSheets -->
+		<apex:actionRegion >
+			<apex:pageBlock id="remplissageTimeSheetsBlock">
+				<apex:pageBlockButtons >
+			   
+					<img id="loader" src="/img/loading.gif" style="display:none;"/>
+				</apex:pageBlockButtons>
+			
+				<apex:pageMessage summary="Aucune mission ne répond à ces critères" severity="warning" strength="2" rendered="{!missions.size == 0}" />
+
+				
+
+				<apex:actionFunction name="changeWeek" action="{!changeWeek}" rerender="remplissageTimeSheetsBlock" oncomplete="TimeSheetsFunctions.fnInitTimeSheet();" immediate="true">
+					<apex:param name="day" value=""/>
+				</apex:actionFunction>  
+				
+				<apex:outputPanel layout="block" id="remplissageTimeSheetsContainer" rendered="{!missions.size > 0}" styleClass="{!IF(dates[0] > startOfTodaysWeek, 'futureWeek', '')}">
+					<table id="remplissageTimeSheets">
+						<thead>
+							<tr>
+								<th style="width: 400px;"></th>
+								<th style="width: 130px;"></th>
+								<th style="width: 40px;"></th>
+								<th style="width: 40px;"></th>
+								<th style="width: 40px;"></th>
+								<th>
+									<apex:commandLink action="{!changeWeek}" onclick="jQuery('#loader').show();" rerender="remplissageTimeSheetsBlock" oncomplete="TimeSheetsFunctions.fnInitTimeSheet();" immediate="true">
+										<apex:param name="way" value="lower"/>
+										<apex:image value="{!URLFOR($Resource.icons, '001_27.png')}" />
+									</apex:commandLink>
+								</th>
+								<th colspan="3" id="selectWeek">
+									<div id="weekName">Semaine {!TEXT(numeroSemaine)}&nbsp;
+										<apex:image value="{!URLFOR($Resource.icons, '001_44.png')}" width="16px" height="16px"/>
+									</div>
+									<div id="weekPicker"></div>
+								</th>
+								<th>
+									<apex:commandLink action="{!changeWeek}" onclick="jQuery('#loader').show();" rerender="remplissageTimeSheetsBlock" oncomplete="TimeSheetsFunctions. fnInitTimeSheet();" immediate="true">
+										<apex:param name="way" value="upper"/>
+										<apex:image value="{!URLFOR($Resource.icons, '001_25.png')}" />
+									</apex:commandLink>
+								</th>
+								<th class="noBorder"></th>
+							</tr>
+							<tr>
+							    <th colspan="4"></th>
+    						    <th colspan="5">
+    						        <apex:outputPanel layout="none" rendered="{!dates[0] <= startOfTodaysWeek}">
+							            <apex:commandLink action="{!validateWeek}" value="Valider la semaine" styleClass="btn" style="text-decoration: none; margin-top: 10px;display: inline-block">
+							            	<apex:param name="firstDayOfWeekToValidate" value="{!TEXT(DAY(dates[0])) + '/' + TEXT(MONTH(dates[0])) + '/' + TEXT(YEAR(dates[0]))}" />
+							            </apex:commandLink>
+							        </apex:outputPanel>
+						        </th>
+						        <th></th>
+							</tr>
+							<tr>
+								<th id="daysOfWeekTop" colspan="10">&nbsp;</th>
+							</tr>
+							<tr id="daysOfWeek">
+								<th style="width: 400px;"></th>
+								<th style="width: 130px;"></th>
+								<th style="width: 40px" class="scheduledDays">Jours estim.</th>
+								<th style="width: 40px;" class="scheduledDays">Jours effect.</th>
+								<th style="width: 40px;" class="scheduledDays">Jours progr.</th>
+								<apex:repeat value="{!dates}" var="date">
+									<th class="dayOfWeek{!IF(date == TODAY(), ' todayCell', '')}" data-date="{!TEXT(date)}">
+										<apex:outputText value="{0, date, dd/MM}">
+											<apex:param value="{!date}"/>
+										</apex:outputText>
+									</th>                               
+								</apex:repeat>
+								<th class="noBorder"></th>
+							</tr>
+						</thead>
+						
+						<tbody id="missionsList">
+							<apex:repeat value="{!missions}" var="mission">
+							    <apex:variable var="isCir" value="{! IF(mission.recordType.DeveloperName = 'CIR', true, false) }"/>
+							    
+								<!-- Missions répondants aux critères des filtres -->
+								<apex:repeat value="{!phasesMission}" var="phase">
+    									<tr id="mission_{!mission.Id}" class="{!IF(phase == 'Audit', 'borderTop', '')} missionTR" data-name="{!LOWER(mission.Name)}" data-mission-id="{!mission.Id}">
+    										<apex:outputPanel layout="none" rendered="{!phase == 'Audit'}">
+    											<td rowspan="4" class="missionName">
+    	                                            <a href="/apex/INNOmissionView?id={!mission.Id}" class="actionLink">{!mission.Name}</a>
+    											</td>
+    										</apex:outputPanel>
+    										<td class="phaseName" style="{! IF(isCir,'','color:#F8F8F8')}">{!phase}</td>
+    										<td class="joursEstimes" style="{! IF(isCir || phase == 'Audit' ,'','visibility:hidden')}">
+    									        <apex:outputPanel layout="none" rendered="{!mission.EquipesConsulting__r.size > 0}">
+    									            {!mission.EquipesConsulting__r[0][CASE(phase, 'Audit', 'Nombre_jours_theoriques_Audit__c', 'Valorisation', 'Nombre_jours_theoriques_Valorisation__c', 'Justification', 'Nombre_jours_theoriques_Justification__c', 'Nombre_jours_theoriques_Controle__c')]}
+    									        </apex:outputPanel>
+    										</td>
+    										<td class="joursReels" style="{! IF(isCir || phase == 'Audit' ,'','visibility:hidden')}">
+    										    <span id="otherWeeksRealTime_{!mission.Id}_{!phase}" class="otherWeeksTime">{!otherWeeksRealTimes[mission.Id + '_' + phase]}</span>
+    										    <span id="realDaysTotal_{!mission.Id}_{!phase}"></span>
+    										</td>
+    										<td class="joursProgammes" style="{! IF(isCir || phase == 'Audit' ,'','visibility:hidden')}">
+    										    <span id="otherWeeksScheduledTime_{!mission.Id}_{!phase}" class="otherWeeksTime">{!otherWeeksScheduledTimes[mission.Id + '_' + phase]}</span>
+    										    <span id="scheduledDaysTotal_{!mission.Id}_{!phase}"></span>
+    										</td>
+    										<apex:repeat value="{!dates}" var="date">
+    											<td class="{!IF(date == TODAY(), 'todayCell', '')} {!IF(date > TODAY(), 'futureCell', '')} timeSheetTime timeSheetTime_{!phase}_{!TEXT(date)} {!CASE(phase, 'Audit', IF((mission.Date_debut_Audit__c != null && date < mission.Date_debut_Audit__c) || (mission.Date_fin_Audit__c != null && date > mission.Date_fin_Audit__c), 'outOfPhase', ''), 'Valorisation', IF((mission.Date_debut_valorisation__c != null && date < mission.Date_debut_valorisation__c) || (mission.Date_fin_valorisation__c != null && date > mission.Date_fin_valorisation__c), 'outOfPhase', ''), 'Justification', IF((mission.Date_debut_justification__c != null && date < mission.Date_debut_justification__c) || (mission.Date_fin_justification_recap__c != null && date > mission.Date_fin_justification_recap__c), 'outOfPhase', ''), '')}" data-date="{!TEXT(date)}">
+    												<input type="text" value="" id="timeSheetInput_{!mission.Id + '_' + TEXT(date) + '_' + phase}" style="{! IF(isCir || phase == 'Audit' ,'','visibility:hidden')}"/>
+    											</td>
+    										</apex:repeat>
+    										<td class="noBorder"></td>
+    									</tr>
+    								
+								</apex:repeat>
+									
+							</apex:repeat>
+							
+							<!-- Autres missions -->
+							<tr class="borderTop">
+								<td class="missionName" colspan="5">
+									Autres missions (hors filtres)
+								</td>
+								<apex:repeat value="{!dates}" var="date">
+									<td class="{!IF(date == TODAY(), 'todayCell', '')} timeSheetTime timeSheetTime_autres_{!TEXT(date)}">
+										<input type="text" disabled="disabled" value="{!otherMissionsTimes[TEXT(date)]}"/>
+									</td>
+								</apex:repeat>
+								<td class="noBorder"></td>
+							</tr>
+							
+							<!-- Général -->
+							<apex:repeat value="{!phasesGeneral}" var="phase">
+								<tr class="{!IF(phase == 'AvantVenteAO', 'strongBorderTop', '')} generalTS">
+									<apex:outputPanel layout="none" rendered="{!phase == 'AvantVenteAO'}">
+										<td rowspan="6" class="missionName">Général</td> <!-- = PHASES_GENERAL.size() -->
+									</apex:outputPanel>
+									<td class="phaseName" colspan="4">{!SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(phase, 'CP', 'Absences (CP, RTT, Maladie, Temps partiel...)'), 'ASDI', 'AS/DI'), 'AvantVenteAO', 'Avant-Vente / AO'), 'Disponibilite', 'Disponibilité')}</td>
+									<apex:repeat value="{!dates}" var="date">
+										<td class="{!IF(date == TODAY(), 'todayCell', '')} timeSheetTime timeSheetTime_{!phase}_{!TEXT(date)}" data-date="{!TEXT(date)}" >
+											<!-- <apex:inputField value="{!timeSheets['general_' + TEXT(date) + '_' + phase].Duree__c}" required="false"/>-->
+											<input type="text" value="" id="timeSheetInput_general_{!TEXT(date) + '_' + phase}"/>
+										</td>
+									</apex:repeat>
+									<td class="noBorder"></td>
+								</tr>
+							</apex:repeat>
+							<tr class="borderTop"><td colspan="10"><br /><br /></td><td class="noBorder"></td></tr>
+						</tbody>
+						
+						
+						<tfoot>
+							<apex:repeat value="{!phasesMission}" var="phase">
+								<tr class="subTotal">
+									<td colspan="5">Total {!If(phase = 'Audit','Audit et missions autres que CIR',phase)}</td>
+									<apex:repeat value="{!dates}" var="date">
+										<td class="{!IF(date == TODAY(), 'todayCell', '')} timeSheetSubTotal timeSheetSubTotal_{!phase}_{!TEXT(date)}"></td>
+									</apex:repeat>
+									<td class="noBorder"></td>
+								</tr>
+							</apex:repeat>
+								<tr class="total">
+									<td colspan="5">TOTAL</td>
+									<apex:repeat value="{!dates}" var="date">
+										<td class="{!IF(date == TODAY(), 'todayCell', '')} timeSheetTotal timeSheetTotal_{!TEXT(date)}"></td>
+									</apex:repeat>
+									<td id="totalWeekTime"></td>
+								</tr>
+						</tfoot>
+					</table>
+					
+					<script>
+						<apex:repeat value="{!timeSheets}" var="ts">
+							document.getElementById('timeSheetInput_{!ts}').value = {!timeSheets[ts].Duree__c};
+							document.getElementById('timeSheetInput_{!ts}').className = '{!IF(timeSheets[ts].Theorique__c, 'theoretic', '')}';
+						</apex:repeat>
+					</script>
+				</apex:outputPanel>
+			</apex:pageBlock>
+		</apex:actionRegion>
+	</apex:form>  
+	
+
+</apex:component>

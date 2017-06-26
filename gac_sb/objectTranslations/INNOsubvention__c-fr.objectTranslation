@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Subvention et avance</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Subventions et avances</value>
+    </caseValues>
+    <fields>
+        <label><!-- Clé unique --></label>
+        <name>CleUnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires --></label>
+        <name>Commentaires__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de versement --></label>
+        <name>Date_versement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Département --></label>
+        <name>Departement__c</name>
+        <relationshipLabel><!-- Subventions et avances --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Id d&apos;import --></label>
+        <name>ImportId__c</name>
+    </fields>
+    <fields>
+        <label><!-- Matricule --></label>
+        <name>Matricule__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant option 1 --></label>
+        <name>Montant_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant option 2 --></label>
+        <name>Montant_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant option 3 --></label>
+        <name>Montant_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nature --></label>
+        <name>Nature__c</name>
+    </fields>
+    <fields>
+        <label><!-- Organisme --></label>
+        <name>Organisme__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prod Id --></label>
+        <name>Prod_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Projet --></label>
+        <name>Projet__c</name>
+        <relationshipLabel><!-- Subventions et avances --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Salarié --></label>
+        <name>Salarie__c</name>
+        <relationshipLabel><!-- Subventions et avances --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Valorisation --></label>
+        <name>Valorisation__c</name>
+        <relationshipLabel><!-- Subventions et avances --></relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Subvention et avance</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Avances remboursables --></label>
+        <name>avanceRemboursable</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Remboursements d&apos;avances --></label>
+        <name>remboursementAvance</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Subventions --></label>
+        <name>subvention</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

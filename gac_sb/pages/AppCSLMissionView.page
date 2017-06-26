@@ -1,0 +1,402 @@
+<apex:page standardController="Mission__c"  sidebar="false" tabStyle="Mission__c">
+  <apex:variable var="ShowOtherTabs" value="{!Mission__c.RecordType.DeveloperName == 'LDB'}" />
+    <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/versioning.css" />
+    <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/extended.css" />
+    <style>
+        .rich-tabpanel-content .bDetailBlock, .tab_dossier .bPageBlock, .tab_etab .bPageBlock{
+            border: none !important;
+            padding: 10px;
+        }
+        .td{
+            text-align:center;
+        }
+        .redspan {
+            border:1px solid red;
+            padding:3px;
+         }
+    </style>
+ 
+    <apex:tabPanel switchType="client" >
+        
+        <apex:tab label="Empresa" name="Entreprise">
+            <!--<apex:detail subject="{!Mission__c.Id}" relatedList="false" inlineEdit="true" />-->
+            <apex:pageBlock mode="maindetail" >
+                    
+                    <apex:pageBlockButtons location="top" >
+                        <apex:form >
+                            <apex:commandButton action="{!URLFOR('/apex/AppCSLmissionEdit', null, [id = Mission__c.Id, SelectedTab ="Empresa"])}" value="Editar" immediate="true"/>
+                            <apex:commandButton action="{!delete}" onclick="return confirm('Tem erteza?');" value="Excluir" immediate="true"/>
+                            <apex:commandButton action="{!URLFOR('/apex/FactuCreatePlanificationFromMission', null, [id = Mission__c.Id])}" value="Digitar planejamento de faturamento" immediate="true"/>
+                            <apex:commandButton action="{!URLFOR('/apex/FactuSelectPlanifications', null, [id = Mission__c.Id])}" value="Emitir nota fiscal" immediate="true"/>
+ 
+                        </apex:form>    
+                     </apex:pageBlockButtons>
+                    
+                <apex:pageBlockSection title="informações" columns="2">
+                    <apex:outputField value="{!Mission__c.Name }"/>
+                    <apex:outputField value="{!Mission__c.OwnerId}"/>
+                    <apex:outputField value="{!Mission__c.Compte__c}"/>
+                    <apex:outputField value="{!Mission__c.Gerente_de_projetos__c}"/>
+                    <apex:outputField value="{!Mission__c.Subsidiaria_no_ambito_do_contrato__c}"/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputField value="{!Mission__c.Contrat__c }"/>
+                    
+                   
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Identificação da empresa" columns="2">
+                    <apex:outputField value="{!Mission__c.Annee_concernee__c }"/>
+                    <apex:outputField value="{!Mission__c.Type_de_mission__c }"/>
+                    <apex:outputField label="Cidade" value="{!Mission__c.Compte__r.BillingCity} "/> 
+                    <apex:outputField value="{!Mission__c.Compte__r.Departement__c }"/>
+                    <apex:outputField value="{!Mission__c.Cloture_fiscale__c }"/>
+                    <apex:outputField value="{!Mission__c.Compte__r.Date_de_cloture_fiscale__c }"/>
+                    <apex:outputField label="CNPJ" value="{!Mission__c.Compte__r.SIRET__c }"/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputField value="{!Mission__c.Compte__r.Code_NAF_2__c }"/>
+                    <apex:outputField value="{!Mission__c.Compte__r.Libelle_NAF_2__c }"/>
+                    <apex:outputField value="{!Mission__c.Compte__r.Industry }"/>
+                    <apex:outputField value="{!Mission__c.Compte__r.Activity__c }"/>
+                    <apex:outputField value="{!Mission__c.Compte__r.Secteur_d_activit_2__c }"/>
+                    <apex:outputField value="{!Mission__c.Compte__r.Sous_secto_2__c}"/>
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Situação dos trabalhos" columns="2">
+                    <apex:outputField value="{!Mission__c.Situation_de_la_mission__c }"/>
+                    <apex:outputField value="{!Mission__c.Phase_Actuelle__c }"/>
+                    <apex:outputField value="{!Mission__c.CommentaireMissionNonActive__c }"/>
+                </apex:pageBlockSection>
+                             
+                <apex:pageBlockSection title="Diversos " columns="2">
+                    <apex:outputField value="{!Mission__c.CA_facture__c }"/>
+                    <apex:outputField value="{!Mission__c.CA_planifie__c}"/>
+                    <apex:outputField value="{!Mission__c.CA_encaisse__c }"/>
+                    <apex:outputField value="{!Mission__c.Creances__c }"/>
+                    <apex:outputField value="{!Mission__c.Utilisation_droit_informatique__c }"/>
+                    <apex:outputField value="{!Mission__c.ApplicationLoiAutoInnovate__c}"/>
+                    <apex:outputField value="{!Mission__c.financementInnovation__c }"/>
+                    <apex:outputField value="{!Mission__c.Commentaire__c }"/>
+                </apex:pageBlockSection>
+                <apex:relatedList list="Planifications_de_facturation__r"/>
+                <apex:relatedList list="Factures__r"/>
+                <apex:relatedList list="OpenActivities"/>
+                <apex:relatedList list="ActivityHistories"/>
+                
+            </apex:pageBlock>
+        </apex:tab>
+        <apex:tab label="Accompanhamento dos trabalhos " styleClass="empresa " name="Accompanhamento">
+                <apex:pageBlock mode="maindetail">
+                    <apex:pageBlockButtons location="top" >
+                        <apex:form >
+                             <apex:commandButton action="{!URLFOR('/apex/AppCSLmissionEdit', null, [id = Mission__c.Id, SelectedTab ="Accompanhamento"])}" value="Editar" immediate="true"/>
+                             <apex:commandButton action="{!delete}"  onclick="return confirm('Tem erteza?');" value="Excluir" immediate="true"/>
+                        </apex:form>    
+                     </apex:pageBlockButtons>
+                <!--1.  Division « Preparação »-->    
+                <apex:pageBlockSection title="Preparacão " columns="2">
+                    <apex:outputField value="{!Mission__c.CertificatRegularite__c }"/>
+                    <apex:outputField value="{!Mission__c.Date_KOM__c}"/>
+                    </apex:pageBlockSection>
+                                    
+                <!--2. « Análise de oportunidades »--> 
+                <apex:pageBlockSection title="Análise oportunidades" columns="2">                     
+                        <apex:outputField value="{!Mission__c.CommentaireAnalyseProjet__c }"/>
+                </apex:pageBlockSection>
+                
+               <!--3. « Andamento dos trabalhos   » --> 
+               <apex:pageBlockSection title="Andamento dos trabalhos" columns="2">
+                    <apex:outputField value="{!Mission__c.Categoria__c}"/>
+                    <apex:outputField value="{!Mission__c.Detalhes_do_projeto__c}"/>
+                    <apex:outputField value="{!Mission__c.Montante_economizado__c}"/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputField value="{!Mission__c.DateRealisationDossier__c}"/>
+                    <apex:outputField value="{!Mission__c.ComentarioConfecao__c}"/>
+               </apex:pageBlockSection>
+
+            </apex:pageBlock>
+        </apex:tab>
+        <apex:tab label="Valorização" styleClass="Evaluation " rendered="{!ShowOtherTabs}">
+            <apex:pageBlock mode="maindetail" >
+                    <apex:pageBlockButtons location="top" >
+                        <apex:form >
+                            <apex:commandButton action="{!URLFOR('/apex/AppCSLmissionEdit', null, [id = Mission__c.Id, SelectedTab ="Valor"])}" value="Editar" immediate="true"/>
+                            <apex:commandButton action="{!URLFOR('/apex/AppCSLmissionView', null, [id = Mission__c.Id])}" value="Excluir" immediate="true"/>
+                            
+                        </apex:form>    
+                     </apex:pageBlockButtons>
+                 <apex:pageBlockSection title="Valorização " columns="2">
+                    <apex:outputField value="{!Mission__c.NombreLigneRecherche__c }"/>
+                    <apex:outputField value="{!Mission__c.NombrePersonneFullTime__c }"/>
+                    <apex:outputField value="{!Mission__c.NombreProjet__c} "/>
+                    <apex:outputField value="{!Mission__c.NombrePersonnePartiel__c }"/>
+                    <apex:outputField value="{!Mission__c.NombreHeureRAD__c  }"/>
+                    <apex:outputField value="{!Mission__c.NombreTotalPersonne__c }"/>
+                    
+                        <apex:pageBlockSectionItem labelStyle="color:green; text-decoration: underline; border:1px; font-weight: bold" >
+                    <apex:outputLabel value="Valor total dos recursos humanos" for="nsptotal"/>
+                        <apex:outputPanel >
+                           <span style="color:green; font-weight: bold">
+                               <apex:outputField value="{!Mission__c.ValeurRh__c}" id="nsptotal"/>
+                           </span>
+                        </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                    <apex:outputField value="{!Mission__c.CommentaireRH__c}"/>
+                    
+                    <hr></hr><apex:outputlabel value=""/>
+                    
+                    <apex:outputField value="{!Mission__c.MicroEntreprise__c}"/>
+                    <apex:outputField value="{!Mission__c.EntrepriseMoyenne__c}"/>
+                    <apex:outputField value="{!Mission__c.Universite__c}"/>
+                    <apex:outputField value="{!Mission__c.institutRecherche__c}"/>
+                    <apex:outputField value="{!Mission__c.AppuiTechnique__c}"/>
+                    <apex:outputlabel value=""/>
+                    
+                    <apex:pageBlockSectionItem labelStyle="color:green; text-decoration: underline; border:1px; font-weight: bold" >
+                    <apex:outputLabel value="Total serviço de terceiros" for="nsptotal"/>
+                        <apex:outputPanel >
+                           <span style="color:green; font-weight: bold">
+                               <apex:outputField value="{!Mission__c.TotalPrestataire__c }" id="nsptotal"/>
+                           </span>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    
+                    <apex:outputField value="{!Mission__c.CommentaireTerceiros__c }"/>
+                    <apex:pageBlockSectionItem labelStyle="color:green; text-decoration: underline; border:1px; font-weight: bold" >
+                    <apex:outputLabel value="Material de consumo" for="nsptotal"/>
+                        <apex:outputPanel >
+                           <span style="color:green; font-weight: bold">
+                               <apex:outputField value="{!Mission__c.MatierePremiere__c }" id="nsptotal"/>
+                           </span>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:outputField value="{!Mission__c.CommentaireMaterielConsomme__c }"/>
+                        <apex:pageBlockSectionItem labelStyle="color:green; text-decoration: underline; border:1px; font-weight: bold" >
+                        <apex:outputLabel value="Outros dispêndios" for="nsptotal"/>
+                        <apex:outputPanel >
+                           <span style="color:green; font-weight: bold">
+                               <apex:outputField value="{!Mission__c.AutresDepenses__c}" id="nsptotal"/>
+                           </span>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:outputField value="{!Mission__c.CommentaireAutreDepense__c}"/>
+                    <apex:pageBlockSectionItem /><apex:pageBlockSectionItem />
+                    
+                
+                    
+                    <apex:pageBlockSectionItem labelStyle="color:green; text-decoration: underline; border:1px; font-weight: bold" >
+                        <apex:outputLabel value="Total dos dispêndios em PD&I" for="nsptotal"/>
+                        <apex:outputPanel >
+                           <span style="color:green; font-weight: bold">
+                                <apex:outputField value="{!Mission__c.TotalDepensesRAD__c}"/>
+                           </span>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    <apex:pageBlockSectionItem labelStyle="color:green; text-decoration: underline; border:1px; font-weight: bold" >
+                        <apex:outputLabel value="Valor da redução adicional" for="nsptotal"/>
+                        <apex:outputPanel >
+                           <span style="color:green; font-weight: bold">
+                                <apex:outputField value="{!Mission__c.ValeurReductionAdditionnel__c}"/>
+                           </span>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:outputField value="{!Mission__c.PourcentageDeduction__c }"/>
+                    <apex:outputField value="{!Mission__c.CommentaireDeduction__c }"/>
+                    <hr></hr><apex:outputlabel value=""/>
+                    <apex:outputField value="{!Mission__c.IPIMaterielNational__c}"/>
+                    <apex:outputField value="{!Mission__c.IPIMaterielImporte__c}"/>
+                    <apex:outputField value="{!Mission__c.Reduction__c}"/>
+                    <apex:outputField value="{!Mission__c.Patente__c}"/>
+                    <apex:outputField value="{!Mission__c.DepreciationAccelere__c}"/>
+                    <apex:outputlabel value=""/>
+                    
+                    <apex:pageBlockSectionItem /><apex:pageBlockSectionItem />
+                    
+                    <apex:outputField value="{!Mission__c.PourcentageIRPJ__c}"/>
+                    <apex:outputField value="{!Mission__c.PourcentageCSLL__c}"/>
+                    <apex:pageBlockSectionItem labelStyle="color:green; text-decoration: underline; border:1px; font-weight: bold" >
+                        <apex:outputLabel value="VALOR TOTAL DO BENEFICIO " for="nsptotal"/>
+                        <apex:outputPanel >
+                           <span style="color:green; font-weight: bold">
+                                <apex:outputField value="{!Mission__c.ValeurTotaleBenefice__c}"/>
+                           </span>
+                        </apex:outputPanel>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:outputField value="{!Mission__c.CommentaireBeneficeTotal__c}"/>
+                 </apex:pageBlockSection>
+               
+                 
+                  <apex:pageBlockSection title="Quadro de pessoal" columns="6">
+                     <apex:outputPanel layout="none">
+                    <Table border="1">
+                        
+                        <TR bgcolor ="Gray ">
+                            <TH>Título</TH>
+                            <TH>N° de Pessoas<br></br> com Parcial</TH>
+                            <th style="width:100px"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Valor Gasto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </TH>
+                            <TH>N° de Pessoas <br></br> com Exclusiva</TH>
+                            <TH style="width:50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Valor Gasto &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TH>
+                            <TH style="width:50px">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Total Valor Gasto &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</TH>
+                        </TR>
+                        <TR>
+                            <TH>
+                                Doutores
+                            </TH>
+                            
+                            <TD style="text-align:center">{!Mission__c.NombreMedecinPartielPersonnne__c}</TD>
+                            <TD style="text-align:center"> <apex:outputField value="{!Mission__c.ValeurMedecin__c}"/></TD>
+                            <TD style="text-align:center">{!Mission__c.NombreMedecinExclusif__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurMedecinExclusif__c}"/></TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.TotalDocteur__c}"/></TD>
+                        </TR> 
+                        
+                        <TR>
+                            <TH>
+                                Mestres
+                            </TH>
+                            
+                            <TD style="text-align:center">{!Mission__c.NombreMaitrePartiel__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurMaitrePartiel__c}"/></TD>
+                            <TD style="text-align:center">{!Mission__c.NombreMaitreExclusif__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurMaitreExclusif__c}"/></TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.TotalMaitre__c}"/></TD>
+                        </TR> 
+                        
+                         <TR>
+                            <TH>
+                                Pós-Graduados
+                            </TH>
+                            
+                            <TD style="text-align:center">{!Mission__c.NombrePostDiplomesTempsPartiel__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurPostDiplome__c}"/></TD>
+                            <TD style="text-align:center">{!Mission__c.NombrePostDiplomesExclusif__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurPostDiplomeExclusif__c}"/></TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.TotalPosDiplome__c}"/></TD>
+                        </TR>    
+                        
+                        <TR>
+                            <TH>
+                               Graduados
+                            </TH>
+                            
+                            <TD style="text-align:center">{!Mission__c.NombreDiplomesTempsPartiel__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurDiplome__c}"/></TD>
+                            <TD style="text-align:center">{!Mission__c.NombreDiplomesTempsExclusif__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurDiplomeExclusif__c}"/></TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.TotalDiplome__c}"/></TD>
+                        </TR>    
+                        
+                        <TR>
+                            <TH>
+                               Tecnológos
+                            </TH>
+                            
+                            <TD style="text-align:center">{!Mission__c.NombrePersonneTechnique__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurTechnicien__c}"/></TD>
+                            <TD style="text-align:center">{!Mission__c.NombreTechicienExclusif__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurTechnicienExclusif__c}"/></TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.TotalTechnique__c}"/></TD>
+                        </TR> 
+                        
+                        <TR>
+                            <TH>
+                              Técnicos de Nível Médio
+                            </TH>
+                            
+                            <TD style="text-align:center">{!Mission__c.NombreTechnicoMedical__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurTechnicoMedical__c}"/></TD>
+                            <TD style="text-align:center">{!Mission__c.NombreTechnicoMedicalExclusif__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurTechnicoMedicalExclusif__c}"/></TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.TotalValeurtechnicoMed__c}"/></TD>
+                         
+                        </TR> 
+                       
+                        <TR text-color="#008000">
+                            <TH text-color="#008000">
+                              Total pesquisasdores contratados
+                            </TH>
+                            
+                            <TD style="text-align:center">{!Mission__c.TotalPersonnePartiel__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.TotalPersonneTempsPartiel__c}"/></TD>
+                            <TD style="text-align:center">{!Mission__c.NombrePersonneExclusif__c}</TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.TotalValeurPersonneExclusif__c}"/></TD>
+                            <TD style="text-align:center" color="green"><apex:outputField value="{!Mission__c.ValeurTotalContrat__c}"/></TD>
+ 
+                        </TR> 
+                        <TR>
+                            <TH>
+                              Valor despendido com funcionarios de Apoio Técnico
+                            </TH>
+                            
+                            <TD style="color:black; font-weight: bold; text-align:center"><apex:outputlabel value="-"/></TD>
+                            <TD style="color:black; font-weight: bold; text-align:center"><apex:outputlabel value="-"/></TD>
+                            <TD style="color:black; font-weight: bold; text-align:center"><apex:outputlabel value="-"/></TD>
+                            <TD style="color:black; font-weight: bold; text-align:center"><apex:outputlabel value="-"/></TD>
+                            <TD style="text-align:center"><apex:outputField value="{!Mission__c.ValeurSupportTechnique__c}"/></TD>
+ 
+                        </TR> 
+                        <TR bgcolor="green" >
+                            <TH style="color:black; font-weight: bold; text-align:center">
+                              Total RH
+                            </TH>
+                            
+                            <TD style="color:black; font-weight: bold; text-align:center"><apex:outputlabel value="-"/></TD>
+                            <TD style="color:black; font-weight: bold; text-align:center"><apex:outputlabel value="-"/></TD>
+                            <TD style="color:black; font-weight: bold; text-align:center"><apex:outputlabel value="-"/></TD>
+                            <TD style="color:black; font-weight: bold; text-align:center"><apex:outputlabel value="-"/></TD>
+                            <TD style="color:black; font-weight: bold; text-align:center"><apex:outputField value="{!Mission__c.TotaleRH__c}"/></TD>
+ 
+                        </TR> 
+                    </Table>
+                   </apex:outputPanel>
+                 </apex:pageBlockSection>
+                            
+            </apex:pageBlock>
+            
+        </apex:tab>
+        <apex:tab label="Patentes e registros" styleClass="BrevetDossier" rendered="{!ShowOtherTabs}">
+        
+            <apex:pageBlock mode="maindetail" >
+                    <apex:pageBlockButtons location="top" >
+                        <apex:form >
+                           <apex:commandButton action="{!URLFOR('/apex/AppLDBmissionEdit', null, [id = Mission__c.Id, SelectedTab ="Patentes"])}" value="Editar" immediate="true"/>
+                           <apex:commandButton action="{!URLFOR('/apex/AppLDBmissionView', null, [id = Mission__c.Id])}" value="Excluir" immediate="true"/>
+                        </apex:form>    
+                     </apex:pageBlockButtons>
+                <apex:pageBlockSection title="Patentes e registros " columns="2">
+                    <apex:outputField value="{!Mission__c.BrevetInvention__c }"/>
+                    <apex:outputField value="{!Mission__c.CommentaireBrevetInvention__c} "/>
+                    <apex:outputField value="{!Mission__c.BrevetModel__c}"/>
+                    <apex:outputField value="{!Mission__c.CommentaireBrevetModel__c }"/>
+                    <apex:outputField value="{!Mission__c.RegistreCulture__c}"/>
+                    <apex:outputField value="{!Mission__c.CommentaireRegistreCulture__c}"/>
+               </apex:pageBlockSection>
+               
+            </apex:pageBlock>
+        </apex:tab>
+        <apex:tab label="Programa PD&I" styleClass="programa" rendered="{!ShowOtherTabs}">
+               <br></br>
+               <br></br>
+               <apex:relatedList list="Programa__r">
+                    <apex:facet name="header">
+                        <apex:form >
+                            <h3>Programa de PD&amp;I</h3>
+                            <apex:commandButton action="{!URLFOR($Action.ProgrammeRechercheDeveloppement__c.New,null, [ CF00ND00000065R2T = Mission__c.Name, CF00ND00000065R2T_lkid = Mission__c.Id])}" value="NEW Programa PD&I" style="margin-left: 500px;"/>
+                            <apex:inputHidden value="{!Mission__c.Name}" />
+                        </apex:form>
+                    </apex:facet>
+               </apex:relatedList>
+        </apex:tab>
+
+    </apex:tabPanel>
+
+</apex:page>

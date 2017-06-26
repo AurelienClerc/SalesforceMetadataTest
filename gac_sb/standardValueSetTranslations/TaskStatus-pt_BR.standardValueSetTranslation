@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>En attente</masterLabel>
+        <translation>Esperando por alguém</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>En cours</masterLabel>
+        <translation>Em andamento</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pas commencé</masterLabel>
+        <translation>Não iniciado</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Reporté</masterLabel>
+        <translation>Deferido</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Terminé / Non abouti</masterLabel>
+        <translation><!-- Terminé / Non abouti --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Terminé / Traité</masterLabel>
+        <translation><!-- Terminé / Traité --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

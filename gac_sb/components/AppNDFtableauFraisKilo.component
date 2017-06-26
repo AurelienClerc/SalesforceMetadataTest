@@ -1,0 +1,42 @@
+<apex:component >
+    <apex:attribute name="lsDepenseKilo" type="Note_De_Frais_Depense__c[]" description="liste"/>
+    <apex:attribute name="mpEvent" type="map" description="map"/>
+<apex:attribute name="bAppro" type="Boolean" description="est approbateur"/>
+
+        <apex:dataTable value="{!lsDepenseKilo}" id="fraisKilos" var="fraisKilo" cellspacing="0" cellpadding="0" styleClass="depensesTable list" rowClasses="odd,even" headerClass="headerRow">
+            <apex:column width="30" rendered="{!IF(contains($CurrentPage.URL, 'AppNDFevenementView'), false, true)}">
+                <apex:facet name="header">{!$Label.APPNDF_Action}</apex:facet>
+                <apex:commandLink value="{!$Label.APPNDF_Modifier}" onclick="window.open('/apex/AppNDFevenementEdit?idNDF={!fraisKilo.Note_De_Frais__c}&refresh=1&appro={!bAppro}{!IF(fraisKilo.Note_De_Frais__r.Evenement_Id__c != null,'&id='&fraisKilo.Note_De_Frais__r.Evenement_Id__c,'')}','_blank','height=600,width=900,location=no,resizable=no,toolbar=no,status=no,menubar=no,scrollbars=1', 1);return false;" styleClass="lien_modifier_{!fraisKilo.Note_De_Frais__c}"/>    
+            </apex:column>
+            <apex:column width="50">
+                <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Name.Label}</apex:facet>
+                <apex:outputField value="{!fraisKilo.Name}"/>
+            </apex:column>
+            <apex:column width="100" rendered="{!IF(contains($CurrentPage.URL, 'AppNDFevenementView'), false, true)}">
+                <apex:facet name="header">{!$Label.APPNDF_Evenement}</apex:facet>
+                <apex:outputPanel >{!mpEvent[fraisKilo.Id]}</apex:outputPanel>
+            </apex:column>
+            <apex:column width="70">
+                <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Nature_Depense__c.Label}</apex:facet>
+                <apex:outputField value="{!fraisKilo.Nature_Depense__r.Name}"/>
+            </apex:column>
+            <apex:column width="1">
+                <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Nombre_De_Kilometres__c.Label}</apex:facet>
+                <apex:outputField style="width:70px" value="{!fraisKilo.Nombre_De_Kilometres__c}"/>
+            </apex:column>    
+            <apex:column width="1">
+                <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Indemnites_Kilometriques__c.Label}</apex:facet>
+                <apex:outputField style="width:70px" value="{!fraisKilo.Indemnites_Kilometriques__c}"/>
+            </apex:column>
+            <apex:column width="1">
+                <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Taux_Indemnites__c.Label}</apex:facet>
+                <apex:outputField style="width:150px" value="{!fraisKilo.Taux_Indemnites__c}"/>
+            </apex:column>
+            <apex:column width="1">
+                <apex:facet name="header">{!$ObjectType.Note_De_Frais_Depense__c.fields.Description__c.Label}</apex:facet>
+                <apex:outputField style="width:150px" value="{!fraisKilo.Description__c}"/>
+            </apex:column>
+        </apex:dataTable>
+        
+    
+</apex:component>

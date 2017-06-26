@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Date formation Portail</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Dates formation Portail</value>
+    </caseValues>
+    <fields>
+        <label><!-- Code postal de la formation --></label>
+        <name>CodePostalFormation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date --></label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Formation Portail --></label>
+        <name>Formation__c</name>
+        <relationshipLabel><!-- Dates formation Portail --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Horaires --></label>
+        <name>Horaires__c</name>
+    </fields>
+    <fields>
+        <help><!-- Laisser vide pour pré-remplissage avec les champs rue, ville, code postal et pays de formation --></help>
+        <label><!-- Lieu --></label>
+        <name>Lieu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pays de la formation --></label>
+        <name>PaysFormation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rue de la formation --></label>
+        <name>RueFormation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ville de la formation --></label>
+        <name>VilleFormation__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Date formation Portail</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

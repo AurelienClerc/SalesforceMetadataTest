@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Acheteur</masterLabel>
+        <translation>Comprador</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Autre</masterLabel>
+        <translation>Otro</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Décisionnaire</masterLabel>
+        <translation>Poder de decisión</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Prescripteur</masterLabel>
+        <translation>Prescriptor</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Référent Mission</masterLabel>
+        <translation>Referente del acuerdo</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

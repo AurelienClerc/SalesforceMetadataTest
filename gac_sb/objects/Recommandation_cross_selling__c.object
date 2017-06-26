@@ -1,0 +1,495 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Recommandations Cross Selling</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Commentaires__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Informations utiles à la prise de rendez-vous pour le traitement de cette recommandation</inlineHelpText>
+        <label>Commentaires</label>
+        <length>32768</length>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Compte__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Compte</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipLabel>Recommandations cross-selling</relationshipLabel>
+        <relationshipName>Recommandations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Contact__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Prospect</label>
+        <referenceTo>Contact</referenceTo>
+        <relationshipLabel>Recommandations</relationshipLabel>
+        <relationshipName>Recommandations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Destinataire__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>Indiquez le collaborateur qui va se charger de traiter la recommandation</inlineHelpText>
+        <label>Destinataire</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Recommandations</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>E_mail_du_DCR__c</fullName>
+        <externalId>false</externalId>
+        <label>E-mail du DCR</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>E_mail_du_DR__c</fullName>
+        <externalId>false</externalId>
+        <label>E-mail du DR</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_du_destinataire__c</fullName>
+        <externalId>false</externalId>
+        <label>Email du destinataire</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Email_du_proprietaire__c</fullName>
+        <externalId>false</externalId>
+        <label>Email du propriétaire</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Email</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Motif_non_valide__c</fullName>
+        <externalId>false</externalId>
+        <label>Motif non validé</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <controllingField>Non_Valide__c</controllingField>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors critère</fullName>
+                    <default>false</default>
+                    <label>Hors critère</label>
+                </value>
+                <value>
+                    <fullName>Déjà client sur le produit concerné</fullName>
+                    <default>false</default>
+                    <label>Déjà client sur le produit concerné</label>
+                </value>
+                <value>
+                    <fullName>Action commerciale déjà en cours</fullName>
+                    <default>false</default>
+                    <label>Action commerciale déjà en cours</label>
+                </value>
+                <value>
+                    <fullName>Recommandation sur le même produit</fullName>
+                    <default>false</default>
+                    <label>Recommandation sur le même produit</label>
+                </value>
+                <value>
+                    <fullName>Contact non sensibilisé à la démarche</fullName>
+                    <default>false</default>
+                    <label>Contact non sensibilisé à la démarche</label>
+                </value>
+                <value>
+                    <fullName>Reco obsolète</fullName>
+                    <default>false</default>
+                    <label>Reco obsolète</label>
+                </value>
+            </valueSetDefinition>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Hors critère</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Déjà client sur le produit concerné</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Action commerciale déjà en cours</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Recommandation sur le même produit</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Contact non sensibilisé à la démarche</valueName>
+            </valueSettings>
+            <valueSettings>
+                <controllingFieldValue>checked</controllingFieldValue>
+                <valueName>Reco obsolète</valueName>
+            </valueSettings>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Nombre_recommandation__c</fullName>
+        <externalId>false</externalId>
+        <formula>1</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre recommandation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Non_Valide__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Non Validé</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Opportunities_creees__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>Indique si au moins une opportunité a été créée suite à cette recommandation</inlineHelpText>
+        <label>Opportunité(s) créée(s)</label>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Produits__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Produit sur lequel porte la recommandation</inlineHelpText>
+        <label>Produit</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AS</fullName>
+                    <default>false</default>
+                    <label>AS</label>
+                </value>
+                <value>
+                    <fullName>CIR</fullName>
+                    <default>false</default>
+                    <label>CIR</label>
+                </value>
+                <value>
+                    <fullName>CIN</fullName>
+                    <default>false</default>
+                    <label>CIN</label>
+                </value>
+                <value>
+                    <fullName>ACS</fullName>
+                    <default>false</default>
+                    <label>ACS</label>
+                </value>
+                <value>
+                    <fullName>TAT</fullName>
+                    <default>false</default>
+                    <label>TAT</label>
+                </value>
+                <value>
+                    <fullName>CRH</fullName>
+                    <default>false</default>
+                    <label>CRH</label>
+                </value>
+                <value>
+                    <fullName>IL</fullName>
+                    <default>false</default>
+                    <label>IL</label>
+                </value>
+                <value>
+                    <fullName>CFI</fullName>
+                    <default>false</default>
+                    <label>CFI</label>
+                </value>
+                <value>
+                    <fullName>R&amp;D Funding</fullName>
+                    <default>false</default>
+                    <label>R&amp;D Funding</label>
+                </value>
+                <value>
+                    <fullName>R&amp;D Tax Credit</fullName>
+                    <default>false</default>
+                    <label>R&amp;D Tax Credit</label>
+                </value>
+                <value>
+                    <fullName>Autres</fullName>
+                    <default>false</default>
+                    <label>Autres</label>
+                </value>
+                <value>
+                    <fullName>Consulting</fullName>
+                    <default>false</default>
+                    <label>Consulting</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Profil_proprietaire__c</fullName>
+        <externalId>false</externalId>
+        <label>Profil propriétaire</label>
+        <length>15</length>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Tache_cree__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Tâche créée</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <gender>Feminine</gender>
+    <label>Recommandation</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>CREATED_DATE</columns>
+        <columns>NAME</columns>
+        <columns>Produits__c</columns>
+        <columns>Destinataire__c</columns>
+        <columns>CREATEDBY_USER</columns>
+        <columns>Contact__c</columns>
+        <columns>Profil_proprietaire__c</columns>
+        <columns>Motif_non_valide__c</columns>
+        <columns>Non_Valide__c</columns>
+        <columns>LAST_UPDATE</columns>
+        <filterScope>Everything</filterScope>
+        <filters>
+            <field>Produits__c</field>
+            <operation>notEqual</operation>
+        </filters>
+        <label>Tout</label>
+        <language>fr</language>
+    </listViews>
+    <nameField>
+        <displayFormat>R-{00000}</displayFormat>
+        <label>Recommandation</label>
+        <trackHistory>true</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Recommandations</pluralLabel>
+    <recordTypeTrackHistory>true</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>ES_Recommandation</fullName>
+        <active>true</active>
+        <label>ES Recommandation</label>
+        <picklistValues>
+            <picklist>Motif_non_valide__c</picklist>
+            <values>
+                <fullName>Action commerciale déjà en cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact non sensibilisé à la démarche</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Déjà client sur le produit concerné</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hors critère</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Produits__c</picklist>
+            <values>
+                <fullName>Consulting</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R%26D Funding</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>R%26D Tax Credit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>FR_Recommandation</fullName>
+        <active>true</active>
+        <label>FR Recommandation</label>
+        <picklistValues>
+            <picklist>Motif_non_valide__c</picklist>
+            <values>
+                <fullName>Action commerciale déjà en cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contact non sensibilisé à la démarche</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Déjà client sur le produit concerné</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Hors critère</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Reco obsolète</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Recommandation sur le même produit</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Produits__c</picklist>
+            <values>
+                <fullName>ACS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AS</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autres</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CFI</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIN</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CIR</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>CRH</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>IL</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>TAT</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Motif_non_valide_obligatoire_si_coche</fullName>
+        <active>true</active>
+        <description>Motif non validé obligatoire si coché</description>
+        <errorConditionFormula>(Non_Valide__c  = true &amp;&amp; 
+ISPICKVAL(Motif_non_valide__c,&quot;&quot;))</errorConditionFormula>
+        <errorMessage>Le champ &quot; Motif non validé &quot; doit obligatoirement être renseigné si la case &quot; Non validé &quot; est cochée.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

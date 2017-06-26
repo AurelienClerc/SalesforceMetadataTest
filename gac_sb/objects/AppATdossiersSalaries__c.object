@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>APPLICATION AT</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ActionsMenee__c</fullName>
+        <externalId>false</externalId>
+        <label>Actions menées</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MultiselectPicklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Assist. consultation dossier devant CPAM</fullName>
+                    <default>false</default>
+                    <label>Assist. consultation dossier devant CPAM</label>
+                </value>
+                <value>
+                    <fullName>Assist. demande de dossier</fullName>
+                    <default>false</default>
+                    <label>Assist. demande de dossier</label>
+                </value>
+                <value>
+                    <fullName>Assist. recours contre tiers</fullName>
+                    <default>false</default>
+                    <label>Assist. recours contre tiers</label>
+                </value>
+                <value>
+                    <fullName>Assist. rédact. courrier de réserve</fullName>
+                    <default>false</default>
+                    <label>Assist. rédact. courrier de réserve</label>
+                </value>
+                <value>
+                    <fullName>Assist. rédact. de la DAT/MP</fullName>
+                    <default>false</default>
+                    <label>Assist. rédact. de la DAT/MP</label>
+                </value>
+                <value>
+                    <fullName>Assist. rédact. questionnaire employeur AT</fullName>
+                    <default>false</default>
+                    <label>Assist. rédact. questionnaire employeur AT</label>
+                </value>
+                <value>
+                    <fullName>Assist. rédact. rapport geste et posture</fullName>
+                    <default>false</default>
+                    <label>Assist. rédact. rapport geste et posture</label>
+                </value>
+                <value>
+                    <fullName>Assist. réponse lettre d&apos;observation</fullName>
+                    <default>false</default>
+                    <label>Assist. réponse lettre d&apos;observation</label>
+                </value>
+                <value>
+                    <fullName>Autre</fullName>
+                    <default>false</default>
+                    <label>Autre</label>
+                </value>
+                <value>
+                    <fullName>Explication gestion accident de trajet</fullName>
+                    <default>false</default>
+                    <label>Explication gestion accident de trajet</label>
+                </value>
+                <value>
+                    <fullName>Explication notif taux IPP inf.10%</fullName>
+                    <default>false</default>
+                    <label>Explication notif taux IPP inf.10%</label>
+                </value>
+                <value>
+                    <fullName>Explication sur la rechute</fullName>
+                    <default>false</default>
+                    <label>Explication sur la rechute</label>
+                </value>
+                <value>
+                    <fullName>Explication sur longueur arrêt</fullName>
+                    <default>false</default>
+                    <label>Explication sur longueur arrêt</label>
+                </value>
+                <value>
+                    <fullName>Externalisation à la DAT</fullName>
+                    <default>false</default>
+                    <label>Externalisation à la DAT</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+        <visibleLines>8</visibleLines>
+    </fields>
+    <fields>
+        <fullName>AnneeCCMIP__c</fullName>
+        <externalId>false</externalId>
+        <label>Année CCM IP</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AnneeCCMIT__c</fullName>
+        <externalId>false</externalId>
+        <label>Année CCM IT</label>
+        <length>4</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>CommentairesInterimaire__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires intérimaire</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Commentaires__c</fullName>
+        <description>Dossier de conseil</description>
+        <externalId>false</externalId>
+        <label>Commentaires</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>DateAttributionTauxIPP__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d&apos;attribution du taux d&apos;IPP</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateDemandeClient__c</fullName>
+        <externalId>false</externalId>
+        <label>Date demande client</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateDemandeRente__c</fullName>
+        <externalId>false</externalId>
+        <label>Date demande rente</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DatePriseCharge__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de prise en charge</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateReceptionDossier__c</fullName>
+        <externalId>false</externalId>
+        <label>Date réception dossier</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateReceptionRente__c</fullName>
+        <externalId>false</externalId>
+        <label>Date réception rente</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>DateSinistre__c</fullName>
+        <externalId>false</externalId>
+        <label>Date du sinistre</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_de_forclusion__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de forclusion</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_de_forclusion_rente__c</fullName>
+        <description>date de forclusion rente = Date d&apos;attribution du taux d&apos;IPP + 60 jours</description>
+        <externalId>false</externalId>
+        <label>Date de forclusion rente</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Deces__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Décès</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>EtablissementConcerne__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Etablissement concerné</label>
+        <lookupFilter>
+            <active>true</active>
+            <filterItems>
+                <field>AppATetablissement__c.Mission__c</field>
+                <operation>equals</operation>
+                <valueField>$Source.Mission__c</valueField>
+            </filterItems>
+            <isOptional>false</isOptional>
+        </lookupFilter>
+        <referenceTo>AppATetablissement__c</referenceTo>
+        <relationshipLabel>Dossiers Salariés</relationshipLabel>
+        <relationshipName>DossiersSalaries</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>FacturationPotentielleDossier__c</fullName>
+        <externalId>false</externalId>
+        <label>Facturation Potentielle du dossier</label>
+        <summarizedField>AppATrecours__c.FacturationPotentielle__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppATrecours__c.RecoursPrincipal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppATrecours__c.DossierSalarie__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>FacturationPotentiellePondereeDossier__c</fullName>
+        <externalId>false</externalId>
+        <label>Facturation potentielle pondérée dossier</label>
+        <summarizedField>AppATrecours__c.FacturationPotentiellePonderee__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppATrecours__c.RecoursPrincipal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppATrecours__c.DossierSalarie__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>IDimport__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>ID import (Ext)</label>
+        <length>20</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Imputation__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Imputation</label>
+        <referenceTo>AppATimputation__c</referenceTo>
+        <relationshipLabel>Dossiers Salariés</relationshipLabel>
+        <relationshipName>Dossiers_Salaries</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Imputations__c</fullName>
+        <externalId>false</externalId>
+        <label>Imputations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Interimaire__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Intérimaire</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mission__c</fullName>
+        <externalId>false</externalId>
+        <label>Mission</label>
+        <referenceTo>Mission__c</referenceTo>
+        <relationshipLabel>Dossiers Salariés</relationshipLabel>
+        <relationshipName>DossiersSalaries</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>MontantEconomieGlobaleRollup__c</fullName>
+        <externalId>false</externalId>
+        <label>Montant de l&apos;économie Globale (Calculé)</label>
+        <summarizedField>AppATrecours__c.MontantEconomieClient__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppATrecours__c.RecoursPrincipal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppATrecours__c.DossierSalarie__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>MontantEconomieGlobale__c</fullName>
+        <externalId>false</externalId>
+        <label>Montant de l&apos;économie Globale</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>NDossier__c</fullName>
+        <externalId>false</externalId>
+        <label>N° de dossier</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nom__c</fullName>
+        <externalId>false</externalId>
+        <label>Nom</label>
+        <length>50</length>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>NombreRecoursClos__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de recours clos</label>
+        <summaryFilterItems>
+            <field>AppATrecours__c.Statut__c</field>
+            <operation>equals</operation>
+            <value>Rejet, Accord, Abandon, Désistement</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppATrecours__c.DossierSalarie__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>NombreRecours__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de recours</label>
+        <summaryForeignKey>AppATrecours__c.DossierSalarie__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_d_imputations__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre d&apos;imputations</label>
+        <summaryForeignKey>AppATimputation__c.DossierSalarie__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_de_recours_principaux__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de recours principaux</label>
+        <summaryFilterItems>
+            <field>AppATrecours__c.RecoursPrincipal__c</field>
+            <operation>equals</operation>
+            <value>True</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppATrecours__c.DossierSalarie__c</summaryForeignKey>
+        <summaryOperation>count</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>NumeroSecuriteSociale__c</fullName>
+        <externalId>false</externalId>
+        <label>Numéro de sécurité sociale</label>
+        <length>30</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>OrigineDossierConseil__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Origine Dossier Conseil</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Prenom__c</fullName>
+        <externalId>false</externalId>
+        <label>Prénom</label>
+        <length>50</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Statut__c</fullName>
+        <externalId>false</externalId>
+        <label>Statut</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Demandé</fullName>
+                    <default>false</default>
+                    <label>Demandé</label>
+                </value>
+                <value>
+                    <fullName>Audit en cours</fullName>
+                    <default>false</default>
+                    <label>Audit en cours</label>
+                </value>
+                <value>
+                    <fullName>Contestation en cours</fullName>
+                    <default>false</default>
+                    <label>Contestation en cours</label>
+                </value>
+                <value>
+                    <fullName>Instruction en cours</fullName>
+                    <default>false</default>
+                    <label>Instruction en cours</label>
+                </value>
+                <value>
+                    <fullName>Aucune piste identifiée</fullName>
+                    <default>false</default>
+                    <label>Aucune piste identifiée</label>
+                </value>
+                <value>
+                    <fullName>Refus de prise en charge</fullName>
+                    <default>false</default>
+                    <label>Refus de prise en charge</label>
+                </value>
+                <value>
+                    <fullName>Classement du dossier</fullName>
+                    <default>false</default>
+                    <label>Classement du dossier</label>
+                </value>
+                <value>
+                    <fullName>Terminé</fullName>
+                    <default>false</default>
+                    <label>Terminé</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TECH_Date_envoi_mail_forclusion_rente__c</fullName>
+        <externalId>false</externalId>
+        <label>TECH Date envoi mail forclusion rente</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>TECH_Date_mail_forclusion__c</fullName>
+        <description>Mis a jour avec la date a laquelle le WF doit envoyer le mail</description>
+        <externalId>false</externalId>
+        <label>TECH Date envoi mail forclusion</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>TauxIPP__c</fullName>
+        <externalId>false</externalId>
+        <label>Taux d&apos;IPP</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>TotalFacturationPotentiellePonderee__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Facturation Potentielle Pondérée</label>
+        <summarizedField>AppATrecours__c.FacturationPotentiellePonderee__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppATrecours__c.Statut__c</field>
+            <operation>equals</operation>
+            <value>En cours</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppATrecours__c.DossierSalarie__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>TotalFacturationPotentielle__c</fullName>
+        <externalId>false</externalId>
+        <label>Total Facturation potentielle</label>
+        <summarizedField>AppATrecours__c.FacturationPotentielle__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppATrecours__c.Statut__c</field>
+            <operation>equals</operation>
+            <value>En cours</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppATrecours__c.DossierSalarie__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Tous_les_recours_sont_clos__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(NombreRecoursClos__c  = NombreRecours__c,
+TRUE,
+FALSE)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Tous les recours sont clos</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>AT</fullName>
+                    <default>false</default>
+                    <label>AT</label>
+                </value>
+                <value>
+                    <fullName>MP</fullName>
+                    <default>false</default>
+                    <label>MP</label>
+                </value>
+                <value>
+                    <fullName>A Trajet</fullName>
+                    <default>false</default>
+                    <label>A Trajet</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <gender>Masculine</gender>
+    <label>Dossier Salarié</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Date_de_forclusion__c</columns>
+        <columns>Date_de_forclusion_rente__c</columns>
+        <columns>RECORDTYPE</columns>
+        <filterScope>Everything</filterScope>
+        <label>Tout</label>
+        <language>fr</language>
+    </listViews>
+    <nameField>
+        <label>Nom du Dossier Salarié</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Dossiers Salariés</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Assistance_administrative</fullName>
+        <active>true</active>
+        <description>Mission d&apos;assistance administrative</description>
+        <label>Assistance administrative</label>
+        <picklistValues>
+            <picklist>ActionsMenee__c</picklist>
+            <values>
+                <fullName>Assist%2E demande de dossier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E rédact%2E courrier de réserve</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E rédact%2E de la DAT%2FMP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E rédact%2E rapport geste et posture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E réponse lettre d%27observation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Externalisation à la DAT</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Statut__c</picklist>
+            <values>
+                <fullName>Aucune piste identifiée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Audit en cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contestation en cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demandé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>A Trajet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Conseil</fullName>
+        <active>true</active>
+        <description>Mission de conseil</description>
+        <label>Conseil</label>
+        <picklistValues>
+            <picklist>ActionsMenee__c</picklist>
+            <values>
+                <fullName>Assist%2E consultation dossier devant CPAM</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E demande de dossier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E recours contre tiers</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E rédact%2E courrier de réserve</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E rédact%2E de la DAT%2FMP</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E rédact%2E questionnaire employeur AT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E rédact%2E rapport geste et posture</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Assist%2E réponse lettre d%27observation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Autre</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Explication gestion accident de trajet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Explication notif taux IPP inf%2E10%25</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Explication sur la rechute</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Explication sur longueur arrêt</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Externalisation à la DAT</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Statut__c</picklist>
+            <values>
+                <fullName>Aucune piste identifiée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Classement du dossier</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contestation en cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demandé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Instruction en cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refus de prise en charge</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type__c</picklist>
+            <values>
+                <fullName>A Trajet</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>AT</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>MP</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts>
+        <customTabListAdditionalFields>Statut__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>EtablissementConcerne__c</customTabListAdditionalFields>
+        <customTabListAdditionalFields>RECORDTYPE</customTabListAdditionalFields>
+        <customTabListAdditionalFields>Mission__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Statut__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>ActionsMenee__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>EtablissementConcerne__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>MontantEconomieGlobaleRollup__c</lookupDialogsAdditionalFields>
+        <lookupDialogsAdditionalFields>Mission__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Statut__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>ActionsMenee__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>EtablissementConcerne__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>MontantEconomieGlobaleRollup__c</lookupPhoneDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Mission__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Statut__c</searchFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchFilterFields>ActionsMenee__c</searchFilterFields>
+        <searchFilterFields>EtablissementConcerne__c</searchFilterFields>
+        <searchFilterFields>MontantEconomieGlobaleRollup__c</searchFilterFields>
+        <searchFilterFields>Mission__c</searchFilterFields>
+    </searchLayouts>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>AppAT_Dossier_salarie_num_SS</fullName>
+        <active>false</active>
+        <description>Valide le format du numéro de sécurité sociale
+LEN(SUBSTITUTE(NumeroSecuriteSociale__c,&apos; &apos;,&apos;&apos;))=13||
+LEN(SUBSTITUTE(NumeroSecuriteSociale__c,&apos; &apos;,&apos;&apos;))=15</description>
+        <errorConditionFormula>NOT(LEN(SUBSTITUTE(NumeroSecuriteSociale__c,&apos; &apos;,&apos;&apos;))=15)&amp;&amp;
+NOT(LEN(SUBSTITUTE(NumeroSecuriteSociale__c,&apos; &apos;,&apos;&apos;))=13)</errorConditionFormula>
+        <errorDisplayField>NumeroSecuriteSociale__c</errorDisplayField>
+        <errorMessage>Le numéro de sécurité sociale doit contenir 13 ou 15 chiffres</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AppAT_dossier_salarie_statut_clos</fullName>
+        <active>false</active>
+        <description>Le statut ne peut être terminé si tous les recours ne le sont pas</description>
+        <errorConditionFormula>ISPICKVAL(Statut__c ,&apos;Terminé&apos;) &amp;&amp;
+ NombreRecours__c &lt;&gt; NombreRecoursClos__c &amp;&amp;
+NombreRecours__c &lt;&gt; 0</errorConditionFormula>
+        <errorDisplayField>Statut__c</errorDisplayField>
+        <errorMessage>Le dossier ne peut pas être terminé si tous les recours ne le sont pas.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AppAT_un_seul_recours_principal</fullName>
+        <active>true</active>
+        <errorConditionFormula>Nombre_de_recours_principaux__c &gt;1</errorConditionFormula>
+        <errorMessage>Il ne peut y avoir qu&apos;un seul type de recours principal au maximum.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Pas_de_signe_Pourcentage_dans_le_nom</fullName>
+        <active>true</active>
+        <description>Pas de signe % dans le nom du salarié</description>
+        <errorConditionFormula>AND(CONTAINS(Nom__c,&apos;%&apos;) ,$User.LastName!=&apos;Synefo&apos;)</errorConditionFormula>
+        <errorDisplayField>Nom__c</errorDisplayField>
+        <errorMessage>Le nom du salarié ne peut pas contenir le signe &quot; % &quot;</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+    <webLinks>
+        <fullName>NouveauDossierSalarie</fullName>
+        <availability>online</availability>
+        <displayType>massActionButton</displayType>
+        <encodingKey>UTF-8</encodingKey>
+        <linkType>url</linkType>
+        <masterLabel>Nouveau Dossier Salarié</masterLabel>
+        <openType>replace</openType>
+        <protected>false</protected>
+        <requireRowSelection>false</requireRowSelection>
+        <url>/setup/ui/recordtypeselect.jsp?ent=01ID0000000zsZk
+&amp;retURL={!AppATetablissement__c.Id}
+&amp;save_new_url=/a0r/e?retURL={!AppATetablissement__c.Id}
+&amp;CF00ND000000659zu={!AppATetablissement__c.Name}
+&amp;CF00ND000000659zu_lkid={!AppATetablissement__c.Id}
+&amp;CF00ND000000659z9={!AppATetablissement__c.Mission__c}</url>
+    </webLinks>
+</CustomObject>

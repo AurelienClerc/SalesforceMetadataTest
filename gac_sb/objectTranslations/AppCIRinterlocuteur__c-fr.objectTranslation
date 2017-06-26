@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>[OLD] Interlocuteur</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Interlocuteurs</value>
+    </caseValues>
+    <fields>
+        <label><!-- Adresse --></label>
+        <name>Adresse__c</name>
+    </fields>
+    <fields>
+        <label><!-- Civilité --></label>
+        <name>Civilite__c</name>
+        <picklistValues>
+            <masterLabel>Dr</masterLabel>
+            <translation><!-- Dr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>M.</masterLabel>
+            <translation><!-- M. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Me</masterLabel>
+            <translation><!-- Me --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Melle</masterLabel>
+            <translation><!-- Melle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mme</masterLabel>
+            <translation><!-- Mme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pr</masterLabel>
+            <translation><!-- Pr --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prof</masterLabel>
+            <translation><!-- Prof --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Code postal --></label>
+        <name>Code_postal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Email --></label>
+        <name>Email__c</name>
+    </fields>
+    <fields>
+        <label><!-- Entité --></label>
+        <name>Entite__c</name>
+        <relationshipLabel><!-- Interlocuteurs --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Fonction --></label>
+        <name>Fonction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobile --></label>
+        <name>Mobile__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prénom --></label>
+        <name>Prenom__c</name>
+    </fields>
+    <fields>
+        <label><!-- Téléphone --></label>
+        <name>Telephone__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ville --></label>
+        <name>Ville__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

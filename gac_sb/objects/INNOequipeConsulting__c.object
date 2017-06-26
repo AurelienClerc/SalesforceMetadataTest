@@ -1,0 +1,628 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <content>INNOequipeConsultingEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <content>INNOequipeConsultingEdit</content>
+        <skipRecordTypeSelect>false</skipRecordTypeSelect>
+        <type>Visualforce</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>false</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ActifReprise__c</fullName>
+        <externalId>false</externalId>
+        <label>ActifReprise</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Actif__c</fullName>
+        <defaultValue>true</defaultValue>
+        <description>Permet de rendre actif un utilisateur</description>
+        <externalId>false</externalId>
+        <label>Actif</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Avancement__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Total__c == 0,
+0,
+Nombre_jours_travailles_Total__c / Nombre_jours_theoriques_Total__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>CleUnique__c</fullName>
+        <caseSensitive>true</caseSensitive>
+        <externalId>true</externalId>
+        <label>Clé unique</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>true</unique>
+    </fields>
+    <fields>
+        <fullName>Cout_reel__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK(MissionCIR__r.Cout_standard_INNO_advance__c), 
+   null, 
+   CASE( TEXT(Role__c),
+      &quot;Consultant scientifique&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Consultant__c,
+      &quot;Consultant fiscaliste&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Consultant__c,
+      &quot;Consultant extérieur&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Consultant__c,
+      &quot;Auditeur Financier&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Consultant__c,
+      &quot;Consultant scientifique RO&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Redacteur_RO__c,
+      &quot;Superviseur&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c,
+      &quot;Superviseur/Consultant&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c,
+      &quot;Manager&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Manager__c,
+      0
+   ) * Nombre_jours_travailles_Total__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coût réel</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_theorique__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( ISBLANK(MissionCIR__r.Cout_standard_INNO_advance__c), 
+null, 
+CASE( TEXT(Role__c), 
+&quot;Consultant scientifique&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Consultant__c,
+&quot;Consultant fiscaliste&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Consultant__c,
+&quot;Consultant extérieur&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Consultant__c,
+&quot;Auditeur Financier&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Consultant__c, 
+&quot;Consultant scientifique RO&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Redacteur_RO__c,
+&quot;Superviseur&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c, 
+&quot;Superviseur/Consultant&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c, 
+&quot;Manager&quot;, MissionCIR__r.Cout_standard_INNO_advance__r.Cout_standard_Manager__c, 
+0 
+) * Nombre_jours_theoriques_Total__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coût théorique</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Forcer_recalcul_manual_sharing__c</fullName>
+        <defaultValue>false</defaultValue>
+        <description>Permet de forcer le recalcul des manual sharing dans les trigger des equipe consulting</description>
+        <externalId>false</externalId>
+        <label>Forcer le recalcul des manual sharing</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Id_utilisateur__c</fullName>
+        <externalId>false</externalId>
+        <formula>Utilisateur__c</formula>
+        <label>Id utilisateur</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>MissionCIR__c</fullName>
+        <externalId>false</externalId>
+        <label>Mission CIR</label>
+        <referenceTo>INNOmission__c</referenceTo>
+        <relationshipName>EquipesConsulting</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>false</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Mission_Utilisateur__c</fullName>
+        <description>Champ technique</description>
+        <externalId>false</externalId>
+        <formula>CASESAFEID(MissionCIR__c) + &quot;-&quot; + CASESAFEID(Utilisateur__c)</formula>
+        <label>Mission-Utilisateur</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_engages_Audit__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_programmes_Audit__c + Nombre_jours_travailles_Audit__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours engagés - Audit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_engages_Controle__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_programmes_Controle__c + Nombre_jours_travailles_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours engagés - Contrôle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_engages_Justif__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_programmes_Justification__c + Nombre_jours_travailles_Justification__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours engagés - Justification</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_engages_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_engages_Audit__c + Nombre_jours_engages_Controle__c + Nombre_jours_engages_Justif__c + Nombre_jours_engages_Valorisation__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours engagés - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_engages_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_programmes_Valorisation__c + Nombre_jours_travailles_Valorisation__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours engagés - Valorisation</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_estimes__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours estimés</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Audit__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Audit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Controle__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Contrôle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Justification__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Justif</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_programmes_Audit__c + Nombre_jours_programmes_Valorisation__c + Nombre_jours_programmes_Justification__c + Nombre_jours_programmes_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours programmes - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Valorisation__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Valo</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_restants_Audit__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_theoriques_Audit__c - Nombre_jours_travailles_Audit__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours restants - Audit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_restants_Controle__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_theoriques_Controle__c - Nombre_jours_travailles_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours restants - Contrôle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_restants_Justification__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_theoriques_Justification__c - Nombre_jours_travailles_Justification__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours restants - Justif</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_restants_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_theoriques_Total__c - Nombre_jours_travailles_Total__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours restants - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_restants_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_theoriques_Valorisation__c - Nombre_jours_travailles_Valorisation__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours restants - Valo</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Audit__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Audit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Controle__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Contrôle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Justification__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Justif</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_theoriques_Audit__c + 
+Nombre_jours_theoriques_Valorisation__c + 
+Nombre_jours_theoriques_Justification__c + 
+Nombre_jours_theoriques_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours théoriques - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Valorisation__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Valo</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Audit__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Audit</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Controle__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Contrôle</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Justification__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Justif</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_travailles_Audit__c + Nombre_jours_travailles_Valorisation__c + Nombre_jours_travailles_Justification__c + Nombre_jours_travailles_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours travaillés - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Valorisation__c</fullName>
+        <defaultValue>0</defaultValue>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Valo</label>
+        <precision>8</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Role__c</fullName>
+        <externalId>false</externalId>
+        <label>Rôle</label>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Manager</fullName>
+                    <default>false</default>
+                    <label>Manager</label>
+                </value>
+                <value>
+                    <fullName>Consultant scientifique</fullName>
+                    <default>true</default>
+                    <label>Consultant scientifique</label>
+                </value>
+                <value>
+                    <fullName>Consultant fiscaliste</fullName>
+                    <default>false</default>
+                    <label>Consultant fiscaliste</label>
+                </value>
+                <value>
+                    <fullName>Consultant extérieur</fullName>
+                    <default>false</default>
+                    <label>Consultant extérieur</label>
+                </value>
+                <value>
+                    <fullName>Rédacteur scientifique</fullName>
+                    <default>false</default>
+                    <label>Rédacteur scientifique</label>
+                </value>
+                <value>
+                    <fullName>Redacteur scientifique RO</fullName>
+                    <default>false</default>
+                    <label>Rédacteur scientifique RO</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Utilisateur__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Utilisateur</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>EquipesConsulting2</relationshipName>
+        <required>false</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <gender>Feminine</gender>
+    <label>Equipe consulting</label>
+    <nameField>
+        <displayFormat>EquipeConsulting-{000000}</displayFormat>
+        <label>Nom de l&apos;équipe consulting</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Equipes consulting</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

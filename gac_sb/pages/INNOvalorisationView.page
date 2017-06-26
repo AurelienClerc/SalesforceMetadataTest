@@ -1,0 +1,207 @@
+<apex:page standardController="INNOvalo__c" extensions="INNOvalorisationCtrl" action="{!checkParams}" sidebar="false" tabStyle="INNOvalo__c" title="Valo {!INNOvalo__c.Name}">
+	
+	<style>
+		.toggleColumn{
+			display: none;
+		}
+		
+	</style>
+	<apex:composition template="INNOmissionTemplate">
+	
+		<apex:define name="body">
+			
+			<apex:sectionHeader title="Valorisation" subtitle="{!INNOvalo__c.Name}"/>
+
+			<apex:outputPanel id="messages">
+				<!--TODO-->
+				<!--<apex:pageMessage summary="Vous n'avez pas les droits nécéssaires pour accéder à cette page" severity="warning" strength="2" rendered="{!$CurrentPage.parameters.error == '403'}" />-->
+				<!--<apex:pageMessage summary="Vous ne pouvez pas supprimer cet utilisateur car il doit rester au moins 1 superviseur ou manager sur la mission" severity="warning" strength="2" rendered="{!$CurrentPage.parameters.error == 'needManager'}" />-->
+				<apex:pageMessages />
+			</apex:outputPanel>
+			
+			<apex:form >
+
+				<!-- Bloc Valo -->
+				<apex:pageBlock title="Informations relatives à la valorisation">
+				    
+			    <apex:pageBlockButtons location="top">
+                    <apex:commandButton action="{!URLFOR('/apex/INNOvalorisationEdit', null, [id = INNOvalo__c.Id, valoId = INNOvalo__c.Id])}" value="Modifier"/>
+                    <apex:commandButton action="{!deleteValo}" value="Supprimer" rendered="{!userIsManager}"  onclick="if(!confirm('Voulez-vous vraiment supprimer cette valorisation ?\n\nCette opération est risquée et irréversible.')) return false;"/>
+                </apex:pageBlockButtons>
+					
+					<apex:pageBlockSection title="Informations de l'entité">
+						
+						<apex:outputField value="{!INNOvalo__c.Entite__c}" />
+						<apex:outputField value="{!INNOvalo__c.Entite__r.SIREN__c}"/>
+						
+						<apex:outputField value="{!INNOvalo__c.Societe_agreee__c}" />
+						<apex:outputField value="{!INNOvalo__c.Integration_fiscale__c}"/>
+
+						<apex:outputField value="{!INNOvalo__c.Date_debut_agrement__c}" rendered="{!INNOvalo__c.Societe_agreee__c}"/>
+                    	<apex:outputField value="{!INNOvalo__c.Date_fin_agrement__c}" rendered="{!INNOvalo__c.Societe_agreee__c}"/>
+						
+                        
+                        <apex:outputField value="{!INNOvalo__c.Jour_mois_de_cloture_fiscale__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Effectif__c}"/>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.INNOvalo__c.Fields.ChiffreAffaire__c.Label}"/>
+                            <c:Format currency="€" value="{!INNOvalo__c.ChiffreAffaire__c}" />
+                        </apex:pageBlockSectionItem>      
+                        <apex:outputField value="{!INNOvalo__c.Secteur_activite_1__c}"/>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.INNOvalo__c.Fields.Resultat_NET__c.Label}"/>
+                            <c:Format currency="€" value="{!INNOvalo__c.Resultat_NET__c}" />
+                        </apex:pageBlockSectionItem>   
+                        <apex:outputField value="{!INNOvalo__c.Secteur_activite_2__c}"/>
+    
+                        <apex:outputField value="{!INNOvalo__c.Annee_de_declaration__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Secteur_activite_3__c}"/>
+                        
+                        <apex:outputField value="{!INNOvalo__c.Commentaires__c}"/>
+				   	</apex:pageBlockSection>
+				   	
+				   	<apex:pageBlockSection title="Valorisation" rendered="{!isCir}">
+				   		<apex:pageBlockSectionItem />
+				   		<apex:outputField value="{!INNOvalo__c.Date_validation_perimetre__c}"/>
+				   		
+                        <apex:outputField value="{!INNOvalo__c.Date_rendu_estimations__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Date_envoi_valorisation__c}"/>
+    
+                        <apex:outputField value="{!INNOvalo__c.Date_echeance_CERFA__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Date_rendu_CERFA__c}"/>
+                        
+                        
+				   		
+						<apex:pageBlockSectionItem >
+							<apex:outputLabel value="Montant total des dépenses (avant déduction des honoraires)"/>
+							<apex:outputPanel layout="none">
+								<!--<span class="valueOption1"><c:Format currency="€" value="{!INNOvalo__c.Montant_total_depenses_option1__c}"/></span>&nbsp;/&nbsp;
+								<span class="valueOption2"><c:Format currency="€" value="{!INNOvalo__c.Montant_total_depenses_option2__c}"/></span>&nbsp;/&nbsp;
+								<span class="valueOption3"><c:Format currency="€" value="{!INNOvalo__c.Montant_total_depenses_option3__c}"/></span>-->
+								<span class="valueOption1"><c:Format currency="€" value="{!INNOvalo__c.MontantTotalDepensesOption1Plafonne__c}"/></span>&nbsp;/&nbsp;
+								<span class="valueOption2"><c:Format currency="€" value="{!INNOvalo__c.MontantTotalDepensesOption2Plafonne__c}"/></span>&nbsp;/&nbsp;
+								<span class="valueOption3"><c:Format currency="€" value="{!INNOvalo__c.MontantTotalDepensesOption3Plafonne__c}"/></span>
+							</apex:outputPanel>
+						</apex:pageBlockSectionItem>
+						<apex:pageBlockSectionItem >
+							<apex:outputLabel value="CIR {!INNOvalo__c.MissionCIR__r.Annee_CIR__c} définitif (après déduction des honoraires)"/>
+							<apex:outputPanel layout="none">
+								<span class="valueOption1"><c:Format currency="€" value="{!INNOvalo__c.Montant_CIR_definitif_option1__c}"/></span>&nbsp;/&nbsp;
+								<span class="valueOption2"><c:Format currency="€" value="{!INNOvalo__c.Montant_CIR_definitif_option2__c}"/></span>&nbsp;/&nbsp;
+								<span class="valueOption3"><c:Format currency="€" value="{!INNOvalo__c.Montant_CIR_definitif_option3__c}"/></span>
+							</apex:outputPanel>
+						</apex:pageBlockSectionItem>
+						
+						<apex:pageBlockSectionItem >
+							<apex:outputLabel value="Montant total des dépenses retenu (avant déduction des honoraires)"/>
+							<!--<c:Format currency="€" value="{!INNOvalo__c.Montant_total_depenses_optionFinale__c}" />-->
+							<c:Format currency="€" value="{!INNOvalo__c.MontantTotaDepensesOptionFinalePlafonne__c}" />
+						</apex:pageBlockSectionItem>
+						<apex:pageBlockSectionItem >
+							<apex:outputLabel value="Montant du CIR définitif retenu (après déduction des honoraires)"/>
+							<c:Format currency="€" value="{!INNOvalo__c.Montant_CIR_definitif_optionFinale__c}" />
+						</apex:pageBlockSectionItem>
+						
+						<apex:outputField value="{!INNOvalo__c.Option_fiscale_retenue_auto__c}" label="Option fiscale retenue"/>
+						
+						<apex:outputField value="{!INNOvalo__c.ValoA0__c}"/>
+						
+					</apex:pageBlockSection>
+					
+					<!-- Section Documentation technique -->
+                    <apex:pageBlockSection title="Documentation technique" rendered="{!isCir}">
+                        
+                        <apex:outputField value="{!INNOvalo__c.MissionCIR__r.Date_Initiale_echeance_DT__c}"/>
+                        <apex:pageBlockSectionItem />
+                        
+                        <apex:outputField value="{!INNOvalo__c.Date_echeance_DT__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Date_rendu_DT__c}"/>
+                        
+                        <apex:outputField value="{!INNOvalo__c.Date_validation_DT_par_client__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Commentaires_DT__c}"/>
+                        
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection title="Documentation technique" rendered="{!!isCir}">
+                        
+                        <apex:outputField value="{!INNOvalo__c.MissionCIR__r.Date_Initiale_echeance_DT__c}"/>
+                        <apex:pageBlockSectionItem />
+                        
+                        <apex:outputField value="{!INNOvalo__c.Date_echeance_DT__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Commentaires_DT__c}"/>
+                        
+                    </apex:pageBlockSection>
+					
+					
+					<!-- Section CF -->
+                    <apex:pageBlockSection title="Contrôle fiscal" rendered="{!isCir}">
+                        
+                        <apex:outputField value="{!INNOvalo__c.Etat_CF__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Type_CF__c}"/>
+                        
+                        <apex:outputField value="{!INNOvalo__c.Date_echeance_CF__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Mobilisation_creance__c}"/>
+    
+                        <apex:outputField value="{!INNOvalo__c.Nom_brigade__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Portee_controle__c}"/>
+    
+                        <apex:outputField value="{!INNOvalo__c.Phase_controle__c}"/>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!$ObjectType.INNOvalo__c.Fields.Honoraires_en_jeux__c.Label}"/>
+                            <c:Format currency="€" value="{!INNOvalo__c.Honoraires_en_jeux__c}" />
+                        </apex:pageBlockSectionItem>
+    
+                        <apex:outputField value="{!INNOvalo__c.Redressement__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Remboursement_demande__c}"/>
+                        
+                    </apex:pageBlockSection>
+                    
+                    
+                    <!-- Section Rémunération -->
+                    <apex:pageBlockSection title="Rémunération" rendered="{!isCir}">
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Honoraires {!VALUE(INNOvalo__c.MissionCIR__r.Annee_CIR__c) - 1} à déduire"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1"><c:Format currency="€" value="{!INNOvalo__c.Honoraires_N1_a_deduire_option1__c}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption2"><c:Format currency="€" value="{!INNOvalo__c.Honoraires_N1_a_deduire_option2__c}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption3"><c:Format currency="€" value="{!INNOvalo__c.Honoraires_N1_a_deduire_option3__c}"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Honoraires {!INNOvalo__c.MissionCIR__r.Annee_CIR__c} à déduire"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1"><c:Format currency="€" value="{!INNOvalo__c.Honoraires_N_a_deduire_option1__c}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption2"><c:Format currency="€" value="{!INNOvalo__c.Honoraires_N_a_deduire_option2__c}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption3"><c:Format currency="€" value="{!INNOvalo__c.Honoraires_N_a_deduire_option3__c}"/></span>
+                                <apex:outputPanel layout="none" rendered="{!!ISNULL(INNOvalo__c.Honoraires_N_a_deduire_optionFinaleManue__c)}"> (<c:Format currency="€" value="{!INNOvalo__c.Honoraires_N_a_deduire_optionFinaleManue__c}"/> retenues)</apex:outputPanel>
+                                
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:outputField value="{!INNOvalo__c.Date_facturation_GAC__c}"/>
+                        
+                        <apex:outputField value="{!INNOvalo__c.DT_soumis_a_facturation__c}"/>
+                        <apex:outputField value="{!INNOvalo__c.Demande_de_remboursement_anticipe__c}"/>
+    
+                        <apex:outputField value="{!INNOvalo__c.Etat_remboursement__c}"/>
+                        
+                    </apex:pageBlockSection>
+                    
+					
+				</apex:pageBlock>
+				
+			</apex:form>	
+				
+			
+			
+			<apex:relatedList list="DepartementsCIR__r" subject="{!INNOvalo__c.Entite__c}" />
+			
+		</apex:define>
+		
+		
+	</apex:composition>
+</apex:page>

@@ -1,0 +1,1253 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Fatura</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Faturas</value>
+    </caseValues>
+    <fields>
+        <label><!-- Account Record Type --></label>
+        <name>Account_Record_Type__c</name>
+    </fields>
+    <fields>
+        <label>Endereço</label>
+        <name>Adresse__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apporteur d&apos;affaire comptabilisé/payé --></label>
+        <name>Apporteur_d_affaire_comptabilise_paye__c</name>
+    </fields>
+    <fields>
+        <label>Faturamento Bruto</label>
+        <name>BR_CA_Brut__c</name>
+    </fields>
+    <fields>
+        <label>Faturamento Liquido</label>
+        <name>BR_CA_Net__c</name>
+    </fields>
+    <fields>
+        <label>Valor a receber</label>
+        <name>BR_CA_a_encaisser__c</name>
+    </fields>
+    <fields>
+        <label><!-- CSLL --></label>
+        <name>BR_CSLL__c</name>
+    </fields>
+    <fields>
+        <label><!-- IRPJ --></label>
+        <name>BR_IRPJ__c</name>
+    </fields>
+    <fields>
+        <label>CSLL</label>
+        <name>BR_Montant_CSLL__c</name>
+    </fields>
+    <fields>
+        <label>IRPJ</label>
+        <name>BR_Montant_IRPJ__c</name>
+    </fields>
+    <fields>
+        <label>PIS/COFINS</label>
+        <name>BR_Montant_PIS_COFINS__c</name>
+    </fields>
+    <fields>
+        <label><!-- PIS/COFINS --></label>
+        <name>BR_PIS_COFINS__c</name>
+    </fields>
+    <fields>
+        <help><!-- Cancelamento da fatura após do prazo autorizado --></help>
+        <label><!-- Cancelamento da fatura após do prazo --></label>
+        <name>BR_perte_taxe__c</name>
+    </fields>
+    <fields>
+        <label><!-- Boleto emitido --></label>
+        <name>Boleto_emitido__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cancelamento da fatura após do prazo --></label>
+        <name>Cancelamento_da_fatura_apos_do_prazo__c</name>
+    </fields>
+    <fields>
+        <label>Conta</label>
+        <name>Client__c</name>
+    </fields>
+    <fields>
+        <label>Comentário crédito duvidoso</label>
+        <name>Commentaire_ceance_douteuse__c</name>
+    </fields>
+    <fields>
+        <label>Comentários cobrança</label>
+        <name>Commentaires_recouvrement__c</name>
+    </fields>
+    <fields>
+        <label>Consultor</label>
+        <name>Consultant__c</name>
+        <relationshipLabel>Faturas</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Contato de faturamento</label>
+        <name>Contact_facturation__c</name>
+        <relationshipLabel>Faturas</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Contrato</label>
+        <name>Contrat__c</name>
+        <relationshipLabel>Faturas</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Créditos duvidosos</label>
+        <name>Creance_douteuse__c</name>
+    </fields>
+    <fields>
+        <label>Crédito incobrável</label>
+        <name>Creance_irrecouvrable__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date de facture --></help>
+        <label>Data</label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indiquez la date à laquelle la créance passe en irrécouvrable --></help>
+        <label>Data crédito incobrável</label>
+        <name>Date_cr_ance_irr_couvrable__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ce champ est mis à jour avec la date de la dernière modification de la tâche associée à la facture --></help>
+        <label>Data da última cobrança</label>
+        <name>Date_de_derniere_relance__c</name>
+    </fields>
+    <fields>
+        <label>Data último Haver</label>
+        <name>Date_dernier_avoir__c</name>
+    </fields>
+    <fields>
+        <label>Data último Pagamento</label>
+        <name>Date_dernier_encaissement__c</name>
+    </fields>
+    <fields>
+        <label>Data enviada</label>
+        <name>Date_envoi__c</name>
+    </fields>
+    <fields>
+        <label>Data de pagamento</label>
+        <name>Date_facture_soldee__c</name>
+    </fields>
+    <fields>
+        <label>Data prevista de pagamento</label>
+        <name>Date_prevision_soldee__c</name>
+    </fields>
+    <fields>
+        <label>Data de aprovação</label>
+        <name>Date_validation__c</name>
+    </fields>
+    <fields>
+        <label>Prazo de pagamento</label>
+        <name>Delai_encaissement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dobro ISS --></label>
+        <name>Dobro_ISS__c</name>
+    </fields>
+    <fields>
+        <label>Vencimento</label>
+        <name>Echeance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Entité GAC --></label>
+        <name>Entite_GAC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Ce champ permet de consolider l&apos;information de plusieurs champ pour générer un reporting --></help>
+        <label><!-- Etat créance --></label>
+        <name>Etat_creance__c</name>
+    </fields>
+    <fields>
+        <label>Fatura ligada</label>
+        <name>Facture_liee__c</name>
+        <relationshipLabel>Haver</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Comissão finder contabilizada --></label>
+        <name>Fatura_do_Finder_recebida__c</name>
+    </fields>
+    <fields>
+        <label><!-- Index du numéro de facture --></label>
+        <name>Index_num_facture__c</name>
+    </fields>
+    <fields>
+        <label>Projeto</label>
+        <name>Mission__c</name>
+        <relationshipLabel>Faturas</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Modo de pagamento</label>
+        <name>Mode_de_paiement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant HT Prestataire --></label>
+        <name>Montant_HT_Prestataire__c</name>
+    </fields>
+    <fields>
+        <label>Valor da fatura</label>
+        <name>Montant_HT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant TPS --></label>
+        <name>Montant_TPS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant TTC --></label>
+        <name>Montant_TTC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant TVA --></label>
+        <name>Montant_TVA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant TVQ --></label>
+        <name>Montant_TVQ__c</name>
+    </fields>
+    <fields>
+        <label>Montante Cancelado por Haver</label>
+        <name>Montant_annule_par_avoir2_TTC__c</name>
+    </fields>
+    <fields>
+        <label>Montante Cancelado por Haver</label>
+        <name>Montant_annule_par_avoir_HT__c</name>
+    </fields>
+    <fields>
+        <label>Valor a receber</label>
+        <name>Montant_creance_HT__c</name>
+    </fields>
+    <fields>
+        <label>Saldo a receber</label>
+        <name>Montant_creance_TTC__c</name>
+    </fields>
+    <fields>
+        <label>Valor recebido</label>
+        <name>Montant_encaisse_HT__c</name>
+    </fields>
+    <fields>
+        <label>Valor recebido</label>
+        <name>Montant_encaisse_TTC__c</name>
+    </fields>
+    <fields>
+        <help><!-- Renseigner le montant déjà payé au client --></help>
+        <label><!-- Montant payé au client --></label>
+        <name>Montant_paye_au_client__c</name>
+    </fields>
+    <fields>
+        <label>Montante Montante perdido</label>
+        <name>Montant_perdu_HT__c</name>
+    </fields>
+    <fields>
+        <label>Montante Montante perdido</label>
+        <name>Montant_perdu__c</name>
+    </fields>
+    <fields>
+        <label>Montante provável a receber</label>
+        <name>Montant_potentiellement_encaissable_HT__c</name>
+    </fields>
+    <fields>
+        <label>Montante provável a receber</label>
+        <name>Montant_potentiellement_encaissable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant prévisions encaissement TTC --></label>
+        <name>Montant_previsions_encaissement_TTC__c</name>
+    </fields>
+    <fields>
+        <label>Montante a provisionar (sobre valor)</label>
+        <name>Montant_provisionner_HT__c</name>
+    </fields>
+    <fields>
+        <label>Montante a provisionar (sobre valor)</label>
+        <name>Montant_provisionner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montante Dobro ISS --></label>
+        <name>Montante_Dobro_ISS__c</name>
+    </fields>
+    <fields>
+        <label><!-- N˚ client modifie --></label>
+        <name>N_client_modifie__c</name>
+    </fields>
+    <fields>
+        <label><!-- N° compte client --></label>
+        <name>N_compte_client__c</name>
+    </fields>
+    <fields>
+        <help><!-- Champ renseigné par workflow avec le n° de facture, uniquement si la facture est de type facture validé --></help>
+        <label><!-- N° de facture unique --></label>
+        <name>N_de_facture_Unique__c</name>
+    </fields>
+    <fields>
+        <label><!-- N° référence client --></label>
+        <name>N_r_f_rence_client__c</name>
+    </fields>
+    <fields>
+        <label>Dias desde o vencimento</label>
+        <name>Nb_jours_depuis_echeance__c</name>
+    </fields>
+    <fields>
+        <label>Dias desde a faturação</label>
+        <name>Nb_jours_depuis_facturation__c</name>
+    </fields>
+    <fields>
+        <help><!-- Cocher la case lorsque le paiement a été effectué dans sa totalité --></help>
+        <label><!-- Paiement effectué --></label>
+        <name>Paiement_effectue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pôle --></label>
+        <name>Pole__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pourcentage facturé --></label>
+        <name>Pourcentage_facture__c</name>
+    </fields>
+    <fields>
+        <label>Razão do bloqueio ligado ao projeto</label>
+        <name>Precision_blocage_mission__c</name>
+        <picklistValues>
+            <masterLabel>Attente cotisations remboursement</masterLabel>
+            <translation><!-- Attente cotisations remboursement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attente rectification de taux</masterLabel>
+            <translation><!-- Attente rectification de taux --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attente remboursement CIR</masterLabel>
+            <translation>Benefício ainda não usado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Attente remise du dossier</masterLabel>
+            <translation>Dossiê a entregar</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autre</masterLabel>
+            <translation><!-- Autre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bankruptcy</masterLabel>
+            <translation><!-- Bankruptcy --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRA / TASS</masterLabel>
+            <translation><!-- CRA / TASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contestation URSSAF</masterLabel>
+            <translation><!-- Contestation URSSAF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contrôle URSSAF</masterLabel>
+            <translation><!-- Contrôle URSSAF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contrôle fiscal</masterLabel>
+            <translation><!-- Contrôle fiscal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dispute</masterLabel>
+            <translation><!-- Dispute --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En attente de dégrèvement</masterLabel>
+            <translation><!-- En attente de dégrèvement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En attente du remboursement URSSAF</masterLabel>
+            <translation><!-- En attente du remboursement URSSAF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Esperando documentos</masterLabel>
+            <translation><!-- Esperando documentos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Esperando el cheque fiscal</masterLabel>
+            <translation><!-- Esperando el cheque fiscal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Esperando el cobro de la ayuda</masterLabel>
+            <translation><!-- Esperando el cobro de la ayuda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Esperando respuesta de la administracion</masterLabel>
+            <translation><!-- Esperando respuesta de la administracion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Faillite</masterLabel>
+            <translation><!-- Faillite --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IRAS Audit</masterLabel>
+            <translation><!-- IRAS Audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inspeccion Hacienda</masterLabel>
+            <translation><!-- Inspeccion Hacienda --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Litige</masterLabel>
+            <translation><!-- Litige --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opposition</masterLabel>
+            <translation><!-- Opposition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Problemas con la deduccion</masterLabel>
+            <translation><!-- Problemas con la deduccion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Problemas con la justificacion</masterLabel>
+            <translation><!-- Problemas con la justificacion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rapport d’audit non remis</masterLabel>
+            <translation>Relatório do MCTI pendente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vérification</masterLabel>
+            <translation><!-- Vérification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for IRAS Approval</masterLabel>
+            <translation><!-- Waiting for IRAS Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for IRAS Payment</masterLabel>
+            <translation><!-- Waiting for IRAS Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for admin. document sending by GAC</masterLabel>
+            <translation><!-- Waiting for admin. document sending by GAC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for submission by client</masterLabel>
+            <translation><!-- Waiting for submission by client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for supporting documents sending by GAC</masterLabel>
+            <translation><!-- Waiting for supporting documents sending by GAC --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Prestataire --></label>
+        <name>Prestataire__c</name>
+        <picklistValues>
+            <masterLabel>Forskel</masterLabel>
+            <translation><!-- Forskel --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Prestataire comptabilisé/payé --></label>
+        <name>Prestataire_comptabilise_paye__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prévision HT Prestataire --></label>
+        <name>Prevision_HT_Prestataire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Référence --></label>
+        <name>Reference__c</name>
+    </fields>
+    <fields>
+        <help><!-- CIF --></help>
+        <label><!-- CIF --></label>
+        <name>SIRET2__c</name>
+    </fields>
+    <fields>
+        <label><!-- SIRET --></label>
+        <name>SIRET__c</name>
+    </fields>
+    <fields>
+        <label>Saldo</label>
+        <name>Solde__c</name>
+    </fields>
+    <fields>
+        <label><!-- Statut --></label>
+        <name>Statut__c</name>
+        <picklistValues>
+            <masterLabel>En attente</masterLabel>
+            <translation>Em aprovação</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Envoyée</masterLabel>
+            <translation>Enviada</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soldée</masterLabel>
+            <translation>Pago</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validée</masterLabel>
+            <translation>Aprovado</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Statut --></label>
+        <name>Statut_image__c</name>
+    </fields>
+    <fields>
+        <label><!-- TPS --></label>
+        <name>TPS__c</name>
+    </fields>
+    <fields>
+        <label><!-- TVA Intracommunautaire --></label>
+        <name>TVA_Intracommunautaire__c</name>
+    </fields>
+    <fields>
+        <label><!-- TVQ --></label>
+        <name>TVQ__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux TVA --></label>
+        <name>Taux_TVA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type --></label>
+        <name>Type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Typologie business --></label>
+        <name>Typologie_business__c</name>
+        <picklistValues>
+            <masterLabel>New biz</masterLabel>
+            <translation><!-- New biz --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refacturation</masterLabel>
+            <translation><!-- Refacturation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Regularisation</masterLabel>
+            <translation><!-- Regularisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stock</masterLabel>
+            <translation><!-- Stock --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Etapa do processo</label>
+        <name>Typologie_creance__c</name>
+        <picklistValues>
+            <masterLabel>A relancer</masterLabel>
+            <translation>A cobrar</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blocage mission</masterLabel>
+            <translation>Bloqueio ligado ao projeto</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contentieux avocat</masterLabel>
+            <translation>processo judicial</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En cours de relance</masterLabel>
+            <translation>Em andamento</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En procédure</masterLabel>
+            <translation><!-- En procédure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Invoice with problem</masterLabel>
+            <translation><!-- Invoice with problem --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Litige mission</masterLabel>
+            <translation><!-- Litige mission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paid</masterLabel>
+            <translation><!-- Paid --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Problème de trésorerie</masterLabel>
+            <translation><!-- Problème de trésorerie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Promesse client</masterLabel>
+            <translation>Promessa de pagamento</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data de Vencimiento --></label>
+        <name>Vencimiento__c</name>
+        <picklistValues>
+            <masterLabel>30 días f.f.</masterLabel>
+            <translation><!-- 30 días f.f. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60 días f.f.</masterLabel>
+            <translation><!-- 60 días f.f. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90 días f.f.</masterLabel>
+            <translation><!-- 90 días f.f. --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contado</masterLabel>
+            <translation><!-- Contado --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- % Prestation --></label>
+        <name>percent_Prestation__c</name>
+    </fields>
+    <fields>
+        <label>% provável a receber</label>
+        <name>potentiellement_encaissable__c</name>
+    </fields>
+    <fields>
+        <label>% a provisionar</label>
+        <name>provisionner__c</name>
+    </fields>
+    <fields>
+        <label>Desconto oferto</label>
+        <name>v1_Montant_annule_par_avoir_TTC__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>BR - Présentation Avoir en attente</layout>
+        <sections>
+            <label>Titulo Cancelamento</label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label>Valores</label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Présentation Avoir validé</layout>
+        <sections>
+            <label>Titulo Cancelamento</label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label>Valores</label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Présentation Facture en attente</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label>Valores</label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Présentation Facture validée</layout>
+        <sections>
+            <label>Créditos duvidosos</label>
+            <section>Dívidas incobráveis</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label>Valores</label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label>cobrança</label>
+            <section>Recuperação</section>
+        </sections>
+        <sections>
+            <label>Comentários cobrança</label>
+            <section>Recuperação comentário</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Canada Présentation Facture validée</layout>
+        <sections>
+            <label><!-- Créance douteuse --></label>
+            <section>Créance douteuse</section>
+        </sections>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Canada présentation Avoir en attente</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Canada présentation Avoir validé</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Canada présentation Facture en attente</layout>
+        <sections>
+            <label><!-- Créance douteuse --></label>
+            <section>Créance douteuse</section>
+        </sections>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Présentation Avoir en attente</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Présentation Avoir validé</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Présentation Facture en attente</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Présentation Facture validée</layout>
+        <sections>
+            <label><!-- Créances douteuses --></label>
+            <section>Créances douteuses</section>
+        </sections>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Présentation Avoir en attente</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Présentation Avoir validé</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Présentation Avoir validé [Assistant Compta]</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Présentation Avoir validé [Compta]</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Présentation Facture en attente</layout>
+        <sections>
+            <label><!-- Créance douteuse --></label>
+            <section>Créance douteuse</section>
+        </sections>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Présentation Facture validée</layout>
+        <sections>
+            <label><!-- Commentaires recouvrement --></label>
+            <section>Commentaires recouvrement</section>
+        </sections>
+        <sections>
+            <label><!-- Créance douteuse --></label>
+            <section>Créance douteuse</section>
+        </sections>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Présentation Facture validée [Assistant compta]</layout>
+        <sections>
+            <label><!-- Commentaires recouvrement --></label>
+            <section>Commentaires recouvrement</section>
+        </sections>
+        <sections>
+            <label><!-- Créance douteuse --></label>
+            <section>Créance douteuse</section>
+        </sections>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Présentation Facture validée [Compta]</layout>
+        <sections>
+            <label><!-- Commentaires recouvrement --></label>
+            <section>Commentaires recouvrement</section>
+        </sections>
+        <sections>
+            <label><!-- Créance douteuse --></label>
+            <section>Créance douteuse</section>
+        </sections>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Présentation Avoir en attente</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Présentation Avoir validé</layout>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Présentation Facture en attente</layout>
+        <sections>
+            <label><!-- Créance douteuse --></label>
+            <section>Créance douteuse</section>
+        </sections>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Présentation Facture validée</layout>
+        <sections>
+            <label><!-- Commentaires recouvrement --></label>
+            <section>Commentaires recouvrement</section>
+        </sections>
+        <sections>
+            <label><!-- Créance douteuse --></label>
+            <section>Créance douteuse</section>
+        </sections>
+        <sections>
+            <label><!-- Entête --></label>
+            <section>Entête</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Montants --></label>
+            <section>Montants</section>
+        </sections>
+        <sections>
+            <label><!-- Recouvrement --></label>
+            <section>Recouvrement</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>N° Factura</nameFieldLabel>
+    <recordTypes>
+        <label><!-- Avoir non validé --></label>
+        <name>Avoir_non_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Avoir validé --></label>
+        <name>Avoir_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label>BR - Haver em aprovação</label>
+        <name>BR_Avoir_non_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label>BR - Haver aprovado</label>
+        <name>BR_Avoir_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label>BR - Fatura em aprovação</label>
+        <name>BR_Facture_non_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label>BR - Fatura aprovada</label>
+        <name>BR_Facture_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Canada Avoir validé --></label>
+        <name>Canada_Avoir_valid</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Canada Facture non validée --></label>
+        <name>Canada_Facture_non_valid_e</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Canada Facture validée --></label>
+        <name>Canada_Facture_valid_e</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Canada avoir non validé --></label>
+        <name>Canada_avoir_non_valid</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- ES - Avoir non validé --></label>
+        <name>ES_Avoir_non_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- ES - Avoir validé --></label>
+        <name>ES_Avoir_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- ES - Facture non validée --></label>
+        <name>ES_Facture_non_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- ES - Facture validée --></label>
+        <name>ES_Facture_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Facture non validée --></label>
+        <name>Facture_non_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Facture validée --></label>
+        <name>Facture_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SGP - Avoir non validé --></label>
+        <name>SGP_Avoir_non_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SGP - Avoir validé --></label>
+        <name>SGP_Avoir_valide</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SGP - Facture non validée --></label>
+        <name>SGP_Facture_non_validee</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SGP - Facture validée --></label>
+        <name>SGP_Facture_validee</name>
+    </recordTypes>
+    <validationRules>
+        <errorMessage><!-- On ne peut pas relier l&apos;avoir à une facture d&apos;un compte différent ou d&apos;un type de contrat différent --></errorMessage>
+        <name>Check_Compte_et_Contrat_sur_avoir</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Merci de renseigner la précision blocage mission --></errorMessage>
+        <name>Check_Precision_blocage_mission</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- La somme des encaissements ne peut pas être supérieure au montant de la facture --></errorMessage>
+        <name>Check_SUM_Encaissement</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- La somme des prévisions d&apos;encaissement ne peut pas être supérieure au montant de la facture --></errorMessage>
+        <name>Check_SUM_Previsions_encaissement</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Merci de renseigner la typologie de la créance --></errorMessage>
+        <name>Check_Typologie_Creance</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Un avoir doit forcément avoir un montant négatif --></errorMessage>
+        <name>Check_avoir</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Vérifie si le contrat de rattachement de la planification est bien le même que celui de la mission --></errorMessage>
+        <name>Check_contrat_mission</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Si la créance est classée en douteuse alors il faut mettre un commentaire --></errorMessage>
+        <name>Check_creance_douteuse</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Si la créance est classée irrécouvrable alors il faut indiquer le montant perdu --></errorMessage>
+        <name>Check_creance_irrecouvrable</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Il n&apos;est plus possible de créer une facture à la date indiquée.
+Merci de vous rapprocher du service comptabilité --></errorMessage>
+        <name>Check_date_blocage_facture</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Si la facture passe en irrécouvrable il faut renseigner la date créance irrécouvrable --></errorMessage>
+        <name>Check_date_creance_irrecouvrable</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- On ne peut pas relier l&apos;avoir à une facture déjà soldée. --></errorMessage>
+        <name>Check_facture_liee_sur_avoir</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Tant que la facture est en créance (sauf créance douteuse ou irrécouvrable) il doit y avoir au moins une prévision d’encaissement de saisie. --></errorMessage>
+        <name>Check_prevision_encaissement_existe</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Le solde ne peut pas être négatif (il y a trop d&apos;encaissements et/ou d&apos;avoirs sur la facture) --></errorMessage>
+        <name>Check_solde</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Un avoir doit obligatoirement être lié à une facture.
+Merci de renseigner le champ Facture liée --></errorMessage>
+        <name>Facture_liee_Obligatoire_sur_Avoir</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Le Montant perdu TTC doit être inférieur ou égale au montant de la créance TTC. --></errorMessage>
+        <name>Montant_Perdu_inferieur_Montant_Creance</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Le taux de TVA doit être égale à 20% sur les factures émises depuis le 1er Janvier 2014. --></errorMessage>
+        <name>TVA_a_20percent_obligatoire_01_2014</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- ADMIN_PDF --></label>
+        <name>ADMIN_PDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- CAPDF --></label>
+        <name>CAPDF</name>
+    </webLinks>
+    <webLinks>
+        <label>Desfazer</label>
+        <name>Devalider</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- ES_PDF --></label>
+        <name>ES_PDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- PDF --></label>
+        <name>PDF</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- SGP_PDF --></label>
+        <name>SGP_PDF</name>
+    </webLinks>
+</CustomObjectTranslation>

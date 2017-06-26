@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Agroalimentaire</masterLabel>
+        <translation>Alimentos e Bebidas</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Agrosciences</masterLabel>
+        <translation>Agrotecnologia</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Autres</masterLabel>
+        <translation>Outros</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Banque, finance</masterLabel>
+        <translation>Bancos e financeiro</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Biotech, biologie</masterLabel>
+        <translation>Biotecnologia e biologia</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Conseil aux entreprises</masterLabel>
+        <translation>Consultoria para empresas</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Construction</masterLabel>
+        <translation>Construção</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Defense</masterLabel>
+        <translation><!-- Defense --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Dispos médicaux, parapharma</masterLabel>
+        <translation>Parafarmácia e dispositivos medicais</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Divertissement</masterLabel>
+        <translation>Lazer</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Eco-industrie</masterLabel>
+        <translation>Meio ambiente</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Electronique</masterLabel>
+        <translation>Eletrônico</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Energie</masterLabel>
+        <translation>Energia</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Environnement</masterLabel>
+        <translation><!-- Environnement --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Equipementier automobile</masterLabel>
+        <translation>Automotivo</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Equipementier aéronautique</masterLabel>
+        <translation>Aeronáutico</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Equipementier naval</masterLabel>
+        <translation>Naval</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Fintech</masterLabel>
+        <translation><!-- Fintech --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Images, audio, vidéo, jeux</masterLabel>
+        <translation>Imagem, áudio, vídeo e jogos</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Logiciels et réseaux</masterLabel>
+        <translation>Software e redes</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Machines et outillages</masterLabel>
+        <translation>Máquinas e ferramentas</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Maritime</masterLabel>
+        <translation><!-- Maritime --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Matières 1ères, chimie</masterLabel>
+        <translation>Mineração e química</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Mécanique de précision</masterLabel>
+        <translation>Indústria de precisão</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pharma, médicaments</masterLabel>
+        <translation>Farmácia</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Robotique</masterLabel>
+        <translation>Robótica</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Services</masterLabel>
+        <translation><!-- Services --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Tourism</masterLabel>
+        <translation><!-- Tourism --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Transformation, matériaux dont textile</masterLabel>
+        <translation>Indústria de transformação</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Transport constructeur</masterLabel>
+        <translation>Transporte</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Télécoms</masterLabel>
+        <translation>Telecomunicações</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Water</masterLabel>
+        <translation><!-- Water --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>
