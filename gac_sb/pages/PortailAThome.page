@@ -1,0 +1,91 @@
+<apex:page title="Portail ATMP - Accueil" controller="PortailATctrl" showHeader="false" sidebar="false">
+    
+    <apex:composition template="{!$Site.Template}">
+        <apex:define name="title">Accueil</apex:define>
+        
+        <apex:define name="header">
+            <style>
+                
+                .homeBloc{
+                    display: block;
+                    border-left: solid 4px #18375F !important;
+                    background-color: #DADFE6 !important;
+                    padding: 20px 20px !important;
+                }
+                
+                .homeBloc:hover{
+                    text-decoration: none !important;
+                }
+                
+            </style>
+        </apex:define>
+        
+        <apex:define name="body">
+            <h1>Portail ATMP</h1>
+            <br />
+            <br />
+            <br />
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="PortailATdossiersSalaries" class="homeBloc well">
+                                <h4>
+                                    <span class="glyphicon glyphicon-user" ></span>
+                                    <span class="col-md-offset-2">Dossiers salariés</span>
+                                </h4>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="PortailATetablissements" class="homeBloc well">
+                                <h4>
+                                    <span class="glyphicon glyphicon-home" ></span>
+                                    <span class="col-md-offset-2">Etablissements</span>
+                                </h4>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <a href="PortailATfactures" class="homeBloc well">
+                                <h4>
+                                    <span class="glyphicon glyphicon-euro" ></span>
+                                    <span class="col-md-offset-2">Factures</span>
+                                </h4>
+                            </a>
+                        </div>
+                        <div class="col-md-6">
+                            <a href="PortailATdocuments" class="homeBloc well">
+                                <h4>
+                                    <span class="glyphicon glyphicon-folder-open" ></span>
+                                    <span class="col-md-offset-2">Espace documentaire</span>
+                                </h4>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="well">
+                        <h4>Prochaines formations</h4>
+                        <ul class="list-unstyled" id="sidebar">
+                            <apex:repeat value="{!datesFormations}" var="dateFormation">
+                                <li>
+                                    <a href="PortailATformations#formation_{!dateFormation.Formation__c}">
+                                        <strong><apex:outputField value="{!dateFormation.Date__c}" /></strong><br />
+                                        {!dateFormation.Formation__r.Name&" - "&dateFormation.VilleFormation__c}
+                                    </a>
+                                </li>   
+                            </apex:repeat>
+                        </ul>
+                    </div>
+                </div>
+                
+            </div>
+        </apex:define>
+        
+    </apex:composition>
+    
+
+    
+
+</apex:page>

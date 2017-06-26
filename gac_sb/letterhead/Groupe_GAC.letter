@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#FFFFFF</backgroundColor>
+    <bodyColor>#CCCCCC</bodyColor>
+    <bottomLine>
+        <color>#C0C0C0</color>
+        <height>1</height>
+    </bottomLine>
+    <footer>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>SharedDocuments/Footer_Groupe_GAC.png</logo>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>SharedDocuments/En_t_te_Groupe_GAC.png</logo>
+        <verticalAlignment>Top</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#C0C0C0</color>
+        <height>1</height>
+    </middleLine>
+    <name>Groupe GAC</name>
+    <topLine>
+        <color>#C0C0C0</color>
+        <height>1</height>
+    </topLine>
+</Letterhead>

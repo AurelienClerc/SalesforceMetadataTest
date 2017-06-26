@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>FacturationSetting</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>FacturationSetting</value>
+    </caseValues>
+    <fields>
+        <help><!-- Aucune création de facture possible antérieure ou égale à la date indiquée --></help>
+        <label><!-- Date blocage --></label>
+        <name>Date_blocage__c</name>
+    </fields>
+    <gender>Neuter</gender>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

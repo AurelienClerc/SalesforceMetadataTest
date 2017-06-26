@@ -1,0 +1,105 @@
+<apex:component >
+
+    <apex:attribute name="Facture__c" description="La facture"  type="Facture__c" required="true"/>
+    <apex:attribute name="DetailFactuList" description="Les lignes de facture"  type="Detail_facture__c[]" required="true"/>
+    <apex:attribute name="footerInfos" description="Le custom setting du footer"  type="FacturationEntite__c" required="true"/>
+
+    <div style="float:right;">
+        {!$ObjectType.Facture__c.fields.Date__c.Label}:&nbsp;<apex:outputField value="{!Facture__c.Date__c}"/>
+    </div>
+    
+    <div style="clear:both"></div>
+    
+    <div style="float:left;width:40%;margin-left:15px;margin-top:20px">
+        <apex:outputField value="{!footerInfos.Coordonnees__c}" />
+    </div>
+    
+    
+    <table style="float:right;margin-top: 40px;margin-right:0;">
+        <tr>
+            <td style="vertical-align: top;padding-right:5px">Cliente:</td>
+            <td>
+                <strong><apex:outputField value="{!Facture__c.Client__c}"/></strong><br />
+                <apex:outputField value="{!Facture__c.Contact_facturation__r.Name}"/><br />
+                <apex:outputField value="{!Facture__c.Adresse__c}"/><br />
+                <apex:outputField value="{!Facture__c.TVA_Intracommunautaire__c}" rendered="{!Facture__c.TVA_Intracommunautaire__c != ''}"/>
+            </td>
+        </tr>
+    </table>
+    
+    <div style="clear:both"></div>
+
+    
+    <div style="float:right;margin-top:50px;">
+        <span style="padding-right:40px;">CIF/NIF:</span>
+        <apex:outputField value="{!Facture__c.SIRET2__c}"/>
+    </div>
+    
+    <div style="clear:both"></div>
+    
+    <table cellspacing="0" cellpadding="0" style="width: 100%;margin-top:30px;border: 1px solid black;border-collapse:collapse;" >
+        <tr>
+            <th style="background-color:#426ebb; color:white; border:1px solid black;text-align: center;">
+                Factura n° <apex:outputField value="{!Facture__c.Name}"/>
+            </th>
+        </tr>
+        <tr>
+            <td style="border:1px solid black;padding:0 5px;">
+                <apex:repeat value="{!DetailFactuList}" var="item">
+                    <apex:outputField value="{!item.Description__c}"/><br />
+                </apex:repeat>
+            </td>
+        </tr>
+    </table>
+    
+
+    <table cellspacing="0" cellpadding="0" style="width: 100%;margin-top:30px;border: 1px solid black;border-collapse:collapse;" >
+        <tr>
+            <td style="padding-left:80px;width:75%;border-style:solid; border-width: 1px 0 0 1px">Base Imponible</td>
+            <td style="padding-right:80px;width:25%;text-align: right;border-style:solid; border-width: 1px 1px 0 0"><apex:outputField value="{!Facture__c.Montant_HT__c}"/></td>
+        </tr>
+        <tr>
+            <td colspan="2" style="border-style:solid;border-width: 0 1px;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td colspan="2" style="border-style:solid;border-width: 0 1px;">&nbsp;</td>
+        </tr>
+        <tr>
+            <td style="padding-left:80px;width:75%;border-style:solid; border-width: 0 0 1px 1px;">Importe</td>
+            <td style="padding-right:80px;width:25%;text-align: right;border-style:solid; border-width: 0 1px 1px 0;"><apex:outputField value="{!Facture__c.Montant_HT__c}"/></td>
+        </tr>
+        <tr>
+            <td style="padding-left:80px;width:75%;border-style:solid; border-width: 0 0 0 1px;">{!$ObjectType.Facture__c.fields.Taux_TVA__c.Label}</td>
+            <td style="padding-right:80px;width:25%;text-align: right;border-style:solid; border-width: 0 1px 0 0;"><apex:outputField value="{!Facture__c.Montant_TVA__c}"/></td>
+        </tr>
+        <tr>
+            <td style="padding-left:80px;width:75%;border-style:solid; border-width: 0 0 0 1px;">Importe total</td>
+            <td style="padding-right:80px;width:25%;text-align: right;border-style:solid; border-width: 0 1px 0 0;"><apex:outputField value="{!Facture__c.Montant_TTC__c}"/></td>
+        </tr>
+        <tr>
+            <td style="padding-left:80px;width:75%;border-style:solid; border-width: 0 0 0 1px;">Adelanto</td>
+            <td style="padding-right:80px;width:25%;text-align: right;border-style:solid; border-width: 0 1px 0 0;">EUR 0,00</td>
+        </tr>
+        <tr>
+            <td style="padding-left:80px;padding-bottom:20px;width:75%;border-style:solid; border-width: 1px 0 0 1px;">Neto a pagar</td>
+            <td style="padding-right:80px;padding-bottom:20px;width:25%;text-align: right;border-style:solid; border-width: 1px 1px 0 0;"><apex:outputField value="{!Facture__c.Montant_TTC__c}"/></td>
+        </tr>
+    </table>
+    
+    <div style="text-align:right; padding-right: 50px;margin-top:20px;height:100px;">Con nuestro agradecimiento</div>
+    
+    <strong>Forma de pago:</strong>{!footerInfos.Condition_escompte__c}
+    <th style="color:red;padding: 5px 0 0 100px"></th>
+    <br />Cheque nominativo o Transferencia Bancaria a:
+    <div style="padding: 5px 0 0 100px;">{!footerInfos.Virement_IBAN__c}</div><br />
+    <br />
+    <strong style="text-decoration:underline;">Gracias por indicar su n° de factura al realizar el pago</strong>
+    
+    <br />
+    <br />
+    
+    <strong style="padding-right: 20px">{!$ObjectType.Facture__c.fields.Vencimiento__c.Label}:</strong>
+    <apex:outputField value="{!Facture__c.Vencimiento__c}"/>
+                
+    
+</apex:component>

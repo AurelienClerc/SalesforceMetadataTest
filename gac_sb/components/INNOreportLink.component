@@ -1,0 +1,16 @@
+<apex:component controller="INNOreportLinkCtrl" >
+
+	<apex:attribute name="reportName" assignTo="{!repName}" description="Le début du developerName du rapport" type="String" required="true"/>
+	<apex:attribute name="valoName" description="Le nom de la valorisation CIR" type="String" required="true"/>
+	
+	&nbsp;
+	<a href="" id="showReportLink_{!repName}" onclick="document.getElementById('selectReportOption_{!repName}').style.display = 'inline';return false;" style="cursor:pointer;">Voir rapport</a>
+	
+	<span id="selectReportOption_{!repName}" style="display: none; ">
+		&nbsp;
+		<apex:selectList size="1" onchange="window.open('/' + this.value + '?pv0={!valoName}', '_blank');this.value = ''; this.parentNode.style.display='none';">
+			<apex:selectOptions value="{!reports}" />
+		</apex:selectList>
+	</span>
+
+</apex:component>

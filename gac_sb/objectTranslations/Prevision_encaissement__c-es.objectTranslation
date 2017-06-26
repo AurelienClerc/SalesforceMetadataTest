@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Previsión cobro</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Previsiónes cobros</value>
+    </caseValues>
+    <fields>
+        <label>Fecha  previsional</label>
+        <name>Date_prevue__c</name>
+    </fields>
+    <fields>
+        <label>Factura</label>
+        <name>Facture__c</name>
+        <relationshipLabel>Previsión cobro</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Importe previsional antes IVA</label>
+        <name>Montant_prevu_HT__c</name>
+    </fields>
+    <fields>
+        <label>Importe previsional IVA incluido</label>
+        <name>Montant_prevu_TTC__c</name>
+    </fields>
+    <fields>
+        <label>Polo</label>
+        <name>Pole__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prev. A Décaller --></label>
+        <name>PrevADecaller__c</name>
+    </fields>
+    <fields>
+        <label>Previsión cobro</label>
+        <name>Prevision_encaissement__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Prévision d&apos;encaissement</layout>
+        <sections>
+            <label>Enlaces personalizados</label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>N° Previsión</nameFieldLabel>
+    <webLinks>
+        <label>Nueva previsión de cobro</label>
+        <name>Nouvelle_prevision_d_encaissement</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- Nova_previsao_de_pagamento --></label>
+        <name>Nova_previsao_de_pagamento</name>
+    </webLinks>
+</CustomObjectTranslation>

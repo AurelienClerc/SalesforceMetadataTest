@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomPageWebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <availability>online</availability>
+    <description>Affiches les requêtes sur la page d&apos;accueil</description>
+    <displayType>link</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <linkType>url</linkType>
+    <masterLabel>Requêtes</masterLabel>
+    <openType>replace</openType>
+    <protected>false</protected>
+    <url>https://eu1.salesforce.com/500?div_filter=&amp;fcf=00BD0000006ZpiM</url>
+</CustomPageWebLink>

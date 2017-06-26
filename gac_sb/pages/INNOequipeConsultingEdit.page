@@ -1,0 +1,59 @@
+<apex:page standardController="INNOequipeConsulting__c" extensions="INNOequipeConsultingWithoutSharingCtrl" sidebar="false" tabStyle="INNOmission__c" title="Edition d'une equipe consulting" >
+
+	<apex:composition template="INNOmissionTemplate">
+		
+		
+		<apex:define name="body">
+		    <!-- Pas trop le choix sinon je peux pas mettre de ' directement dans le IF du header... -->
+		    <apex:variable var="newMembre" value="Nouveau membre de l'équipe" />
+		    <apex:variable var="isCir" value="{!mission.RecordType.DeveloperName == 'CIR'}"/>
+		    
+		    <apex:pageMessages escape="false"/>
+		    
+		    <apex:form >
+		        <apex:pageBlock >
+		            
+		            <apex:pageBlockButtons rendered="{!missionReadWrite}">
+		                <apex:commandButton action="{!saveAndRedirect}" value="Enregistrer" />
+		                <apex:commandButton action="{!URLFOR('/apex/INNOmissionView', null, [id = INNOequipeConsulting__c.MissionCIR__c, missionId = INNOequipeConsulting__c.MissionCIR__c])}" value="Annuler" immediate="true"/>
+		            </apex:pageBlockButtons>
+		            
+		            
+		            <apex:pageBlockSection columns="2" >
+		                <apex:inputField value="{!INNOequipeConsulting__c.Utilisateur__c}" required="true" rendered="{!isNew}"/>  
+		                <apex:outputField value="{!INNOequipeConsulting__c.Utilisateur__c}" rendered="{!!isNew}"/>    
+		                <apex:inputField value="{!INNOequipeConsulting__c.Role__c}" required="true"/> 
+		                <apex:inputfield value="{!INNOequipeConsulting__c.Actif__c}" />   
+		                <apex:inputHidden value="{!INNOequipeConsulting__c.MissionCIR__c}"/>
+		            </apex:pageBlockSection>
+		            
+		            <!-- Bloc "Estimation des durées (jours)" en read/right pour les admins -->
+		            <apex:pageBlockSection columns="1" title="Estimation des durées (jours)" rendered="{!userIsManager}">
+		                <apex:pageBlockSectionItem rendered="{!!isCir}">
+		                    <apex:outputLabel value="Nombre de jours théoriques" />
+		                    <apex:inputfield value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Audit__c}"/>    
+		                </apex:pageBlockSectionItem>
+		                <apex:inputfield value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Audit__c}" rendered="{!isCir}"/>   
+		                <apex:inputfield value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Valorisation__c}" rendered="{!isCir}"/>    
+		                <apex:inputfield value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Justification__c}" rendered="{!isCir}"/>   
+		                <apex:inputfield value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Controle__c}" rendered="{!isCir}"/>    
+		            </apex:pageBlockSection>
+		            
+		            
+		            <!-- Bloc "Estimation des durées (jours)" en readonly pour les managers non-admins -->
+		            <apex:pageBlockSection columns="1" title="Estimation des durées (jours)" rendered="{!!userIsManager}">
+		                <apex:pageBlockSectionItem rendered="{!!isCir}">
+		                    <apex:outputLabel value="Nombre de jours théoriques" />
+		                    <apex:outputField value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Audit__c}"/>    
+		                </apex:pageBlockSectionItem>
+		                <apex:outputField value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Audit__c}" rendered="{!isCir}"/>   
+		                <apex:outputField value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Valorisation__c}" rendered="{!isCir}"/>    
+		                <apex:outputField value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Justification__c}" rendered="{!isCir}"/>   
+		                <apex:outputField value="{!INNOequipeConsulting__c.Nombre_jours_theoriques_Controle__c}" rendered="{!isCir}"/>    
+		            </apex:pageBlockSection>
+		            
+		        </apex:pageBlock>
+    		</apex:form>
+    	</apex:define>
+    </apex:composition>
+</apex:page>

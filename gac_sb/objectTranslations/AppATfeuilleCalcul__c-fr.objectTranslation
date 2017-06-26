@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Feuille de calcul</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Feuilles de calcul</value>
+    </caseValues>
+    <fields>
+        <label><!-- Abattement CTN II (10%) ? --></label>
+        <name>Abattement10pour__c</name>
+    </fields>
+    <fields>
+        <label><!-- Abattement (20%) ? --></label>
+        <name>Abattement20pour__c</name>
+    </fields>
+    <fields>
+        <label><!-- Alsace Moselle ? --></label>
+        <name>AlsaceMoselle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Année de la feuille de calcul --></label>
+        <name>AnneeFeuilleCalcul__c</name>
+    </fields>
+    <fields>
+        <label><!-- BTP CCM IP1 --></label>
+        <name>BTP_CCMIP1__c</name>
+    </fields>
+    <fields>
+        <label><!-- BTP CCM IT1 --></label>
+        <name>BTP_CCMIT1__c</name>
+    </fields>
+    <fields>
+        <label><!-- BTP CCM IT2 --></label>
+        <name>BTP_CCMIT2__c</name>
+    </fields>
+    <fields>
+        <label><!-- BTP CCM IT3 --></label>
+        <name>BTP_CCMIT3__c</name>
+    </fields>
+    <fields>
+        <label><!-- BTP CCM IT4 --></label>
+        <name>BTP_CCMIT4__c</name>
+    </fields>
+    <fields>
+        <label><!-- BTP CCM IT5 --></label>
+        <name>BTP_CCMIT5__c</name>
+    </fields>
+    <fields>
+        <label><!-- BTP CCM IT6 --></label>
+        <name>BTP_CCMIT6__c</name>
+    </fields>
+    <fields>
+        <label><!-- BTP NIC SE --></label>
+        <name>BTP_NICSE__c</name>
+    </fields>
+    <fields>
+        <label><!-- BTP Valeur du risque --></label>
+        <name>BTP_ValeurRisque__c</name>
+    </fields>
+    <fields>
+        <label><!-- B --></label>
+        <name>B__c</name>
+    </fields>
+    <fields>
+        <label><!-- Bureau --></label>
+        <name>Bureau__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP1 N-2 --></label>
+        <name>CCMIP1_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP1 N-3 --></label>
+        <name>CCMIP1_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP1 N-4 --></label>
+        <name>CCMIP1_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP2 N-2 --></label>
+        <name>CCMIP2_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP2 N-3 --></label>
+        <name>CCMIP2_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP2 N-4 --></label>
+        <name>CCMIP2_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP3 N-2 --></label>
+        <name>CCMIP3_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP3 N-3 --></label>
+        <name>CCMIP3_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP3 N-4 --></label>
+        <name>CCMIP3_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP4 N-2 --></label>
+        <name>CCMIP4_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP4 N-3 --></label>
+        <name>CCMIP4_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP4 N-4 --></label>
+        <name>CCMIP4_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT1 N-2 --></label>
+        <name>CCMIT1_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT1 N-3 --></label>
+        <name>CCMIT1_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT1 N-4 --></label>
+        <name>CCMIT1_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT2 N-2 --></label>
+        <name>CCMIT2_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT2 N-3 --></label>
+        <name>CCMIT2_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT2 N-4 --></label>
+        <name>CCMIT2_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT3 N-2 --></label>
+        <name>CCMIT3_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT3 N-3 --></label>
+        <name>CCMIT3_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT3 N-4 --></label>
+        <name>CCMIT3_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT4 N-2 --></label>
+        <name>CCMIT4_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT4 N-3 --></label>
+        <name>CCMIT4_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT4 N-4 --></label>
+        <name>CCMIT4_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT5 N-2 --></label>
+        <name>CCMIT5_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT5 N-3 --></label>
+        <name>CCMIT5_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT5 N-4 --></label>
+        <name>CCMIT5_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT6 N-2 --></label>
+        <name>CCMIT6_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT6 N-3 --></label>
+        <name>CCMIT6_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT6 N-4 --></label>
+        <name>CCMIT6_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CTN --></label>
+        <name>CTN__c</name>
+        <relationshipLabel><!-- Feuilles de calcul --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Charges --></label>
+        <name>Charges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compensation --></label>
+        <name>Compensation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Controler taux individuel --></label>
+        <name>ControlerTauxIndividuel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Controler Calcul2 --></label>
+        <name>Controler_Calcul2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cotis compl --></label>
+        <name>CotisCompl__c</name>
+    </fields>
+    <fields>
+        <label><!-- Cotisation supplémentaire --></label>
+        <name>CotisationSupplementaire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;effet --></label>
+        <name>DateEffet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de notification --></label>
+        <name>DateNotification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effectif --></label>
+        <name>Effectif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Etablissement concerné --></label>
+        <name>EtablissementConcerne__c</name>
+        <relationshipLabel><!-- Feuilles de calcul --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Feuille année N-1 --></label>
+        <name>FeuilleAnnee_N_1__c</name>
+        <relationshipLabel><!-- Feuilles de calcul --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Fraction de taux collectif --></label>
+        <name>FractionTauxCollectif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fraction de taux net --></label>
+        <name>FractionTauxNet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gros oeuvre --></label>
+        <name>GrosOeuvre__c</name>
+    </fields>
+    <fields>
+        <label><!-- IDMission --></label>
+        <name>IDMission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Intitulé de la feuille de calcul --></label>
+        <name>IntituleFeuilleCalcul__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lien Rapport --></label>
+        <name>LienRapport__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lieu du risque --></label>
+        <name>LieuRisque__c</name>
+    </fields>
+    <fields>
+        <label><!-- Majoration arrêtée du --></label>
+        <name>MajorationArreteeDu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Majoration Forfaitaire Risque Trajet --></label>
+        <name>MajorationForfaitaireRisqueTrajet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Majoration --></label>
+        <name>Majoration__c</name>
+        <relationshipLabel><!-- Feuilles de calcul --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Masse salariale Année N-2 --></label>
+        <name>MasseSalarialeAnneeN_2__c</name>
+        <relationshipLabel><!-- Feuilles de calcul (Masse salariale N-2) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Masse salariale Année N-3 --></label>
+        <name>MasseSalarialeAnneeN_3__c</name>
+        <relationshipLabel><!-- Feuilles de calcul (Masse salariale N-3) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Masse salariale Année N-4 --></label>
+        <name>MasseSalarialeAnneeN_4__c</name>
+        <relationshipLabel><!-- Feuilles de calcul (Masse salariale N-4) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mission --></label>
+        <name>Mission__c</name>
+    </fields>
+    <fields>
+        <label><!-- NIC Section --></label>
+        <name>NICSection__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nature des activités --></label>
+        <name>NatureActivites__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nettoyage CTN II ? --></label>
+        <name>Nettoyage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pénibilité --></label>
+        <name>Penibilite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Référence URSSAF --></label>
+        <name>ReferenceURSSAF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ristourne --></label>
+        <name>Ristourne__c</name>
+    </fields>
+    <fields>
+        <label><!-- Salaires --></label>
+        <name>Salaires__c</name>
+    </fields>
+    <fields>
+        <label><!-- Sec. Oeuvre --></label>
+        <name>SecOeuvre__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux applicable --></label>
+        <name>TauxApplicable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux Brut Section --></label>
+        <name>TauxBrutSection__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux brut --></label>
+        <name>TauxBrut__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux collectif --></label>
+        <name>TauxCollectif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux exercice antérieur --></label>
+        <name>TauxExerciceAnterieur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux Individuel --></label>
+        <name>TauxIndividuel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux mixte arrondi --></label>
+        <name>TauxMixteArrondi__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux mixte --></label>
+        <name>TauxMixte__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux Net Arrondi --></label>
+        <name>TauxNetArrondi__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux net --></label>
+        <name>TauxNet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Texte type de feuille --></label>
+        <name>TexteTypeFeuille__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Masse salariale --></label>
+        <name>TotalMasseSalariale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total valeur du risque --></label>
+        <name>TotalValeurRisque__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IP1 --></label>
+        <name>Total_CCMIP1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IP2 --></label>
+        <name>Total_CCMIP2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IP3 --></label>
+        <name>Total_CCMIP3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IP4 --></label>
+        <name>Total_CCMIP4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IT1 --></label>
+        <name>Total_CCMIT1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IT2 --></label>
+        <name>Total_CCMIT2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IT3 --></label>
+        <name>Total_CCMIT3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IT4 --></label>
+        <name>Total_CCMIT4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IT5 --></label>
+        <name>Total_CCMIT5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total CCM IT6 --></label>
+        <name>Total_CCMIT6__c</name>
+    </fields>
+    <fields>
+        <label><!-- Txt explicatif cpt triennal --></label>
+        <name>TxtExplicatifCompteTriennal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type de feuille de calcul --></label>
+        <name>Type_de_feuille_de_calcul__c</name>
+        <picklistValues>
+            <masterLabel>Initiale</masterLabel>
+            <translation><!-- Initiale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rectifiée</masterLabel>
+            <translation><!-- Rectifiée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refacturation</masterLabel>
+            <translation><!-- Refacturation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Simulée</masterLabel>
+            <translation><!-- Simulée --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- URSSAF --></label>
+        <name>URSSAF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur du Risque N-2 --></label>
+        <name>ValeurRisque_N_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur du Risque N-3 --></label>
+        <name>ValeurRisque_N_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur du Risque N-4 --></label>
+        <name>ValeurRisque_N_4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IP1 --></label>
+        <name>Valeur_CCMIP1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IP2 --></label>
+        <name>Valeur_CCMIP2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IP3 --></label>
+        <name>Valeur_CCMIP3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IP4 --></label>
+        <name>Valeur_CCMIP4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IT1 --></label>
+        <name>Valeur_CCMIT1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IT2 --></label>
+        <name>Valeur_CCMIT2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IT3 --></label>
+        <name>Valeur_CCMIT3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IT4 --></label>
+        <name>Valeur_CCMIT4__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IT5 --></label>
+        <name>Valeur_CCMIT5__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valeur CCM IT6 --></label>
+        <name>Valeur_CCMIT6__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Feuille de calcul</layout>
+        <sections>
+            <label><!-- Détermination du taux --></label>
+            <section>Détermination du taux</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Majoration --></label>
+            <section>Majoration</section>
+        </sections>
+        <sections>
+            <label><!-- Taux applicable --></label>
+            <section>Taux applicable</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- Taux Mixte --></label>
+        <name>TauxMixte</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Taux Réel --></label>
+        <name>TauxReel</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- La case Abattement (20%) ne peut être cochée pour un CTN II --></errorMessage>
+        <name>AppAT_abattement20_impossible_pr_CTN_II</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Les cases nettoyages et Abattement ne peuvent être cochées que pour un CTN II --></errorMessage>
+        <name>AppAT_nett_abattement_que_pour_CTN_I</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- L&apos;année doit être au format 20XX ou 19XX --></errorMessage>
+        <name>AppAT_validation_Annee</name>
+    </validationRules>
+    <webLinks>
+        <label><!-- Rapport_dossiers --></label>
+        <name>Rapport_dossiers</name>
+    </webLinks>
+</CustomObjectTranslation>

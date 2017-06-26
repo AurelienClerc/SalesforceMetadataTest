@@ -1,0 +1,379 @@
+<apex:page controller="PortailATctrl" showHeader="false" sidebar="false"  applyHtmlTag="false">
+    
+    <apex:composition template="{!$Site.Template}">
+        <apex:define name="title">Etablissements</apex:define>
+        
+        <apex:define name="header">
+            <style>
+                #etabs tbody td{
+                    cursor: pointer;
+                }
+                
+                #dossiersTable tr > td, #dossiersTable tr > th{
+                    text-align: center;
+                }
+                
+                #dossiersTable tr > td:first-child, #dossiersTable tr > th:first-child{
+                    text-align: left;
+                }
+            </style>
+            
+            <script type="text/javascript" src="///www.gstatic.com/charts/loader.js"></script>
+            <script type="text/javascript" src="///code.jquery.com/jquery-2.2.1.min.js"></script>
+            <script type="text/javascript" src="{!URLFOR($Resource.BootstrapPrefixed, '/js/bootstrap.min.js')}"></script>
+            
+            <apex:stylesheet value="///ajax.googleapis.com/ajax/static/modules/gviz/1.0/table/table.css" />
+            
+        </apex:define>
+            
+         <apex:define name="body">
+            <h2 >Mes établissements</h2>
+            
+            
+            <div class="row">
+                <div class="col-md-5">
+                    <table id="etabs" class="table table-hover">
+                        
+                        <thead>
+                            <tr>
+                                <th>Nom de l'établissement</th>
+                                <th>SIRET</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <apex:repeat value="{!etablissements}" var="etab">
+                                <tr >
+                                    <td>
+                                        <a href="" onclick="changeEtablissement('{!etab.Id}')">{!etab.Ville__c}{!IF(ISBLANK(etab.Entite__c), '', ' - ' + etab.Entite__c)}</a>
+                                    </td>
+                                    <td>{!etab.SIRET__c}</td>
+                                </tr>
+                            </apex:repeat>
+                        </tbody>
+                    </table>        
+                </div>
+                <div class="col-md-7">
+                    <div id="etabChart"></div>
+                    <i style="font-size: 11px; color: #3366cc;"> * Les taux initiaux N+1 et N+2 reflètent une estimation à date de votre tarification calculée à partir des éléments en notre possession</i>
+                    <br />
+                    <i style="font-size: 11px; color: #dc3912"> ** On entend par "taux de refacturation", le taux qui aurait été notifié sans l'intervention de GAC</i>
+                </div>
+            </div>
+            <div id="details" style="margin : 10px 0 15px 0; display:none;" class="well">
+                <h3 id="etabName"></h3>
+                <apex:pageBlock mode="edit">
+                    <apex:pageBlockSection title="">
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="CTN"/>
+                            <a id="etabCTN" href="#" data-toggle="modal" data-target="#myModal"></a>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="SIRET"/>
+                            <span id="etabSiret"></span>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Mode de tarification"/>
+                            <span id="etabModeTarif"></span>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Code risque"/>
+                            <span id="etabCodeRisque"></span>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Alsace Moselle"/>
+                            <span id="etabAlsaceMoselle"></span>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Etablissement principal"/>
+                            <span id="etabEtablissementPrincipal"></span>
+                        </apex:pageBlockSectionItem>
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection title="Dossiers" columns="1">
+                        <apex:outputPanel layout="none">
+                            <div id="dossiersDashboard">
+                                <div id="searchFilter"></div>
+                                <div id="dossiersTable"></div>
+                            </div>
+                        </apex:outputPanel>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+                
+                
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" >
+                    <div class="modal-dialog" >
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">Détails du CTN</h4>
+                            </div>
+                            <div class="modal-body">
+                                <table style="width: 100%">
+                                    <tr>
+                                        <th style="width: 20%">CCM IT1</th>
+                                        <td id="CCMIT1" style="width: 30%"></td>
+                                        <th style="width: 20%">CCM IP1</th>
+                                        <td id="CCMIP1"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>CCM IT2</th>
+                                        <td id="CCMIT2"></td>
+                                        <th>CCM IP2</th>
+                                        <td id="CCMIP2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>CCM IT3</th>
+                                        <td id="CCMIT3"></td>
+                                        <th>CCM IP3</th>
+                                        <td id="CCMIP3"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>CCM IT4</th>
+                                        <td id="CCMIT4"></td>
+                                        <th>CCM IP4</th>
+                                        <td id="CCMIP4"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>CCM IT5</th>
+                                        <td id="CCMIT5"></td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                    <tr>
+                                        <th>CCM IT6</th>
+                                        <td id="CCMIT6"></td>
+                                        <td colspan="2"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Fermer</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </apex:define>
+    </apex:composition>
+    
+
+    
+    <script type="text/javascript">
+    
+        var etabIdToLoad;
+        
+        google.charts.load('45', {packages:['corechart','table','controls','line']});
+        google.charts.setOnLoadCallback(prepareChart);
+    
+        var chart, chartData, chartOption;
+                
+        function prepareChart(){
+            chart = new google.visualization.LineChart(document.getElementById('etabChart'));
+            
+            chartOption = {
+                title   : 'Evolution du taux AT/MP',
+                height  : 300,
+                animation: {
+                    duration: 1000,
+                    easing  : 'in'
+                },
+                legend : {
+                    position: 'bottom'
+                },
+                chartArea: {
+                    width: '100%',
+                    height: '80%'
+                },
+                colors: ['#3366cc', '#109618', '#dc3912', '#777777'],
+                series: {
+                    3: {
+                        lineDashStyle: [4,4]
+                    }
+                },
+                pointSize: 4,
+            };
+            
+            if(etabIdToLoad)
+                changeEtablissement(etabIdToLoad);
+        
+        }
+        
+        
+        function changeEtablissement(etabId){
+            
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.PortailATctrl.getEtablissementChartData}',
+                etabId, 
+                function(result, event){
+                    if (event.status) {
+                        if(result.length)
+                            drawChart(result);
+                    }
+                    else{
+                        alert(event.message);
+                    }
+                
+                }
+            );
+            
+            Visualforce.remoting.Manager.invokeAction(
+                '{!$RemoteAction.PortailATctrl.getEtablissementDetails}',
+                etabId, 
+                function(result, event){
+                    if (event.status) {
+                        
+                        $("#etabName").html(result.Ville__c + (result.Entite__c ? ' - ' + result.Entite__c : ''));
+                        $("#etabCTN").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.TypeCTN__c : ''));
+                        $("#CCMIT1").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIT1__c.toLocaleString() : ''));
+                        $("#CCMIT2").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIT2__c.toLocaleString() : ''));
+                        $("#CCMIT3").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIT3__c.toLocaleString() : ''));
+                        $("#CCMIT4").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIT4__c.toLocaleString() : ''));
+                        $("#CCMIT5").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIT5__c.toLocaleString() : ''));
+                        $("#CCMIT6").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIT6__c.toLocaleString() : ''));
+                        $("#CCMIP1").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIP1__c.toLocaleString() : ''));
+                        $("#CCMIP2").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIP2__c.toLocaleString() : ''));
+                        $("#CCMIP3").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIP3__c.toLocaleString() : ''));
+                        $("#CCMIP4").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].CTN__r.CCMIP4__c.toLocaleString() : ''));
+                        $("#etabModeTarif").html((result.FeuillesCalcul__r ? result.FeuillesCalcul__r[0].RecordType.Name : ''));
+                        $("#etabSiret").html(result.SIRET__c || '');
+                        $("#etabCodeRisque").html(result.CodeRisque__c || '');
+                        $("#etabAlsaceMoselle").html('<img src="/img/checkbox_' + (result.AlsaceMoselle__c ? 'checked' : 'unchecked') + '.gif" />');
+                        $("#etabEtablissementPrincipal").html('<img src="/img/checkbox_' + (result.Etablissement_principal__c ? 'checked' : 'unchecked') + '.gif" />');
+                        $("#details").show();                       
+                        drawTable(result.DossiersSalaries__r);
+                    }
+                    else{
+                        alert(event.message);
+                    }
+                
+                }
+            );
+            
+        }
+        
+    
+        
+        function drawChart(data){
+            
+            
+            chartData = new google.visualization.DataTable();
+            chartData.addColumn('string', 'Année');
+            chartData.addColumn('number', 'Taux initial *');
+            chartData.addColumn({type: 'number', role: 'annotation'});
+            chartData.addColumn('number', 'Taux rectifié');
+            chartData.addColumn({type: 'number', role: 'annotation'});
+            chartData.addColumn('number', 'Taux de refacturation **');
+            chartData.addColumn({type: 'number', role: 'annotation'});
+            chartData.addColumn('number', 'Taux collectif');
+            chartData.addColumn({type: 'number', role: 'annotation'});
+            
+            
+            for(var i = 0; i < data.length; i++){
+                data[i][0] = data[i][0].toString();
+                for(var j = 1; j < 9; j++){
+                    if(data[i][j] == 0)
+                        data[i][j] = null;
+                }
+                
+            }
+            console.log(data);
+            chartData.addRows(data);
+            
+            (new google.visualization.NumberFormat({groupingSymbol : ' ', decimalSymbol : ','})).format(chartData, 1);
+            (new google.visualization.NumberFormat({groupingSymbol : ' ', decimalSymbol : ','})).format(chartData, 2);
+            (new google.visualization.NumberFormat({groupingSymbol : ' ', decimalSymbol : ','})).format(chartData, 3);
+            (new google.visualization.NumberFormat({groupingSymbol : ' ', decimalSymbol : ','})).format(chartData, 4);
+            (new google.visualization.NumberFormat({groupingSymbol : ' ', decimalSymbol : ','})).format(chartData, 5);
+            (new google.visualization.NumberFormat({groupingSymbol : ' ', decimalSymbol : ','})).format(chartData, 6);
+            (new google.visualization.NumberFormat({groupingSymbol : ' ', decimalSymbol : ','})).format(chartData, 7);
+            (new google.visualization.NumberFormat({groupingSymbol : ' ', decimalSymbol : ','})).format(chartData, 8);
+            
+            chart.draw(chartData, chartOption);
+            
+        }       
+        
+        
+        function drawTable(dossiers){
+            var chartData = new google.visualization.DataTable();
+            chartData.addColumn('string', 'ChampDeRecherche');
+            chartData.addColumn('string', 'Nom du dossier');
+            chartData.addColumn('date', 'Date du sinistre');
+            chartData.addColumn('string', 'Type');
+            chartData.addColumn('string', 'Etat du dossier');
+            
+            if(dossiers){
+                for(var i = 0 ; i < dossiers.length; i++)
+                    chartData.addRow([(dossiers[i].Name + ' ' + dossiers[i].Type__c + ' ' + dossiers[i].Statut__c).replace(/undefined/g, ''),
+                                        '<a href="PortailATdossierSalarieView?id=' + dossiers[i].Id + '">' + dossiers[i].Name + '</a>', 
+                                        (dossiers[i].DateSinistre__c ? new Date(dossiers[i].DateSinistre__c) : null), 
+                                        dossiers[i].Type__c, 
+                                        dossiers[i].Statut__c]);
+            }   
+                
+            //Format les dates
+            (new google.visualization.DateFormat({pattern: 'dd/MM/yyyy'})).format(chartData, 2);
+            
+            var dashboard = new google.visualization.Dashboard(document.getElementById('dossiersDashboard'));
+            
+            var searchFilter = new google.visualization.ControlWrapper({
+                controlType: 'StringFilter',
+                containerId: 'searchFilter',
+                options: {
+                    filterColumnIndex: 0,
+                    matchType: 'any',
+                    ui: {
+                        label: 'Rechercher :'
+                    }
+                }
+            });
+            
+            var table = new google.visualization.ChartWrapper({
+                chartType: 'Table',
+                containerId: 'dossiersTable',
+                options: {
+                    page            : 'enable',
+                    allowHtml       : true,
+                    width           : '100%',
+                    cssClassNames   : {
+                        headerRow: ' ',
+                        tableRow: ' ',
+                        oddTableRow: ' ',
+                        selectedTableRow: ' ',
+                        hoverTableRow: ' ',
+                        headerCell: ' ',
+                        tableCell: ' ',
+                        rowNumberCell: ' '
+                    }
+                },
+                view:{
+                    columns: [1,2,3,4]
+                }
+            });
+            
+            google.visualization.events.addListener(table, 'ready', function () {
+                document.getElementById('dossiersTable').getElementsByClassName('google-visualization-table-table')[0].className = 'table';
+            });
+            
+        
+            
+            dashboard.bind([searchFilter], table);
+            dashboard.draw(chartData);
+            
+            
+            
+        }
+    </script>
+    
+    <apex:outputPanel layout="none" rendered="{!etablissements.size > 0}">
+        <script type="text/javascript">
+            var etabIdToLoad = '{!IF(ISBLANK($CurrentPage.parameters.id), etablissements[0].Id, $CurrentPage.parameters.id)}';
+        </script>
+    </apex:outputPanel>
+    
+
+</apex:page>

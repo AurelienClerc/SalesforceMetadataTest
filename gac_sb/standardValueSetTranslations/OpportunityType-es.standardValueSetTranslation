@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Appel d&apos;offres</masterLabel>
+        <translation>Licitación</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Concurrentiel</masterLabel>
+        <translation>Competitiva</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Simple</masterLabel>
+        <translation>Sencillo</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

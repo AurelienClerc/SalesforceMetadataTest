@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Dr</masterLabel>
+        <translation>Dr.</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>M.</masterLabel>
+        <translation>Sr.</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Me</masterLabel>
+        <translation>Eng.</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Melle</masterLabel>
+        <translation>Dra.</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Mme</masterLabel>
+        <translation>Sra.</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Mr</masterLabel>
+        <translation><!-- Mr --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Mrs</masterLabel>
+        <translation><!-- Mrs --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pr</masterLabel>
+        <translation>Prof.</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Prof</masterLabel>
+        <translation>Profa.</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

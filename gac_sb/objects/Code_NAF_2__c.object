@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>Liste des codes NAF 2 et leurs labels</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>true</enableDivisions>
+    <enableEnhancedLookup>false</enableEnhancedLookup>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>false</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>ACS_Palier1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Palier 1: en dessous de ce nombre de salarié, le compte aura un ciblage correspondant à Valeur Palier1 ACS</inlineHelpText>
+        <label>Palier 1 ACS</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ACS_Palier2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Palier 2: en dessous de ce nombre de salarié, le compte aura un ciblage correspondant à Valeur Palier 2 ACS</inlineHelpText>
+        <label>Palier 2 ACS</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>ACS_defaultCiblage__c</fullName>
+        <externalId>false</externalId>
+        <label>Ciblage par défaut ACS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ACS_valeur_palier1__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 1 ACS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ACS_valeur_palier2__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 2 ACS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>ACS_valeur_palier3__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 3 ACS</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Code_NAF_2_code__c</fullName>
+        <externalId>true</externalId>
+        <label>Code NAF 2</label>
+        <length>10</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IL_Palier1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Palier 1: en dessous de ce nombre de salarié, le compte aura un ciblage correspondant à Valeur Palier1 IL</inlineHelpText>
+        <label>Palier 1 IL</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IL_Palier2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Palier 2: en dessous de ce nombre de salarié, le compte aura un ciblage correspondant à Valeur Palier 2 IL</inlineHelpText>
+        <label>Palier 2 IL</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>IL_defaultCiblage__c</fullName>
+        <externalId>false</externalId>
+        <label>Ciblage par défaut IL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IL_valeur_palier1__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 1 IL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IL_valeur_palier2__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 2 IL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>IL_valeur_palier3__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 3 IL</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>INNO_Palier1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Palier 1: en dessous de ce nombre de salarié, le compte aura un ciblage correspondant à Valeur Palier1 INNO</inlineHelpText>
+        <label>Palier 1 INNO</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>INNO_Palier2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Palier 2: en dessous de ce nombre de salarié, le compte aura un ciblage correspondant à Valeur Palier 2 INNO</inlineHelpText>
+        <label>Palier 2 INNO</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>INNO_defaultCiblage__c</fullName>
+        <externalId>false</externalId>
+        <label>Ciblage par défaut INNO</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>INNO_valeur_palier1__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 1 INNO</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>INNO_valeur_palier2__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 2 INNO</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>INNO_valeur_palier3__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 3 INNO</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Libelle_NAF_2__c</fullName>
+        <externalId>false</externalId>
+        <label>Libellé NAF 2</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Pays__c</fullName>
+        <externalId>false</externalId>
+        <label>Pays</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Espagne</fullName>
+                    <default>false</default>
+                    <label>Espagne</label>
+                </value>
+                <value>
+                    <fullName>Brésil</fullName>
+                    <default>false</default>
+                    <label>Brésil</label>
+                </value>
+                <value>
+                    <fullName>Canada</fullName>
+                    <default>false</default>
+                    <label>Canada</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TAT_Palier1__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Palier 1: en dessous de ce nombre de salarié, le compte aura un ciblage correspondant à Valeur Palier1 TAT</inlineHelpText>
+        <label>Palier 1 TAT</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TAT_Palier2__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Palier 2: en dessous de ce nombre de salarié, le compte aura un ciblage correspondant à Valeur Palier 2 TAT</inlineHelpText>
+        <label>Palier 2 TAT</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TAT_Palier3__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Palier 3: en dessous de ce nombre de salarié, le compte aura un ciblage correspondant à Valeur Palier 3 TAT</inlineHelpText>
+        <label>Palier 3 TAT</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TAT_defaultCiblage__c</fullName>
+        <externalId>false</externalId>
+        <label>Ciblage par défaut TAT</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TAT_valeur_palier1__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 1 TAT</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TAT_valeur_palier2__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 2 TAT</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TAT_valeur_palier3__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 3 TAT</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>TAT_valeur_palier4__c</fullName>
+        <externalId>false</externalId>
+        <label>Valeur palier 4 TAT</label>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Hors cible</fullName>
+                    <default>false</default>
+                    <label>Hors cible</label>
+                </value>
+                <value>
+                    <fullName>Cible</fullName>
+                    <default>false</default>
+                    <label>Cible</label>
+                </value>
+                <value>
+                    <fullName>Cible principale</fullName>
+                    <default>false</default>
+                    <label>Cible principale</label>
+                </value>
+                <value>
+                    <fullName>Top Cible</fullName>
+                    <default>false</default>
+                    <label>Top Cible</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type_de_compte_associe__c</fullName>
+        <externalId>false</externalId>
+        <label>Type de compte associé</label>
+        <length>20</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Type_de_piste_associee__c</fullName>
+        <externalId>false</externalId>
+        <label>Type de piste associé</label>
+        <length>255</length>
+        <required>false</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <label>Code NAF 2</label>
+    <nameField>
+        <label>Code</label>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Codes NAF 2</pluralLabel>
+    <searchLayouts>
+        <customTabListAdditionalFields>Libelle_NAF_2__c</customTabListAdditionalFields>
+        <lookupDialogsAdditionalFields>Libelle_NAF_2__c</lookupDialogsAdditionalFields>
+        <lookupPhoneDialogsAdditionalFields>Libelle_NAF_2__c</lookupPhoneDialogsAdditionalFields>
+        <searchFilterFields>Libelle_NAF_2__c</searchFilterFields>
+        <searchFilterFields>NAME</searchFilterFields>
+        <searchResultsAdditionalFields>Libelle_NAF_2__c</searchResultsAdditionalFields>
+    </searchLayouts>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

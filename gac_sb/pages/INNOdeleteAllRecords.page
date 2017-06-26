@@ -1,0 +1,6 @@
+<apex:page controller="INNOmissionBaseCtrl" action="{!deleteAllRecords}">
+	<!-- 
+	Cette page sert uniquement au lien "supprimer tout" sur les pages de liste
+	On a fait une page plutot qu'un commandButton car les pages de liste sont en readOnly donc les DML ne sont pas autorisées
+	 -->
+</apex:page>

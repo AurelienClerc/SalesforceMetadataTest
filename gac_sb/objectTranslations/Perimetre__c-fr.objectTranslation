@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Périmètre d&apos;action</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Périmètres d&apos;action</value>
+    </caseValues>
+    <fields>
+        <label><!-- Compte --></label>
+        <name>Compte__c</name>
+        <relationshipLabel><!-- Périmètres d&apos;action --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Nom de l&apos;établissement à inclure dans le périmètre --></help>
+        <label><!-- Etablissement secondaire --></label>
+        <name>Etablissement__c</name>
+        <relationshipLabel><!-- Opportunités Associées --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Nom de l&apos;opportunité comprise dans le périmètre --></help>
+        <label><!-- Opportunité --></label>
+        <name>Opportunite__c</name>
+        <relationshipLabel><!-- Établissements concernés --></relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Présentation Périmètre d&apos;action</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <webLinks>
+        <label><!-- Nouveau_p_rim_tre_d_action --></label>
+        <name>Nouveau_p_rim_tre_d_action</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Sociedad par auditar</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sociedades par auditar</value>
+    </caseValues>
+    <fields>
+        <label>Concernido por la misión</label>
+        <name>Concerne_par_la_mission__c</name>
+    </fields>
+    <fields>
+        <label>Contacto de facturación</label>
+        <name>Contact_a_facturer__c</name>
+        <relationshipLabel>Incluido en el perimetro de los contratos (contacto)</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Contrato</label>
+        <name>Contract__c</name>
+        <relationshipLabel>Filiales atañadas</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Sociedad en el perimetro</label>
+        <name>Societe_a_auditer__c</name>
+        <relationshipLabel>Incluido en el perimetro de los contratos</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Estatus del contrato</label>
+        <name>Statut_du_contrat__c</name>
+    </fields>
+    <fields>
+        <label>Follow-up</label>
+        <name>Suivi_du_dossier__c</name>
+        <relationshipLabel>Sociedades par auditar</relationshipLabel>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Société à auditer Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Sociedad par auditar</nameFieldLabel>
+</CustomObjectTranslation>

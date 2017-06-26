@@ -1,0 +1,15 @@
+<apex:page standardController="Mission__c" tabStyle="Mission__c">
+     <chatter:feedWithFollowers entityID="{!Mission__c.ID}"/>
+    <br /><br />
+    
+    <apex:detail subject="{!Mission__c.Id}" rendered="{!Mission__c.RecordType.DeveloperName != 'TAT' && Mission__c.RecordType.DeveloperName != 'LDB' && Mission__c.RecordType.DeveloperName != 'CSL' && Mission__c.RecordType.DeveloperName != 'FND'}" inlineEdit="true"/>
+
+    <apex:include pageName="AppATmissionView" rendered="{!Mission__c.RecordType.DeveloperName == 'TAT'}"/>
+    
+    <apex:include pageName="AppLDBMissionView" rendered="{!Mission__c.RecordType.DeveloperName == 'LDB'}"/>
+    
+    <apex:include pageName="AppCSLMissionView" rendered="{!Mission__c.RecordType.DeveloperName == 'CSL'}"/>
+    
+    <apex:include pageName="AppFNDMissionView" rendered="{!Mission__c.RecordType.DeveloperName == 'FND'}"/>
+
+</apex:page>

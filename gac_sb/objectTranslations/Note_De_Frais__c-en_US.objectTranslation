@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Expense</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Expenses</value>
+    </caseValues>
+    <fields>
+        <label><!-- Compte --></label>
+        <name>Compte__c</name>
+        <relationshipLabel><!-- Notes de frais --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Contrat --></label>
+        <name>Contrat__c</name>
+        <relationshipLabel><!-- Notes de frais --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date des frais --></label>
+        <name>Date_Des_Frais__c</name>
+    </fields>
+    <fields>
+        <label><!-- Département --></label>
+        <name>Departement__c</name>
+        <picklistValues>
+            <masterLabel>1 - Ain</masterLabel>
+            <translation><!-- 1 - Ain --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10 - Aube</masterLabel>
+            <translation><!-- 10 - Aube --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11 - Aude</masterLabel>
+            <translation><!-- 11 - Aude --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>12 - Aveyron</masterLabel>
+            <translation><!-- 12 - Aveyron --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>13 - Bouches-du-Rhône</masterLabel>
+            <translation><!-- 13 - Bouches-du-Rhône --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>14 - Calvados</masterLabel>
+            <translation><!-- 14 - Calvados --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>15 - Cantal</masterLabel>
+            <translation><!-- 15 - Cantal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>16 - Charente</masterLabel>
+            <translation><!-- 16 - Charente --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>17 - Charente-Maritime</masterLabel>
+            <translation><!-- 17 - Charente-Maritime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18 - Cher</masterLabel>
+            <translation><!-- 18 - Cher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>19 - Corrèze</masterLabel>
+            <translation><!-- 19 - Corrèze --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 - Aisne</masterLabel>
+            <translation><!-- 2 - Aisne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>21 - Côte-d’Or</masterLabel>
+            <translation><!-- 21 - Côte-d’Or --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>22 - Côtes-du-Nord</masterLabel>
+            <translation><!-- 22 - Côtes-du-Nord --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>23 - Creuse</masterLabel>
+            <translation><!-- 23 - Creuse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24 - Dordogne</masterLabel>
+            <translation><!-- 24 - Dordogne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>25 - Doubs</masterLabel>
+            <translation><!-- 25 - Doubs --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>26 - Drôme</masterLabel>
+            <translation><!-- 26 - Drôme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>27 - Eure</masterLabel>
+            <translation><!-- 27 - Eure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>28 - Eure-et-Loir</masterLabel>
+            <translation><!-- 28 - Eure-et-Loir --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>29 - Finistère</masterLabel>
+            <translation><!-- 29 - Finistère --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2A - Corse-du-sud</masterLabel>
+            <translation><!-- 2A - Corse-du-sud --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2B - Haute-Corse</masterLabel>
+            <translation><!-- 2B - Haute-Corse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 - Allier</masterLabel>
+            <translation><!-- 3 - Allier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 - Gard</masterLabel>
+            <translation><!-- 30 - Gard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31 - Haute-Garonne</masterLabel>
+            <translation><!-- 31 - Haute-Garonne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>32 - Gers</masterLabel>
+            <translation><!-- 32 - Gers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>33 - Gironde</masterLabel>
+            <translation><!-- 33 - Gironde --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>34 - Hérault</masterLabel>
+            <translation><!-- 34 - Hérault --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>35 - Ille-et-Vilaine</masterLabel>
+            <translation><!-- 35 - Ille-et-Vilaine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>36 - Indre</masterLabel>
+            <translation><!-- 36 - Indre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>37 - Indre-et-Loire</masterLabel>
+            <translation><!-- 37 - Indre-et-Loire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>38 - Isère</masterLabel>
+            <translation><!-- 38 - Isère --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>39 - Jura</masterLabel>
+            <translation><!-- 39 - Jura --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 - Alpes-de-Haute-Provence</masterLabel>
+            <translation><!-- 4 - Alpes-de-Haute-Provence --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40 - Landes</masterLabel>
+            <translation><!-- 40 - Landes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>41 - Loir-et-Cher</masterLabel>
+            <translation><!-- 41 - Loir-et-Cher --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>42 - Loire</masterLabel>
+            <translation><!-- 42 - Loire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>43 - Haute-Loire</masterLabel>
+            <translation><!-- 43 - Haute-Loire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>44 - Loire-Atlantique</masterLabel>
+            <translation><!-- 44 - Loire-Atlantique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>45 - Loiret</masterLabel>
+            <translation><!-- 45 - Loiret --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>46 - Lot</masterLabel>
+            <translation><!-- 46 - Lot --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>47 - Lot-et-Garonne</masterLabel>
+            <translation><!-- 47 - Lot-et-Garonne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>48 - Lozère</masterLabel>
+            <translation><!-- 48 - Lozère --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>49 - Maine-et-Loire</masterLabel>
+            <translation><!-- 49 - Maine-et-Loire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 - Hautes-Alpes</masterLabel>
+            <translation><!-- 5 - Hautes-Alpes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50 - Manche</masterLabel>
+            <translation><!-- 50 - Manche --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>51 - Marne</masterLabel>
+            <translation><!-- 51 - Marne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>52 - Haute-Marne</masterLabel>
+            <translation><!-- 52 - Haute-Marne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>53 - Mayenne</masterLabel>
+            <translation><!-- 53 - Mayenne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>54 - Meurthe-et-Moselle</masterLabel>
+            <translation><!-- 54 - Meurthe-et-Moselle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>55 - Meuse</masterLabel>
+            <translation><!-- 55 - Meuse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>56 - Morbihan</masterLabel>
+            <translation><!-- 56 - Morbihan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>57 - Moselle</masterLabel>
+            <translation><!-- 57 - Moselle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>58 - Nièvre</masterLabel>
+            <translation><!-- 58 - Nièvre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>59 - Nord</masterLabel>
+            <translation><!-- 59 - Nord --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6 - Alpes-Maritimes</masterLabel>
+            <translation><!-- 6 - Alpes-Maritimes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60 - Oise</masterLabel>
+            <translation><!-- 60 - Oise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>61 - Orne</masterLabel>
+            <translation><!-- 61 - Orne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>62 - Pas-de-Calais</masterLabel>
+            <translation><!-- 62 - Pas-de-Calais --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>63 - Puy-de-Dôme</masterLabel>
+            <translation><!-- 63 - Puy-de-Dôme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>64 - Pyrénées-Atlantiques</masterLabel>
+            <translation><!-- 64 - Pyrénées-Atlantiques --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>65 - Hautes-Pyrénées</masterLabel>
+            <translation><!-- 65 - Hautes-Pyrénées --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>66 - Pyrénées-Orientales</masterLabel>
+            <translation><!-- 66 - Pyrénées-Orientales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>67 - Bas-Rhin</masterLabel>
+            <translation><!-- 67 - Bas-Rhin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>68 - Haut-Rhin</masterLabel>
+            <translation><!-- 68 - Haut-Rhin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>69 - Rhône</masterLabel>
+            <translation><!-- 69 - Rhône --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7 - Ardèche</masterLabel>
+            <translation><!-- 7 - Ardèche --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70 - Haute-Saône</masterLabel>
+            <translation><!-- 70 - Haute-Saône --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>71 - Saône-et-Loire</masterLabel>
+            <translation><!-- 71 - Saône-et-Loire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>72 - Sarthe</masterLabel>
+            <translation><!-- 72 - Sarthe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>73 - Savoie</masterLabel>
+            <translation><!-- 73 - Savoie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>74 - Haute-Savoie</masterLabel>
+            <translation><!-- 74 - Haute-Savoie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>75 - Paris</masterLabel>
+            <translation><!-- 75 - Paris --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>76 - Seine-Maritime</masterLabel>
+            <translation><!-- 76 - Seine-Maritime --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>77 - Seine-et-Marne</masterLabel>
+            <translation><!-- 77 - Seine-et-Marne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>78 - Yvelines</masterLabel>
+            <translation><!-- 78 - Yvelines --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>79 - Deux-Sèvres</masterLabel>
+            <translation><!-- 79 - Deux-Sèvres --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8 - Ardennes</masterLabel>
+            <translation><!-- 8 - Ardennes --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80 - Somme</masterLabel>
+            <translation><!-- 80 - Somme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>81 - Tarn</masterLabel>
+            <translation><!-- 81 - Tarn --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>82 - Tarn-et-Garonne</masterLabel>
+            <translation><!-- 82 - Tarn-et-Garonne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>83 - Var</masterLabel>
+            <translation><!-- 83 - Var --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>84 - Vaucluse</masterLabel>
+            <translation><!-- 84 - Vaucluse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>85 - Vendée</masterLabel>
+            <translation><!-- 85 - Vendée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>86 - Vienne</masterLabel>
+            <translation><!-- 86 - Vienne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>87 - Haute-Vienne</masterLabel>
+            <translation><!-- 87 - Haute-Vienne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>88 - Vosges</masterLabel>
+            <translation><!-- 88 - Vosges --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>89 - Yonne</masterLabel>
+            <translation><!-- 89 - Yonne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9 - Ariège</masterLabel>
+            <translation><!-- 9 - Ariège --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>90 - Territoire-de-Belfort</masterLabel>
+            <translation><!-- 90 - Territoire-de-Belfort --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>91 - Essonne</masterLabel>
+            <translation><!-- 91 - Essonne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>92 - Hauts-de-Seine</masterLabel>
+            <translation><!-- 92 - Hauts-de-Seine --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>93 - Seine-St-Denis</masterLabel>
+            <translation><!-- 93 - Seine-St-Denis --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>94 - Val-de-Marne</masterLabel>
+            <translation><!-- 94 - Val-de-Marne --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>95 - Val-d’Oise</masterLabel>
+            <translation><!-- 95 - Val-d’Oise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>971 - Guadeloupe</masterLabel>
+            <translation><!-- 971 - Guadeloupe --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>972 - Martinique</masterLabel>
+            <translation><!-- 972 - Martinique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>973 - Guyane</masterLabel>
+            <translation><!-- 973 - Guyane --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>974 - Réunion</masterLabel>
+            <translation><!-- 974 - Réunion --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>975 - Saint-Pierre-et-Miquelon</masterLabel>
+            <translation><!-- 975 - Saint-Pierre-et-Miquelon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>976 - Mayotte</masterLabel>
+            <translation><!-- 976 - Mayotte --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>977 - Polynésie française</masterLabel>
+            <translation><!-- 977 - Polynésie française --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>978 - Nouvelle Calédonie</masterLabel>
+            <translation><!-- 978 - Nouvelle Calédonie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>979 - Wallis et Futura</masterLabel>
+            <translation><!-- 979 - Wallis et Futura --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- help description --></help>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Evenement Id --></label>
+        <name>Evenement_Id__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mission CIR --></label>
+        <name>Mission_CIR__c</name>
+        <relationshipLabel><!-- Notes de frais --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mission --></label>
+        <name>Mission__c</name>
+        <relationshipLabel><!-- Notes de frais --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Nombre de déjeuners --></label>
+        <name>Nombre_De_Dejeuners__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de dépenses --></label>
+        <name>Nombre_De_Depenses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Objet attaché (libellé) --></label>
+        <name>Objet_attache_libelle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Objet attaché (type) --></label>
+        <name>Objet_attache_type__c</name>
+    </fields>
+    <fields>
+        <label><!-- Opportunité --></label>
+        <name>Opportunite__c</name>
+        <relationshipLabel><!-- Notes de frais --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Pays --></label>
+        <name>Pays__c</name>
+        <picklistValues>
+            <masterLabel>BR</masterLabel>
+            <translation><!-- BR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FR</masterLabel>
+            <translation><!-- FR --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Récap notes de frais --></label>
+        <name>Recap_Note_De_Frais__c</name>
+        <relationshipLabel><!-- Notes de frais --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Total autres (TVA récupérable) --></label>
+        <name>Total_Autres_HT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total autres (TVA non récupérable) --></label>
+        <name>Total_Autres_TTC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total avion --></label>
+        <name>Total_Avion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total carburant --></label>
+        <name>Total_Carburant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total déjeuner --></label>
+        <name>Total_Dejeuner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total dîner --></label>
+        <name>Total_Diner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total frais kilométriques --></label>
+        <name>Total_Frais_Kilometrique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total HT --></label>
+        <name>Total_HT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total hotêl (nuitée) --></label>
+        <name>Total_Hotel_Nuitee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Invitation client --></label>
+        <name>Total_Invitation_client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total location véhicule --></label>
+        <name>Total_Location_Vehicule__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Parking, métro, bus --></label>
+        <name>Total_Parking__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total péage --></label>
+        <name>Total_Peage_Parking_Metro_Bus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total petit déjeuner --></label>
+        <name>Total_Petit_Dejeuner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total poste --></label>
+        <name>Total_Poste__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total TTC --></label>
+        <name>Total_TTC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total TVA --></label>
+        <name>Total_TVA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total taxi --></label>
+        <name>Total_Taxi__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total train --></label>
+        <name>Total_Train__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total note de frais --></label>
+        <name>Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- done --></label>
+        <name>done__c</name>
+    </fields>
+    <layouts>
+        <layout>Détail note de frais Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Totaux --></label>
+            <section>Totaux</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Num Expense</nameFieldLabel>
+    <recordTypes>
+        <label><!-- Evènement --></label>
+        <name>Evenement</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Libre --></label>
+        <name>Libre</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- La date des frais est obligatoire --></errorMessage>
+        <name>Date_des_frais_obligatoire_pour_RT_libre</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Il doit y avoir au minimum une dépense --></errorMessage>
+        <name>Une_depense_minimum_obligatoire</name>
+    </validationRules>
+</CustomObjectTranslation>

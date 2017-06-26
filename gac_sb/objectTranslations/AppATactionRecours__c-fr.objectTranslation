@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Action de recours</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Actions de recours</value>
+    </caseValues>
+    <fields>
+        <label><!-- Date --></label>
+        <name>Date__c</name>
+    </fields>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recours --></label>
+        <name>Recours__c</name>
+        <relationshipLabel><!-- Actions de recours --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Uniquement pour le type Renvoi --></help>
+        <label><!-- Renvoyé par : --></label>
+        <name>RenvoyPar__c</name>
+        <picklistValues>
+            <masterLabel>GAC</masterLabel>
+            <translation><!-- GAC --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Partie adverse</masterLabel>
+            <translation><!-- Partie adverse --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Type d&apos;action --></label>
+        <name>TypeAction__c</name>
+        <picklistValues>
+            <masterLabel>Autres</masterLabel>
+            <translation><!-- Autres --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Renvoi</masterLabel>
+            <translation><!-- Renvoi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Réception/Envoi conclusions</masterLabel>
+            <translation><!-- Réception/Envoi conclusions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Réception/Envoi conclusions en répliques</masterLabel>
+            <translation><!-- Réception/Envoi conclusions en répliques --></translation>
+        </picklistValues>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Action de recours</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

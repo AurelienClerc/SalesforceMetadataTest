@@ -1,0 +1,257 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>InDevelopment</deploymentStatus>
+    <description>APPLICATION CIR - Permet de suivre les temps passés par les consultants par mission CIR et par étape</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Date__c</fullName>
+        <externalId>false</externalId>
+        <label>Date</label>
+        <required>true</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Duree__c</fullName>
+        <description>La durée passé en jour (compris entre 0 et 1):
+1 = toute la journée
+0.5 = une demi-journée</description>
+        <externalId>false</externalId>
+        <label>Durée</label>
+        <precision>3</precision>
+        <required>true</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Hors_phase_Audit__c</fullName>
+        <externalId>false</externalId>
+        <formula>Date__c &lt; Mission_CIR__r.Date_debut_Audit__c || Date__c &gt; Mission_CIR__r.Date_echeance_validation_perimetre__c</formula>
+        <label>Hors phase - Audit</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Hors_phase_Justification__c</fullName>
+        <externalId>false</externalId>
+        <formula>Date__c &lt; Mission_CIR__r.Date_debut_justification__c || Date__c &gt; Mission_CIR__r.Date_echeance_DT__c</formula>
+        <label>Hors phase - Justification</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Hors_phase_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <formula>Date__c &lt; Mission_CIR__r.Date_debut_valorisation__c || Date__c &gt; Mission_CIR__r.Date_echeance_CERFA__c</formula>
+        <label>Hors phase - Valorisation</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Mission_CIR__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Mission CIR</label>
+        <referenceTo>AppCIRmission__c</referenceTo>
+        <relationshipName>TimeSheets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Passee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Passée</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Phase__c</fullName>
+        <externalId>false</externalId>
+        <label>Phase</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Audit</fullName>
+                    <default>false</default>
+                    <label>Audit</label>
+                </value>
+                <value>
+                    <fullName>Valorisation</fullName>
+                    <default>false</default>
+                    <label>Valorisation</label>
+                </value>
+                <value>
+                    <fullName>Justification</fullName>
+                    <default>false</default>
+                    <label>Justification</label>
+                </value>
+                <value>
+                    <fullName>Contrôle</fullName>
+                    <default>false</default>
+                    <label>Contrôle</label>
+                </value>
+                <value>
+                    <fullName>Formation</fullName>
+                    <default>false</default>
+                    <label>Formation</label>
+                </value>
+                <value>
+                    <fullName>Administratif</fullName>
+                    <default>false</default>
+                    <label>Administratif</label>
+                </value>
+                <value>
+                    <fullName>Disponibilité</fullName>
+                    <default>false</default>
+                    <label>Disponibilité</label>
+                </value>
+                <value>
+                    <fullName>Avant-Vente / AO</fullName>
+                    <default>false</default>
+                    <label>Avant-Vente / AO</label>
+                </value>
+                <value>
+                    <fullName>CP</fullName>
+                    <default>false</default>
+                    <label>CP</label>
+                </value>
+                <value>
+                    <fullName>AS/DI</fullName>
+                    <default>false</default>
+                    <label>AS/DI</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Phase_technique__c</fullName>
+        <externalId>false</externalId>
+        <formula>SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(SUBSTITUTE(TEXT(Phase__c), &apos;Avant-Vente / AO&apos;, &apos;AvantVenteAO&apos;), &apos;Disponibilité&apos;, &apos;Disponibilite&apos;), &apos;Contrôle&apos;, &apos;Controle&apos;), &apos;AS/DI&apos;, &apos;ASDI&apos;)</formula>
+        <label>Phase technique</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Semaine__c</fullName>
+        <description>Rempli par Workflow</description>
+        <externalId>false</externalId>
+        <label>Semaine</label>
+        <length>3</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Theorique__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Théorique</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Utilisateur__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Utilisateur</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>TimeSheets</relationshipName>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <gender>Feminine</gender>
+    <label>[OLD] TimeSheet CIR</label>
+    <nameField>
+        <displayFormat>TS-{000000000}</displayFormat>
+        <label>Nom de la TimeSheet CIR</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>[OLD] TimeSheets CIR</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <validationRules>
+        <fullName>Duree_entre_0_et_1</fullName>
+        <active>true</active>
+        <description>La durée de la TimeSheet doit être comprise entre 0 et 1</description>
+        <errorConditionFormula>Duree__c &lt; 0 || Duree__c &gt; 1</errorConditionFormula>
+        <errorDisplayField>Duree__c</errorDisplayField>
+        <errorMessage>La durée de la TimeSheet doit être comprise entre 0 et 1</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,63 @@
+<apex:page standardController="Note_De_Frais_Recap__c" tabStyle="Note_De_Frais__c">
+<apex:includeScript value="{!URLFOR($Resource.jQuery, 'jquery.min.js')}"/>
+<apex:styleSheet value="{!URLFOR($Resource.jQuery, 'css/AppCIR/jquery-ui-1.8.23.custom.css')}"/>
+<style>
+    .tempDetail{
+        display: none;
+    }
+</style>
+<script>
+
+    $().ready(function() {
+        
+    });
+    
+    
+</script>
+    <apex:form >
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Traitement_comptabilite__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Periode_label__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Periode__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.OwnerId}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Taxi__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Train__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Petit_Dejeuner__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Dejeuner__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Diner__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Poste__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Peage_Parking_Metro_Bus__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Parking__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Location_Vehicule__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Hotel_Nuitee__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Carburant__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Avion__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Autres_HT__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_autres_TTC__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_Frais_Kilometrique__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_TTC__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_HT__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total_TVA__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Total__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Nombre_De_Dejeuners__c}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Name}"/>
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Etape__c}"/> 
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Date_fin_de_periode__c}"/> 
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Date_de_traitement_comptabilite__c}"/> 
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Date_Debut_De_Periode__c}"/> 
+        <apex:inputHidden value="{!Note_De_Frais_Recap__c.Collaborateur__c}"/>
+    </apex:form>
+    
+     <apex:pageBlock >
+         <chatter:feedWithFollowers entityId="{!Note_De_Frais_Recap__c.Id}" /><br /><br />
+     </apex:pageBlock>
+    
+    <c:AppNDFrecapFull oNDFrecapitulatif="{!Note_De_Frais_Recap__c}" bAppro="true"/>   
+    
+    <apex:outputPanel id="lsProcess">
+        <apex:relatedList list="ProcessSteps" subject="{!Note_De_Frais_Recap__c.Id}"/>
+    </apex:outputPanel>
+    
+
+         
+
+</apex:page>

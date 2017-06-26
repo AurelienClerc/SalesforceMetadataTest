@@ -1,0 +1,3920 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Misión</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Misiones</value>
+    </caseValues>
+    <fields>
+        <help><!-- Cocher la case si le client souhaite utiliser l&apos;application AT Advance. --></help>
+        <label><!-- AT Advance --></label>
+        <name>AT_Advance__c</name>
+        <picklistValues>
+            <masterLabel>Gratuit</masterLabel>
+            <translation><!-- Gratuit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payant</masterLabel>
+            <translation><!-- Payant --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Amount lost --></label>
+        <name>Amount_lost__c</name>
+    </fields>
+    <fields>
+        <help>Años correspondientes con la misión</help>
+        <label>Año</label>
+        <name>Annee_concernee__c</name>
+        <picklistValues>
+            <masterLabel>2006</masterLabel>
+            <translation><!-- 2006 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2007</masterLabel>
+            <translation><!-- 2007 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2008</masterLabel>
+            <translation><!-- 2008 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2009</masterLabel>
+            <translation><!-- 2009 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2010</masterLabel>
+            <translation><!-- 2010 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2011</masterLabel>
+            <translation><!-- 2011 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2012</masterLabel>
+            <translation><!-- 2012 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2013</masterLabel>
+            <translation><!-- 2013 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2014</masterLabel>
+            <translation><!-- 2014 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2015</masterLabel>
+            <translation><!-- 2015 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2016</masterLabel>
+            <translation><!-- 2016 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2017</masterLabel>
+            <translation><!-- 2017 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2018</masterLabel>
+            <translation><!-- 2018 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2019</masterLabel>
+            <translation><!-- 2019 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2020</masterLabel>
+            <translation><!-- 2020 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FINEP</masterLabel>
+            <translation><!-- FINEP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outros</masterLabel>
+            <translation><!-- Outros --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Uso da Lei Inovar Auto --></label>
+        <name>ApplicationLoiAutoInnovate__c</name>
+    </fields>
+    <fields>
+        <label><!-- Apporteur d&apos;affaires --></label>
+        <name>Apporteur_d_affaires__c</name>
+    </fields>
+    <fields>
+        <label><!-- Aprovação do MCTI --></label>
+        <name>ApprobationFinale__c</name>
+        <picklistValues>
+            <masterLabel>Não</masterLabel>
+            <translation><!-- Não --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendente</masterLabel>
+            <translation><!-- Pendente --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sim</masterLabel>
+            <translation><!-- Sim --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Apoio técnico tercerializado --></label>
+        <name>AppuiTechnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Auditer --></label>
+        <name>Auditer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Outros dispêndios --></label>
+        <name>AutresDepenses__c</name>
+    </fields>
+    <fields>
+        <label><!-- Lucro Líquido do ano --></label>
+        <name>BeneficeNetAnnee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patente de invenção --></label>
+        <name>BrevetInvention__c</name>
+        <picklistValues>
+            <masterLabel>Não</masterLabel>
+            <translation><!-- Não --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sim</masterLabel>
+            <translation><!-- Sim --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Patente de modelo de utilidade --></label>
+        <name>BrevetModel__c</name>
+        <picklistValues>
+            <masterLabel>Não</masterLabel>
+            <translation><!-- Não --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sim</masterLabel>
+            <translation><!-- Sim --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Presupuesto aceptado</label>
+        <name>Budget_adopt__c</name>
+    </fields>
+    <fields>
+        <help>Oficina de Contratos</help>
+        <label>Oficina</label>
+        <name>Bureau__c</name>
+    </fields>
+    <fields>
+        <help><!-- Somme des planifications de facturation pour l&apos;année 2014 --></help>
+        <label>Volumen de negocios 2014</label>
+        <name>CA_2014__c</name>
+    </fields>
+    <fields>
+        <label>Volumen de negocios 2015</label>
+        <name>CA_2015__c</name>
+    </fields>
+    <fields>
+        <label>Volumen de negocios 2016</label>
+        <name>CA_2016__c</name>
+    </fields>
+    <fields>
+        <label>Importe total</label>
+        <name>CA_Total__c</name>
+    </fields>
+    <fields>
+        <label>Volumen de negocios cobrado</label>
+        <name>CA_encaisse__c</name>
+    </fields>
+    <fields>
+        <label>Volumen de negocios estimado</label>
+        <name>CA_estim_Commercial__c</name>
+    </fields>
+    <fields>
+        <label>Volumen de negocios ajustado</label>
+        <name>CA_estim_Consultant__c</name>
+    </fields>
+    <fields>
+        <help><!-- Chiffre d&apos;affaire déjà facturé --></help>
+        <label>Volumen de negocios facturado</label>
+        <name>CA_facture__c</name>
+    </fields>
+    <fields>
+        <label>Volumen de negocios facturado pendiente</label>
+        <name>CA_facture_en_attente__c</name>
+    </fields>
+    <fields>
+        <help><!-- Chiffre d&apos;affaire à facturer planifié --></help>
+        <label>Pendiente de facturación</label>
+        <name>CA_planifie__c</name>
+    </fields>
+    <fields>
+        <label><!-- C.A HGNF --></label>
+        <name>C_A_HGNF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Calendrier reporting --></label>
+        <name>Calendrier_reporting__c</name>
+        <picklistValues>
+            <masterLabel>Annuel</masterLabel>
+            <translation><!-- Annuel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semestriel</masterLabel>
+            <translation><!-- Semestriel --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Categoria --></label>
+        <name>Categoria__c</name>
+        <picklistValues>
+            <masterLabel>Impostos Direitos</masterLabel>
+            <translation><!-- Impostos Direitos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Impostos Indireitos</masterLabel>
+            <translation><!-- Impostos Indireitos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Previdenciaria</masterLabel>
+            <translation><!-- Previdenciaria --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Certidões negativos --></label>
+        <name>CertificatRegularite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Client O2T --></label>
+        <name>Client_O2T__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fechamento fiscal --></label>
+        <name>Cloture_fiscale__c</name>
+        <picklistValues>
+            <masterLabel>Annual</masterLabel>
+            <translation><!-- Annual --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mensal</masterLabel>
+            <translation><!-- Mensal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trimestral</masterLabel>
+            <translation><!-- Trimestral --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Code Net-E reçu --></label>
+        <name>Code_NetE_recu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário --></label>
+        <name>ComentarioConfecao__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Análise das oportunidades --></label>
+        <name>CommentaireAnalyseProjet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Aprovação --></label>
+        <name>CommentaireApprobation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário  Outros Dispêndios --></label>
+        <name>CommentaireAutreDepense__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário previsão de Lucro --></label>
+        <name>CommentaireBeneficePrevu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário valores se prejuízo --></label>
+        <name>CommentaireBeneficeTotal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Lucro --></label>
+        <name>CommentaireBenefice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Patentes e registros --></label>
+        <name>CommentaireBrevetInvention__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Patente de modelo --></label>
+        <name>CommentaireBrevetModel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário % Dedução --></label>
+        <name>CommentaireDeduction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Fiscalização --></label>
+        <name>CommentaireFiscalite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Material consumo --></label>
+        <name>CommentaireMaterielConsomme__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário se projeto não ativo --></label>
+        <name>CommentaireMissionNonActive__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário perímetro --></label>
+        <name>CommentairePerimetre__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário condições aproveitamento --></label>
+        <name>CommentairePreparation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Previsão de Lucro --></label>
+        <name>CommentairePrevisionBenefice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário RH --></label>
+        <name>CommentaireRH__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário confecção RIT --></label>
+        <name>CommentaireRealisationDossier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Registro de cultivar --></label>
+        <name>CommentaireRegistreCulture__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Reunião de fechamento --></label>
+        <name>CommentaireReunionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário Terceiros --></label>
+        <name>CommentaireTerceiros__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire 1ère entrevue --></label>
+        <name>Commentaire_1_re_entrevue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Comentário --></label>
+        <name>Commentaire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire avis de cot. provincial --></label>
+        <name>Commentaire_avis_de_cot_provincial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire avis de cotisation fédérale --></label>
+        <name>Commentaire_avis_de_cotisation_f_d_rale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire demande d&apos;information RQ --></label>
+        <name>Commentaire_demande_d_information_RQ__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire du mandat --></label>
+        <name>Commentaire_du_mandat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire livraison client --></label>
+        <name>Commentaire_livraison_client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire livraison comptable --></label>
+        <name>Commentaire_livraison_comptable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire production finance --></label>
+        <name>Commentaire_production_finance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire production fiscalité --></label>
+        <name>Commentaire_production_fiscalit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire rédaction technique --></label>
+        <name>Commentaire_r_daction_technique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire vérification --></label>
+        <name>Commentaire_v_rification__c</name>
+    </fields>
+    <fields>
+        <label>Cuentas</label>
+        <name>Compte__c</name>
+        <relationshipLabel>misiónes</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Compte employeur reçu ce mois --></label>
+        <name>Compte_employeur_recu_ce_mois__c</name>
+    </fields>
+    <fields>
+        <label>Condiciones de renovación</label>
+        <name>Cond_renouvellement__c</name>
+        <picklistValues>
+            <masterLabel>Autre</masterLabel>
+            <translation><!-- Autre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Par nouvel accord</masterLabel>
+            <translation>Por nuevo contrato</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tacite</masterLabel>
+            <translation>Tácito</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Written consent</masterLabel>
+            <translation><!-- Written consent --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help><!-- Renseigner les conditions d&apos;utilisation contractuelles avec le client pour l&apos;application AT Advance ou le service Risk Pro Online. --></help>
+        <label><!-- Conditions AT Advance / Risk Pro Online --></label>
+        <name>ConditionsATA_RPO__c</name>
+    </fields>
+    <fields>
+        <label>Condiciones particulares</label>
+        <name>Conditions_particuli_res__c</name>
+    </fields>
+    <fields>
+        <label>Condiciones de facturación</label>
+        <name>Conds_facturation__c</name>
+        <picklistValues>
+            <masterLabel>100% Benefit Reception</masterLabel>
+            <translation><!-- 100% Benefit Reception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100% GAC sending</masterLabel>
+            <translation><!-- 100% GAC sending --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100% NOA reception</masterLabel>
+            <translation><!-- 100% NOA reception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>100% Submission to IRAS</masterLabel>
+            <translation><!-- 100% Submission to IRAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30% S + 70% D + Succès</masterLabel>
+            <translation><!-- 30% S + 70% D + Succès --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50% GAC sending &amp; 50% NOA reception</masterLabel>
+            <translation><!-- 50% GAC sending &amp; 50% NOA reception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50% GAC sending &amp; 50% Submission to IRAS</masterLabel>
+            <translation><!-- 50% GAC sending &amp; 50% Submission to IRAS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50% NOA reception &amp; 50% Benefit Reception</masterLabel>
+            <translation><!-- 50% NOA reception &amp; 50% Benefit Reception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50% S + 50% D + Succès</masterLabel>
+            <translation><!-- 50% S + 50% D + Succès --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>50% au dépôt, le solde à la justification</masterLabel>
+            <translation><!-- 50% au dépôt, le solde à la justification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70% S + 30% D + Succès</masterLabel>
+            <translation><!-- 70% S + 30% D + Succès --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A l&apos;accord</masterLabel>
+            <translation><!-- A l&apos;accord --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A l&apos;avis de crédit/remboursement URSSAF</masterLabel>
+            <translation><!-- A l&apos;avis de crédit/remboursement URSSAF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A l&apos;heure</masterLabel>
+            <translation><!-- A l&apos;heure --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A l’accord avec régularisation MS n-1</masterLabel>
+            <translation><!-- A l’accord avec régularisation MS n-1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A échoir</masterLabel>
+            <translation><!-- A échoir --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A échoir avec régularisation MS n-1</masterLabel>
+            <translation><!-- A échoir avec régularisation MS n-1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Au taux rectifié/simulé</masterLabel>
+            <translation><!-- Au taux rectifié/simulé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autres</masterLabel>
+            <translation>Otros</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Avis de crédit URSSAF</masterLabel>
+            <translation><!-- Avis de crédit URSSAF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dépot COFACE</masterLabel>
+            <translation><!-- Dépot COFACE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dépôt 2069A</masterLabel>
+            <translation><!-- Dépôt 2069A --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forfait</masterLabel>
+            <translation><!-- Forfait --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mixte</masterLabel>
+            <translation><!-- Mixte --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notice Of Assessment</masterLabel>
+            <translation><!-- Notice Of Assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pourcentage</masterLabel>
+            <translation><!-- Pourcentage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Réception des taux AT/MP rectifiés / simulé</masterLabel>
+            <translation><!-- Réception des taux AT/MP rectifiés / simulé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>à la signature du contrat COFACE</masterLabel>
+            <translation><!-- à la signature du contrat COFACE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>à la signature du contrat DI</masterLabel>
+            <translation><!-- à la signature du contrat DI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>à réception accord dégrèvement</masterLabel>
+            <translation><!-- à réception accord dégrèvement --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Condiciones de pago</label>
+        <name>Conds_paiement__c</name>
+        <picklistValues>
+            <masterLabel>15 dias</masterLabel>
+            <translation><!-- 15 dias --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 days from reception</masterLabel>
+            <translation><!-- 30 days from reception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>40% à la livraison du dossier, solde de nos honoraires à la réception de l’avis de cotisation fédéral</masterLabel>
+            <translation><!-- 40% à la livraison du dossier, solde de nos honoraires à la réception de l’avis de cotisation fédéral --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8 jours après réception</masterLabel>
+            <translation><!-- 8 jours après réception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A 30 jours</masterLabel>
+            <translation>30 dias</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A 45 jours</masterLabel>
+            <translation><!-- A 45 jours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A 60 jours</masterLabel>
+            <translation><!-- A 60 jours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A la réception de l’avis de cotisation fédéral ; Sur présentation de facture, payable sur réception</masterLabel>
+            <translation><!-- A la réception de l’avis de cotisation fédéral ; Sur présentation de facture, payable sur réception --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>A réception</masterLabel>
+            <translation>A recepción</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autres</masterLabel>
+            <translation>Otros</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Immediate</masterLabel>
+            <translation><!-- Immediate --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sur présentation de facture, payable net 10 jours</masterLabel>
+            <translation><!-- Sur présentation de facture, payable net 10 jours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sur présentation de facture, payable net 30 jours</masterLabel>
+            <translation><!-- Sur présentation de facture, payable net 30 jours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Upon IRAS approval</masterLabel>
+            <translation><!-- Upon IRAS approval --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Condiciones de remuneración</label>
+        <name>Conds_remuneration__c</name>
+        <picklistValues>
+            <masterLabel>% (success fee)</masterLabel>
+            <translation><!-- % (success fee) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autres</masterLabel>
+            <translation>Otros</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Barème par tranche</masterLabel>
+            <translation><!-- Barème par tranche --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Decreasing percentage</masterLabel>
+            <translation><!-- Decreasing percentage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Flat percentage</masterLabel>
+            <translation><!-- Flat percentage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forfait</masterLabel>
+            <translation><!-- Forfait --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Forfait + Pourcentage</masterLabel>
+            <translation><!-- Forfait + Pourcentage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Increasing percentage</masterLabel>
+            <translation><!-- Increasing percentage --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mix</masterLabel>
+            <translation><!-- Mix --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mix Forfait + % FI client</masterLabel>
+            <translation><!-- Mix Forfait + % FI client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mix Forfait + % FI consortium</masterLabel>
+            <translation><!-- Mix Forfait + % FI consortium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pourcentage</masterLabel>
+            <translation>Porcentaje</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pourcentage de l&apos;optimisation du CIR</masterLabel>
+            <translation><!-- Pourcentage de l&apos;optimisation du CIR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pourcentage des économies réalisées</masterLabel>
+            <translation><!-- Pourcentage des économies réalisées --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pourcentage du CIR</masterLabel>
+            <translation><!-- Pourcentage du CIR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pourcentage du FI du client</masterLabel>
+            <translation><!-- Pourcentage du FI du client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pourcentage du FI du consortium</masterLabel>
+            <translation><!-- Pourcentage du FI du consortium --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pourcentage du remboursement URSSAF</masterLabel>
+            <translation><!-- Pourcentage du remboursement URSSAF --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Contratos</label>
+        <name>Contrat__c</name>
+        <relationshipLabel>misiónes</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Contrato firmado por</label>
+        <name>Contrat_signe_par__c</name>
+        <relationshipLabel>misiónes</relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Fiscalização --></label>
+        <name>ControleFiscal__c</name>
+        <picklistValues>
+            <masterLabel>Não</masterLabel>
+            <translation><!-- Não --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sim - Em andamento</masterLabel>
+            <translation><!-- Sim - Em andamento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sim - Finalizado</masterLabel>
+            <translation><!-- Sim - Finalizado --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Coût de Prod Ext Cslt --></label>
+        <name>Cout_de_Prod_Ext_Cslt__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût de Prod GC --></label>
+        <name>Cout_de_Prod_GC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût de Prod Total --></label>
+        <name>Cout_de_Prod_Total__c</name>
+    </fields>
+    <fields>
+        <label>Créditos</label>
+        <name>Creances__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de previsão envio prévia --></label>
+        <name>DataEnvioPrevia__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de envio ao orgão responsável --></label>
+        <name>Data_de_envio_ao_orgao_responsavel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de validação do cliente --></label>
+        <name>Data_de_validacao_do_cliente__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data controle qualidade dossiê --></label>
+        <name>DateControleDossierComplet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de envio da valorização --></label>
+        <name>DateEnvoiValorise__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data finalização dossiê --></label>
+        <name>DateFinalisationDossier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de finalização da preparação --></label>
+        <name>DateFinalisationPerimtre__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de apresentação ao cliente --></label>
+        <name>DatePresentationClient__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de previsão envio valorização --></label>
+        <name>DatePrevisionEnvoiValorise__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data previsão de finalização do dossiê --></label>
+        <name>DatePrevisionFinalisationDossier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de Elaboração das planilhas de supo --></label>
+        <name>DateRealisationAnnexe__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de finalização --></label>
+        <name>DateRealisationDossier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Reunião de fechamento --></label>
+        <name>DateReunionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de revisão interna do formulario --></label>
+        <name>DateRevisionInterneFormulaire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de validação do cliente do RIT --></label>
+        <name>DateValidationDossierClient__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de envio do formulário --></label>
+        <name>DateValidationInterneDossier__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data de aprovação interna do formulario --></label>
+        <name>DateValidationInterneFormulaire__c</name>
+    </fields>
+    <fields>
+        <label>Fecha 1ra facturación</label>
+        <name>Date_1ere_facturation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date KOM --></label>
+        <name>Date_KOM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date audit diagnostic --></label>
+        <name>Date_audit_diagnostic__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;audit --></label>
+        <name>Date_d_audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date dépôt demande de financement --></label>
+        <name>Date_d_p_t_demande_de_financement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de 1ère entrevue --></label>
+        <name>Date_de_1_re_entrevue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de 1ère formation --></label>
+        <name>Date_de_1ere_formation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de demande d&apos;information RQ --></label>
+        <name>Date_de_demande_d_information_RQ__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de dépôt des préconisations --></label>
+        <name>Date_de_depot_des_preconisations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de factu forfait annuel --></label>
+        <name>Date_de_factu_forfait_annuel__c</name>
+    </fields>
+    <fields>
+        <help><!-- Permet de saisir la Date de fin d’exercice --></help>
+        <label><!-- Date de fin d’exercice --></label>
+        <name>Date_de_fin_d_exercice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de livraison client --></label>
+        <name>Date_de_livraison_client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de livraison comptable --></label>
+        <name>Date_de_livraison_comptable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de production finance --></label>
+        <name>Date_de_production_finance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de production fiscalité --></label>
+        <name>Date_de_production_fiscalit__c</name>
+    </fields>
+    <fields>
+        <help><!-- date de réception avis de cotisation Fédérale --></help>
+        <label><!-- Date de réception avis de cot. fédérale --></label>
+        <name>Date_de_r_ception_avis_de_cot_f_d_rale__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date de réception avis de cotisation provincial --></help>
+        <label><!-- Date de réception avis de cot provincial --></label>
+        <name>Date_de_r_ception_avis_de_cot_provincial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de rédaction technique complétée --></label>
+        <name>Date_de_r_daction_technique_compl_t_e__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de rapport --></label>
+        <name>Date_de_rapport__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de réception docs administration --></label>
+        <name>Date_de_reception_docs_administration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de réception docs client --></label>
+        <name>Date_de_reception_docs_client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de restitution de l&apos;étude planifiée --></label>
+        <name>Date_de_restitution_de_l_etude_planifie__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de restitution de l&apos;étude réelle --></label>
+        <name>Date_de_restitution_de_l_etude_reelle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de signature du client --></label>
+        <name>Date_de_signature_du_client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de vérification --></label>
+        <name>Date_de_v_rification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of IRAS approval - Reply to queries --></label>
+        <name>Date_of_IRAS_approval_Reply_to_queries__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of IRAS approval --></label>
+        <name>Date_of_IRAS_approval__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of reception of IRAS queries --></label>
+        <name>Date_of_reception_of_IRAS_queries__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of rejection --></label>
+        <name>Date_of_rejection__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of sending by GAC to the client --></label>
+        <name>Date_of_sending_by_GAC_to_the_client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date of sending by the client to IRAS --></label>
+        <name>Date_of_sending_by_the_client_to_IRAS__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date présentation du périmètre --></label>
+        <name>Date_pr_sentation_du_p_rim_tre__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date présentation finale --></label>
+        <name>Date_pr_sentation_finale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date réponse organisme financeur --></label>
+        <name>Date_r_ponse_organisme_financeur__c</name>
+    </fields>
+    <fields>
+        <help><!-- Date sending by client to IRAS - Reply to queries --></help>
+        <label><!-- Date sending by client to IRAS - Reply --></label>
+        <name>Date_sending_by_client_to_IRAS_Reply__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date versement aide --></label>
+        <name>Date_versement_aide__c</name>
+    </fields>
+    <fields>
+        <label><!-- Deadline to reply to IRAS queries --></label>
+        <name>Deadline_to_reply_to_IRAS_queries__c</name>
+    </fields>
+    <fields>
+        <label><!-- Délai contrat // 1ere facture --></label>
+        <name>Delai_contrat_1ere_facture__c</name>
+    </fields>
+    <fields>
+        <label><!-- Depreciação accelerada --></label>
+        <name>DepreciationAccelere__c</name>
+    </fields>
+    <fields>
+        <label><!-- Detalhes do projeto --></label>
+        <name>Detalhes_do_projeto__c</name>
+    </fields>
+    <fields>
+        <label><!-- Durée initiale (mois) --></label>
+        <name>Dur_e_initiale_mois__c</name>
+    </fields>
+    <fields>
+        <help><!-- Durée en mois --></help>
+        <label><!-- Durée du projet --></label>
+        <name>Duree_du_projet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective KOM --></label>
+        <name>Effective_KOM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effective end of Mission --></label>
+        <name>Effective_end_of_Mission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Elaboração formulário MCTI --></label>
+        <name>ElaborationFormulaire__c</name>
+        <picklistValues>
+            <masterLabel>Em andamento</masterLabel>
+            <translation><!-- Em andamento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalizado</masterLabel>
+            <translation><!-- Finalizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendente</masterLabel>
+            <translation><!-- Pendente --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- End of accounting year --></label>
+        <name>End_of_accounting_year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prejuizo fiscal --></label>
+        <name>EntrepriseDeficitaire__c</name>
+        <picklistValues>
+            <masterLabel>Não</masterLabel>
+            <translation><!-- Não --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sim</masterLabel>
+            <translation><!-- Sim --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Empresa de pequeno porte --></label>
+        <name>EntrepriseMoyenne__c</name>
+    </fields>
+    <fields>
+        <label><!-- Envio de prévia --></label>
+        <name>EnvioPrevia__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated KOM --></label>
+        <name>Estimated_KOM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Margin % --></label>
+        <name>Estimated_Margin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated Margin % this year --></label>
+        <name>Estimated_Margin_this_year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Estimated end of Mission --></label>
+        <name>Estimated_end_of_Mission__c</name>
+    </fields>
+    <fields>
+        <label>Paso</label>
+        <name>Etape__c</name>
+        <picklistValues>
+            <masterLabel>0 : Contact</masterLabel>
+            <translation><!-- 0 : Contact --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1 : Eligibility and Assessment</masterLabel>
+            <translation><!-- 1 : Eligibility and Assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>1 : Mission Kick-off</masterLabel>
+            <translation><!-- 1 : Mission Kick-off --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>10 : Project reporting</masterLabel>
+            <translation><!-- 10 : Project reporting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11 : Closed</masterLabel>
+            <translation><!-- 11 : Closed --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>11 : No stake</masterLabel>
+            <translation><!-- 11 : No stake --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2 : Preparation of preliminary application form</masterLabel>
+            <translation><!-- 2 : Preparation of preliminary application form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 : Submission of preliminary form</masterLabel>
+            <translation><!-- 3 : Submission of preliminary form --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 : Supporting documents preparation</masterLabel>
+            <translation><!-- 3 : Supporting documents preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>4 : Preparation of the application</masterLabel>
+            <translation><!-- 4 : Preparation of the application --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>5 : Submission of the application</masterLabel>
+            <translation><!-- 5 : Submission of the application --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6 : Officers queries on the application</masterLabel>
+            <translation><!-- 6 : Officers queries on the application --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>7 : Replies to officers</masterLabel>
+            <translation><!-- 7 : Replies to officers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>8 : Approval</masterLabel>
+            <translation><!-- 8 : Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>9 : Rejection</masterLabel>
+            <translation><!-- 9 : Rejection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accord informel du financeur pour la soumission</masterLabel>
+            <translation><!-- Accord informel du financeur pour la soumission --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Admin. documents in preparation</masterLabel>
+            <translation><!-- Admin. documents in preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Admin. documents sent to the client</masterLabel>
+            <translation><!-- Admin. documents sent to the client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analyse</masterLabel>
+            <translation>Análisis</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analyse effectuée</masterLabel>
+            <translation><!-- Analyse effectuée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Analyse à effectuer</masterLabel>
+            <translation><!-- Analyse à effectuer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audit</masterLabel>
+            <translation>Auditoría</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audit in progress</masterLabel>
+            <translation><!-- Audit in progress --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bloqué</masterLabel>
+            <translation>Bloqueado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Collecte documents</masterLabel>
+            <translation>Auditoria realizado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Compte-rendu d’audit</masterLabel>
+            <translation><!-- Compte-rendu d’audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cour d’appel</masterLabel>
+            <translation><!-- Cour d’appel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Devis de programme finalisé</masterLabel>
+            <translation><!-- Devis de programme finalisé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Documentation admin réunie</masterLabel>
+            <translation><!-- Documentation admin réunie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dossier à zéro</masterLabel>
+            <translation>Etapa a 0</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Décision prononcée</masterLabel>
+            <translation><!-- Décision prononcée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dégrèvement obtenu</masterLabel>
+            <translation><!-- Dégrèvement obtenu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dépôt de réclamation</masterLabel>
+            <translation><!-- Dépôt de réclamation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dépôt formel de la demande</masterLabel>
+            <translation><!-- Dépôt formel de la demande --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En attente cotisation fédérale et/ou provinciale</masterLabel>
+            <translation><!-- En attente cotisation fédérale et/ou provinciale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En cours d&apos;analyse</masterLabel>
+            <translation><!-- En cours d&apos;analyse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Envoi au client</masterLabel>
+            <translation><!-- Envoi au client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Envoi au comptable</masterLabel>
+            <translation><!-- Envoi au comptable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Expertise technique externe en cours</masterLabel>
+            <translation><!-- Expertise technique externe en cours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fin d&apos;instruction par le financeur - Accord de principe du financeur</masterLabel>
+            <translation><!-- Fin d&apos;instruction par le financeur - Accord de principe du financeur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KOM</masterLabel>
+            <translation><!-- KOM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KOM done</masterLabel>
+            <translation><!-- KOM done --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mise en application</masterLabel>
+            <translation><!-- Mise en application --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Non démarrée</masterLabel>
+            <translation>No iniciar</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Notification de l&apos;aide</masterLabel>
+            <translation><!-- Notification de l&apos;aide --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Opposition</masterLabel>
+            <translation><!-- Opposition --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Passage en commission/comité d&apos;engagement</masterLabel>
+            <translation><!-- Passage en commission/comité d&apos;engagement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Production finance</masterLabel>
+            <translation><!-- Production finance --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Production fiscalité</masterLabel>
+            <translation><!-- Production fiscalité --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Préparation</masterLabel>
+            <translation>Préparado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Présentation du programme au financeur</masterLabel>
+            <translation><!-- Présentation du programme au financeur --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Présentation entreprise finalisée</masterLabel>
+            <translation><!-- Présentation entreprise finalisée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Présentation programme finalisée</masterLabel>
+            <translation><!-- Présentation programme finalisée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Prévisions financières finalisées</masterLabel>
+            <translation><!-- Prévisions financières finalisées --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rapport remis au client</masterLabel>
+            <translation>Reportar entregado al cliente</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refusée</masterLabel>
+            <translation>Negado</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Reply to IRAS questions in preparation</masterLabel>
+            <translation><!-- Reply to IRAS questions in preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rien à faire</masterLabel>
+            <translation>Nada hacer</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rédaction technique</masterLabel>
+            <translation><!-- Rédaction technique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Réunion de lancement effectuée</masterLabel>
+            <translation><!-- Réunion de lancement effectuée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Saisie du TA</masterLabel>
+            <translation><!-- Saisie du TA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supporting documents in preparation</masterLabel>
+            <translation><!-- Supporting documents in preparation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Supporting documents sent to the client</masterLabel>
+            <translation><!-- Supporting documents sent to the client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminée</masterLabel>
+            <translation>Terminar</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valorisation du chiffre d&apos;affaire</masterLabel>
+            <translation><!-- Valorisation du chiffre d&apos;affaire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Versement de l&apos;aide à l&apos;entreprise</masterLabel>
+            <translation><!-- Versement de l&apos;aide à l&apos;entreprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Vérification</masterLabel>
+            <translation><!-- Vérification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for IRAS Approval</masterLabel>
+            <translation><!-- Waiting for IRAS Approval --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for IRAS Payment</masterLabel>
+            <translation><!-- Waiting for IRAS Payment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for client data</masterLabel>
+            <translation><!-- Waiting for client data --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for client review</masterLabel>
+            <translation><!-- Waiting for client review --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Waiting for client submission</masterLabel>
+            <translation><!-- Waiting for client submission --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Ext_ID_CA --></label>
+        <name>Ext_ID_CA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fees Base --></label>
+        <name>Fees_Base__c</name>
+    </fields>
+    <fields>
+        <label><!-- Filiale concernée --></label>
+        <name>Filiale_concernee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Formulário A3 --></label>
+        <name>FormaulaireA3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Formulário A2 --></label>
+        <name>FormulaireA2__c</name>
+        <picklistValues>
+            <masterLabel>Em andamento</masterLabel>
+            <translation><!-- Em andamento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalizado</masterLabel>
+            <translation><!-- Finalizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendente</masterLabel>
+            <translation><!-- Pendente --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Formulário B5 --></label>
+        <name>FormulaireB5__c</name>
+        <picklistValues>
+            <masterLabel>Em elaboração</masterLabel>
+            <translation><!-- Em elaboração --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalizado</masterLabel>
+            <translation><!-- Finalizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendente</masterLabel>
+            <translation><!-- Pendente --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Questões MCTI avaliação Form --></label>
+        <name>FormulaireEvaluation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fréquence meetings consortium --></label>
+        <name>Fr_quence_meetings_consortium__c</name>
+        <picklistValues>
+            <masterLabel>Annuelle</masterLabel>
+            <translation><!-- Annuelle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Semestrielle</masterLabel>
+            <translation><!-- Semestrielle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Trimestrielle</masterLabel>
+            <translation><!-- Trimestrielle --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- GST-registered --></label>
+        <name>GST_registered__c</name>
+    </fields>
+    <fields>
+        <label><!-- Gerente de projetos --></label>
+        <name>Gerente_de_projetos__c</name>
+        <picklistValues>
+            <masterLabel>Adriano Araujo</masterLabel>
+            <translation><!-- Adriano Araujo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Ana Paula Keller</masterLabel>
+            <translation><!-- Ana Paula Keller --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>André Roncolato</masterLabel>
+            <translation><!-- André Roncolato --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Antoine Humbert</masterLabel>
+            <translation><!-- Antoine Humbert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Bruno Oliveira</masterLabel>
+            <translation><!-- Bruno Oliveira --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Camila Donizette</masterLabel>
+            <translation><!-- Camila Donizette --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Coro Lasheras</masterLabel>
+            <translation><!-- Coro Lasheras --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Debora Beraldo</masterLabel>
+            <translation><!-- Debora Beraldo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Eduardo Yamaguchi</masterLabel>
+            <translation><!-- Eduardo Yamaguchi --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Edwin Lima</masterLabel>
+            <translation><!-- Edwin Lima --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- IPI sobre material importado --></label>
+        <name>IPIMaterielImporte__c</name>
+    </fields>
+    <fields>
+        <label><!-- IPI sobre material nacional --></label>
+        <name>IPIMaterielNational__c</name>
+    </fields>
+    <fields>
+        <label><!-- IT Development --></label>
+        <name>IT_Development__c</name>
+    </fields>
+    <fields>
+        <label><!-- Information Bonus --></label>
+        <name>Information_Bonus__c</name>
+    </fields>
+    <fields>
+        <label>Informaciones generales</label>
+        <name>Information_Redevance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Investissement --></label>
+        <name>Investissement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Material de consumo --></label>
+        <name>MatierePremiere__c</name>
+    </fields>
+    <fields>
+        <label><!-- Micro Empresa --></label>
+        <name>MicroEntreprise__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mission N-1 --></label>
+        <name>Mission_N_1__c</name>
+        <relationshipLabel><!-- Missions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mission Principale SGP --></label>
+        <lookupFilter>
+            <errorMessage><!-- You can&apos;t select a different Mission as SGP --></errorMessage>
+        </lookupFilter>
+        <name>Mission_Principale_SGP__c</name>
+        <relationshipLabel><!-- Missions (Mission Principale SGP) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Modalité de facturation --></label>
+        <name>Modalit_de_facturation__c</name>
+        <picklistValues>
+            <masterLabel>Au barème</masterLabel>
+            <translation><!-- Au barème --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Au forfait</masterLabel>
+            <translation><!-- Au forfait --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Montant Bonus --></label>
+        <name>Montant_Bonus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant Bonus payé --></label>
+        <name>Montant_Bonus_paye__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant restant à payer --></label>
+        <name>Montant_a_restant_payer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant crédit Provincial --></label>
+        <name>Montant_credit_Provincial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant crédit fédéral --></label>
+        <name>Montant_credit_federal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant de la redevance --></label>
+        <name>Montant_de_la_redevance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant demandé initial Fédéral --></label>
+        <name>Montant_demande_initial_federal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant demandé initial Provincial --></label>
+        <name>Montant_demande_initial_provincial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant du bonus restant à payer --></label>
+        <name>Montant_du_bonus_restant_a_payer__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant forfait --></label>
+        <name>Montant_forfait__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant payé --></label>
+        <name>Montant_paye__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant payé au scientifique --></label>
+        <name>Montant_paye_au_scientifique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant restant à payer au scientifique --></label>
+        <name>Montant_restant_a_payer_au_scientifique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montante economizado --></label>
+        <name>Montante_economizado__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montante pedido --></label>
+        <name>Montante_pedido__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montante recebido --></label>
+        <name>Montante_recebido__c</name>
+    </fields>
+    <fields>
+        <label><!-- Senha MCTI --></label>
+        <name>Mots_de_passe_MCTI__c</name>
+    </fields>
+    <fields>
+        <label>N° Misión</label>
+        <name>N_Mission__c</name>
+    </fields>
+    <fields>
+        <label><!-- N° Mission (forcé) --></label>
+        <name>N_Mission_force__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas efectivas apoio RH --></label>
+        <name>N_mero_de_horas_efectivas_apoio_RH__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas efectivas apoio contábil --></label>
+        <name>N_mero_de_horas_efectivas_apoio_cont_bil__c</name>
+    </fields>
+    <fields>
+        <help><!-- Nombre d&apos;heures réelles de traitement de la mission saisies par un/des consultant(s). --></help>
+        <label><!-- Número de horas efectivas consultor --></label>
+        <name>N_mero_de_horas_efectivas_consultor__c</name>
+    </fields>
+    <fields>
+        <label>Cantitad facturas</label>
+        <name>Nb_factures__c</name>
+    </fields>
+    <fields>
+        <label>Cantitad facturas validadas</label>
+        <name>Nb_factures_factures_validees__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nb of days forecasted --></label>
+        <name>Nb_of_days_forecasted__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nb of days spent --></label>
+        <name>Nb_of_days_spent__c</name>
+    </fields>
+    <fields>
+        <label>Cantitad planificaciones</label>
+        <name>Nb_planifications__c</name>
+    </fields>
+    <fields>
+        <label>Cantitad planificaciones validadas</label>
+        <name>Nb_planifications_facturees__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indiquer ici si le dépôt du projet se fait en une ou deux étapes. --></help>
+        <label><!-- Nb étapes du projet --></label>
+        <name>Nb_tapes_du_projet__c</name>
+        <picklistValues>
+            <masterLabel>1</masterLabel>
+            <translation><!-- 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2</masterLabel>
+            <translation><!-- 2 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Pós-Graduados N° de Pessoas com Exclusiv --></label>
+        <name>NombreDiplomesTempsExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Graduados N° de Pessoas com Parcial --></label>
+        <name>NombreDiplomesTempsPartiel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas P&amp;D --></label>
+        <name>NombreHeureRAD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de linhas de pesquisa --></label>
+        <name>NombreLigneRecherche__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mestres N° de Pessoas com Exclusiva --></label>
+        <name>NombreMaitreExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mestres N° de Pessoas com Parcial --></label>
+        <name>NombreMaitrePartiel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Doutores N° de Pessoas com Exclusiva --></label>
+        <name>NombreMedecinExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Doutores N°  Parcial --></label>
+        <name>NombreMedecinPartielPersonnne__c</name>
+    </fields>
+    <fields>
+        <label><!-- N° de Pessoas com Dedicação Exclusiva --></label>
+        <name>NombrePersonneExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de pesquisadores contratados --></label>
+        <name>NombrePersonneFullTime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de pessoas parciais --></label>
+        <name>NombrePersonnePartiel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tecnológos N° de Pessoas com Parcial --></label>
+        <name>NombrePersonneTechnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Graduados N° de Pessoas com Exclussiva --></label>
+        <name>NombrePostDiplomesExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pós-Graduados N° de Pessoas com Parcial --></label>
+        <name>NombrePostDiplomesTempsPartiel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de projetos --></label>
+        <name>NombreProjet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tecnológos N° de Pessoas com Exclusiva --></label>
+        <name>NombreTechicienExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tecnológos de Nìvel Médico Exclusiva --></label>
+        <name>NombreTechnicoMedicalExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Técnicos de Nível Médio N° Parcial --></label>
+        <name>NombreTechnicoMedical__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número total de pessoas incentivadas --></label>
+        <name>NombreTotalPersonne__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre d&apos;heures estimé fiscaliste --></label>
+        <name>Nombre_d_heures_estime_fiscaliste__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre d’heures estimé scientifique --></label>
+        <name>Nombre_d_heures_estime_scientifique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre d&apos;heures réel fiscaliste --></label>
+        <name>Nombre_d_heures_reel_fiscaliste__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre d&apos;heures réel scientifique --></label>
+        <name>Nombre_d_heures_reel_scientifique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de partenaires --></label>
+        <name>Nombre_de_partenaires__c</name>
+    </fields>
+    <fields>
+        <label>Cantitad misiones</label>
+        <name>Nombre_missions__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas efectivas coordenador --></label>
+        <name>Numero_de_horas_efectivas_coordenador__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas efectivas estagiário --></label>
+        <name>Numero_de_horas_efectivas_estagiario__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas efectivas total --></label>
+        <name>Numero_de_horas_efectivas_total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas estimadas apoio RH --></label>
+        <name>Numero_de_horas_estimadas_apoio_RH__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas estimadas apoio contábil --></label>
+        <name>Numero_de_horas_estimadas_apoio_contabil__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas estimadas consultor --></label>
+        <name>Numero_de_horas_estimadas_consultor__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas estimadas estagiário --></label>
+        <name>Numero_de_horas_estimadas_estagiario__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas estimadas coordenador --></label>
+        <name>Numero_de_horas_estimadas_manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Número de horas estimadas total --></label>
+        <name>Numero_de_horas_estimadas_total__c</name>
+    </fields>
+    <fields>
+        <help><!-- Preencher o valor se você selecionou &quot;Inova Talentos&quot; no campo &quot;Tipo Financiamento&quot;. --></help>
+        <label><!-- Número de pesquisadores atribuidos --></label>
+        <name>Numero_de_pesquisadores_atribuidos__c</name>
+    </fields>
+    <fields>
+        <help><!-- Preencher o valor se você selecionou &quot;Inova Talentos&quot; no campo &quot;Tipo Financiamento&quot;. --></help>
+        <label><!-- Número de pesquisadores pedidos --></label>
+        <name>Numero_de_pesquisadores_pedidos__c</name>
+    </fields>
+    <fields>
+        <help><!-- Preencher o valor se você selecionou &quot;Inova Talentos&quot; no campo &quot;Tipo Financiamento&quot;. --></help>
+        <label><!-- Número de projetos analisados --></label>
+        <name>Numero_de_projetos_analisados__c</name>
+    </fields>
+    <fields>
+        <label><!-- Numéro du client --></label>
+        <name>Numero_du_client__c</name>
+    </fields>
+    <fields>
+        <help><!-- Typologie d&apos;offre AS. --></help>
+        <label><!-- Options support --></label>
+        <name>Options_support__c</name>
+        <picklistValues>
+            <masterLabel>+</masterLabel>
+            <translation><!-- + --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>++</masterLabel>
+            <translation><!-- ++ --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Palavra-chave linha de pesquisa --></label>
+        <name>Palavra_chave_linha_de_pesquisa__c</name>
+    </fields>
+    <fields>
+        <label><!-- Patentes --></label>
+        <name>Patente__c</name>
+    </fields>
+    <fields>
+        <help><!-- Nombre de projets dans le périmètre de la mission --></help>
+        <label><!-- Périmètre --></label>
+        <name>Perimetre__c</name>
+    </fields>
+    <fields>
+        <label><!-- Période Facturation forfait --></label>
+        <name>Periode_Fact_forfait__c</name>
+    </fields>
+    <fields>
+        <label><!-- Fase Atual --></label>
+        <name>Phase_Actuelle__c</name>
+        <picklistValues>
+            <masterLabel>Análise das oportunidades</masterLabel>
+            <translation><!-- Análise das oportunidades --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conclusão</masterLabel>
+            <translation><!-- Conclusão --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Fiscalização</masterLabel>
+            <translation><!-- Fiscalização --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>KOM</masterLabel>
+            <translation><!-- KOM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nenhum</masterLabel>
+            <translation><!-- Nenhum --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Preparação</masterLabel>
+            <translation><!-- Preparação --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Polo</label>
+        <name>Pole__c</name>
+    </fields>
+    <fields>
+        <label><!-- % CSLL --></label>
+        <name>PourcentageCSLL__c</name>
+    </fields>
+    <fields>
+        <label><!-- % dedução --></label>
+        <name>PourcentageDeduction__c</name>
+        <picklistValues>
+            <masterLabel>60%</masterLabel>
+            <translation><!-- 60% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>70%</masterLabel>
+            <translation><!-- 70% --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>80%</masterLabel>
+            <translation><!-- 80% --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- % IRPJ --></label>
+        <name>PourcentageIRPJ__c</name>
+    </fields>
+    <fields>
+        <label><!-- Préavis de résiliation (mois) --></label>
+        <name>Pr_avis_r_siliation_mois__c</name>
+    </fields>
+    <fields>
+        <label>Préstamo obtenido</label>
+        <name>Pr_t_obtenu__c</name>
+    </fields>
+    <fields>
+        <label>Detalle facturación</label>
+        <name>Precision_facturation__c</name>
+    </fields>
+    <fields>
+        <label>Detalle pago</label>
+        <name>Precision_paiement__c</name>
+    </fields>
+    <fields>
+        <label>Detalle remuneración</label>
+        <name>Precision_remuneration__c</name>
+    </fields>
+    <fields>
+        <label><!-- Previsão de Lucro --></label>
+        <name>PrevisionBenefice__c</name>
+        <picklistValues>
+            <masterLabel>Indefinido</masterLabel>
+            <translation><!-- Indefinido --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Não</masterLabel>
+            <translation><!-- Não --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sim</masterLabel>
+            <translation><!-- Sim --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Data previsão finalização RIT --></label>
+        <name>PrevisionDossierRIT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevision de facturation - Commercial --></label>
+        <name>Prevision_de_facturation_Commercial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevision de facturation - Analyse --></label>
+        <name>Prevision_de_facturation_analyse__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevision de facturation - Kick off --></label>
+        <name>Prevision_de_facturation_kickoff__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevision de facturation - Preparation --></label>
+        <name>Prevision_de_facturation_preparation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevision d&apos;investissement - Analyse --></label>
+        <name>Prevision_investissement_analyse__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevision d&apos;investissement - Commercial --></label>
+        <name>Prevision_investissement_commercial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevision d&apos;investissement - Kick off --></label>
+        <name>Prevision_investissement_kickoff__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prevision d&apos;investissement - Preparation --></label>
+        <name>Prevision_investissement_preparation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Procuration (date début) --></label>
+        <name>Procuration_date_d_but__c</name>
+    </fields>
+    <fields>
+        <label><!-- Procuration (date envoyée) --></label>
+        <name>Procuration_date_envoyee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Programa de PD&amp;I --></label>
+        <name>ProgrammeRechercheDeveloppement__c</name>
+        <relationshipLabel><!-- Missions --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Quarter --></label>
+        <name>Quarter__c</name>
+        <picklistValues>
+            <masterLabel>Q1</masterLabel>
+            <translation><!-- Q1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Q2</masterLabel>
+            <translation><!-- Q2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Q3</masterLabel>
+            <translation><!-- Q3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Q4</masterLabel>
+            <translation><!-- Q4 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- R&amp;D --></label>
+        <name>R_D__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rémunération future --></label>
+        <name>R_mun_ration_future__c</name>
+        <picklistValues>
+            <masterLabel>12 mois</masterLabel>
+            <translation>12 Mes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>18 mois</masterLabel>
+            <translation>18 Mes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>24 mois</masterLabel>
+            <translation>24 Mes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>3 année par CE</masterLabel>
+            <translation><!-- 3 année par CE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>36 mois</masterLabel>
+            <translation>36 Mes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>48 mois</masterLabel>
+            <translation>48 Mes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>6 mois</masterLabel>
+            <translation>6 Mes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>60 mois</masterLabel>
+            <translation>60 Mes</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N+1</masterLabel>
+            <translation><!-- N+1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N+2</masterLabel>
+            <translation><!-- N+2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N+3</masterLabel>
+            <translation><!-- N+3 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N+4</masterLabel>
+            <translation><!-- N+4 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>N+5</masterLabel>
+            <translation><!-- N+5 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>NA</masterLabel>
+            <translation><!-- NA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Toutes les années</masterLabel>
+            <translation>Todos los años</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Résultat --></label>
+        <name>R_sultat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Real Margin % --></label>
+        <name>Real_Margin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Real Margin % this year --></label>
+        <name>Real_Margin_this_year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Confecção RIT --></label>
+        <name>RealisationDosssier__c</name>
+        <picklistValues>
+            <masterLabel>Em andamento</masterLabel>
+            <translation><!-- Em andamento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalizado</masterLabel>
+            <translation><!-- Finalizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendente</masterLabel>
+            <translation><!-- Pendente --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recepção NFs --></label>
+        <name>ReceptionCopieFacture__c</name>
+        <picklistValues>
+            <masterLabel>Em andamento</masterLabel>
+            <translation><!-- Em andamento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalizado</masterLabel>
+            <translation><!-- Finalizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendente</masterLabel>
+            <translation><!-- Pendente --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recepção dados RH --></label>
+        <name>ReceptionDonneesRH__c</name>
+        <picklistValues>
+            <masterLabel>Em andamento</masterLabel>
+            <translation><!-- Em andamento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalizado</masterLabel>
+            <translation><!-- Finalizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendente</masterLabel>
+            <translation><!-- Pendente --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recepção evidências projetos --></label>
+        <name>ReceptionInfoTechnique__c</name>
+        <picklistValues>
+            <masterLabel>Em andamento</masterLabel>
+            <translation><!-- Em andamento --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalizado</masterLabel>
+            <translation><!-- Finalizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendente</masterLabel>
+            <translation><!-- Pendente --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Recepção horas --></label>
+        <name>ReceptionSuiviTemps__c</name>
+        <picklistValues>
+            <masterLabel>Em andemanto</masterLabel>
+            <translation><!-- Em andemanto --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Finalizado</masterLabel>
+            <translation><!-- Finalizado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pendente</masterLabel>
+            <translation><!-- Pendente --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Glosa --></label>
+        <name>RedressementFiscal__c</name>
+        <picklistValues>
+            <masterLabel>Não</masterLabel>
+            <translation><!-- Não --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sim</masterLabel>
+            <translation><!-- Sim --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Redução a zero da alíquota do IR --></label>
+        <name>Reduction__c</name>
+    </fields>
+    <fields>
+        <label><!-- Registro de cultivar --></label>
+        <name>RegistreCulture__c</name>
+        <picklistValues>
+            <masterLabel>Não</masterLabel>
+            <translation><!-- Não --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Sim</masterLabel>
+            <translation><!-- Sim --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Rejection reason --></label>
+        <name>Rejection_reason__c</name>
+        <picklistValues>
+            <masterLabel>Administrative eligibility issues</masterLabel>
+            <translation><!-- Administrative eligibility issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Client issues</masterLabel>
+            <translation><!-- Client issues --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Items rejected (PIC)</masterLabel>
+            <translation><!-- Items rejected (PIC) --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Others</masterLabel>
+            <translation><!-- Others --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project rejected (No R&amp;D) after full assessment</masterLabel>
+            <translation><!-- Project rejected (No R&amp;D) after full assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Project rejected (No R&amp;D) after preliminary assessment</masterLabel>
+            <translation><!-- Project rejected (No R&amp;D) after preliminary assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R&amp;D projects rejected after full assessment</masterLabel>
+            <translation><!-- R&amp;D projects rejected after full assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>R&amp;D projects rejected after preliminary assessment</masterLabel>
+            <translation><!-- R&amp;D projects rejected after preliminary assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical eligibility issues</masterLabel>
+            <translation><!-- Technical eligibility issues --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Rentabilité --></label>
+        <name>Rentabilite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Responsabe rédaction technique --></label>
+        <name>Responsabe_r_daction_technique__c</name>
+        <relationshipLabel><!-- Missions (Responsabe rédaction technique) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Responsable 1ère entrevue --></label>
+        <name>Responsable_1_re_entrevue__c</name>
+        <relationshipLabel><!-- Missions (Responsable 1ère entrevue) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Responsable Vérification --></label>
+        <name>Responsable_V_rification__c</name>
+        <relationshipLabel><!-- Missions (Responsable Vérification) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Responsable avis de cot. provincial --></label>
+        <name>Responsable_avis_de_cot_provincial__c</name>
+        <relationshipLabel><!-- Missions (Responsable avis de cot. provincial) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Responsable avis de cotisation fédérale --></label>
+        <name>Responsable_avis_de_cotisation_f_d_rale__c</name>
+        <relationshipLabel><!-- Missions (Responsable avis de cotisation fédérale) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Responsable de la production finance --></label>
+        <name>Responsable_de_la_production_finance__c</name>
+        <relationshipLabel><!-- Missions (Responsable de la production finance) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Responsable demande d&apos;information RQ --></label>
+        <name>Responsable_demande_d_information_RQ__c</name>
+        <relationshipLabel><!-- Missions (Responsable demande d&apos;information RQ) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Responsable livraison client --></label>
+        <name>Responsable_livraison_client__c</name>
+        <relationshipLabel><!-- Missions (Responsable livraison client) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Responsable livraison comptable --></label>
+        <name>Responsable_livraison_comptable__c</name>
+        <relationshipLabel><!-- Missions (Responsable livraison comptable) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Responsable production fiscalité --></label>
+        <name>Responsable_production_fiscalit__c</name>
+        <relationshipLabel><!-- Missions (Responsable production fiscalité) --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Cocher la case si le client souhaite utiliser le service Risk Pro Online. --></help>
+        <label><!-- Risk Pro Online --></label>
+        <name>Risk_Pro_Online__c</name>
+    </fields>
+    <fields>
+        <label><!-- Scientifique --></label>
+        <name>Scientifique__c</name>
+        <picklistValues>
+            <masterLabel>Asmaa Omary</masterLabel>
+            <translation><!-- Asmaa Omary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Claude Girard</masterLabel>
+            <translation><!-- Claude Girard --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>François Lafortune</masterLabel>
+            <translation><!-- François Lafortune --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gaétan Demers</masterLabel>
+            <translation><!-- Gaétan Demers --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>James Féthière</masterLabel>
+            <translation><!-- James Féthière --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Luc Poulin</masterLabel>
+            <translation><!-- Luc Poulin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marc Lacroix</masterLabel>
+            <translation><!-- Marc Lacroix --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paul Rochon</masterLabel>
+            <translation><!-- Paul Rochon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Philippe Fortier</masterLabel>
+            <translation><!-- Philippe Fortier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Seddik Si Moussa</masterLabel>
+            <translation><!-- Seddik Si Moussa --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Éric Pelletier</masterLabel>
+            <translation><!-- Éric Pelletier --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Servicio</label>
+        <name>Service__c</name>
+        <picklistValues>
+            <masterLabel>Bonifaciones SS</masterLabel>
+            <translation><!-- Bonifaciones SS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Business coaching</masterLabel>
+            <translation><!-- Business coaching --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Consulting</masterLabel>
+            <translation><!-- Consulting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Deducciones</masterLabel>
+            <translation><!-- Deducciones --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>European projects</masterLabel>
+            <translation><!-- European projects --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>I+D Nacional</masterLabel>
+            <translation><!-- I+D Nacional --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Patent Box</masterLabel>
+            <translation><!-- Patent Box --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Romania</masterLabel>
+            <translation><!-- Romania --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Situação do projeto --></label>
+        <name>Situation_de_la_mission__c</name>
+        <picklistValues>
+            <masterLabel>Ativo</masterLabel>
+            <translation><!-- Ativo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Encerrado</masterLabel>
+            <translation><!-- Encerrado --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Não Ativo</masterLabel>
+            <translation><!-- Não Ativo --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Statut déploiement AT Advance --></label>
+        <name>Statut_deploi_AT_Advance__c</name>
+        <picklistValues>
+            <masterLabel>Convention signée reçue / Déploiement à effectuer</masterLabel>
+            <translation><!-- Convention signée reçue / Déploiement à effectuer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Déploiement terminé / Identifiants transmis au client</masterLabel>
+            <translation><!-- Déploiement terminé / Identifiants transmis au client --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En attente de la convention signée</masterLabel>
+            <translation><!-- En attente de la convention signée --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Filial --></label>
+        <name>Subsidiaria_no_ambito_do_contrato__c</name>
+        <relationshipLabel><!-- Missions (Subsidiária no âmbito do contrato princi) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label>Subvenciòn obtenida</label>
+        <name>Subvention_obtenue__c</name>
+    </fields>
+    <fields>
+        <label><!-- TEC --></label>
+        <name>TEC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux de rémunération --></label>
+        <name>Taux_de_r_mun_ration__c</name>
+    </fields>
+    <fields>
+        <help><!-- Indiquer le nombre de jours estimés sur la mission --></help>
+        <label><!-- Temps passé estimé (en jours) --></label>
+        <name>Temps_pass_estim_en_jours__c</name>
+    </fields>
+    <fields>
+        <label><!-- ZZ OLD Tipo de financiamento --></label>
+        <name>Tipo_de_financiamento__c</name>
+        <picklistValues>
+            <masterLabel>BNDES</masterLabel>
+            <translation><!-- BNDES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INOVACRED</masterLabel>
+            <translation><!-- INOVACRED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INOVACRED Expresso</masterLabel>
+            <translation><!-- INOVACRED Expresso --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inova Talentos</masterLabel>
+            <translation><!-- Inova Talentos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outros</masterLabel>
+            <translation><!-- Outros --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PIPE I</masterLabel>
+            <translation><!-- PIPE I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PIPE II</masterLabel>
+            <translation><!-- PIPE II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Progeren</masterLabel>
+            <translation><!-- Progeren --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Total dos dispêndios em PD&amp;I --></label>
+        <name>TotalDepensesRAD__c</name>
+    </fields>
+    <fields>
+        <label><!-- Graduados Total Valor Gasto --></label>
+        <name>TotalDiplome__c</name>
+    </fields>
+    <fields>
+        <label><!-- Doutores Valor Gasto --></label>
+        <name>TotalDocteur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Facturation potentielle pondérée --></label>
+        <name>TotalFacturationPotentiellePonderee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Facturation potentielle --></label>
+        <name>TotalFacturationPotentielle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Mestres --></label>
+        <name>TotalMaitre__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total pesquisasdores contratados --></label>
+        <name>TotalPersonnePartiel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pessoas Dedicação Parcial Valor Gasto --></label>
+        <name>TotalPersonneTempsPartiel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pós-Graduados Total Valor Gasto --></label>
+        <name>TotalPosDiplome__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Serviço de terceiros --></label>
+        <name>TotalPrestataire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tecnológos Total Valor Gasto --></label>
+        <name>TotalTechnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total pesquisasdores contratados Exclusi --></label>
+        <name>TotalValeurPersonneExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Técnicos de Nível Médio --></label>
+        <name>TotalValeurtechnicoMed__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total consultant estimated cost --></label>
+        <name>Total_consultant_estimated_cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total consultant real cost --></label>
+        <name>Total_consultant_real_cost__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total estimated Cost 2014 --></label>
+        <name>Total_estimated_Cost_2014__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total estimated Cost 2015 --></label>
+        <name>Total_estimated_Cost_2015__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total estimated Cost 2016 --></label>
+        <name>Total_estimated_Cost_2016__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total estimated Margin --></label>
+        <name>Total_estimated_Margin__c</name>
+    </fields>
+    <fields>
+        <help><!-- Total estimated Margin for year &apos;2016 --></help>
+        <label><!-- Total estimated margin this year --></label>
+        <name>Total_estimated_margin_this_year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total real Cost 2016 --></label>
+        <name>Total_real_Cost_2016__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total real Margin --></label>
+        <name>Total_real_Margin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total real margin this year --></label>
+        <name>Total_real_margin_this_year__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total RH --></label>
+        <name>TotaleRH__c</name>
+    </fields>
+    <fields>
+        <label>Ayudas consideradas</label>
+        <name>Type_d_aide_envisagee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type d&apos;année --></label>
+        <name>Type_d_annee__c</name>
+        <picklistValues>
+            <masterLabel>Classique</masterLabel>
+            <translation>Clásico</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Other</masterLabel>
+            <translation><!-- Other --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Rectificative / rétroactive</masterLabel>
+            <translation>Rectificativo</translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label>Tipo de DF</label>
+        <name>Type_de_CIR__c</name>
+    </fields>
+    <fields>
+        <label>Tipo de misiòn</label>
+        <name>Type_de_mission__c</name>
+        <picklistValues>
+            <masterLabel>ACE Startup</masterLabel>
+            <translation><!-- ACE Startup --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ACS AGEFIPH</masterLabel>
+            <translation><!-- ACS AGEFIPH --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ACS Aides &amp; Subventions</masterLabel>
+            <translation><!-- ACS Aides &amp; Subventions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ACS Assistance à CU</masterLabel>
+            <translation><!-- ACS Assistance à CU --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ACS CICE</masterLabel>
+            <translation><!-- ACS CICE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ACS Classique</masterLabel>
+            <translation><!-- ACS Classique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ACS FNAL</masterLabel>
+            <translation><!-- ACS FNAL --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ACS TS</masterLabel>
+            <translation><!-- ACS TS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Dépôt collaboratif</masterLabel>
+            <translation><!-- AS - Dépôt collaboratif --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Dépôt mono-entreprise</masterLabel>
+            <translation><!-- AS - Dépôt mono-entreprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Etude d&apos;opportunité</masterLabel>
+            <translation><!-- AS - Etude d&apos;opportunité --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Management collaboratif</masterLabel>
+            <translation><!-- AS - Management collaboratif --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Management mono-entreprise</masterLabel>
+            <translation><!-- AS - Management mono-entreprise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>AS - Plan de financement</masterLabel>
+            <translation><!-- AS - Plan de financement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Accompagnement global</masterLabel>
+            <translation><!-- Accompagnement global --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Agrément</masterLabel>
+            <translation><!-- Agrément --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Amendment</masterLabel>
+            <translation><!-- Amendment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Assistance technique à contrôle</masterLabel>
+            <translation><!-- Assistance technique à contrôle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audit de l&apos;égibilité</masterLabel>
+            <translation><!-- Audit de l&apos;égibilité --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audit des process AT/MP</masterLabel>
+            <translation><!-- Audit des process AT/MP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Audit méthode CIR</masterLabel>
+            <translation><!-- Audit méthode CIR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Auditoria</masterLabel>
+            <translation><!-- Auditoria --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Autres</masterLabel>
+            <translation>Otros</translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>BNDES</masterLabel>
+            <translation><!-- BNDES --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDAE</masterLabel>
+            <translation><!-- CDAE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDG</masterLabel>
+            <translation><!-- CDG --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDG - Marketing and Branding</masterLabel>
+            <translation><!-- CDG - Marketing and Branding --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CDG - Technology Innovation</masterLabel>
+            <translation><!-- CDG - Technology Innovation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIJV</masterLabel>
+            <translation><!-- CIJV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIMA</masterLabel>
+            <translation><!-- CIMA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIR / CII Classique</masterLabel>
+            <translation><!-- CIR / CII Classique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIR International</masterLabel>
+            <translation><!-- CIR International --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIR classique</masterLabel>
+            <translation><!-- CIR classique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CIR optimisation</masterLabel>
+            <translation><!-- CIR optimisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPO</masterLabel>
+            <translation><!-- CPO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cash Pay Out</masterLabel>
+            <translation><!-- Cash Pay Out --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Classique</masterLabel>
+            <translation><!-- Classique --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Conseil</masterLabel>
+            <translation><!-- Conseil --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Controlling R&amp;D</masterLabel>
+            <translation><!-- Controlling R&amp;D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crédit Impôt Collection</masterLabel>
+            <translation><!-- Crédit Impôt Collection --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Crédit d&apos;Impôt Innovation</masterLabel>
+            <translation><!-- Crédit d&apos;Impôt Innovation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DESIGN</masterLabel>
+            <translation><!-- DESIGN --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DI - Dépôt</masterLabel>
+            <translation><!-- DI - Dépôt --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DI - Liquidation</masterLabel>
+            <translation><!-- DI - Liquidation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>DTD</masterLabel>
+            <translation><!-- DTD --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Dossier justificatif</masterLabel>
+            <translation><!-- Dossier justificatif --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Défense</masterLabel>
+            <translation><!-- Défense --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ED/AO</masterLabel>
+            <translation><!-- ED/AO --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Enhanced tax deductions</masterLabel>
+            <translation><!-- Enhanced tax deductions --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Etudes spécifiques</masterLabel>
+            <translation><!-- Etudes spécifiques --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FSTI</masterLabel>
+            <translation><!-- FSTI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financement développement international</masterLabel>
+            <translation><!-- Financement développement international --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Financement public global</masterLabel>
+            <translation><!-- Financement public global --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Full package</masterLabel>
+            <translation><!-- Full package --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Funding internacional não reembolsável</masterLabel>
+            <translation><!-- Funding internacional não reembolsável --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Funding internacional reembolsável</masterLabel>
+            <translation><!-- Funding internacional reembolsável --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Funding nacional não reembolsável</masterLabel>
+            <translation><!-- Funding nacional não reembolsável --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Funding nacional reembolsável</masterLabel>
+            <translation><!-- Funding nacional reembolsável --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General</masterLabel>
+            <translation><!-- General --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>General PF</masterLabel>
+            <translation><!-- General PF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gestion de l&apos;absentéisme</masterLabel>
+            <translation><!-- Gestion de l&apos;absentéisme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gestion des IJSS</masterLabel>
+            <translation><!-- Gestion des IJSS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gestion du handicap</masterLabel>
+            <translation><!-- Gestion du handicap --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gestion du risque</masterLabel>
+            <translation><!-- Gestion du risque --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gestión</masterLabel>
+            <translation><!-- Gestión --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Gestão de projetos</masterLabel>
+            <translation><!-- Gestão de projetos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IAS 38</masterLabel>
+            <translation><!-- IAS 38 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICT - estudo</masterLabel>
+            <translation><!-- ICT - estudo --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICT - gestaõ</masterLabel>
+            <translation><!-- ICT - gestaõ --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>ICV</masterLabel>
+            <translation><!-- ICV --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IMDA - Customized</masterLabel>
+            <translation><!-- IMDA - Customized --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IMDA - Piloting</masterLabel>
+            <translation><!-- IMDA - Piloting --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IMDA - Scaling up</masterLabel>
+            <translation><!-- IMDA - Scaling up --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>IMDA accreditation</masterLabel>
+            <translation><!-- IMDA accreditation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INOVACRED</masterLabel>
+            <translation><!-- INOVACRED --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>INOVACRED Expresso</masterLabel>
+            <translation><!-- INOVACRED Expresso --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inova Talentos</masterLabel>
+            <translation><!-- Inova Talentos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lei da Informática - PPB</masterLabel>
+            <translation><!-- Lei da Informática - PPB --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lei do Bem</masterLabel>
+            <translation><!-- Lei do Bem --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Loan</masterLabel>
+            <translation><!-- Loan --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>MRA</masterLabel>
+            <translation><!-- MRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marketing de l&apos;innovation</masterLabel>
+            <translation><!-- Marketing de l&apos;innovation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mobilisation de créances et préfinancement</masterLabel>
+            <translation><!-- Mobilisation de créances et préfinancement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>O2T</masterLabel>
+            <translation><!-- O2T --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Oficio MCTI</masterLabel>
+            <translation><!-- Oficio MCTI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Optimisation</masterLabel>
+            <translation><!-- Optimisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Organisation R&amp;D</masterLabel>
+            <translation><!-- Organisation R&amp;D --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Outros incentivos</masterLabel>
+            <translation><!-- Outros incentivos --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PIP</masterLabel>
+            <translation><!-- PIP --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PIPE I</masterLabel>
+            <translation><!-- PIPE I --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>PIPE II</masterLabel>
+            <translation><!-- PIPE II --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pedido de Reconsideração</masterLabel>
+            <translation><!-- Pedido de Reconsideração --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Progeren</masterLabel>
+            <translation><!-- Progeren --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Propriété intellectuelle</masterLabel>
+            <translation><!-- Propriété intellectuelle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>RS&amp;DE</masterLabel>
+            <translation><!-- RS&amp;DE --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Recuperação fiscal</masterLabel>
+            <translation><!-- Recuperação fiscal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Solicitud</masterLabel>
+            <translation><!-- Solicitud --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Statut JEI</masterLabel>
+            <translation><!-- Statut JEI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Structuration démarche internationale</masterLabel>
+            <translation><!-- Structuration démarche internationale --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subventions Fédérales</masterLabel>
+            <translation><!-- Subventions Fédérales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Subventions Provinciales</masterLabel>
+            <translation><!-- Subventions Provinciales --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Suivi et accompagnement opérationnel</masterLabel>
+            <translation><!-- Suivi et accompagnement opérationnel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TECS</masterLabel>
+            <translation><!-- TECS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TOR</masterLabel>
+            <translation><!-- TOR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Tax optimisation</masterLabel>
+            <translation><!-- Tax optimisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Taxe d&apos;aménagement</masterLabel>
+            <translation><!-- Taxe d&apos;aménagement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Technical Assessment</masterLabel>
+            <translation><!-- Technical Assessment --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veille Appel à Projets</masterLabel>
+            <translation><!-- Veille Appel à Projets --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veille concurrentielle</masterLabel>
+            <translation><!-- Veille concurrentielle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veille marché</masterLabel>
+            <translation><!-- Veille marché --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Veille techno</masterLabel>
+            <translation><!-- Veille techno --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <help>Stock \ New Business</help>
+        <label>Tipo de negocio</label>
+        <name>Typologie_business__c</name>
+        <picklistValues>
+            <masterLabel>New Business</masterLabel>
+            <translation><!-- New Business --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Stock</masterLabel>
+            <translation><!-- Stock --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Universidades --></label>
+        <name>Universite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Uso da Lei de Informática --></label>
+        <name>Utilisation_droit_informatique__c</name>
+    </fields>
+    <fields>
+        <label><!-- V1_Old_Date du paiement de la redevance --></label>
+        <name>V1_Old_Date_du_paiement_de_la_redevance__c</name>
+    </fields>
+    <fields>
+        <label><!-- V1_Old_Redevance payée --></label>
+        <name>V1_Old_Redevance_pay_e__c</name>
+    </fields>
+    <fields>
+        <label><!-- V1_Old_Redevance versée à : --></label>
+        <name>V1_Old_Redevance_versee__c</name>
+        <picklistValues>
+            <masterLabel>Antoine Toueg</masterLabel>
+            <translation><!-- Antoine Toueg --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Asmaa Omary</masterLabel>
+            <translation><!-- Asmaa Omary --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Blain Joyal Charbonneau</masterLabel>
+            <translation><!-- Blain Joyal Charbonneau --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Charles Blais</masterLabel>
+            <translation><!-- Charles Blais --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>François Lafortune</masterLabel>
+            <translation><!-- François Lafortune --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>James Féthière</masterLabel>
+            <translation><!-- James Féthière --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Lisa Hays</masterLabel>
+            <translation><!-- Lisa Hays --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Luc Guillemette</masterLabel>
+            <translation><!-- Luc Guillemette --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Marc Paquin</masterLabel>
+            <translation><!-- Marc Paquin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Martin Blier</masterLabel>
+            <translation><!-- Martin Blier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Michel Beaulieu</masterLabel>
+            <translation><!-- Michel Beaulieu --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Moquin Amyott</masterLabel>
+            <translation><!-- Moquin Amyott --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nathalie Séguin / Magna</masterLabel>
+            <translation><!-- Nathalie Séguin / Magna --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Nicolas Delorme</masterLabel>
+            <translation><!-- Nicolas Delorme --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paul Hurtubise</masterLabel>
+            <translation><!-- Paul Hurtubise --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Paul Rochon</masterLabel>
+            <translation><!-- Paul Rochon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Pellerin Potvin Gagnon</masterLabel>
+            <translation><!-- Pellerin Potvin Gagnon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Philippe Fortier</masterLabel>
+            <translation><!-- Philippe Fortier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Raymond Quintal</masterLabel>
+            <translation><!-- Raymond Quintal --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Robert Toupin / Soluchem</masterLabel>
+            <translation><!-- Robert Toupin / Soluchem --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Romain Gagnon</masterLabel>
+            <translation><!-- Romain Gagnon --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Roy Desrochers Lambert</masterLabel>
+            <translation><!-- Roy Desrochers Lambert --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Éric Pelletier</masterLabel>
+            <translation><!-- Éric Pelletier --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- V1_old_Scientifiques --></label>
+        <name>V1_old_Scientifiques__c</name>
+        <relationshipLabel><!-- Missions (V1_old_Scientifiques) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Graduados Exclusiva Valor Gasto --></label>
+        <name>ValeurDiplomeExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Graduados Valor Gasto --></label>
+        <name>ValeurDiplome__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mestres Exclusiva Valor Gasto --></label>
+        <name>ValeurMaitreExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mestres Valor Gasto Parcial --></label>
+        <name>ValeurMaitrePartiel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Doutores Exclusiva Valor Gasto --></label>
+        <name>ValeurMedecinExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Doutoros Valor Gasto --></label>
+        <name>ValeurMedecin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pós-Graduados Exclusiva Valor Gasto --></label>
+        <name>ValeurPostDiplomeExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pós-Graduados Valor Gasto --></label>
+        <name>ValeurPostDiplome__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valor Glosa --></label>
+        <name>ValeurRedressementFiscal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valor da redução adicional --></label>
+        <name>ValeurReductionAdditionnel__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valor total dos recursos humanos --></label>
+        <name>ValeurRh__c</name>
+    </fields>
+    <fields>
+        <label><!-- Valor despendido com funcionarios --></label>
+        <name>ValeurSupportTechnique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tecnológos Exclusiva Valor Gasto --></label>
+        <name>ValeurTechnicienExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tecnológos Valor Gasto --></label>
+        <name>ValeurTechnicien__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tecnicos Médico Exclusiva Valor Gasto --></label>
+        <name>ValeurTechnicoMedicalExclusif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tecnicos Médico Valor Gasto --></label>
+        <name>ValeurTechnicoMedical__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total pesquisasdores contratados --></label>
+        <name>ValeurTotalContrat__c</name>
+    </fields>
+    <fields>
+        <label><!-- VALOR TOTAL DO  BENEFICIO --></label>
+        <name>ValeurTotaleBenefice__c</name>
+    </fields>
+    <fields>
+        <label><!-- Data validação interna RIT --></label>
+        <name>ValidationInterneRIT__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement 1ère entrevue --></label>
+        <name>avancement_1_re_entrevue__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement avis de cot. provincial --></label>
+        <name>avancement_avis_de_cot_provincial__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement avis de cotisation fédérale --></label>
+        <name>avancement_avis_de_cotisation_f_d_rale__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement de la production finance --></label>
+        <name>avancement_de_la_production_finance__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement demande d&apos;information RQ --></label>
+        <name>avancement_demande_d_information_RQ__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement livraison client --></label>
+        <name>avancement_livraison_client__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement livraison comptable --></label>
+        <name>avancement_livraison_comptable__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement production fiscalité --></label>
+        <name>avancement_production_fiscalit__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement rédaction technique --></label>
+        <name>avancement_r_daction_technique__c</name>
+    </fields>
+    <fields>
+        <label><!-- % avancement vérification --></label>
+        <name>avancement_v_rification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Uso da Lei do Bem --></label>
+        <name>financementInnovation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Institutos de pesquisa --></label>
+        <name>institutRecherche__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de licence AT Advance --></label>
+        <name>nb_lic_atadvance__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>BR - Mission - CSL</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Mission - FND</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Mission - LDB</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- TimeSheet --></label>
+            <section>TimeSheet</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CA - Mission - Canada CIR</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Suivi métier --></label>
+            <section>Suivi métier</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Mission - Consulting</layout>
+        <sections>
+            <label>Volumen de negocios</label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label>Contratos</label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label>Información adicional</label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label>Enlaces personalizados</label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Mission - Consulting (Time sheet)</layout>
+        <sections>
+            <label>Volumen de negocios</label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label>Contratos</label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label>Información adicional</label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label>Enlaces personalizados</label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label>Time sheet</label>
+            <section>Time sheet</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Mission - Patent Box</layout>
+        <sections>
+            <label>Volumen de negocios</label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label>Contratos</label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label>Información adicional</label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label>Enlaces personalizados</label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Mission - Patent Box (Time sheet)</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires --></label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Time sheet --></label>
+            <section>Time sheet</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Mission - R&amp;D Funding</layout>
+        <sections>
+            <label>Volumen de negocios</label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label>Contratos</label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label>Información adicional</label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label>Enlaces personalizados</label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Mission - R&amp;D Funding (Time sheet)</layout>
+        <sections>
+            <label>Volumen de negocios</label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label>Contratos</label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label>Información adicional</label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label>Enlaces personalizados</label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label>Time sheet</label>
+            <section>Time sheet</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Mission - R&amp;D Tax Credit</layout>
+        <sections>
+            <label>Volumen de negocios</label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label>Contratos</label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label>Información adicional</label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label>Enlaces personalizados</label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Mission - R&amp;D Tax Credit (Time sheet)</layout>
+        <sections>
+            <label>Volumen de negocios</label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label>Contratos</label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label>Información adicional</label>
+            <section>Informations complémentaires</section>
+        </sections>
+        <sections>
+            <label>Enlaces personalizados</label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label>Time sheet</label>
+            <section>Time sheet</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - ACS - Perf RH</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - AS - Inno</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Informations mission contrôle de gestion de projet financé --></label>
+            <section>Informations mission contrôle de gestion de projet financé</section>
+        </sections>
+        <sections>
+            <label><!-- Informations mission structuration demande de financement --></label>
+            <section>Informations mission structuration demande de financement</section>
+        </sections>
+        <sections>
+            <label><!-- Informations mission étude d&apos;opportunités --></label>
+            <section>Informations mission étude d&apos;opportunités</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - CFI - Perf FI</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - CIN - Inno</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - CIR - Inno</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - CRH - Perf RH</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - DI - Inno</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - IL - Perf FI</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - TAT - Perf RH</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations AT Advance --></label>
+            <section>Informations AT Advance</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Mission - Veille - Inno</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Mission - CF</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Delay --></label>
+            <section>Delay</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Mission - PF</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Delay --></label>
+            <section>Delay</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Mission - PIC</layout>
+        <sections>
+            <label><!-- Chiffre d&apos;affaire --></label>
+            <section>Chiffre d&apos;affaire</section>
+        </sections>
+        <sections>
+            <label><!-- Contrat --></label>
+            <section>Contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Delay --></label>
+            <section>Delay</section>
+        </sections>
+        <sections>
+            <label><!-- Informations BU --></label>
+            <section>Informations BU</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Misión</nameFieldLabel>
+    <recordTypes>
+        <label><!-- ACS --></label>
+        <name>ACS</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- R&amp;D Funding --></label>
+        <name>AYUDAS</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CF --></label>
+        <name>CF</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CFI --></label>
+        <name>CFI</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CIN --></label>
+        <name>CIN</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CIR --></label>
+        <name>CIR</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CIR CANADA --></label>
+        <name>CIR_CANADA</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CRH --></label>
+        <name>CRH</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CSL --></label>
+        <name>CSL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Consulting --></label>
+        <name>Consulting</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- R&amp;D Tax Credit --></label>
+        <name>DED</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- DI --></label>
+        <name>DI</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- AS --></label>
+        <name>FI</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- FND --></label>
+        <name>FND</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- IL --></label>
+        <name>IL</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- LDB --></label>
+        <name>LDB</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- PATENT BOX --></label>
+        <name>PATENT_BOX</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- PF --></label>
+        <name>PF</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- SGP - PIC --></label>
+        <name>SGP_PIC</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- TAT --></label>
+        <name>TAT</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- VEILLE --></label>
+        <name>VEILLE</name>
+    </recordTypes>
+    <sharingReasons>
+        <label><!-- INNO Advance --></label>
+        <name>INNO_Advance</name>
+    </sharingReasons>
+    <validationRules>
+        <errorMessage><!-- Impossible de changer une mission de contrat si il y a déja du CA facturé --></errorMessage>
+        <name>Check_changement_contrat_si_CA_facture</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Formularios no finalizado --></errorMessage>
+        <name>DataFinalizacao</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Impossible de supprimer une facture validée, veuillez d&apos;abord la dé-valider --></errorMessage>
+        <name>Facture_validee_est_supprimee</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- La mission N-1 doit être sur l&apos;année précédente --></errorMessage>
+        <name>Mission_N_1_coherente</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Impossible de supprimer une facture validée, veuillez d&apos;abord la dé-valider --></errorMessage>
+        <name>Planification_facturee_est_supprimee</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Quarter must be filled, on the &quot;CP&quot; Missions --></errorMessage>
+        <name>SGP_Quarter_Obligatoire_Mission_TYPE_CP</name>
+    </validationRules>
+    <webLinks>
+        <label>Emitir una factura</label>
+        <name>Emettre_une_facture</name>
+    </webLinks>
+    <webLinks>
+        <label><!-- New_Annual_TimeSheet --></label>
+        <name>New_Annual_TimeSheet</name>
+    </webLinks>
+    <webLinks>
+        <label>Captar la planificación facturación</label>
+        <name>Saisir_planification_de_facturation</name>
+    </webLinks>
+</CustomObjectTranslation>

@@ -1,0 +1,51 @@
+<apex:page controller="AppNDFexportComptaCtrl" contentType="application/vnd.ms-excel#export_NDF.xls">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+</head>
+<table>
+	<tr>
+		<td>Société</td>
+		<td>NUM</td>
+		<td>Date Pièce</td>
+		<td>N° pièce</td>
+		<td>Compte Salarie</td>
+		<td>Nom Salarie</td>
+		<td>D</td>
+		<td>C</td>
+		<td>ANA</td>
+	</tr>
+	<apex:variable value="{!1}" var="rowNum"/>
+ 	<apex:variable value="15/{!MONTH(TODAY())}/{!YEAR(TODAY())}" var="datePiece"/>
+	<apex:variable value="NDF{!IF(MONTH(TODAY())<10,'0','')}{!MONTH(TODAY())}{!YEAR(TODAY())}" var="numPiece"/>
+	<apex:repeat value="{!lsNDFrecap}" var="recap">
+		<tr>
+			<td>{!recap.Collaborateur__r.Societe__c}</td>
+			<td>{!rowNum}</td>
+			<td>{!datePiece}</td>
+			<td>{!numPiece}</td>
+			<td>401{!LEFT(UPPER(recap.Collaborateur__r.LastName),10)}</td>
+			<td>{!UPPER(recap.Collaborateur__r.Name)}</td>
+			<td></td>
+			<td>{!recap.Total__c}</td>
+			<td>{!recap.Collaborateur__r.Code_analytique__c}</td>
+		</tr> 
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625100" recap="{!recap}" total="{!recap.Total_Train__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625601" recap="{!recap}" total="{!recap.Total_Taxi__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625100" recap="{!recap}" total="{!recap.Total_Avion__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625601" recap="{!recap}" total="{!recap.Total_Peage_Parking_Metro_Bus__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="613300" recap="{!recap}" total="{!recap.Total_Location_Vehicule__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625605" recap="{!recap}" total="{!recap.Total_Carburant__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="626100" recap="{!recap}" total="{!recap.Total_Poste__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625604" recap="{!recap}" total="{!recap.Total_Hotel_Nuitee__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625603" recap="{!recap}" total="{!recap.Total_Petit_Dejeuner__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625603" recap="{!recap}" total="{!recap.Total_Dejeuner__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625603" recap="{!recap}" total="{!recap.Total_Diner__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="625602" recap="{!recap}" total="{!recap.Total_Frais_Kilometrique__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="445660" recap="{!recap}" total="{!recap.Total_TVA__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="{!recap.Numero_Compte_Autres_HT__c}" recap="{!recap}" total="{!recap.Total_Autres_HT__c}" />
+		<c:AppNDFexportComptaLigne rowNum="{!rowNum}" datePiece="{!datePiece}" numPiece="{!numPiece}" numCompte="{!recap.Numero_Compte_Autres_TTC__c}" recap="{!recap}" total="{!recap.Total_autres_TTC__c}" />
+		
+		<apex:variable var="rowNum" value="{!rowNum + 1}"/>
+	</apex:repeat>
+</table>
+</apex:page>

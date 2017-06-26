@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <description>Cout par consultant</description>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>Cout_consultant__c</fullName>
+        <externalId>false</externalId>
+        <label>Coût consultant</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_manager__c</fullName>
+        <externalId>false</externalId>
+        <label>Coût manager</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_redacteur_RO__c</fullName>
+        <externalId>false</externalId>
+        <label>Coût rédacteur RO</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_redacteur__c</fullName>
+        <externalId>false</externalId>
+        <label>Coût rédacteur</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_superviseur__c</fullName>
+        <externalId>false</externalId>
+        <label>Coût superviseur</label>
+        <precision>5</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <label>rentabilité CIR</label>
+    <visibility>Protected</visibility>
+</CustomObject>

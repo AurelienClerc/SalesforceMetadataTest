@@ -1,0 +1,133 @@
+<apex:page standardController="INNOmission__c" extensions="INNOmissionCtrl" action="{!checkParams}" sidebar="false" tabStyle="INNOmission__c" title="Edition d'une mission">
+
+	<apex:composition template="INNOmissionTemplate">
+		
+		<apex:define name="body">
+			
+			<apex:variable var="isCir" value="{!INNOmission__c.RecordType.DeveloperName = 'CIR'}" />
+			
+			<apex:outputPanel id="messages">
+                <apex:pageMessage summary="Vous n'avez pas les droits nécéssaires pour accéder à cette page" severity="warning" strength="2" rendered="{!$CurrentPage.parameters.error == '403'}" />
+                <apex:pageMessage summary="Vous ne pouvez pas supprimer cet utilisateur car il doit rester au moins 1 superviseur ou manager sur la mission" severity="warning" strength="2" rendered="{!$CurrentPage.parameters.error == 'needManager'}" />
+            </apex:outputPanel>
+			
+			<apex:form >
+				<apex:pageBlock title="Informations relatives à la mission">
+	                <apex:pageMessages />
+	                
+                    <apex:pageBlockButtons >
+                        <apex:commandButton action="{!save}" value="Enregistrer"/>
+                        <apex:commandButton action="{!URLFOR('/apex/INNOmissionView', null, [id = INNOmission__c.Id, missionId = INNOmission__c.Id])}" value="Annuler" immediate="true"/>
+                    </apex:pageBlockButtons>
+	                
+     				<apex:pageBlockSection >
+	     
+	     				<apex:pageBlockSectionItem >
+	     					<apex:outputLabel value="Nom de l'opportunité" />
+	     					<apex:outputText value="{!INNOmission__c.Contrat__r.Opportunite__r.Name}"/>	
+	     				</apex:pageBlockSectionItem>
+	     				
+	     				<apex:inputField value="{!INNOmission__c.Phase__c}" required="true"/>
+	                    <apex:inputField value="{!INNOmission__c.Taux_CIR__c}" rendered="{!isCir}"/>
+	                    <apex:outputField value="{!INNOmission__c.NombreCFenCours__c}" />
+	                    
+	                    <apex:inputField value="{!INNOmission__c.TauxCII__c}" rendered="{!isCir}"/>
+	     				<apex:inputField value="{!INNOmission__c.Groupe__c}"/>
+	     				
+	                </apex:pageBlockSection>
+	                
+	                <apex:pageBlockSection title="Informations complémentaires sur la mission" rendered="{!isCir}">
+                        
+                        <apex:outputField value="{!INNOmission__c.ChiffreAffaire__c}" />
+                        <apex:inputField value="{!INNOmission__c.renta_nb_proj__c}" />
+                        
+                        <apex:inputField value="{!INNOmission__c.renta_nb_interlocuteurs__c}" />
+                        <apex:inputField value="{!INNOmission__c.renta_nb_sites__c}" />
+                        
+                        <apex:inputField value="{!INNOmission__c.renta_nb_redacs__c}" />
+                        <apex:inputField value="{!INNOmission__c.renta_nb_valo__c}" />
+                        
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection title="Informations complémentaires sur la mission" rendered="{!!isCir}">
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Date d'échéance estimée"/>
+                            <apex:inputField value="{!INNOmission__c.Date_Initiale_echeance_DT__c}"/>
+                        </apex:pageBlockSectionItem>
+                        
+                    </apex:pageBlockSection>
+                    
+                    <!-- Section Phases CIR en ReadWrite-->
+                    <apex:pageBlockSection title="Phases" rendered="{!userIsManager && isCir}">
+                    
+                        <apex:inputField value="{!INNOmission__c.Date_debut_Audit__c}" label="AUDIT - Début" />
+                        <apex:inputField value="{!INNOmission__c.Date_fin_audit__c}" label="Fin" />
+                        
+                        <apex:inputField value="{!INNOmission__c.Date_debut_valorisation__c}" label="VALORISATION - Début" />
+                        <apex:inputField value="{!INNOmission__c.Date_fin_valorisation__c}" label="Fin" />
+                        
+                        <apex:inputField value="{!INNOmission__c.Date_debut_justification__c}" label="JUSTIFICATION - Début" />
+                        <apex:pageBlockSectionItem helpText="{!$ObjectType.INNOmission__c.Fields.Date_fin_justification_recap__c.inlineHelpText}">
+                        	<apex:outputLabel value="Fin" />
+                        	<apex:outputField value="{!INNOmission__c.Date_fin_justification_recap__c}"  />	
+                        </apex:pageBlockSectionItem>
+                        
+                    </apex:pageBlockSection>
+                    
+                    <!-- Section Phases CIR en Readonly-->
+                    <apex:pageBlockSection title="Phases" rendered="{!!userIsManager && isCir}">
+                    
+                        <apex:outputField value="{!INNOmission__c.Date_debut_Audit__c}" label="AUDIT - Début" />
+                        <apex:outputField value="{!INNOmission__c.Date_fin_audit__c}" label="Fin" />
+                        
+                        <apex:outputField value="{!INNOmission__c.Date_debut_valorisation__c}" label="VALORISATION - Début" />
+                        <apex:outputField value="{!INNOmission__c.Date_fin_valorisation__c}" label="Fin" />
+                        
+                        <apex:outputField value="{!INNOmission__c.Date_debut_justification__c}" label="JUSTIFICATION - Début" />
+                        <apex:pageBlockSectionItem helpText="{!$ObjectType.INNOmission__c.Fields.Date_fin_justification_recap__c.inlineHelpText}">
+                        	<apex:outputLabel value="Fin" />
+                        	<apex:outputField value="{!INNOmission__c.Date_fin_justification_recap__c}"  />	
+                        </apex:pageBlockSectionItem>
+                        
+                    </apex:pageBlockSection>
+                    
+                    <!-- Section Phases hors CIR-->
+                    <apex:pageBlockSection title="Phases" rendered="{!!isCir}">
+                    
+                        <apex:outputField value="{!INNOmission__c.Date_debut_Audit__c}" label="Début" />
+                        <apex:outputField value="{!INNOmission__c.Date_fin_audit__c}" label="Fin" />
+                        
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection title="Valorisation" rendered="{!isCir}">
+                        
+                        <apex:inputField value="{!INNOmission__c.Date_lancement_mission__c}"/>
+                        
+                    </apex:pageBlockSection>
+                    
+                    <!-- Section Documentation technique -->
+                    <apex:pageBlockSection title="Documentation technique" rendered="{!isCir}">
+                        
+                        <apex:outputField value="{!INNOmission__c.Date_Initiale_echeance_DT__c}"/>
+                        <apex:outputField value="{!INNOmission__c.TousDTrendus__c}"/>
+                        
+                         <apex:pageBlockSectionItem helpText="{!$ObjectType.INNOmission__c.Fields.Date_fin_justification_recap__c.InlineHelpText}">
+                        	<apex:outputLabel value="Date d'échéance DT"/>
+                        	<apex:outputField value="{!INNOmission__c.Date_fin_justification_recap__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!INNOmission__c.Date_dernier_DT_rendu__c}"/>
+                        
+                        <apex:inputField value="{!INNOmission__c.PrestataireCAC__c}"/>
+                        <apex:inputField value="{!INNOmission__c.PrestataireEC__c}"/>
+                        <apex:inputField value="{!INNOmission__c.PrestataireAvocat__c}"/>
+                        
+                    </apex:pageBlockSection>
+                    
+				</apex:pageBlock>
+                        
+			</apex:form>
+			
+		</apex:define>
+	</apex:composition>
+</apex:page>

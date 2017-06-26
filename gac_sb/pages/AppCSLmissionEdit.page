@@ -1,0 +1,117 @@
+<apex:page standardController="Mission__c"  sidebar="false" tabStyle="Mission__c" title="Edition d'une mission">
+        <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/versioning.css" />
+        <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/extended.css" />
+        <style>
+            .rich-tabpanel-content .bDetailBlock, .tab_dossier .bPageBlock, .tab_etab .bPageBlock{
+                border: none !important;
+                padding: 10px;
+            }
+        </style>
+       
+       <apex:pageMessages />
+       
+        <apex:tabPanel switchType="client"  value="{!$CurrentPage.parameters.SelectedTab}" >
+            
+           <apex:tab label="Empresa" styleClass="empresa " name="Empresa">
+                <apex:form >
+                    <apex:pageBlock mode="maindetail" >
+                        <apex:pageBlockButtons location="top" >
+                            <apex:commandButton action="{!save}" value="Enregistrer"/>
+                            <apex:commandButton action="{!cancel}" value="Cancelar" immediate="true"/>
+                        </apex:pageBlockButtons>
+                        
+                    <apex:pageBlockSection title="informações" columns="2">
+                    <apex:inputField value="{!Mission__c.Name }"/>
+                    <apex:inputField value="{!Mission__c.OwnerId}"/>
+                    <apex:inputField value="{!Mission__c.Compte__c}"/>
+                    <apex:inputField value="{!Mission__c.Gerente_de_projetos__c}"/>
+                    <apex:inputField value="{!Mission__c.Subsidiaria_no_ambito_do_contrato__c}"/>
+                    <apex:outputlabel value=""/>
+                    <apex:inputField value="{!Mission__c.Contrat__c }"/>
+                    
+                   
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Identificação da empresa" columns="2">
+                    <apex:inputField value="{!Mission__c.Annee_concernee__c }"/>
+                    <apex:inputField value="{!Mission__c.Type_de_mission__c }"/>
+                    <apex:inputField label="Cidade" value="{!Mission__c.Compte__r.BillingCity} "/> 
+                    <apex:inputField value="{!Mission__c.Compte__r.Departement__c }"/>
+                    <apex:inputField value="{!Mission__c.Cloture_fiscale__c }"/>
+                    <apex:inputField value="{!Mission__c.Compte__r.Date_de_cloture_fiscale__c }"/>
+                    <apex:inputField label="CNPJ" value="{!Mission__c.Compte__r.SIRET__c }"/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:inputField value="{!Mission__c.Compte__r.Code_NAF_2__c }"/>
+                    <apex:inputField value="{!Mission__c.Compte__r.Libelle_NAF_2__c }"/>
+                    <apex:inputField value="{!Mission__c.Compte__r.Industry }"/>
+                    <apex:inputField value="{!Mission__c.Compte__r.Activity__c }"/>
+                    <apex:inputField value="{!Mission__c.Compte__r.Secteur_d_activit_2__c }"/>
+                    <apex:inputField value="{!Mission__c.Compte__r.Sous_secto_2__c}"/>
+                    
+                </apex:pageBlockSection>
+                
+                <apex:pageBlockSection title="Situação dos trabalhos" columns="2">
+                    <apex:inputField value="{!Mission__c.Situation_de_la_mission__c }"/>
+                    <apex:inputField value="{!Mission__c.Phase_Actuelle__c }"/>
+                    <apex:inputField value="{!Mission__c.CommentaireMissionNonActive__c }"/>
+                </apex:pageBlockSection>
+                             
+                <apex:pageBlockSection title="Diversos " columns="2">
+                    <apex:inputField value="{!Mission__c.CA_facture__c }"/>
+                    <apex:inputField value="{!Mission__c.CA_planifie__c}"/>
+                    <apex:inputField value="{!Mission__c.CA_encaisse__c }"/>
+                    <apex:inputField value="{!Mission__c.Creances__c }"/>
+                    <apex:inputField value="{!Mission__c.Utilisation_droit_informatique__c }"/>
+                    <apex:inputField value="{!Mission__c.ApplicationLoiAutoInnovate__c}"/>
+                    <apex:inputField value="{!Mission__c.financementInnovation__c }"/>
+                    <apex:inputField value="{!Mission__c.Commentaire__c }"/>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+           </apex:form> 
+       </apex:tab>
+       
+        <apex:tab label="Accompanhamento dos trabalhos" styleClass="empresa " name="Accompanhamento">
+            <apex:form >
+                <apex:pageBlock mode="maindetail" >
+                    <apex:pageBlockButtons location="top" >
+                        <apex:commandButton action="{!save}" value="Enregistrer"/>
+                        <apex:commandButton action="{!cancel}" value="Cancelar" immediate="true"/>
+                    </apex:pageBlockButtons>
+                     <!--1.  Division « Preparação »-->    
+                <apex:pageBlockSection title="Preparacão " columns="2">
+                    <apex:inputField value="{!Mission__c.CertificatRegularite__c }"/>
+                    <apex:inputField value="{!Mission__c.Date_KOM__c}"/>
+                    </apex:pageBlockSection>
+                                    
+                <!--2. « Análise de oportunidades »--> 
+                <apex:pageBlockSection title="Análise oportunidades" columns="2">                     
+                        <apex:inputField value="{!Mission__c.CommentaireAnalyseProjet__c }"/>
+                </apex:pageBlockSection>
+                
+               <!--3. « Andamento dos trabalhos   » --> 
+               <apex:pageBlockSection title="Andamento dos trabalhos" columns="2">
+                    <apex:inputField value="{!Mission__c.Categoria__c}"/>
+                    <apex:inputField value="{!Mission__c.Detalhes_do_projeto__c}"/>
+                    <apex:inputField value="{!Mission__c.Montante_economizado__c}"/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:outputlabel value=""/>
+                    <apex:inputField value="{!Mission__c.DateRealisationDossier__c}"/>
+                    <apex:inputField value="{!Mission__c.ComentarioConfecao__c}"/>
+               </apex:pageBlockSection>
+            </apex:pageBlock>
+            
+           </apex:form>
+       </apex:tab>
+          
+       
+
+          
+           
+      </apex:tabPanel>
+
+</apex:page>

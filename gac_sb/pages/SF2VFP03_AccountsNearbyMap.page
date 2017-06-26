@@ -1,0 +1,176 @@
+<apex:page standardController="Account" extensions="SF2VFC03_AccountsNearbyMap"  showHeader="{!$CurrentPage.parameters.isIframe != '1'}" sidebar="{!$CurrentPage.parameters.isIframe != '1'}">
+	
+	
+	
+	<style>
+		
+		html, body{
+			height: 500px;
+			width: 100%;
+		}
+		#accountsMap{
+			height: 500px;
+			width: 100%;
+		}
+	</style>
+	
+	<apex:pageMessages />
+
+	<apex:form >
+		<apex:pageBlock >
+			<apex:pageBlockButtons location="top">
+				<apex:commandButton action="{!searchNearbyAccounts}" value="Rechercher" />
+			</apex:pageBlockButtons>
+			
+			
+				<apex:pageBlockSection title="Filtres">
+					
+					<apex:selectList size="1" label="Rayon (km)" value="{!filterSelectedRadius}">
+						<apex:selectOption itemValue="5"  />
+						<apex:selectOption itemValue="10" />
+						<apex:selectOption itemValue="25" />
+						<apex:selectOption itemValue="50" />
+						<apex:selectOption itemValue="100" />
+					</apex:selectList>
+					<apex:pageBlockSectionItem />
+					
+					<apex:selectList size="1" label="Etat du compte" value="{!filterSelectedAccountStatus}">
+						<apex:selectOption itemValue="" itemLabel="-- Tous --" />
+						<apex:selectOption itemValue="{!$Label.Client_actif}" />
+						<apex:selectOption itemValue="{!$Label.Client_inactif}" />
+						<apex:selectOption itemValue="{!$Label.Prospect}" />
+					</apex:selectList>
+					
+					<apex:inputText value="{!filterSelectedCodeNaf}" label="Code NAF" />
+					
+					<apex:selectList size="1" label="Type cyblage" value="{!filterSelectedTypeCyblage}">
+						<apex:selectOption itemValue="" itemLabel="-- Aucun --" />
+						<apex:selectOption itemValue="ACS" />
+						<apex:selectOption itemValue="IL" />
+						<apex:selectOption itemValue="INNO" />
+						<apex:selectOption itemValue="TAT" />
+					</apex:selectList>
+					
+					<apex:selectList size="1" label="Valeur cyblage" value="{!filterSelectedValueCyblage}">
+						<apex:selectOptions value="{!filterTypeCyblageValues}" />
+					</apex:selectList>
+					
+				</apex:pageBlockSection>
+			
+			<apex:pageBlockSection title="Résultats" columns="1">
+				<apex:outputPanel layout="none">
+					<table style="width: 100%">
+						<tr>
+							<td style="width: 75%"><div id="accountsMap"></div></td>
+							<td style="width: 30%; " >
+								<div style="height: 500px;overflow-y: auto;">
+									<apex:pageBlockTable value="{!nearbyAccounts}" var="acc">
+										<apex:column headerValue="Compte" >
+											<a href="#" onclick="selectAccountFromTable('{!acc.Id}');return false;" >{!LEFT(acc.Name, 20)}{!IF(LEN(acc.Name) > 20, '...', '')}</a>
+										</apex:column>
+										<apex:column headerValue="NAF" value="{!acc.Code_NAF_2__r.Name}" />
+										<apex:column headerValue="Etat" value="{!acc.Etat_du_compte__c}" />
+									</apex:pageBlockTable>
+								</div>
+							</td>
+						</tr>
+					</table>
+				</apex:outputPanel>
+			</apex:pageBlockSection>
+		</apex:pageBlock>
+	
+	</apex:form>
+	
+	<script>
+
+		var accounts = {!IF(nearbyAccountsJSON == null,'{}',nearbyAccountsJSON)};
+	
+		var map;
+		var infowindow;
+		var markers = [];
+		
+		function initMap() {
+			map = new google.maps.Map(document.getElementById('accountsMap'), {
+				center	: {lat: {!Account.BillingCoordinates__latitude__s}, lng: {!Account.BillingCoordinates__longitude__s}},
+				zoom	: ({!filterSelectedRadius} == 5 ? 12 : ({!filterSelectedRadius} == 10 ? 11 : ({!filterSelectedRadius} == 25 ? 10 : ({!filterSelectedRadius} == 50 ? 9 : 8))))
+			});
+			
+			
+			
+			infowindow = new google.maps.InfoWindow();
+			
+			//Ajoute un marker pour chaque compte
+			for (var i = 0; i < accounts.length; i++) {  
+				addAccount(accounts[i]);
+			}
+			
+			//Ajoute un cercle pour montrer le rayon de recherche
+			new google.maps.Circle({
+				strokeColor: '#5D7AAB',
+				strokeOpacity: 0.8,
+				strokeWeight: 2,
+				fillColor: '#5D7AAB',
+				fillOpacity: 0.1,
+				map: map,
+				center: map.center,
+				radius: {!filterSelectedRadius} * 1000
+			});
+		}
+		
+			
+		//Ajoute un marker avec son eventListener pour afficher la tooltip
+		function addAccount(account){
+			var marker = new google.maps.Marker({
+										position	: new google.maps.LatLng(account.BillingCoordinates__Latitude__s, account.BillingCoordinates__Longitude__s),
+										map			: map,
+										title		: account.Name,
+										icon		: (account.Id == '{!Account.Id}' ? '/img/icon/building32.png' : null),
+										zIndex		: (account.Id == '{!Account.Id}' ? 0 : 1),
+										accountId	: account.Id.substring(0, 15)
+			});
+			
+			
+			//Tooltip sur les comptes
+			google.maps.event.addListener(marker, 'click', (function(marker) {  
+				return function() {  
+					infowindow.setContent('<img src="/img/loading.gif" />');
+					
+					//Récupère le contenu de la mini layout standard SF
+					$.get('/ui/common/MRUHoverLoader?hoverIds=' + marker.accountId).then(function(resp){
+						var popupContent = $(resp).children();	//Supprime la balise <001IdDuCompte></001IdDuCompte> qui englobe la réponse HTML
+						popupContent.find('a').remove();	//Supprime le lien "Afficher la hierarchie"
+						infowindow.setContent(popupContent.wrap('<p/>').parent().html());
+					});
+					
+					infowindow.open(map, marker);  
+				}  
+			})(marker));  
+			
+			markers.push(marker);
+		}
+		
+		
+		//Focus sur le marker du compte dont l'Id est passé en paramètre
+		function selectAccountFromTable(accId){
+			accId = accId.substring(0, 15);
+			for(var i = 0; i < markers.length; i++){
+				if(markers[i].accountId == accId){
+					google.maps.event.trigger(markers[i], 'click');
+					break;
+				}
+			}
+		}
+		
+		
+		//Si on est dans une iframe, on surcharge la fonction SF native navigateToUrl pour que la redirection se fasse au niveau du parent de l'iframe
+		<apex:outputPanel layout="none" rendered="{!$CurrentPage.parameters.isIframe == '1'}">
+			function navigateToUrl(url){
+			    top.window.location = url;
+			}
+		</apex:outputPanel>
+		
+    </script>
+    
+	<script src="https://maps.googleapis.com/maps/api/js?key={!$Setup.GoogleMapSettings__c.APIkey__c}&callback=initMap" ></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</apex:page>

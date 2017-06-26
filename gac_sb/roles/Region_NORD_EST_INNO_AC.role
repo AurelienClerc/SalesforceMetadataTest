@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Role xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseAccessLevel>None</caseAccessLevel>
+    <contactAccessLevel>Edit</contactAccessLevel>
+    <description>Région NORD EST INNO AC</description>
+    <mayForecastManagerShare>false</mayForecastManagerShare>
+    <name>Région NORD EST INNO AC</name>
+    <opportunityAccessLevel>Edit</opportunityAccessLevel>
+    <parentRole>Region_NORD_EST_INNO_CC</parentRole>
+</Role>

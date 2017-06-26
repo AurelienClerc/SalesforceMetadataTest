@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>V2Params</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>V2Params</value>
+    </caseValues>
+    <fields>
+        <label><!-- AutoSynchOpp --></label>
+        <name>AutoSynchOpp__c</name>
+    </fields>
+    <fields>
+        <label><!-- BUFL --></label>
+        <name>BUFL__c</name>
+    </fields>
+    <fields>
+        <label><!-- BUINNO --></label>
+        <name>BUINNO__c</name>
+    </fields>
+    <fields>
+        <label><!-- BUOPTI --></label>
+        <name>BUOPTI__c</name>
+    </fields>
+    <fields>
+        <label><!-- BuDescribeId --></label>
+        <name>BuDescribeId__c</name>
+    </fields>
+    <fields>
+        <label><!-- CIN Enabled --></label>
+        <name>CIN_Enabled__c</name>
+    </fields>
+    <fields>
+        <help><!-- Si cochée, on va forcer la présence d&apos;une segmentation pour pouvoir enregistrer une opportunité --></help>
+        <label><!-- Obliger la présence d&apos;une segmentation --></label>
+        <name>ForceSegmentation__c</name>
+    </fields>
+    <fields>
+        <help><!-- Si cochée, on utilise le nouveau process sans RDV à prendre sur les opportunités --></help>
+        <label><!-- Formation Effectuée --></label>
+        <name>FormationDone__c</name>
+    </fields>
+    <fields>
+        <help><!-- Listes des opportunités pour lesquelles on va chercher a recopier la segmentation --></help>
+        <label><!-- Opportunités FR RecordTypes --></label>
+        <name>OpportunitesFR__c</name>
+    </fields>
+    <fields>
+        <label><!-- UseAlertPB --></label>
+        <name>UseAlertPB__c</name>
+    </fields>
+    <gender>Neuter</gender>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

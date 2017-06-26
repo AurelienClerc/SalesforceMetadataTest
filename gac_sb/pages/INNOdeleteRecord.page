@@ -1,0 +1,6 @@
+<apex:page controller="INNOmissionBaseCtrl" action="{!deleteRecord}">
+	<!-- 
+	Cette page sert uniquement aux liens "Suppr." sur les records des pages de liste
+	On a fait une page plutot qu'un commandLink car les pages de liste sont en readOnly donc les DML ne sont pas autorisées
+	 -->
+</apex:page>

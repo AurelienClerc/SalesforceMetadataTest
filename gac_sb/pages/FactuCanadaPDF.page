@@ -1,0 +1,188 @@
+<apex:page standardController="Facture__c" extensions="FactuFacturePDFCtrl" renderAs="pdf" standardStylesheets="false">
+
+<head>
+    <style>
+    body{
+        font-size:13px;
+        font-family: 'sans-serif';
+        <apex:outputPanel layout="none" rendered="{!Facture__c.Statut__c == 'En attente'}">
+            background-color: #CCCCCC;
+            background-image: url("{!URLFOR($Resource.GACFactu,'/filigrane_facture_non_valide.jpg')}");
+            background-repeat: no-repeat;
+        </apex:outputPanel>
+    }
+    
+    @page {
+        margin : 40px;
+        margin-top:70px;
+        size: Letter;
+        padding :0;
+    }
+
+
+    </style>
+</head>
+
+
+<div style="margin-left:20px;float:left;">
+    <apex:image value="{!URLFOR($Resource.Dynavision_logo)}" width="250"/><br />
+</div>
+
+
+<div style="float:right;margin-top:20px;font-size:10px;color: #555555;">
+    <apex:outputText value="{!footerInfos.Coordonnees__c}" escape="false"/>
+    <br />
+    <div style="text-align:center;">
+        {!footerInfos.T_l_phone_fax__c}<br />
+        {!footerInfos.Site_web__c}
+    </div>
+</div>
+
+<div style="clear:both;"></div>
+
+<table style="width:100%;margin-top: 50px;">
+    <tr>
+        <td style="width: 430px;border-bottom:1px solid black;">Facturé à :  </td>
+        <td style="text-align: right;">Facture:</td>
+        <td style="width:120px;border:1px solid black;text-align: right;">{!Facture__c.Name}</td>
+    </tr>
+    <tr>
+        <td rowspan="2" style="height:70px; vertical-align: top;">
+            <strong>{!Facture__c.Client__c}</strong><br />
+            <apex:outputField value="{!Facture__c.Adresse__c}"/>
+        </td>
+        <td style="text-align: right;">Client:</td>
+        <td style="width:120px;border:1px solid black;text-align: right;">{!Facture__c.Reference__c}</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align: right;vertical-align: bottom;">
+            <c:DateFormat date="{!Facture__c.Date__c}" format="verbose" lang="fr"/>
+        </td>
+    </tr>
+</table>
+
+
+<div style="float:left;margin-top:20px;border:0px solid black;border-width: 0 1px 1px 0">
+    
+    <div style="float:left;margin-top:27px;min-height:450px;border:0px solid black;border-width:0px 1px 0px 0;width:0px;"></div>
+    <div style="float:left;margin-top:27px; margin-left:333px;min-height:450px;border:0px solid black;border-width:0px 1px 0px 0;width:0px;"></div>
+    <div style="float:left;margin-top:27px; margin-left:120px;min-height:450px;border:0px solid black;border-width:0px 1px 0px 0;width:0px;"></div>
+    <div style="float:left;margin-top:27px; margin-left:100px;min-height:450px;border:0px solid black;border-width:0px 1px 0px 0;width:0px;"></div>
+    
+    <table cellspacing="0" cellpadding="5" style="border:0px;">
+       
+           <thead class="tableHeader">
+           <tr>
+               <th style="width:325px;border:0px solid black;border-width:0px 0px 1px 0;height:25px;"></th>
+               <th style="width:110px;border:0px solid black;border-width:1px;text-align:center;">$ Réclamation</th>
+               <th style="width:91px;border:0px solid black;border-width:1px 1px 1px 0;text-align:center;">% des crédits</th>
+               <th style="width:132px;border:0px solid black;border-width:1px 0 1px 0;text-align:center;">$ Honoraires</th>
+           </tr>
+           </thead>
+           <tbody style="min-height:360px;">
+                <apex:variable var="sousTotalReclamations" value="{!0}"/>
+                <apex:variable var="sousTotalHonoraires" value="{!0}"/>
+                
+              <apex:repeat value="{!DetailFactuList}" var="item">
+               <tr >
+                   <td style="border:0px solid black;border-width:0 0 0 1px;" >
+                        <apex:outputText value="{!item.Description__c}" escape="false"/>
+                   </td>
+                   <td valign="bottom" style="border:0px solid black;text-align:right; font-weight:bold;">
+                        <c:Format value="{!item.R_clamation__c}" currency="X $"/>
+                        <apex:variable var="sousTotalReclamations" value="{!sousTotalReclamations + IF(item.R_clamation__c<>0,item.R_clamation__c,0)}"/>
+                  </td>
+                   <td valign="bottom" style="border:0px solid black; text-align:right;font-weight:bold;" >
+                        <apex:outputField value="{!item.des_credits__c}"/>
+                   </td>
+                   <td valign="bottom" style="border:0px solid black;text-align:right;font-weight:bold;">
+                        <c:Format value="{!item.Montant_HT__c}" currency="X $"/>
+                        <apex:variable var="sousTotalHonoraires" value="{!sousTotalHonoraires + IF(item.Montant_HT__c <>0, item.Montant_HT__c ,0)}"/>
+                   </td>
+               </tr>
+               </apex:repeat>
+             
+            </tbody> 
+            
+            <tfoot style="font-weight:bold;">
+                <tr>
+                    <td style="text-align:right;height: 50px;vertical-align: top;">Sous-total:</td>
+                    <td style="text-align:right;vertical-align: top;">
+                    <apex:outputText rendered="{!sousTotalReclamations}>0">
+                        <c:Format value="{!sousTotalReclamations}" currency="X $"/>
+                    </apex:outputText>
+                    </td>
+                    <td></td>
+                    <td style="text-align:right;vertical-align: top;">
+                        <c:Format value="{!sousTotalHonoraires}" currency="X $"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="font-weight:normal;height: 40px;font-size:12px;">
+                    
+                    <apex:outputtext rendered="{!!ISBLANK(Facture__c.Pourcentage_facture__c)}" >
+                        <apex:outputtext rendered="{!TEXT(Facture__c.Pourcentage_facture__c) == '40'}" >
+                          40 % de nos honoraires payable au moment de la réception du dossier*
+                         </apex:outputText>
+                         <apex:outputText rendered="{!TEXT(Facture__c.Pourcentage_facture__c) == '60'}">
+                          60 % de nos honoraires payable au moment de l'émission de l'avis de cotisation*
+                         </apex:outputText>
+                    </apex:outputtext>
+                    </td>
+                    <td></td>
+                    <td></td>
+                    <td style="text-align:right;vertical-align: top;">
+                        {!IF(ISBLANK(Facture__c.Pourcentage_Facture__c), '', TEXT(Facture__c.Pourcentage_Facture__c) & '%')}
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="4" style="border:0px solid black;border-width:1px 0px 0 1px;">
+                        T.P.S. {!footerInfos.T_P_S__c}<br />
+                        T.V.Q. {!footerInfos.T_V_Q__c}
+                    </td>
+                    <td colspan="2" style="border:0px solid black;border-width:1px 1px 0 0;text-align:right;">
+                        Total de honoraires
+                    </td>
+                    <td style="border-top:1px solid black;text-align:right;">
+                        <c:Format value="{!Facture__c.Montant_HT__c}" currency="X $"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border:0px solid black;border-width:0 1px 0 0;text-align:right;">
+                        T.P.S. ({!Facture__c.TPS__c}%)
+                    </td>
+                    <td style="border-top:1px solid black;text-align:right;">
+                        <c:Format value="{!Facture__c.Montant_TPS__c}" currency="X $"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border:0px solid black;border-width:0 1px 0 0;text-align:right;">
+                        T.V.Q. ({!Facture__c.TVQ__c}%)
+                    </td>
+                    <td style="border-top:1px solid black;text-align:right;">
+                        <c:Format value="{!Facture__c.Montant_TVQ__c}" currency="X $"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="border:0px solid black;border-width:0 1px 0 0;text-align:right;">
+                        TOTAL DE LA FACTURE
+                    </td>
+                    <td style="border-top:1px solid black;text-align:right;">
+                        <c:Format value="{!Facture__c.Montant_TTC__c}" currency="X $"/>
+                    </td>
+                </tr>
+            </tfoot>
+     </table>
+
+</div>
+
+<br/><br/>
+
+<div style="clear:both;">
+    <i>{!footerInfos.Condition_escompte__c}</i><br />
+    <i>{!footerInfos.Penalites_de_retard__c} </i>
+</div>
+<apex:form id="nouvelleFactureForm">
+<apex:inputHidden value="{!Facture__c.Entite_GAC__c}"/>
+</apex:form>
+</apex:page>

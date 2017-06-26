@@ -1,0 +1,125 @@
+<apex:page controller="INNOhomeCtrl" sidebar="false" tabStyle="INNOmission__c" title="Accueil" readOnly="true">
+
+    <apex:includeScript value="{!URLFOR($Resource.jQuery, 'jquery.min.js')}"/>
+    <apex:includeScript value="{!URLFOR($Resource.dataTables, 'jquery.dataTables.min.js')}"/>
+    <apex:styleSheet value="{!URLFOR($Resource.jQuery, 'css/AppCIR/jquery-ui-1.8.23.custom.css')}"/>
+    <apex:styleSheet value="{!URLFOR($Resource.dataTables, 'dataTables.css')}"/>
+    <apex:styleSheet value="{!URLFOR($Resource.AppCIR, 'css/style.css')}"/>
+    
+    <script type="text/javascript">
+        $$ = jQuery.noConflict();
+    
+        $$().ready(function() {
+            
+            oTable = $$('.listeMissionsID').dataTable({
+                bJQueryUI       : true,
+				aLengthMenu		: [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
+				iDisplayLength 	: -1,
+                sPaginationType : "full_numbers",
+                aaSorting       : [[ 0, "asc" ]]
+            });
+        } );
+    </script>
+    
+    <style>
+        .listeMissionsID td ul, .listeMissionsID td li{
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+		
+    </style>
+    
+    <apex:outputLink value="{!URLFOR('/apex/INNOequipeConsultingReassign')}" rendered="{!userIsManager}">Gestion du portefeuille</apex:outputLink>
+    
+    <apex:messages />
+    
+    <apex:form >
+        <div class="filterHeader ui-widget-header">
+            <div>
+            	<form>
+            		<apex:actionFunction action="{!initMissions}" name="initMissions"/>
+	                
+	                <apex:image value="{!URLFOR($Resource.icons, 'fatcow/Filter-Add.png')}" style="float:left; margin: -5px 15px 0 0;"/>
+	                
+	                <div style="width:90px;"><strong>Filtres:</strong></div>
+	                
+	                <label style="padding-right: 15px;">Type:</label>
+                	<apex:selectList value="{!selectedMissionRecordType}" size="1" style="margin-right: 30px;" onchange="initMissions();">
+						<apex:selectOptions value="{!missionRecordTypes}"/>
+					</apex:selectList>
+					
+	                <label style="padding-right: 15px;">Phase:</label>
+                	<apex:selectList value="{!selectedStatut}" size="1" style="margin-right: 30px;" onchange="initMissions();">
+						<apex:selectOptions value="{!statuts}"/>
+					</apex:selectList>
+					
+	                <label style="padding-right: 15px;">Année CIR:</label>
+	                <apex:selectList size="1" onchange="oTable.fnFilter(this.value, 1);" style="margin-right: 30px;">
+	                    <apex:selectOptions value="{!anneesCIR}"/>
+	                </apex:selectList> 
+	                
+	                <label style="padding-right: 15px;">Consultant scientifique:</label>
+	                <select onchange="oTable.fnFilter(this.value != 0 ? this.value + ' ' : '', 4, false, false);" style="margin-right: 30px;">
+	                    <option value="0">Tous</option>
+	                    <apex:repeat value="{!consultants}" var="cons">
+	                        <option value="{!cons}">{!cons}</option>                    
+	                    </apex:repeat>
+	                </select>
+	                
+	              
+                </form>
+            </div>
+        </div>
+    </apex:form>  
+    
+    
+    
+    <apex:dataTable value="{!missions}" var="mission" id="listeMissions" styleClass="listeMissionsID">
+    	
+    	<apex:column >
+			<apex:facet name="header">Mission</apex:facet>
+			<apex:outputLink value="{!URLFOR('/apex/INNOmissionView')}">
+			    {!mission.Name}
+			    <apex:param name="id" value="{!mission.Id}"/>
+			    <apex:param name="missionId" value="{!mission.Id}"/>
+			</apex:outputLink>
+		</apex:column>
+		
+		<apex:column >
+			<apex:facet name="header">Année CIR</apex:facet>
+			{!mission.Annee_CIR__c}
+		</apex:column>
+		
+		<apex:column >
+			<apex:facet name="header">Phase</apex:facet>
+			{!mission.Phase__c}
+		</apex:column>
+		
+		<apex:column >
+			<apex:facet name="header">Avancement</apex:facet>
+            <apex:outputPanel layout="none" rendered="{!mission.Taux_CIR__c != null}">
+            	{!mission.Taux_CIR__c} %
+            </apex:outputPanel>
+            
+		</apex:column>
+		
+		<apex:column >
+			<apex:facet name="header">Consultants scientifiques</apex:facet>
+			<ul>
+               <apex:outputText value="{!mission.Consultants_scientifiques__c}" escape="false" />
+            </ul>
+		</apex:column>
+		
+	
+		<apex:column >
+			<apex:facet name="header">Managers</apex:facet>
+			<ul>
+                 <apex:outputText value="{!mission.Managers__c}" escape="false" />
+            </ul>
+		</apex:column>
+
+    </apex:dataTable>
+    
+    
+</apex:page>

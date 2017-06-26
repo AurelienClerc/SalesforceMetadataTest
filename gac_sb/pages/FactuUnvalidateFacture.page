@@ -1,0 +1,5 @@
+<apex:page standardController="Facture__c" extensions="FactuCreateFactureCtrl" action="{!unvalidateFacture}">
+
+	<apex:pageMessages />
+	
+</apex:page>

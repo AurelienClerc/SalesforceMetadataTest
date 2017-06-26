@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Organisme</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Organismes</value>
+    </caseValues>
+    <fields>
+        <label><!-- Code postal --></label>
+        <name>Code_postal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaire --></label>
+        <name>Commentaire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Délai de passage (mois) --></label>
+        <name>DelaiPassage__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de recours gagnés --></label>
+        <name>NombreRecoursGagnes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre total de recours --></label>
+        <name>NombreTotalRecours__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pays --></label>
+        <name>Pays__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rue --></label>
+        <name>Rue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux de succès (calculé) --></label>
+        <name>TauxSuccesCalcule__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux de succès (Théorique) --></label>
+        <name>TauxSuccesTheorique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Téléphone 1 --></label>
+        <name>Telephone1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Téléphone 2 --></label>
+        <name>Telephone2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Téléphone 3 --></label>
+        <name>Telephone3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type d&apos;organisme --></label>
+        <name>TypeOrganisme__c</name>
+        <picklistValues>
+            <masterLabel>CARSAT</masterLabel>
+            <translation><!-- CARSAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CNITAAT</masterLabel>
+            <translation><!-- CNITAAT --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CPAM</masterLabel>
+            <translation><!-- CPAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRA</masterLabel>
+            <translation><!-- CRA --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>CRAM</masterLabel>
+            <translation><!-- CRAM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cour d&apos;Appel</masterLabel>
+            <translation><!-- Cour d&apos;Appel --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Cour de Cassation</masterLabel>
+            <translation><!-- Cour de Cassation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TASS</masterLabel>
+            <translation><!-- TASS --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>TCI</masterLabel>
+            <translation><!-- TCI --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>URSSAF</masterLabel>
+            <translation><!-- URSSAF --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Ville --></label>
+        <name>Ville__c</name>
+    </fields>
+    <fields>
+        <label><!-- Zone géographique --></label>
+        <name>ZoneGeographique__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Présentation Organisme</layout>
+        <sections>
+            <label><!-- Contacts --></label>
+            <section>Contacts</section>
+        </sections>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

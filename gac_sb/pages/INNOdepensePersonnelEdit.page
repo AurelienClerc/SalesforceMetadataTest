@@ -1,0 +1,185 @@
+<apex:page standardController="INNOdepensePersonnel__c" extensions="INNOdepensePersonnelCtrl" sidebar="false" tabStyle="INNOmission__c" title="Edition d'une dépense de personnel" >
+
+    <apex:composition template="INNOmissionTemplate">
+        
+        
+        <apex:define name="body">
+            <apex:variable var="typeDepense" value="{!IF(tab == 'salarie' || tab == 'jeuneDocteur' || tab == 'miseDisposition', 'RD', tab)}"/>
+            <apex:variable var="recordType" value="{!IF(ISBLANK(INNOdepensePersonnel__c.Id), tab, INNOdepensePersonnel__c.RecordType.DeveloperName)}"/>
+            <apex:variable var="nomDepense" value="{!IF(typeDepense == 'RD', 'R&D', LOWER($Label['AppCIR' + recordType]) )}"/>
+            
+            <apex:form >
+                
+                
+                 <!--Pour eviter des erreurs "SObject row was retrieved via SOQL without querying the requested field" car on a potentielement besoin de tous ces champs dans les outputField 'Heures R&D', 'Taux'R&D' et 'Montant R&D retenu'-->
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_RD_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_RD_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_RD_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_veille_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_veille_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_veille_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_normalisation_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_normalisation_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_normalisation_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_brevetPM_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_brevetPM_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Heures_brevetPM_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_RD_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_RD_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_RD_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_veille_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_veille_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_veille_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_normalisation_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_normalisation_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_normalisation_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_brevetPM_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_brevetPM_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Taux_brevetPM_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_RD_retenu_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_RD_retenu_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_RD_retenu_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_veille_retenu_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_veille_retenu_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_veille_retenu_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_normalisation_retenu_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_normalisation_retenu_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_normalisation_retenu_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_brevetPM_retenu_option1__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_brevetPM_retenu_option2__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.Montant_brevetPM_retenu_option3__c}" />
+                <apex:inputhidden value="{!INNOdepensePersonnel__c.UniteTempsDepensesPersonnel__c}" />
+                
+                <apex:pageBlock >
+                    <apex:pageBlockButtons rendered="{!missionReadWrite}">
+                        <apex:commandButton action="{!savePersonnelEtHeuresTravaillees}" value="Enregistrer"/>
+                        
+                        <apex:commandButton action="{!URLFOR('/apex/INNOdepensePersonnelView', null, [id = INNOdepensePersonnel__c.Id, valoId = INNOdepensePersonnel__c.Valorisation__c, tab = tab])}" value="Annuler" rendered="{!!ISBLANK(INNOdepensePersonnel__c.Id)}" immediate="true"/>
+						<apex:commandButton action="{!URLFOR(listPageURL, null, [id = INNOdepensePersonnel__c.Valorisation__c, valoId = INNOdepensePersonnel__c.Valorisation__c, tab = tab])}" value="Annuler" rendered="{!ISBLANK(INNOdepensePersonnel__c.Id)}" immediate="true"/>
+                    </apex:pageBlockButtons>
+                    <apex:pageBlockSection >
+                        
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Prenom__c}"/>
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Nom__c}"/>
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Matricule__c}"/>
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Actif__c}"/>
+                        
+                         <!--Que pour les mises a dispositions -->
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Societe_appartenance__c}" rendered="{!recordType == 'miseDisposition'}"/>
+                        <apex:pageBlockSectionItem rendered="{!recordType == 'miseDisposition'}"><apex:outputLabel /></apex:pageBlockSectionItem>
+                        
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Fonction__c}"/>
+                        <apex:selectList value="{!INNOdepensePersonnel__c.Departement__c}" size="1">
+                            <apex:selectOptions value="{!departements}"/>
+                        </apex:selectList>
+                        
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Cadre__c}"/>
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Ingenieur_Docteur__c}"/>
+                        
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Diplome__c}"/>
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Statut__c}"/>
+                        
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Date_entree__c}"/>
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Date_sortie__c}"/>
+                        
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Organisme_normalisation__c}"/>
+                        <apex:pageBlockSectionItem rendered="{!recordType != 'miseDisposition'}"><apex:outputLabel /></apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem rendered="{!recordType != 'miseDisposition'}">
+                            <apex:outputLabel value="Salaire brut annuel"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1">1: <apex:inputField value="{!INNOdepensePersonnel__c.Salaire_brut_annuel_option1__c}" styleClass="fieldOption fieldOption1 numberField"/></span>
+                                <span class="valueOption2">2: <apex:inputField value="{!INNOdepensePersonnel__c.Salaire_brut_annuel_option2__c}" styleClass="fieldOption fieldOption2 numberField"/></span>
+                                <span class="valueOption3">3: <apex:inputField value="{!INNOdepensePersonnel__c.Salaire_brut_annuel_option3__c}" styleClass="fieldOption fieldOption3 numberField"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!IF(recordType == 'miseDisposition', 'Montant HT', 'Salaire chargé')}"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1">1: <apex:inputField value="{!INNOdepensePersonnel__c.Salaire_charge_option1__c}" styleClass="fieldOption fieldOption1 numberField"/></span>
+                                <span class="valueOption2">2: <apex:inputField value="{!INNOdepensePersonnel__c.Salaire_charge_option2__c}" styleClass="fieldOption fieldOption2 numberField"/></span>
+                                <span class="valueOption3">3: <apex:inputField value="{!INNOdepensePersonnel__c.Salaire_charge_option3__c}" styleClass="fieldOption fieldOption3 numberField"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                         <apex:pageBlockSectionItem rendered="{!recordType != 'miseDisposition'}">
+                            <apex:outputLabel value="Intéressement"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1">1: <apex:inputField value="{!INNOdepensePersonnel__c.Interessement_option1__c}" styleClass="fieldOption fieldOption1 numberField"/></span>
+                                <span class="valueOption2">2: <apex:inputField value="{!INNOdepensePersonnel__c.Interessement_option2__c}" styleClass="fieldOption fieldOption2 numberField"/></span>
+                                <span class="valueOption3">3: <apex:inputField value="{!INNOdepensePersonnel__c.Interessement_option3__c}" styleClass="fieldOption fieldOption3 numberField"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                         <apex:pageBlockSectionItem rendered="{!recordType != 'miseDisposition'}">
+                            <apex:outputLabel value="Participation"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1">1: <apex:inputField value="{!INNOdepensePersonnel__c.Participation_option1__c}" styleClass="fieldOption fieldOption1 numberField"/></span>
+                                <span class="valueOption2">2: <apex:inputField value="{!INNOdepensePersonnel__c.Participation_option2__c}" styleClass="fieldOption fieldOption2 numberField"/></span>
+                                <span class="valueOption3">3: <apex:inputField value="{!INNOdepensePersonnel__c.Participation_option3__c}" styleClass="fieldOption fieldOption3 numberField"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!INNOdepensePersonnel__c.UniteTempsDepensesPersonnel__c} {!nomDepense}"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1"><apex:outputField value="{!INNOdepensePersonnel__c['Heures_' + typeDepense + '_option1__c']}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption2"><apex:outputField value="{!INNOdepensePersonnel__c['Heures_' + typeDepense + '_option2__c']}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption3"><apex:outputField value="{!INNOdepensePersonnel__c['Heures_' + typeDepense + '_option3__c']}"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Total {!LOWER(INNOdepensePersonnel__c.UniteTempsDepensesPersonnel__c)} {!IF(recordType == 'miseDisposition', 'factur', 'travaill')}{!IF(INNOdepensePersonnel__c.UniteTempsDepensesPersonnel__c == 'Jours', 'és', 'ées')}"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1">1: <apex:inputField value="{!INNOdepensePersonnel__c.Total_heures_travaillees_option1__c}" styleClass="fieldOption fieldOption1 numberField" required="false"/></span>
+                                <span class="valueOption2">2: <apex:inputField value="{!INNOdepensePersonnel__c.Total_heures_travaillees_option2__c}" styleClass="fieldOption fieldOption2 numberField" required="false"/></span>
+                                <span class="valueOption3">3: <apex:inputField value="{!INNOdepensePersonnel__c.Total_heures_travaillees_option3__c}" styleClass="fieldOption fieldOption3 numberField" required="false"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Taux {!nomDepense}"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1"><apex:outputField value="{!INNOdepensePersonnel__c['Taux_' + typeDepense + '_option1__c']}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption2"><apex:outputField value="{!INNOdepensePersonnel__c['Taux_' + typeDepense + '_option2__c']}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption3"><apex:outputField value="{!INNOdepensePersonnel__c['Taux_' + typeDepense + '_option3__c']}"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="{!IF(recordType == 'miseDisposition', 'Montant HT retenu', 'Montant ' & nomDepense & ' retenu')}"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1"><c:Format currency="€" value="{!INNOdepensePersonnel__c['Montant_' + typeDepense + '_retenu_option1__c']}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption2"><c:Format currency="€" value="{!INNOdepensePersonnel__c['Montant_' + typeDepense + '_retenu_option2__c']}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption3"><c:Format currency="€" value="{!INNOdepensePersonnel__c['Montant_' + typeDepense + '_retenu_option3__c']}"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:inputField value="{!INNOdepensePersonnel__c.Commentaires__c}"/>
+                        <apex:inputField value="{!INNOdepensePersonnel__c.UniteTempsDepensesPersonnel__c}" required="true"/>
+                    </apex:pageBlockSection>
+                    
+                    <apex:pageBlockSection title="{!INNOdepensePersonnel__c.UniteTempsDepensesPersonnel__c} travaill{!IF(INNOdepensePersonnel__c.UniteTempsDepensesPersonnel__c == 'Jours', 'és', 'ées')}" columns="1">
+                        <apex:pageBlockTable value="{!projetsIds}" var="projectId">
+                            <apex:column value="{!allProjects[projectId].Name}"/>
+                            <apex:column >
+                                <apex:facet name="header">Option 1</apex:facet>
+                                <apex:inputField value="{!personnelProjets.projetsHeures[projectId].Heures_RD_option1__c}" label="" required="false" styleClass="fieldOptionBis fieldOption1 numberField"/>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">Option 2</apex:facet>
+                                <apex:inputField value="{!personnelProjets.projetsHeures[projectId].Heures_RD_option2__c}" label="" required="false" styleClass="fieldOptionBis fieldOption2 numberField"/>
+                            </apex:column>
+                            <apex:column >
+                                <apex:facet name="header">Option 3</apex:facet>
+                                <apex:inputField value="{!personnelProjets.projetsHeures[projectId].Heures_RD_option3__c}" label="" required="false" styleClass="fieldOptionBis fieldOption3 numberField"/>
+                            </apex:column>
+                        </apex:pageBlockTable>
+                    </apex:pageBlockSection>
+                </apex:pageBlock>
+                
+            </apex:form>
+        </apex:define>
+    </apex:composition>
+</apex:page>

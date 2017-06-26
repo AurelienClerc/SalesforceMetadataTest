@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <customSettingsType>Hierarchy</customSettingsType>
+    <enableFeeds>false</enableFeeds>
+    <fields>
+        <fullName>APIkey__c</fullName>
+        <externalId>false</externalId>
+        <label>API key</label>
+        <length>100</length>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Endpoint__c</fullName>
+        <externalId>false</externalId>
+        <label>Endpoint</label>
+        <required>true</required>
+        <trackTrending>false</trackTrending>
+        <type>Url</type>
+    </fields>
+    <fields>
+        <fullName>GeocodeMaxBatch__c</fullName>
+        <defaultValue>5</defaultValue>
+        <description>Le nombre d&apos;appel de geocodage par transaction</description>
+        <externalId>false</externalId>
+        <inlineHelpText>Le nombre d&apos;appel de geocodage par transaction</inlineHelpText>
+        <label>Geocode max batch</label>
+        <precision>18</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <label>Google Map Settings</label>
+    <visibility>Protected</visibility>
+</CustomObject>

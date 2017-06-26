@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Accord de principe</masterLabel>
+        <translation>Acuerdo de principio</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Fermée gagnée</masterLabel>
+        <translation>Cerrada ganada</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Fermée: refus de l&apos;offre</masterLabel>
+        <translation>Cerrada : rechazo de la oferta</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Fermée: refus du RDV</masterLabel>
+        <translation>Cerrada : rechazo de la reunión</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Négociation</masterLabel>
+        <translation>Negociación</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Proposition Envoyée</masterLabel>
+        <translation>Oferta enviada</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Proposition validée</masterLabel>
+        <translation>Oferta validada</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Pré-qualification</masterLabel>
+        <translation>Precalificación</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Qualification en cours</masterLabel>
+        <translation>Cualificación en curso</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Qualifiée cible</masterLabel>
+        <translation>Cualificación objetivo</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV effectué</masterLabel>
+        <translation>Reunión realizada</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV pris</masterLabel>
+        <translation>Reunión fijada</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV validé</masterLabel>
+        <translation>Reunión validada</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV à prendre</masterLabel>
+        <translation>Fijar reunión</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>RDV à repositionner</masterLabel>
+        <translation><!-- RDV à repositionner --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

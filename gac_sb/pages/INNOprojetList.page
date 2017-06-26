@@ -1,0 +1,93 @@
+<apex:page standardController="INNOvalo__c" extensions="INNOprojetListCtrl" title="Liste des projets" sidebar="false" tabStyle="INNOmission__c" readOnly="true">
+
+	<apex:composition template="INNOmissionTemplate">
+		
+		<apex:define name="header">
+		
+		    <apex:includeScript value="{!URLFOR($Resource.dataTables, 'jquery.dataTables.min.js')}"/>
+			<apex:styleSheet value="{!URLFOR($Resource.dataTables, 'dataTables.css')}"/>
+			
+		    <script type="text/javascript">
+			    
+			    
+			    $$().ready(function() {
+				   
+				   initProjetsDataTable();
+				} );
+				
+				function initProjetsDataTable(){
+					oTable = $$('.listeProjetsID').dataTable({
+					        bJQueryUI		: true,
+							aLengthMenu		: [[10, 25, 50, -1], [10, 25, 50, "Tous"]],
+							iDisplayLength 	: -1,
+					        sPaginationType	: "full_numbers",
+					        aaSorting		: [[ 1, "asc" ]]
+				    });
+				}
+			</script>
+		</apex:define>
+		
+		
+		<apex:define name="body">
+		
+			
+			<apex:iframe src="{!URLFOR('apex/INNOcommentaireValo', null, [valoId = INNOvalo__c.Id, tab = 'projet', core.apexpages.devmode.url = 0])}" height="120px" width="100%" scrolling="true"/>				
+
+			<apex:form >
+			
+				
+				<apex:pageBlock id="listeProjetsContainer" title="Liste des projets">
+					<apex:pageBlockButtons location="top">
+						<apex:commandButton action="{!URLFOR('/apex/INNOprojetEdit', null, [valoId = INNOvalo__c.Id])}" value="Nouveau" rendered="{!missionReadWrite}"/>
+
+						<apex:commandButton immediate="true" action="{!URLFOR('/apex/INNOimport', null, [valoId = INNOvalo__c.Id, tab = 'projet']) }" value="Importer en masse" rendered="{!missionReadWrite}"/>
+						<c:INNOreportLink valoName="{!INNOvalo__c.Name}" reportName="projet"/>
+						
+						<apex:outputLink value="{!URLFOR('/apex/INNOdeleteAllRecords', null, [objectName = 'INNOprojet__c', valoId = INNOvalo__c.Id, retURL = $CurrentPage.URL])}" styleClass="deleteAllRecordsLink"  onclick="if(!confirm('Voulez-vous vraiment supprimer tous les projets de cette valorisation? \nCette action est irréversible.')) return false;" rendered="{!missionReadWrite}">
+							Supprimer tout
+						</apex:outputLink>
+						
+					</apex:pageBlockButtons>
+					<apex:dataTable value="{!projets}" var="projet" id="listeProjets" styleClass="listeProjetsID">
+						<!-- Colonne actions -->
+						<apex:column width="95px" rendered="{!missionReadWrite}">
+							<apex:facet name="header">Action</apex:facet>
+							<apex:outputLink value="{!URLFOR('/apex/INNOprojetEdit')}" styleClass="actionLink">
+								Modifier
+								<apex:param name="id" value="{!projet.id}"/>
+								<apex:param name="valoId" value="{!INNOvalo__c.Id}"/>
+							</apex:outputLink>&nbsp;|&nbsp;
+							<apex:outputLink value="{!URLFOR('/apex/INNOdeleteRecord', null, [recordId = projet.id, retURL = $CurrentPage.URL])}" onclick="if(!confirm('Voulez-vous continuer ?')) return false;" styleClass="actionLink">
+								 Suppr.
+							</apex:outputLink>
+						</apex:column>
+						
+						<apex:column >
+							<apex:facet name="header">Nom</apex:facet>
+							<apex:outputLink value="{!URLFOR('/apex/INNOprojetView')}">
+								{!projet.Name}
+								<apex:param name="id" value="{!projet.id}"/>
+								<apex:param name="valoId" value="{!INNOvalo__c.Id}"/>
+							</apex:outputLink>
+							
+						</apex:column>
+						<apex:column value="{!projet.Nom_regroupement_projet__c}">
+							<apex:facet name="header">Nom du regroupement de projet</apex:facet>
+						</apex:column>
+						<apex:column value="{!projet.Num_projet__c}">
+							<apex:facet name="header">Numéro</apex:facet>
+						</apex:column>
+						<apex:column >
+							<apex:facet name="header">Département</apex:facet>
+							{!projet.Departement__r.Name}
+						</apex:column>
+					</apex:dataTable>
+				</apex:pageBlock>
+			</apex:form>
+			
+			<br />
+			
+			<c:INNOpieceJointe />
+		</apex:define>
+	</apex:composition>
+</apex:page>

@@ -1,0 +1,268 @@
+<apex:page showheader="false" controller="INNOmissionTemplateCtrl" >
+<!--<apex:page showheader="false" controller="AppCIRvalorisationTemplateCtrl">-->
+	<html>
+    	<head>
+    		
+    		
+			<apex:includeScript value="{!URLFOR($Resource.jQuery, 'jquery.min.js')}"/>
+			<apex:includeScript value="{!URLFOR($Resource.AppCIR, 'js/commonFunctions.js')}"/>
+			<apex:styleSheet value="{!URLFOR($Resource.jQuery, 'css/AppCIR/jquery-ui-1.8.23.custom.css')}"/>
+			<apex:styleSheet value="{!URLFOR($Resource.AppCIR, 'css/style.css')}"/>
+			
+			<apex:insert name="header"/>
+			
+		</head>
+		<body>
+	
+			
+			<ul id="innoMenu" class="horizontalMenu">
+				<li>
+					<a href="/apex/INNOhome" title="Accueil : Liste des missions">
+						<img src="{!URLFOR($Resource.AppCIR, 'images/tabs_home.png')}" />
+						<span>Accueil</span>
+					</a>
+				</li>
+				<li><a href="/apex/INNOmissionView?id={!mission.Id}&missionId={!mission.Id}" >
+						<img src="{!URLFOR($Resource.AppCIR, 'images/tabs_mission.png')}" />
+						<span>{!mission.Name}</span>
+					</a>
+				</li>
+				<li>
+					<a href="/apex/INNOtimeSheetEdit?missionId={!mission.Id}" >
+						<img src="{!URLFOR($Resource.AppCIR, 'images/tabs_timeSheet.png')}" />
+						<span>TimeSheets</span>
+					</a>
+				</li>
+				<li>
+					<a href="/apex/INNOcontroleQualite?missionId={!mission.Id}" >
+						<img src="{!URLFOR($Resource.AppCIR, 'images/tabs_cq.png')}" />
+						<span>Contrôle qualité</span>
+					</a>
+				</li>
+				<li>
+					<a href="/apex/INNOfacturationMission?id={!mission.Id}&missionId={!mission.Id}" >
+						<span style="font-size: 21px; font-weight: normal;">$</span>
+						<span style="vertical-align: middle;">Facturation</span>
+					</a>
+				</li>
+			</ul>
+			
+			<apex:variable var="currentPageName" value="{!LOWER($CurrentPage.Name)}" />
+			
+		    <c:INNOtimeSheetSubMenu rendered="{!currentPageName == 'innotimesheetedit' || currentPageName == 'innotimesheetedit'}"/>
+		    
+		    <apex:sectionHeader title="Mission {!mission.Name}" />
+		    
+		    <apex:pageMessages />
+		    
+		    <apex:outputPanel layout="none" rendered="{!currentPageName != 'innotimesheetedit' && currentPageName != 'innotimesheetedit' && currentPageName != 'innocontrolequalite'}">
+		        
+		        <div id="innoBody">
+    				<ul id="listValos" class="horizontalMenu">
+    					<!--<li class="missionTab {!IF(CONTAINS(currentPageName, 'INNOmission') , 'selected', '')}">
+							<a href="/apex/INNOmissionView?id={!mission.Id}&missionId={!mission.Id}">
+								Mission {!mission.Name} {!currentPageName}
+							</a>
+						</li>-->
+    					<apex:repeat value="{!valos}" var="val">
+    						<li class="{!IF(LEFT($CurrentPage.parameters.valoId, 15) == LEFT(val.Id, 15), 'selected', '')} valo_{!val.RecordType.DeveloperName}">
+    							<a href="/{!val.Id}">
+    								{!val.Name}
+    							</a>
+    						</li>
+    					</apex:repeat>
+    					<li style="font-size: 20px; line-height: 14px;background-color: transparent;">
+    						<a href="/apex/INNOcreateMission?id={!mission.Id}&missionId={!mission.Id}" title="Nouvelle valorisation">
+    							&nbsp;+&nbsp;
+    						</a>
+    					</li>
+    				</ul>
+    				
+    				<div id="valoBodyContainer">
+    					
+    					<apex:outputPanel layout="none" rendered="{!!ISBLANK(valoId)}">
+    						<apex:variable var="tab" value="{!BLANKVALUE($CurrentPage.parameters.tab, '')}" />
+    						
+    						<div id="postesDepensesContainer">
+    							<ul id="postesDepenses" class="horizontalMenu valo_{!valo.RecordType.DeveloperName}">
+    								<li style="padding: 4px 10px;" class="{!if(currentPageName == 'innovalorisationview', 'current' , '')}">	
+    									<apex:outputLink value="/apex/INNOvalorisationView">
+    										<img src="{!URLFOR($Resource.AppCIR, 'images/tabs_home.png')}" style="width: 20px; vertical-align: middle;" />
+    										<apex:param name="id" value="{!valoId}"/>
+    										<apex:param name="valoId" value="{!valoId}"/>
+    									</apex:outputLink>
+    								</li>
+    								<li class="{!if(currentPageName == 'innofacturation', 'current' , '')}" style="font-size: 16px; line-height: 14px;">
+    									<apex:outputLink value="/apex/INNOfacturationValo" title="Facturation" >
+    										$
+    										<apex:param name="id" value="{!valoId}"/>
+    										<apex:param name="valoId" value="{!valoId}"/>
+    										<apex:param name="missionId" value="{!mission.Id}"/>
+    									</apex:outputLink>
+    								</li>
+    								<li style="padding: 4px 12px;" class="{!if(currentPageName == 'innovalorisationrecap', 'current' , '')}">
+    									<apex:outputLink value="/apex/INNOvalorisationRecap" title="Récapitulatif de valorisation">
+    										<apex:image value="{!URLFOR($Resource.AppCIR, 'images/tabs_valo.png')}" style="height: 18px; vertical-align: middle;"/>
+    										<apex:param name="id" value="{!valoId}"/>
+    										<apex:param name="valoId" value="{!valoId}"/>
+    									</apex:outputLink>
+    								</li>
+    								<li class="{!if(CONTAINS(currentPageName, 'innoprojet'), 'current' , '')}">
+    									<apex:outputLink value="/apex/INNOprojetList">
+    										Projets
+    										<apex:param name="id" value="{!valoId}"/>
+    										<apex:param name="valoId" value="{!valoId}"/>
+    									</apex:outputLink>
+    								</li>
+    								<li class="{!if(CONTAINS(currentPageName, 'innodepensepersonnel'), 'current' , '')}">
+    									Dépenses de personnel ▼
+    									<br />
+    									
+    									<ul class="valoSubMenu">
+    										<li >
+    											<apex:outputLink value="/apex/INNOdepensePersonnelList">
+    												Salariés
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="salarie"/>
+    											</apex:outputLink>
+    										</li>
+    										<li>
+    											<apex:outputLink value="/apex/INNOdepensePersonnelList">
+    												Jeunes docteurs
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="jeuneDocteur"/>
+    											</apex:outputLink>
+    										</li>
+    										<li>
+    											<apex:outputLink value="/apex/INNOdepensePersonnelList">
+    												Mises à disposition
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="miseDisposition"/>
+    											</apex:outputLink>
+    										</li>
+    									</ul>
+    								</li>
+    								<li class="{!if(tab == 'amortissement', 'current' , '')}">
+    									<apex:outputLink value="/apex/INNOamortissementList">
+    										Dotations aux amortissements
+    										<apex:param name="id" value="{!valoId}"/>
+    										<apex:param name="valoId" value="{!valoId}"/>
+    										<apex:param name="tab" value="amortissement"/>
+    									</apex:outputLink>
+    								</li>
+    								<li class="{!if(tab == 'brevetPM' || tab == 'brevetDef' || tab == 'amortissementBrevet' || tab == 'brevetAssu', 'current' , '')}">
+    									{!IF(valo.RecordType.DeveloperName == 'CIR', 'Brevets', 'Brevets & modèles')} ▼
+    									<br />
+    									<ul class="valoSubMenu">
+    										<li>
+    											<apex:outputLink value="/apex/INNOdepensePrestationPersonnelList">
+    												Prises et maintenances
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="brevetPM"/>
+    											</apex:outputLink>
+    										</li>
+    										<li>
+    											<apex:outputLink value="/apex/INNOdepensePrestationList">
+    												Défenses
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="brevetDef"/>
+    											</apex:outputLink>
+    										</li>
+    										<li>
+    											<apex:outputLink value="/apex/INNOamortissementList">
+    												Dotations aux amortissements
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="amortissementBrevet"/>
+    											</apex:outputLink>
+    										</li>
+    										<li>
+    											<apex:outputLink value="/apex/INNOdepensePrestationList">
+    												Assurances
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="brevetAssu"/>
+    											</apex:outputLink>
+    										</li>
+    									</ul>
+    								</li>
+    								
+    								<apex:outputPanel layout="none" rendered="{!valo.RecordType.DeveloperName == 'CIR'}">
+	    								<li class="{!if(tab == 'normalisation', 'current' , '')}">
+	    									<apex:outputLink value="/apex/INNOdepensePersonnelList">
+	    										Normalisation
+	    										<apex:param name="id" value="{!valoId}"/>
+	    										<apex:param name="valoId" value="{!valoId}"/>
+	    										<apex:param name="tab" value="normalisation"/>
+	    									</apex:outputLink>
+	    								</li>
+    								
+	    								<li class="{!if(tab == 'veille', 'current' , '')}">
+	    									<apex:outputLink value="/apex/INNOdepensePrestationPersonnelList">
+	    										Veille
+	    										<apex:param name="id" value="{!valoId}"/>
+	    										<apex:param name="valoId" value="{!valoId}"/>
+	    										<apex:param name="tab" value="veille"/>
+	    									</apex:outputLink>
+	    								</li>
+    								</apex:outputPanel>
+    								
+    								<li class="{!if(tab == 'prestataire', 'current' , '')}">
+    									<apex:outputLink value="/apex/INNOdepensePrestationList">
+    										Prestataires
+    										<apex:param name="id" value="{!valoId}"/>
+    										<apex:param name="valoId" value="{!valoId}"/>
+    										<apex:param name="tab" value="prestataire" />
+    									</apex:outputLink>
+    								</li>
+    								<li class="{!if(CONTAINS(currentPageName, 'innosubvention'), 'current' , '')}">
+    									Subventions &amp; avances ▼
+    									<br />
+    									<ul class="valoSubMenu">
+    										<li>
+    											<apex:outputLink value="/apex/INNOsubventionList">
+    												Subventions
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="subvention"/>
+    											</apex:outputLink>
+    										</li>
+    										<li>
+    											<apex:outputLink value="/apex/INNOsubventionList">
+    												Avances remboursables
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="avanceRemboursable"/>
+    											</apex:outputLink>
+    										</li>
+    										<li>
+    											<apex:outputLink value="/apex/INNOsubventionList">
+    												Remboursements avances
+    												<apex:param name="id" value="{!valoId}"/>
+    												<apex:param name="valoId" value="{!valoId}"/>
+    												<apex:param name="tab" value="remboursementAvance"/>
+    											</apex:outputLink>
+    										</li>
+    									</ul>
+    								</li>
+    							
+    							</ul>
+    						</div>
+    					</apex:outputPanel>
+    					
+    					
+    					<div id="valoBody">
+    						<apex:insert name="body"/>
+    					</div>
+    				</div>
+    			</div>    
+		    </apex:outputPanel>
+		        
+    	</body>
+    </html>
+</apex:page>

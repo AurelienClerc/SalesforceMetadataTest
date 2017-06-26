@@ -1,0 +1,154 @@
+<apex:page standardController="Facture__c" extensions="FactuFacturePDFCtrl" renderAs="pdf" standardStylesheets="false" applybodytag="false">
+
+<head>
+    <style>
+    body{
+        font-size:13px;
+        font-family: 'sans-serif';
+        <apex:outputPanel layout="none" rendered="{!Facture__c.Statut__c == 'En attente'}">
+            background-color: #CCCCCC;
+            background-image: url("{!URLFOR($Resource.GACFactu,'/filigrane_facture_non_valide.jpg')}");
+            background-repeat: no-repeat;
+        </apex:outputPanel>
+    }
+    
+    @page {
+        margin : 50px;
+        size: A4 portrait;
+        padding :0;
+    }
+
+
+    </style>
+</head>
+<body>
+
+
+<apex:image value="{!URLFOR($Resource.GACFactu, '/logoInno.jpg')}" width="200"/><br />
+
+<hr />
+
+<div style="color: #555555;font-size:10px;">
+    <apex:outputField value="{!footerInfos.Coordonnees__c}"/>
+    <br />
+    Registration number: {!footerInfos.RegistrationNumber__c}
+</div>
+
+<div style="margin-top: 40px;float:left;width: 100%;">
+    <div style="float:left">
+        <strong>{!Facture__c.Client__c}</strong><br />
+        <apex:outputText value="Attn.: {!Facture__c.Contact_facturation__r.Name}" rendered="{!!ISBLANK(Facture__c.Contact_facturation__c)}" /> <br />
+       <apex:outputText value="{!(Facture__c.Adresse__c)}" escape="false" style="white-space:pre" /><br />
+        <apex:outputText value="Registration number: {!Facture__c.Contrat__r.Account.SIRET__c}" rendered="{!!ISBLANK(Facture__c.Contrat__r.Account.SIRET__c)}" />
+    </div>
+    <div style="float:right">
+        <table style="text-align:right">
+            <tr>
+                <td>Invoice #:</td>
+                <td style="padding-left:20px;">{!Facture__c.Name}</td> 
+            </tr>
+            <tr>
+                <td>Date:</td>
+                <td style="padding-left:20px;"><apex:outputField value="{!Facture__c.Date__c}"/></td> 
+            </tr>
+            <tr>
+                <td colspan="2">&nbsp;</td> 
+            </tr>
+            <tr>
+                <td>Terms:</td>
+                <td style="padding-left:20px;"><apex:outputField value="{!Facture__c.Mission__r.Conds_paiement__c}"/></td> 
+            </tr>
+        </table>
+    </div>
+</div>
+
+<div style="clear:both;"></div>
+
+
+<strong style="text-align: center; width: 100%;display: inline-block; margin-top: 30px;font-size: 20px;text-decoration:underline;font-style:italic">
+    {!IF(Facture__c.Type__c == 'Facture', 'Billing Invoice', 'Credit Note')}
+</strong>
+
+
+
+<table style="width: 100%;min-height:350px; margin-top: 15px;" cellspacing="0" cellpadding="5" >
+    <thead>
+        <tr>
+            <th style="width:75%; border-bottom: 1px solid black;background-color:#EEE;">
+                Description
+            </th>
+            <th style="text-align: right;border-bottom: 1px solid black;background-color:#EEE;">
+                Amount SGD
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+         <apex:repeat value="{!DetailFactuList}" var="item">
+            <tr>
+                <td style="padding: 15px 0 10px 10px;vertical-align: top;"><apex:outputText value="{!item.Description__c}" escape="false"/></td>
+                <td style="text-align: right;vertical-align: top;padding-top:10px;"><c:Format value="{!item.Montant_HT__c}" currency="S$ X"/></td>
+            </tr>
+         </apex:repeat>
+    </tbody>
+    <tfoot>
+        <tr>
+            <th style="border-top: 1px solid black;text-align: right;">
+                Total amount due in Singapore Dollars:
+            </th>
+            <th style="border-top: 1px solid black;text-align: right;">
+                <c:Format value="{!Facture__c.Montant_TTC__c}" currency="S$ X"/>
+            </th>
+        </tr>
+    </tfoot>
+</table>
+<br/>
+<div style="font-size:12px">
+    <span style="text-decoration:underline">Cheque must be crossed and make payable to Global Approach Consulting Pte Ltd. </span>
+    <br />
+    <span style="text-decoration:underline">For TT payment, please remit directly to: </span>
+    <br /><br />
+    <table style="font-size:12px;">
+        <tr>
+            <td><strong>Beneficiary:</strong></td>
+            <td>{!footerInfos.Cheque_ordre__c}</td>
+        </tr>
+        <tr>
+            <td><strong>Bank name:</strong></td>
+            <td>{!footerInfos.BankName__c}</td>
+        </tr>
+        <tr>
+            <td><strong>Bank Address:</strong></td>
+            <td>{!footerInfos.Virement_domiciliation__c}</td>
+        </tr>
+        <tr>
+            <td style="padding-right: 15px;"><strong>Bank Account number:</strong></td>
+            <td>{!footerInfos.Virement_num_compte__c}</td>
+        </tr>
+        <tr>
+            <td><strong>Bank code:</strong></td>
+            <td>{!footerInfos.Virement_code_banque__c}</td>
+        </tr>
+        <tr>
+            <td><strong>Branch code:</strong></td>
+            <td>{!footerInfos.Virement_code_guichet__c}</td>
+        </tr>
+        <tr>
+            <td><strong>SWIFT code:</strong></td>
+            <td>{!footerInfos.Virement_BIC__c}</td>
+        </tr>
+    </table>
+    <br />
+    During payment, kindly insert the invoice number as reference.
+</div>
+
+<div style="width: 100%; text-align:center; font-size:10px;color:#002060; margin-top: 25px;">
+    {!footerInfos.Coordonnees__c} • Tel {!footerInfos.T_l_phone_fax__c} • {!footerInfos.Site_web__c}
+    <br />
+    {!SUBSTITUTE(footerInfos.Pays__c, '-', '•')}
+</div>
+
+<apex:form id="nouvelleFactureForm">
+<apex:inputHidden value="{!Facture__c.Entite_GAC__c}"/>
+</apex:form>
+</body>
+</apex:page>

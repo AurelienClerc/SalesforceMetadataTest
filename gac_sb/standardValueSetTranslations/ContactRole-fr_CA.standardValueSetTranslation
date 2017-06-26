@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Acheteur</masterLabel>
+        <translation><!-- Acheteur --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Autre</masterLabel>
+        <translation><!-- Autre --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Autre Référent Mission</masterLabel>
+        <translation>Autre Référent Mandat</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Autre interlocuteur mission</masterLabel>
+        <translation>Autre interlocuteur Mandat</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Décisionnaire</masterLabel>
+        <translation><!-- Décisionnaire --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Principal interlocuteur mission</masterLabel>
+        <translation>Principal interlocuteur mandat</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Référent Mission</masterLabel>
+        <translation>Référent mandat</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Signataire</masterLabel>
+        <translation><!-- Signataire --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

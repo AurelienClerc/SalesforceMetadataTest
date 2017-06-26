@@ -1,0 +1,1366 @@
+<apex:page standardController="INNOcontroleQualite__c" extensions="INNOcontroleQualiteCtrl" action="{!checkParams}" title="Contrôle qualité" sidebar="false" tabStyle="INNOmission__c">
+	
+	<apex:include pageName="INNOmissionTemplate"/>
+	
+            <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/versioning.css" />
+            <apex:stylesheet value="/sCSS/25.0/sprites/1342034628000/Theme3/default/gc/extended.css" />
+            
+            <style>
+                td.rich-tab-header{  
+                    font-size: 1.3em;
+                }
+                
+                table.intro{
+                	table-layout: fixed;
+                	margin-left:20%;
+                	margin-top:30px;
+                  	width:60%;
+                	border-collapse:collapse;
+                }
+                table.intro td{
+                	width:100%;
+                	vertical-align:top;
+                }
+                table.container{
+                	table-layout: fixed;
+                	margin-left:20%;
+                	margin-top:30px;
+                  	width:60%;
+                	border-collapse:collapse;
+                }
+                table.container tr{
+                	border-bottom:1px solid #d3d3d3;
+                	border-width : 0px 0px 80% 0px;
+                }
+                td.intro{
+                	width:100%;
+                	vertical-align:top;
+                }
+                td.col1{
+                	width:50%;
+                	vertical-align:top;
+                }
+                td.col2{
+                	width:17%;
+                	vertical-align:top;
+                	text-align:center;
+                	padding-top: 5px;
+                }
+                td.col2 select{
+                	margin-left:10%;
+                  	width:80%;
+                }
+                td.col3{
+                	width:16%;
+                	vertical-align:top;
+                	padding-top: 5px;
+                }
+                td.col4{
+                	width:17%;
+                	vertical-align:top;
+                	padding-top: 5px;
+                }
+                td.leadItem{
+                	padding-top: 10px;
+                	padding-bottom: 10px;
+                //font-weight: bold;
+                }
+                td.subItem{
+                	padding-left: 30px;
+                }
+                td.subItem2{
+                	padding-left: 60px;
+                }
+                td.subItem3{
+                	padding-left: 100px;
+                }
+                td input[type="checkbox"] {
+                    float: left;
+                    margin: 0 auto;
+                    width: 100%;
+                	vertical-center:top;
+                }
+           </style>
+
+            <!--<apex:sectionHeader title="{!mission.Name}" subtitle="Contrôle qualité"/>            -->
+            
+            <apex:form >
+                 
+                <apex:pageBlock mode="maindetail">
+                    
+                    <apex:pageBlockButtons location="top">
+                        <apex:commandButton action="{!saveCQ}" value="Enregistrer" />
+                    </apex:pageBlockButtons>
+                    <br/>
+                    
+        			<apex:pageMessages />
+                    
+                    <apex:pageBlockSection columns="1">
+                        <apex:outputField value="{!INNOcontroleQualite__c.avancementGlobal__c}"/>
+                        <apex:outputField value="{!INNOcontroleQualite__c.avancementAudit__c}"/>
+                        <apex:outputField value="{!INNOcontroleQualite__c.avancementCIR__c}"/>
+                        <apex:outputField value="{!INNOcontroleQualite__c.avancementCII__c}"/>
+                        <apex:outputField value="{!INNOcontroleQualite__c.avancementDossiers__c}"/>
+                    </apex:pageBlockSection>
+                    
+                    <br/>
+                    <apex:tabPanel switchType="client" selectedTab="audit" id="CQTabPanel">
+                    
+                        <apex:tab label="Audit" name="audit">
+                          	
+                          	<table class="intro">
+                                <tr>
+                                    <td class="col1 leadItem"><b>{!$ObjectType.INNOcontroleQualite__c.Fields.AuditNoAudit__c.inlineHelpText}</b></td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.AuditNoAudit__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                            </table>
+                            
+                            <table class="container">
+                                <tr>
+                                    <td class="col1 leadItem">Exhaustivité du périmètre vs l'organisation</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPerimetreRd__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditPerimetreRd__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPerimetreEtude__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditPerimetreEtude__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPerimetreQualite__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditPerimetreQualite__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPerimetreMaintenance__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditPerimetreMaintenance__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPerimetreMarketing__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditPerimetreMarketing__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPerimetreSi__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditPerimetreSi__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPerimetreAutre__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditPerimetreAutre__c}"/></td>
+                                    <td class="col3">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPerimetreAutreDetail__c.inlineHelpText}</td>
+                                    <td class="col4 "><apex:inputField value="{!INNOcontroleQualite__c.auditPerimetreAutreDetail__c}"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditSuivi__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditSuivi__c}"/></td>
+                                    <td class="col3">{!$ObjectType.INNOcontroleQualite__c.Fields.auditSuiviDetail__c.inlineHelpText}</td>
+                                    <td class="col4 "><apex:inputField value="{!INNOcontroleQualite__c.auditSuiviDetail__c}"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPointage__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditPointage__c}"/></td>
+                                    <td class="col3">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPointageDetail__c.inlineHelpText}</td>
+                                    <td class="col4 "><apex:inputField value="{!INNOcontroleQualite__c.auditPointageDetail__c}"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Connaissance de l'antériorité en matière de CIR/CII</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditAnteriorite__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditAnteriorite__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditAnterioriteHistorique__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditAnterioriteHistorique__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditElementFinancier__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditElementFinancier__c}"/></td>
+                                    <td class="col3">{!$ObjectType.INNOcontroleQualite__c.Fields.auditElementFinancierDetail__c.inlineHelpText}</td>
+                                    <td class="col4 "><apex:inputField value="{!INNOcontroleQualite__c.auditElementFinancierDetail__c}"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditElementTechnique__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditElementTechnique__c}"/></td>
+                                    <td class="col3">{!$ObjectType.INNOcontroleQualite__c.Fields.auditElementTechniqueDetail__c.inlineHelpText}</td>
+                                    <td class="col4 "><apex:inputField value="{!INNOcontroleQualite__c.auditElementTechniqueDetail__c}"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditPlanificationDeadline__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditPlanificationDeadline__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditIdentificationClient__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditIdentificationClient__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditIdentificationGAC__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditIdentificationGAC__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditEnjeux__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditEnjeux__c}"/></td>
+                                    <td class="col3">{!$ObjectType.INNOcontroleQualite__c.Fields.auditEnjeuxMontant__c.inlineHelpText}</td>
+                                    <td class="col4 "><apex:inputField value="{!INNOcontroleQualite__c.auditEnjeuxMontant__c}"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Identification de cross et/ou up-selling</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditCrossUpAs__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditCrossUpAs__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditCrossUpAgrement__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditCrossUpAgrement__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditCrossUpPropriete__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditCrossUpPropriete__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditCrossUpJei__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditCrossUpJei__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditCrossUpFiscalite__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditCrossUpFiscalite__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditCrossUpTAT__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditCrossUpTAT__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditCrossUpAutre__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditCrossUpAutre__c}"/></td>
+                                    <td class="col3">{!$ObjectType.INNOcontroleQualite__c.Fields.auditCrossUpAutreDetail__c.inlineHelpText}</td>
+                                    <td class="col4 "><apex:inputField value="{!INNOcontroleQualite__c.auditCrossUpAutreDetail__c}"/></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditMajChamps__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditMajChamps__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr><td class="col1 subItem">Phase</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Date de lancement de mission</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Nombre d'interlocuteurs</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Nombre de projets à rédiger</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Nombre de valorisations</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Date de validation de périmètre</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.auditNote__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.auditNote__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                            </table>
+                               
+                        </apex:tab>
+                        
+                        <apex:tab label="Valo CIR" name="valoCir">
+                            
+                            <table class="intro">
+                                <tr>
+                                    <td class="col1 leadItem"><b>{!$ObjectType.INNOcontroleQualite__c.Fields.CIRnoValo__c.inlineHelpText}</b></td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.CIRnoValo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                            </table>
+                            
+                            <table class="intro">
+                                <tr>
+                                    <td class="leadItem"><b>Pour toute déclaration, toujours vérifier :</b></td>
+                                </tr>
+                                <tr>
+                                    <td class="subItem">* la cohérence des chiffres avec l'année N-1 --> si écart, comment je l'explique</td>
+                                </tr>
+                                <tr>
+                                    <td class="subItem">* la continuité de méthodologie avec l'année N-1 --> si écart, comment je l'explique</td>
+                                </tr>
+                                <tr>
+                                    <td class="">Pour chaque poste de dépense déclaré, on doit avoir un argumentaire à présenter à l'Adminitration pour le justifier</td>
+                                </tr>
+                            </table>   
+                            
+                            <table class="container">
+                                <tr>
+                                    <td class="col1 leadItem">Dépenses de personnel</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelQualifTechnique__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelQualifTechnique__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelJustifImplantation__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelJustifImplantation__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelVerifJustificat__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelVerifJustificat__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelIdentPersonnel__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelIdentPersonnel__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelAffectPersonnel__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelAffectPersonnel__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelNonPointants__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelNonPointants__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelPresenceIngenieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelPresenceIngenieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelTempsTravail__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelTempsTravail__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelDate__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelDate__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelSalaire__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelSalaire__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelCharge__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelCharge__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelTauxCharge__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelTauxCharge__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelInteressement__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelInteressement__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelAnterieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelAnterieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirPersonnelRD__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirPersonnelRD__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Dotations aux amortissements</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotMaterielNeuf__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotMaterielNeuf__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotDeductible__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotDeductible__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotProjetValo__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotProjetValo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotTauxDotation__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotTauxDotation__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotCreditBail__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotCreditBail__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotAnnuite__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotAnnuite__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotAnterieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotAnterieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem2">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotSpecifique__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotSpecifique__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem3">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotSinistre__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotSinistre__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem3">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotDerogation__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotDerogation__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem3">{!$ObjectType.INNOcontroleQualite__c.Fields.cirDotFusion__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirDotFusion__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Recherche externalisée</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtEuropeen__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtEuropeen__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtPublic__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtPublic__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtPrive__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtPrive__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtProjetValo__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtProjetValo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtJustifPrestation__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtJustifPrestation__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtDependance__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtDependance__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtRenonciation__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtRenonciation__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtFactureLibelle__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtFactureLibelle__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtFactureDate__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtFactureDate__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtFactureMontantHT__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtFactureMontantHT__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtAnterieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtAnterieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirExtPlafond__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirExtPlafond__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Veille technologique <i>(Attention ce poste de dépense n'est pas limité à l'Europe)</i></td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirVeilleNature__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirVeilleNature__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirVeilleProjetValo__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirVeilleProjetValo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirVeilleAnterieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirVeilleAnterieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirVeillePlafond__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirVeillePlafond__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Normalisation</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirNormaEligible__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirNormaEligible__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirNormaTempsPreparation__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirNormaTempsPreparation__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirNormaJustif__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirNormaJustif__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirNormaAnterieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirNormaAnterieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Brevets et COV <i>(Attention ce poste de dépense n'est pas limité à l'Europe)</i></td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirBrevetPrise__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirBrevetPrise__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirBrevetDefense__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirBrevetDefense__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirBrevetAmortissement__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirBrevetAmortissement__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirBrevetFactureDate__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirBrevetFactureDate__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirBrevetFactureMontantHT__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirBrevetFactureMontantHT__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirBrevetAnterieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirBrevetAnterieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Total dépenses RD</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirRDAnterieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirRDAnterieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Subventions / Avances remboursables / Honoraires</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvRD__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvRD__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvDeduite__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvDeduite__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvAnnee__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvAnnee__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvMontant__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvMontant__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvNature__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvNature__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvThesard__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvThesard__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvAgree__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvAgree__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvCabinetRemu__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvCabinetRemu__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvCabinetDeduction__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvCabinetDeduction__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirSubvAnterieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirSubvAnterieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Total CIR</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirTotalAnterieur__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirTotalAnterieur__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirTotalProjetValo__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirTotalProjetValo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Contrôle du CERFA</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirCerfaFait__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirCerfaFait__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirCerfaPJ__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirCerfaPJ__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirMajChamps__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirMajChamps__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr><td class="col1 subItem">Taux de CIR</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Phase</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Date de rendu estimation</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Date  d'envoi valorisation</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Date de rendu CERFA</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Montant total des dépenses (avant déduction des honoraires)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Montant total des dépenses retenues (avant déduction des honoraires)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">CIR définitif (après déduction des honoraires)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Montant du CIR définitif retenu (après déduction des honoraires)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Option fiscale retenue</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Honoraires à déduire</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Commentaires (le cas échéant)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.cirNote__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.cirNote__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                            </table>                            
+                                              
+                        </apex:tab>
+                        
+                        <apex:tab label="Valo CII" name="valoCii">
+                            
+                            <table class="intro">
+                                <tr>
+                                    <td class="col1 leadItem"><b>{!$ObjectType.INNOcontroleQualite__c.Fields.CIInoValo__c.inlineHelpText}</b></td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.CIInoValo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                            </table>
+                            
+                            <table class="intro">
+                                <tr>
+                                    <td class="leadItem"><b>Attention :</b></td>
+                                </tr>
+                                <tr>
+                                    <td class="subItem">* pas de veille technologie dans le cadre du CII</td>
+                                </tr>
+                                <tr>
+                                    <td class="subItem">* dispositif existant depuis 2013 seulement</td>
+                                </tr>
+                            </table>   
+                            
+                            <table class="container">
+                                <tr>
+                                    <td class="col1 leadItem">Statut de l'entreprise</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiPme__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiPme__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Dépenses de personnel</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepQualif__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepQualif__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepAffectation__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepAffectation__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepTotal__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepTotal__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepTemps__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepTemps__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepStatut__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepStatut__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepSalaire__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepSalaire__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepCharges__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepCharges__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepTaux__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepTaux__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepInteressement__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepInteressement__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepAnterieures__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepAnterieures__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDepRD__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDepRD__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Dotations aux amortissements</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDot2013__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDot2013__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDotDeduction__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDotDeduction__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDotAffectation__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDotAffectation__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDotTaux__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDotTaux__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiDotNeuf__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiDotNeuf__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Recherche externalisée</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiRdAgree__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiRdAgree__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiRdValo__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiRdValo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiRdFactureDate__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiRdFactureDate__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiRdFactureMontant__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiRdFactureMontant__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Brevets et COV</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiBre__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiBre__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiBreFactureDate__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiBreFactureDate__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiBreFactureMontant__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiBreFactureMontant__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Total des dépenses d'innovation</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiTotal400k__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiTotal400k__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiTotalCoherenceInno__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiTotalCoherenceInno__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Subventions / Avances remboursables / Honoraires</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiSubPercues__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiSubPercues__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiSubRemboursees__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiSubRemboursees__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiSubAnneePerception__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiSubAnneePerception__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiSubAnneeDepense__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiSubAnneeDepense__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiSubNature__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiSubNature__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiSubSousTraitant__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiSubSousTraitant__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiSubCabinet__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiSubCabinet__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Total du CII</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiTotal80k__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiTotal80k__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiTotalCoherence__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiTotalCoherence__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiTotalProjet__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiTotalProjet__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Contrôle du CERFA</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiCerfa__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiCerfa__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiMajChamps__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiMajChamps__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr><td class="col1 subItem">Taux de CII</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Phase</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Date de rendu estimation</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Date  d'envoi valorisation</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Date de rendu CERFA</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Montant total des dépenses (avant déduction des honoraires)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Montant total des dépenses retenues (avant déduction des honoraires)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">CII définitif (après déduction des honoraires)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Montant du CII définitif retenu (après déduction des honoraires)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Option fiscale retenue</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Honoraires à déduire</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Commentaires (le cas échéant)</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.ciiNote__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.ciiNote__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                            </table>                            
+                                              
+                        </apex:tab>
+                        
+                        <apex:tab label="Dossier justificatif" name="dossier">
+                            
+                            <table class="intro">
+                                <tr>
+                                    <td class="col1 leadItem"><b>{!$ObjectType.INNOcontroleQualite__c.Fields.DJnoDossierJustificatif__c.inlineHelpText}</b></td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.DJnoDossierJustificatif__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                            </table>
+                            
+                            <table class="container">
+                                <tr>
+                                    <td class="col1 leadItem">Dossier technique</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotProjetValo__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotProjetValo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotMatrice__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotMatrice__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotIndicateurs__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotIndicateurs__c}"/></td>
+                                    <td class="col3">Préciser</td>
+                                    <td class="col4"><apex:inputField value="{!INNOcontroleQualite__c.dotIndicateursListe__c}"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotRelecture__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotRelecture__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotDJ__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotDJ__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotQualite__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotQualite__c}"/></td>
+                                    <td class="col3">{!$ObjectType.INNOcontroleQualite__c.Fields.dotQualiteNote__c.inlineHelpText}</td>
+                                    <td class="col4"><apex:inputField value="{!INNOcontroleQualite__c.dotQualiteNote__c}"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotVerrou__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotVerrou__c}"/></td>
+                                    <td class="col3">{!$ObjectType.INNOcontroleQualite__c.Fields.dotProjets__c.inlineHelpText}</td>
+                                    <td class="col4"><apex:inputField value="{!INNOcontroleQualite__c.dotProjets__c}"/></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotRegroupements__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotRegroupements__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem2">{!$ObjectType.INNOcontroleQualite__c.Fields.dotRegroupementsNo__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotRegroupementsNo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem2">{!$ObjectType.INNOcontroleQualite__c.Fields.dotRegroupementsYes__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotRegroupementsYes__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotHeuresProjet__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotHeuresProjet__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotDescription__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotDescription__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotAnnexes__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotAnnexes__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotPj__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotPj__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dotNote__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dotNote__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">Dossier financier</td>
+                                    <td class="col2"></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dofPresentation__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dofPresentation__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dofProjetValo__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dofProjetValo__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dofMatrice__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dofMatrice__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr>
+                                    <td class="col1 subItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dofAnnexes__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dofAnnexes__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dofMajChamps__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dofMajChamps__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                <tr><td class="col1 subItem">Phase</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Date de rendu DT</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                <tr><td class="col1 subItem">Commentaire sur les DT</td><td class="col2"></td><td class="col3"></td><td class="col4"></td></tr>
+                                
+                                
+                                <tr>
+                                    <td class="col1 leadItem">{!$ObjectType.INNOcontroleQualite__c.Fields.dofNote__c.inlineHelpText}</td>
+                                    <td class="col2"><apex:inputField value="{!INNOcontroleQualite__c.dofNote__c}"/></td>
+                                    <td class="col3"></td>
+                                    <td class="col4"></td>
+                                </tr>
+                                
+                            </table>
+                                                                
+                        </apex:tab>
+                        
+                    </apex:tabPanel>
+                    
+                </apex:pageBlock>
+            </apex:form>   
+    
+</apex:page>

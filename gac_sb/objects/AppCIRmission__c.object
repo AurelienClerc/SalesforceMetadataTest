@@ -1,0 +1,4513 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>InDevelopment</deploymentStatus>
+    <description>APPLICATION CIR - Les missions CIR d&apos;un client</description>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>true</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Annee_CIR__c</fullName>
+        <externalId>false</externalId>
+        <label>Année CIR</label>
+        <length>4</length>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>AppCIRcqInnoAdvance__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Contrôle Qualité INNO advance</label>
+        <referenceTo>AppCIRcqInnoAdvance__c</referenceTo>
+        <relationshipName>Missions_CIR</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Approbateur__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Approbateur</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Missions_CIR</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Auditeurs_financiers__c</fullName>
+        <externalId>false</externalId>
+        <label>Auditeurs financiers</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Avancement_Audit__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Audit__c == 0, 0, Nombre_jours_travailles_Audit__c / Nombre_jours_theoriques_Audit__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement - Audit</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Avancement_Controle__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Controle__c == 0, 0, Nombre_jours_travailles_Controle__c / Nombre_jours_theoriques_Controle__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement - Contrôle</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Avancement_Justification__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Justification__c == 0, 0, Nombre_jours_travailles_Justification__c / Nombre_jours_theoriques_Justification__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement - Justif</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Avancement_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Valorisation__c == 0, 0, Nombre_jours_travailles_Valorisation__c / Nombre_jours_theoriques_Valorisation__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement - Valo</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Avancement__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Nombre_jours_theoriques_Total__c == 0, 0, Nombre_jours_travailles_total__c / Nombre_jours_theoriques_Total__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Avancement</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>CII__c</fullName>
+        <externalId>false</externalId>
+        <formula>CONTAINS(Name, &apos;CII -&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>CII</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Commentaires_DT__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les DT</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_amortissementBrevet__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les DA de brevets</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_amortissement__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les DA</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_avanceRemboursable__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les avances remb.</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_brevetAssu__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les assu. de brevets</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_brevetDef__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur défenses de brevets</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_brevetPM__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les PM de brevets</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_jeuneDocteur__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les jeunes docteurs</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_miseDisposition__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les mises à disposition</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_normalisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur normalisations</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_prestataire__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les prestataires</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_projet__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les projets</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_remboursementAvance__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les remb. avances</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_salarie__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les salariés</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_subvention__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur les subventions</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Commentaires_veille__c</fullName>
+        <externalId>false</externalId>
+        <label>Commentaires sur veilles</label>
+        <length>32768</length>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>2</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Compte__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Compte</label>
+        <referenceTo>Account</referenceTo>
+        <relationshipName>MissionsCIR</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Consultants_exterieurs__c</fullName>
+        <externalId>false</externalId>
+        <label>Consultants exterieurs</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consultants_fiscalistes__c</fullName>
+        <externalId>false</externalId>
+        <label>Consultants fiscalistes</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Consultants_scientifiques__c</fullName>
+        <externalId>false</externalId>
+        <label>Consultants scientifiques</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Cout_mission_Estime__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Cout_standard_INNO_advance__c), 
+null, 
+(Nombre_jours_programmes_Consultant__c + Nombre_jours_travailles_Consultant__c) * Cout_standard_INNO_advance__r.Cout_standard_Consultant__c + 
+(Nombre_jours_programmes_Consultant_RO__c + Nombre_jours_travailles_Consultant_RO__c) * Cout_standard_INNO_advance__r.Cout_standard_Consultant_RO__c + 
+(Nombre_jours_programmes_Superviseur__c + Nombre_jours_travailles_Superviseur__c) * Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c + 
+(Nombre_jours_programmes_Manager__c + Nombre_jours_travailles_Manager__c) * Cout_standard_INNO_advance__r.Cout_standard_Manager__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coût de la mission (Estimé)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_mission_Reelle__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Cout_standard_INNO_advance__c), 
+null, 
+Nombre_jours_travailles_Consultant__c * Cout_standard_INNO_advance__r.Cout_standard_Consultant__c + 
+Nombre_jours_travailles_Consultant_RO__c * Cout_standard_INNO_advance__r.Cout_standard_Consultant_RO__c + 
+Nombre_jours_travailles_Superviseur__c * Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c + 
+Nombre_jours_travailles_Manager__c * Cout_standard_INNO_advance__r.Cout_standard_Manager__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coût de la mission (Réelle)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_mission_Theorique__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(ISBLANK(Cout_standard_INNO_advance__c), 
+null, 
+Nombre_jours_theoriques_Consultant__c * Cout_standard_INNO_advance__r.Cout_standard_Consultant__c + 
+Nombre_jours_theoriques_Consultant_RO__c * Cout_standard_INNO_advance__r.Cout_standard_Consultant_RO__c + 
+Nombre_jours_theoriques_Superviseur__c * Cout_standard_INNO_advance__r.Cout_standard_Superviseur__c + 
+Nombre_jours_theoriques_Manager__c * Cout_standard_INNO_advance__r.Cout_standard_Manager__c 
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Coût de la mission (Théorique)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Cout_standard_INNO_advance__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Coût standard INNO advance</label>
+        <referenceTo>AppCIRcoutStandard__c</referenceTo>
+        <relationshipName>Missions_CIR</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>DT_soumis_a_facturation__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>DT soumis à facturation</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Date_Initiale_echeance_DT__c</fullName>
+        <externalId>false</externalId>
+        <label>Date Initiale Échéance DT</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_approbation__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d&apos;approbation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_collecte_info_DT__c</fullName>
+        <externalId>false</externalId>
+        <label>Date collecte info DT</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_debut_Audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Date début Audit</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_debut_agrement__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de début d&apos;agrément</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_debut_justification__c</fullName>
+        <externalId>false</externalId>
+        <label>Date début justification</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_debut_valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Date début valorisation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_echeance_CERFA__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d&apos;échéance CERFA</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_echeance_CF__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d&apos;échéance CF</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_echeance_DT__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d&apos;échéance DT</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_echeance_estimations__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d&apos;échéance estimations</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_echeance_validation_perimetre__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d&apos;échéance validation périmètre</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_echeance_valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d&apos;échéance valorisation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_envoi_valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Date d&apos;envoi valorisation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_facturation_GAC__c</fullName>
+        <externalId>false</externalId>
+        <label>Date facturation GAC</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_fin_agrement__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de fin d&apos;agrément</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_lancement_mission__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de lancement de mission</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_reception_doc_DT__c</fullName>
+        <externalId>false</externalId>
+        <label>Date réception doc DT</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_reception_doc_fin__c</fullName>
+        <externalId>false</externalId>
+        <label>Date réception doc fin.</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_rendu_CERFA__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de rendu CERFA</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_rendu_DT__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de rendu DT</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_rendu_estimations__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de rendu estimations</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_soumission__c</fullName>
+        <externalId>false</externalId>
+        <label>Date soumission</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>DateTime</type>
+    </fields>
+    <fields>
+        <fullName>Date_validation_DT_par_client__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de validation DT par le client</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_validation_perimetre__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de validation de périmètre</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Date_validation_valo_par_client__c</fullName>
+        <externalId>false</externalId>
+        <label>Date de validation valo par le client</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Date</type>
+    </fields>
+    <fields>
+        <fullName>Demande_de_remboursement_anticipe__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <inlineHelpText>PME au sens communautaire</inlineHelpText>
+        <label>Demande de remboursement anticipé</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_amortissementBrevet__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur DA de brevets</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_amortissement__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur DA</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_avanceRemboursable__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur avances remb.</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_brevetAssu__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur assu. de brevets</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_brevetDef__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur défenses de brevets</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_brevetPM__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur PM de brevets</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_jeuneDocteur__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur jeunes docteurs</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_miseDisposition__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur mises à disposition</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_normalisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur normalisations</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_prestataire__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur prestataires</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_projet__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur projets</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_remboursementAvance__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur remb. avances</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_salarie__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur salariés</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_subvention__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur subventions</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Dossier_serveur_veille__c</fullName>
+        <externalId>false</externalId>
+        <label>Dossier serveur veilles</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Entite__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <label>Entité</label>
+        <referenceTo>AppCIRentite__c</referenceTo>
+        <relationshipName>Missions</relationshipName>
+        <required>true</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Etat_CF__c</fullName>
+        <externalId>false</externalId>
+        <label>Etat CF</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>En cours</fullName>
+                    <default>false</default>
+                    <label>En cours</label>
+                </value>
+                <value>
+                    <fullName>Terminé</fullName>
+                    <default>false</default>
+                    <label>Terminé</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Etat_DT__c</fullName>
+        <externalId>false</externalId>
+        <label>Etat DT</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A faire</fullName>
+                    <default>true</default>
+                    <label>A faire</label>
+                </value>
+                <value>
+                    <fullName>En validation</fullName>
+                    <default>false</default>
+                    <label>En validation</label>
+                </value>
+                <value>
+                    <fullName>Terminé</fullName>
+                    <default>false</default>
+                    <label>Terminé</label>
+                </value>
+                <value>
+                    <fullName>En cours</fullName>
+                    <default>false</default>
+                    <label>En cours</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Etat_info_fin_recue__c</fullName>
+        <externalId>false</externalId>
+        <label>Etat info fin. reçue</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A faire</fullName>
+                    <default>true</default>
+                    <label>A faire</label>
+                </value>
+                <value>
+                    <fullName>En cours</fullName>
+                    <default>false</default>
+                    <label>En cours</label>
+                </value>
+                <value>
+                    <fullName>Terminé</fullName>
+                    <default>false</default>
+                    <label>Terminé</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Etat_info_recue_DT__c</fullName>
+        <externalId>false</externalId>
+        <label>Etat info reçue DT</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A lancer</fullName>
+                    <default>true</default>
+                    <label>A lancer</label>
+                </value>
+                <value>
+                    <fullName>En cours</fullName>
+                    <default>false</default>
+                    <label>En cours</label>
+                </value>
+                <value>
+                    <fullName>Besoin compléments</fullName>
+                    <default>false</default>
+                    <label>Besoin compléments</label>
+                </value>
+                <value>
+                    <fullName>Validé</fullName>
+                    <default>false</default>
+                    <label>Validé</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Etat_remboursement__c</fullName>
+        <externalId>false</externalId>
+        <label>Etat du remboursement</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>En attente</fullName>
+                    <default>false</default>
+                    <label>En attente</label>
+                </value>
+                <value>
+                    <fullName>Effectué</fullName>
+                    <default>false</default>
+                    <label>Effectué</label>
+                </value>
+                <value>
+                    <fullName>Refusé</fullName>
+                    <default>false</default>
+                    <label>Refusé</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Etat_valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Etat valorisation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>A faire</fullName>
+                    <default>true</default>
+                    <label>A faire</label>
+                </value>
+                <value>
+                    <fullName>En cours</fullName>
+                    <default>false</default>
+                    <label>En cours</label>
+                </value>
+                <value>
+                    <fullName>En validation</fullName>
+                    <default>false</default>
+                    <label>En validation</label>
+                </value>
+                <value>
+                    <fullName>Terminé</fullName>
+                    <default>false</default>
+                    <label>Terminé</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Honoraires_N1_a_deduire_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Honoraires N-1 à déduire option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Honoraires_N1_a_deduire_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Honoraires N-1 à déduire option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Honoraires_N1_a_deduire_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Honoraires N-1 à déduire option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Honoraires_N1_a_deduire_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_honoraires_N1__c,1,Honoraires_N1_a_deduire_option1__c,2,Honoraires_N1_a_deduire_option2__c,3,Honoraires_N1_a_deduire_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Honoraires N-1 à déduire option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Honoraires_N_a_deduire_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Honoraires N à déduire option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Honoraires_N_a_deduire_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Honoraires N à déduire option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Honoraires_N_a_deduire_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Honoraires N à déduire option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Honoraires_N_a_deduire_optionFinaleManue__c</fullName>
+        <externalId>false</externalId>
+        <label>Honoraires N à déduire option ret manuel</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Honoraires_en_jeux__c</fullName>
+        <externalId>false</externalId>
+        <label>Honoraires en jeux</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Managers__c</fullName>
+        <externalId>false</externalId>
+        <label>Managers</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Mobilisation_creance__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Mobilisation de créance</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_N_base_option1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_depenses_option1__c * Taux_CIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant CIR N  (base de calcul) option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_N_base_option2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_depenses_option2__c * Taux_CIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant CIR N  (base de calcul) option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_N_base_option3__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_depenses_option3__c * Taux_CIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant CIR N  (base de calcul) option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_N_base_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_depenses_optionFinale__c * Taux_CIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant CIR N (base de calcul) opt reten</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_definitif_option1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_dep_apres_dedu_option1__c * Taux_CIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant du CIR définitif option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_definitif_option2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_dep_apres_dedu_option2__c * Taux_CIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant du CIR définitif option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_definitif_option3__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_dep_apres_dedu_option3__c * Taux_CIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant du CIR définitif option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_CIR_definitif_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_dep_apres_dedu_optionFinal__c * Taux_CIR__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant CIR définitif retenu(après dédu)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_remuneration_final__c</fullName>
+        <externalId>false</externalId>
+        <label>Chiffre d&apos;affaire</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_dep_apres_dedu_option1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_depenses_option1__c - Honoraires_N_a_deduire_option1__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant total dép. après dédu. opt 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_dep_apres_dedu_option2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_depenses_option2__c - Honoraires_N_a_deduire_option2__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant total dép. après dédu. opt 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_dep_apres_dedu_option3__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_depenses_option3__c - Honoraires_N_a_deduire_option3__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant total dép. après dédu. opt 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_dep_apres_dedu_optionFinal__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_total_depenses_optionFinale__c - Honoraires_N_a_deduire_optionFinaleManue__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant total dép. après dédu. opt reten</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_depenses_option1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_salarie_option1__c + 
+Total_miseDisposition_option1__c +
+Total_jeuneDocteur_option1__c +
+Total_amortissement_option1__c +
+Total_frais_fonctionnement_option1__c +
+Total_brevetPM_option1__c +
+Total_brevetDef_option1__c +
+Total_amortissementBrevet_option1__c +
+Total_brevetAssu_option1__c +
+Total_normalisation_option1__c +
+Total_veille_option1__c +
+Total_prestataire_option1__c +
+Total_remboursementAvance_option1__c -
+Total_subvention_option1__c -
+Total_avanceRemboursable_option1__c -
+Honoraires_N1_a_deduire_option1__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant total des dépenses option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_depenses_option2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_salarie_option2__c + 
+Total_miseDisposition_option2__c +
+Total_jeuneDocteur_option2__c +
+Total_amortissement_option2__c +
+Total_frais_fonctionnement_option2__c +
+Total_brevetPM_option2__c +
+Total_brevetDef_option2__c +
+Total_amortissementBrevet_option2__c +
+Total_brevetAssu_option2__c +
+Total_normalisation_option2__c +
+Total_veille_option2__c +
+Total_prestataire_option2__c +
+Total_remboursementAvance_option2__c -
+Total_subvention_option2__c -
+Total_avanceRemboursable_option2__c -
+Honoraires_N1_a_deduire_option2__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant total des dépenses option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_depenses_option3__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_salarie_option3__c + 
+Total_miseDisposition_option3__c +
+Total_jeuneDocteur_option3__c +
+Total_amortissement_option3__c +
+Total_frais_fonctionnement_option3__c +
+Total_brevetPM_option3__c +
+Total_brevetDef_option3__c +
+Total_amortissementBrevet_option3__c +
+Total_brevetAssu_option3__c +
+Total_normalisation_option3__c +
+Total_veille_option3__c +
+Total_prestataire_option3__c +
+Total_remboursementAvance_option3__c -
+Total_subvention_option3__c -
+Total_avanceRemboursable_option3__c -
+Honoraires_N1_a_deduire_option3__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Montant total des dépenses option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_depenses_optionFinale__c</fullName>
+        <description>ATTENTION : mis à jour par workflow car dépassement de la taille max des formules</description>
+        <externalId>false</externalId>
+        <label>Montant total dép. retenu (avant dédu)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_total_depenses_optionFinale_old__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_salarie_optionFinale__c + 
+Total_miseDisposition_optionFinale__c +
+Total_jeuneDocteur_optionFinale__c +
+Total_amortissement_optionFinale__c +
+Total_frais_fonctionnement_optionFinale__c +
+Total_brevetPM_optionFinale__c +
+Total_brevetDef_optionFinale__c +
+Total_amortissementBrevet_optionFinale__c +
+Total_brevetAssu_optionFinale__c +
+Total_normalisation_optionFinale__c +
+Total_veille_optionFinale__c +
+Total_prestataire_agree_optionFinale__c +
+Total_prestataire_public_optionFinale__c +
+Total_remboursementAvance_optionFinale__c -
+Total_subvention_optionFinale__c -
+Total_avanceRemboursable_optionFinale__c</formula>
+        <label>Montant total des dépenses retenu</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>NomOpportunite__c</fullName>
+        <externalId>false</externalId>
+        <formula>Entite__r.Contrat__r.Opportunite__r.Name</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nom de l&apos;opportunité</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nom_brigade__c</fullName>
+        <externalId>false</externalId>
+        <label>Nom de la brigade</label>
+        <length>80</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Audit</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_programmes_Audit__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Consultant_RO__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés-Consultant RO</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_programmes_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Consultant scientifique RO</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Consultant__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Consultant</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_programmes_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Consultant scientifique, Consultant fiscaliste, Consultant extérieur, Auditeur Financier</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Controle__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Contrôle</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_programmes_Controle__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Justification__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Justif</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_programmes_Justification__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Manager__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Manager</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_programmes_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Manager</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Superviseur__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Superviseur</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_programmes_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Superviseur/Consultant, Superviseur</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_programmes_Audit__c + Nombre_jours_programmes_Valorisation__c + Nombre_jours_programmes_Justification__c + Nombre_jours_programmes_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours programmés - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_programmes_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours programmés - Valo</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_programmes_Valorisation__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Audit</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_theoriques_Audit__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Consultant_RO__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques-Consultant RO</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_theoriques_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Consultant scientifique RO</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Consultant__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Consultant</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_theoriques_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Consultant scientifique, Consultant fiscaliste, Consultant extérieur, Auditeur Financier</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Controle__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Contrôle</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_theoriques_Controle__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Justification__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Justif</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_theoriques_Justification__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Manager__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Manager</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_theoriques_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Manager</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Superviseur__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Superviseur</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_theoriques_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Superviseur/Consultant, Superviseur</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_theoriques_Audit__c + Nombre_jours_theoriques_Valorisation__c + Nombre_jours_theoriques_Justification__c + Nombre_jours_theoriques_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours théoriques - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_theoriques_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours théoriques - Valo</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_theoriques_Valorisation__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Audit__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Audit</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_travailles_Audit__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Consultant_RO__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés-Consultant RO</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_travailles_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Consultant scientifique RO</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Consultant__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Consultant</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_travailles_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Consultant scientifique, Consultant fiscaliste, Consultant extérieur, Auditeur Financier</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Controle__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Contrôle</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_travailles_Controle__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Justification__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Justif</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_travailles_Justification__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Manager__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Manager</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_travailles_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Manager</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Superviseur__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Superviseur</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_travailles_Total__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRequipeConsulting__c.Role__c</field>
+            <operation>equals</operation>
+            <value>Superviseur/Consultant, Superviseur</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_Valorisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de jours travaillés - Valo</label>
+        <summarizedField>AppCIRequipeConsulting__c.Nombre_jours_travailles_Valorisation__c</summarizedField>
+        <summaryForeignKey>AppCIRequipeConsulting__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_jours_travailles_total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Nombre_jours_travailles_Audit__c + Nombre_jours_travailles_Valorisation__c +  Nombre_jours_travailles_Justification__c + Nombre_jours_travailles_Controle__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Nombre de jours travaillés - Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Numero_du_contrat__c</fullName>
+        <description>Utile uniquement pour le template d&apos;email &quot;AppCIR Mission CIR lancée&quot;</description>
+        <externalId>false</externalId>
+        <formula>Entite__r.Contrat__r.ContractNumber</formula>
+        <label>Numero du contrat</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_fiscale_retenue__c</fullName>
+        <externalId>false</externalId>
+        <label>Option fiscale retenue</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Option 1</fullName>
+                    <default>false</default>
+                    <label>Option 1</label>
+                </value>
+                <value>
+                    <fullName>Option 2</fullName>
+                    <default>false</default>
+                    <label>Option 2</label>
+                </value>
+                <value>
+                    <fullName>Option 3</fullName>
+                    <default>false</default>
+                    <label>Option 3</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Option_fiscale_retenue_auto__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_amortissement__c + Option_retenue_amortissementBrevet__c + Option_retenue_brevetAssu__c + Option_retenue_avanceRemboursable__c + Option_retenue_brevetDef__c + Option_retenue_honoraires_N1__c + Option_retenue_jeuneDocteur__c + Option_retenue_miseDisposition__c + Option_retenue_normalisation__c + Option_retenue_brevetPM__c + Option_retenue_prestataire_agree__c + Option_retenue_prestataire_public__c + Option_retenue_remboursementAvance__c + Option_retenue_salarie__c + Option_retenue_subvention__c + Option_retenue_veille__c ,
+0, &apos;&apos;,
+16, &apos;Option 1&apos;,
+32, &apos;Option 2&apos;,
+48, &apos;Option 3&apos;,
+&apos;Option Mixte&apos;)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Option fiscale retenue Automatique</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_amortissementBrevet__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue amortissements brevets</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_amortissement__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue amortissements</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_avanceRemboursable__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue avances remboursables</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_brevetAssu__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue assurances de brevets</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_brevetDef__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue défenses de brevets</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_brevetPM__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue PM brevets</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_honoraires_N1__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue honoraires N-1</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_jeuneDocteur__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue jeunes docteurs</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_miseDisposition__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue mises à disposition</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_normalisation__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue normalisations</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_prestataire_agree__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue prestataires agréés</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_prestataire_public__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue prestataires publics</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_remboursementAvance__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue remboursements d&apos;avances</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_salarie__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue salariés</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_subvention__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue subventions</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Option_retenue_veille__c</fullName>
+        <externalId>false</externalId>
+        <label>Option retenue veilles</label>
+        <precision>1</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Phase__c</fullName>
+        <externalId>false</externalId>
+        <label>Phase</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Inactif / en attente de renouvellement</fullName>
+                    <default>false</default>
+                    <label>Inactif / en attente de renouvellement</label>
+                </value>
+                <value>
+                    <fullName>Inactif / en attente de lancement</fullName>
+                    <default>false</default>
+                    <label>Inactif / en attente de lancement</label>
+                </value>
+                <value>
+                    <fullName>Audit</fullName>
+                    <default>false</default>
+                    <label>Audit</label>
+                </value>
+                <value>
+                    <fullName>Valorisation</fullName>
+                    <default>false</default>
+                    <label>Valorisation</label>
+                </value>
+                <value>
+                    <fullName>Justification</fullName>
+                    <default>false</default>
+                    <label>Justification</label>
+                </value>
+                <value>
+                    <fullName>Contrôle</fullName>
+                    <default>false</default>
+                    <label>Contrôle</label>
+                </value>
+                <value>
+                    <fullName>Terminée</fullName>
+                    <default>false</default>
+                    <label>Terminée</label>
+                </value>
+                <value>
+                    <fullName>Terminée - Dossier à 0</fullName>
+                    <default>false</default>
+                    <label>Terminée - Dossier à 0</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Phase_controle__c</fullName>
+        <externalId>false</externalId>
+        <label>Phase du contrôle</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Contrôle sur pièces</fullName>
+                    <default>false</default>
+                    <label>Contrôle sur pièces</label>
+                </value>
+                <value>
+                    <fullName>Contrôle sur place</fullName>
+                    <default>false</default>
+                    <label>Contrôle sur place</label>
+                </value>
+                <value>
+                    <fullName>Procédure de rectification</fullName>
+                    <default>false</default>
+                    <label>Procédure de rectification</label>
+                </value>
+                <value>
+                    <fullName>Phase contentieuse</fullName>
+                    <default>false</default>
+                    <label>Phase contentieuse</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Portee_controle__c</fullName>
+        <externalId>false</externalId>
+        <label>Portée du contrôle</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Eligibilité</fullName>
+                    <default>false</default>
+                    <label>Eligibilité</label>
+                </value>
+                <value>
+                    <fullName>Valorisation comptable</fullName>
+                    <default>false</default>
+                    <label>Valorisation comptable</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Redressement__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Redressement</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Remboursement_demande__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Remboursement demandé</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Rentabilite_mission_Estimee__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Montant_remuneration_final__c = 0,
+null,
+(Montant_remuneration_final__c - Cout_mission_Estime__c) / Montant_remuneration_final__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Rentabilité de la mission (Estimée)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Rentabilite_mission_Reelle__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Montant_remuneration_final__c = 0,
+   null,
+   (Montant_remuneration_final__c - Cout_mission_Reelle__c) / Montant_remuneration_final__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Rentabilité de la mission (Réelle)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Rentabilite_mission_Theorique__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Montant_remuneration_final__c = 0,
+   null,
+   (Montant_remuneration_final__c - Cout_mission_Theorique__c) / Montant_remuneration_final__c
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Rentabilité de la mission (Théorique)</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>Societe_agreee__c</fullName>
+        <defaultValue>false</defaultValue>
+        <externalId>false</externalId>
+        <label>Société agréée</label>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Soumetteur__c</fullName>
+        <deleteConstraint>SetNull</deleteConstraint>
+        <description>L&apos;utilisateur ayant soumis la mission pour approbation</description>
+        <externalId>false</externalId>
+        <label>Soumetteur</label>
+        <referenceTo>User</referenceTo>
+        <relationshipName>Missions_CIR1</relationshipName>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Statut__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE( Phase__c , &apos;Inactif / en attente de renouvellement&apos;, &apos;Inactive&apos;, &apos;Inactif / en attente de lancement&apos;, &apos;Inactive&apos;, &apos;Terminée&apos;, &apos;Terminée&apos;, &apos;Terminée - Dossier à 0&apos;, &apos;Terminée&apos;, &apos;Active&apos;)</formula>
+        <label>Statut</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Statut_approbation__c</fullName>
+        <description>Mis à jour automatiquement par le processus d&apos;approbation en fonction de son avancement</description>
+        <externalId>false</externalId>
+        <label>Statut d&apos;approbation</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Mission créée</fullName>
+                    <default>true</default>
+                    <label>Mission créée</label>
+                </value>
+                <value>
+                    <fullName>Soumise pour approbation</fullName>
+                    <default>false</default>
+                    <label>Soumise pour approbation</label>
+                </value>
+                <value>
+                    <fullName>Validée</fullName>
+                    <default>false</default>
+                    <label>Validée</label>
+                </value>
+                <value>
+                    <fullName>A corriger</fullName>
+                    <default>false</default>
+                    <label>A corriger</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Superviseurs__c</fullName>
+        <externalId>false</externalId>
+        <label>Superviseurs</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Taux_CIR__c</fullName>
+        <description>Taux CIR appliqué à la mission</description>
+        <externalId>false</externalId>
+        <label>Taux CIR</label>
+        <precision>2</precision>
+        <required>true</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Percent</type>
+    </fields>
+    <fields>
+        <fullName>TechKey__c</fullName>
+        <externalId>false</externalId>
+        <label>TECH - Clé reprise</label>
+        <length>40</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TempsTheoriquePlafond__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF(Entite__r.Contrat__r.Opportunite__r.renta_Total_jours_estimes_force__c != 0,
+Entite__r.Contrat__r.Opportunite__r.renta_Total_jours_estimes_force__c,
+Entite__r.Contrat__r.Opportunite__r.Total_jours_retenus__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Temps théorique plafond</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temps_theorique_mission__c</fullName>
+        <externalId>false</externalId>
+        <label>Temps théorique initial</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temps_theorique_opportunite__c</fullName>
+        <externalId>false</externalId>
+        <label>Temps théorique sur l&apos;opportunité</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_amortissementBrevet_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total amortissements brevets option 1</label>
+        <summarizedField>AppCIRamortissement__c.Montant_RD_retenu_option1__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRamortissement__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dotations aux amortissements de brevets</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRamortissement__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_amortissementBrevet_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total amortissements brevets option 2</label>
+        <summarizedField>AppCIRamortissement__c.Montant_RD_retenu_option2__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRamortissement__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dotations aux amortissements de brevets</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRamortissement__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_amortissementBrevet_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total amortissements brevets option 3</label>
+        <summarizedField>AppCIRamortissement__c.Montant_RD_retenu_option3__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRamortissement__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dotations aux amortissements de brevets</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRamortissement__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_amortissementBrevet_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_amortissementBrevet__c,1,Total_amortissementBrevet_option1__c,2,Total_amortissementBrevet_option2__c,3,Total_amortissementBrevet_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total amo. brevets option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_amortissement_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total amortissements option 1</label>
+        <summarizedField>AppCIRamortissement__c.Montant_RD_retenu_option1__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRamortissement__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dotations aux amortissements</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRamortissement__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_amortissement_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total amortissements option 1</label>
+        <summarizedField>AppCIRamortissement__c.Montant_RD_retenu_option2__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRamortissement__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dotations aux amortissements</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRamortissement__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_amortissement_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total amortissements option 3</label>
+        <summarizedField>AppCIRamortissement__c.Montant_RD_retenu_option3__c</summarizedField>
+        <summaryFilterItems>
+            <field>AppCIRamortissement__c.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Dotations aux amortissements</value>
+        </summaryFilterItems>
+        <summaryForeignKey>AppCIRamortissement__c.Mission_CIR__c</summaryForeignKey>
+        <summaryOperation>sum</summaryOperation>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Summary</type>
+    </fields>
+    <fields>
+        <fullName>Total_amortissement_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_amortissement__c,1,Total_amortissement_option1__c,2,Total_amortissement_option2__c,3,Total_amortissement_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total amortissements option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_avanceRemboursable_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total avances remboursables option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_avanceRemboursable_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total avances remboursables option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_avanceRemboursable_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total avances remboursables option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_avanceRemboursable_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_avanceRemboursable__c,1,Total_avanceRemboursable_option1__c,2,Total_avanceRemboursable_option2__c,3,Total_avanceRemboursable_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total avances remb. option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetAssu_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total assurances de brevets option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetAssu_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total assurances de brevets option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetAssu_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total assurances de brevets option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetAssu_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_brevetAssu__c,1,Total_brevetAssu_option1__c,2,Total_brevetAssu_option2__c,3,Total_brevetAssu_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total assu. de brevets option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetDef_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total défenses de brevets option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetDef_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total défenses de brevets option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetDef_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total défenses de brevets option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetDef_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_brevetDef__c,1,Total_brevetDef_option1__c,2,Total_brevetDef_option2__c,3,Total_brevetDef_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total défenses de brevets option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_facture_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total PM brevets facture option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_facture_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total PM brevets facture option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_facture_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total PM brevets facture option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_option1__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_brevetPM_facture_option1__c + Total_brevetPM_personnel_option1__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total PM brevets option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_option2__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_brevetPM_facture_option2__c + Total_brevetPM_personnel_option2__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total PM brevets option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_option3__c</fullName>
+        <externalId>false</externalId>
+        <formula>Total_brevetPM_facture_option3__c + Total_brevetPM_personnel_option3__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total PM brevets option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_brevetPM__c,1,Total_brevetPM_option1__c,2,Total_brevetPM_option2__c,3,Total_brevetPM_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total PM brevets option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_personnel_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total PM brevets personnel option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_personnel_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total PM brevets personnel option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_brevetPM_personnel_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total PM brevets personnel option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_frais_fonctionnement_option1__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Annee_CIR__c = &apos;2009&apos; || Annee_CIR__c = &apos;2010&apos;, 
+((Total_salarie_option1__c + Total_miseDisposition_option1__c ) * 0.75) +  Total_jeuneDocteur_option1__c ,
+
+((Total_salarie_option1__c + Total_miseDisposition_option1__c ) * 0.5) +
+ Total_jeuneDocteur_option1__c +
+ (Total_amortissement_option1__c * 0.75)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total frais de fonctionnement option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_frais_fonctionnement_option2__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Annee_CIR__c = &apos;2009&apos; || Annee_CIR__c = &apos;2010&apos;, 
+((Total_salarie_option2__c + Total_miseDisposition_option2__c ) * 0.75) +  Total_jeuneDocteur_option2__c ,
+((Total_salarie_option2__c + Total_miseDisposition_option2__c ) * 0.5) +
+ Total_jeuneDocteur_option2__c +
+ (Total_amortissement_option2__c * 0.75)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total frais de fonctionnement option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_frais_fonctionnement_option3__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Annee_CIR__c = &apos;2009&apos; || Annee_CIR__c = &apos;2010&apos;, 
+((Total_salarie_option3__c + Total_miseDisposition_option3__c ) * 0.75) +  Total_jeuneDocteur_option3__c ,
+((Total_salarie_option3__c + Total_miseDisposition_option3__c ) * 0.5) +
+ Total_jeuneDocteur_option3__c +
+ (Total_amortissement_option3__c * 0.75)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total frais de fonctionnement option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_frais_fonctionnement_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( Annee_CIR__c = &apos;2009&apos; || Annee_CIR__c = &apos;2010&apos;, 
+((Total_salarie_optionFinale__c + Total_miseDisposition_optionFinale__c) * 0.75) + Total_jeuneDocteur_optionFinale__c,
+((Total_salarie_optionFinale__c + Total_miseDisposition_optionFinale__c) * 0.5) +
+Total_jeuneDocteur_optionFinale__c +
+(Total_amortissement_optionFinale__c * 0.75)
+)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total frais de fonct. option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_heures_RD_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total heures R&amp;D option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_heures_RD_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total heures R&amp;D option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_heures_RD_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total heures R&amp;D option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_jeuneDocteur_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total jeunes docteurs option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_jeuneDocteur_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total jeunes docteurs option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_jeuneDocteur_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total jeunes docteurs option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_jeuneDocteur_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_jeuneDocteur__c,1,Total_jeuneDocteur_option1__c,2,Total_jeuneDocteur_option2__c,3,Total_jeuneDocteur_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total jeunes docteurs option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_miseDisposition_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total mises à disposition option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_miseDisposition_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total mises à disposition option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_miseDisposition_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total mises à disposition option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_miseDisposition_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_miseDisposition__c,1,Total_miseDisposition_option1__c,2,Total_miseDisposition_option2__c,3,Total_miseDisposition_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total mises à disposition option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_normalisation_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total normalisations option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_normalisation_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total normalisations option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_normalisation_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total normalisations option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_normalisation_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_normalisation__c,1,Total_normalisation_option1__c,2,Total_normalisation_option2__c,3,Total_normalisation_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total normalisations option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_agree_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total prestataires agréés option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_agree_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total prestataires agréés option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_agree_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total prestataires agréés option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_agree_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_prestataire_agree__c,1,Total_prestataire_agree_option1__c,2,Total_prestataire_agree_option2__c,3,Total_prestataire_agree_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total presta. agréés option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_option1__c</fullName>
+        <externalId>false</externalId>
+        <formula>MIN(Total_prestataire_agree_option1__c + Total_prestataire_public_option1__c, 12000000)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total prestataires option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_option2__c</fullName>
+        <externalId>false</externalId>
+        <formula>MIN(Total_prestataire_agree_option2__c + Total_prestataire_public_option2__c, 12000000)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total prestataires option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_option3__c</fullName>
+        <externalId>false</externalId>
+        <formula>MIN(Total_prestataire_agree_option3__c + Total_prestataire_public_option3__c, 12000000)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total prestataires option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>MIN(Total_prestataire_agree_optionFinale__c + Total_prestataire_public_optionFinale__c, 12000000)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total prestataires option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_public_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total prestataires publics option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_public_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total prestataires publics option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_public_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total prestataires publics option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_prestataire_public_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_prestataire_public__c,1,Total_prestataire_public_option1__c,2,Total_prestataire_public_option2__c,3,Total_prestataire_public_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total presta. publics option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_remboursementAvance_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total remboursements d&apos;avances option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_remboursementAvance_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total remboursements d&apos;avances option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_remboursementAvance_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total remboursements d&apos;avances option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_remboursementAvance_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_remboursementAvance__c,1,Total_remboursementAvance_option1__c,2,Total_remboursementAvance_option2__c,3,Total_remboursementAvance_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total remb. d&apos;avances option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_salarie_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total salariés option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_salarie_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total salariés option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_salarie_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total salariés option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Total_salarie_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_salarie__c,1,Total_salarie_option1__c,2,Total_salarie_option2__c,3,Total_salarie_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total salariés option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_subvention_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total subventions option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_subvention_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total subventions option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_subvention_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total subventions option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_subvention_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_subvention__c,1,Total_subvention_option1__c,2,Total_subvention_option2__c,3,Total_subvention_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total subventions option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_facture_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total veilles facture option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_facture_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total veilles facture option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_facture_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total veilles facture option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_option1__c</fullName>
+        <externalId>false</externalId>
+        <formula>MIN(60000, Total_veille_facture_option1__c + Total_veille_personnel_option1__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total veilles option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_option2__c</fullName>
+        <externalId>false</externalId>
+        <formula>MIN(60000, Total_veille_facture_option2__c + Total_veille_personnel_option2__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total veilles option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_option3__c</fullName>
+        <externalId>false</externalId>
+        <formula>MIN(60000, Total_veille_facture_option3__c + Total_veille_personnel_option3__c)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total veilles option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_optionFinale__c</fullName>
+        <externalId>false</externalId>
+        <formula>CASE(Option_retenue_veille__c,1,Total_veille_option1__c,2,Total_veille_option2__c,3,Total_veille_option3__c,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total veilles option retenue</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_personnel_option1__c</fullName>
+        <externalId>false</externalId>
+        <label>Total veilles personnel option 1</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_personnel_option2__c</fullName>
+        <externalId>false</externalId>
+        <label>Total veilles personnel option 2</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total_veille_personnel_option3__c</fullName>
+        <externalId>false</externalId>
+        <label>Total veilles personnel option 3</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Type_CF__c</fullName>
+        <externalId>false</externalId>
+        <label>Type CF</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>CF</fullName>
+                    <default>false</default>
+                    <label>CF</label>
+                </value>
+                <value>
+                    <fullName>Demande renseignements</fullName>
+                    <default>false</default>
+                    <label>Demande renseignements</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>UniteTempsDepensesPersonnel__c</fullName>
+        <externalId>false</externalId>
+        <label>Unité de temps des dépenses de personnel</label>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>Heures</fullName>
+                    <default>true</default>
+                    <label>Heures</label>
+                </value>
+                <value>
+                    <fullName>Jours</fullName>
+                    <default>false</default>
+                    <label>Jours</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>prestataireAvocat__c</fullName>
+        <externalId>false</externalId>
+        <label>Prestataire Avocat</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>prestataireCAC__c</fullName>
+        <externalId>false</externalId>
+        <label>Prestataire CAC</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>prestataireEC__c</fullName>
+        <externalId>false</externalId>
+        <label>Prestataire EC</label>
+        <length>255</length>
+        <required>false</required>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renta_nb_interlocuteurs__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre d&apos;interlocuteurs</label>
+        <precision>10</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renta_nb_proj__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de projets à auditer</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renta_nb_redacs__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de projets à rédiger</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renta_nb_sites__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de sites</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>renta_nb_valo__c</fullName>
+        <externalId>false</externalId>
+        <label>Nombre de valorisations</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackFeedHistory>false</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <gender>Feminine</gender>
+    <label>[OLD] Mission CIR</label>
+    <nameField>
+        <label>Nom de la mission CIR</label>
+        <trackFeedHistory>true</trackFeedHistory>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>[OLD] Missions CIR</pluralLabel>
+    <recordTypeTrackFeedHistory>false</recordTypeTrackFeedHistory>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>AS</fullName>
+        <active>true</active>
+        <label>AS</label>
+        <picklistValues>
+            <picklist>Etat_CF__c</picklist>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_DT__c</picklist>
+            <values>
+                <fullName>A faire</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_info_fin_recue__c</picklist>
+            <values>
+                <fullName>A faire</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_info_recue_DT__c</picklist>
+            <values>
+                <fullName>A lancer</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Besoin compléments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_remboursement__c</picklist>
+            <values>
+                <fullName>Effectué</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En attente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refusé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_valorisation__c</picklist>
+            <values>
+                <fullName>A faire</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Option_fiscale_retenue__c</picklist>
+            <values>
+                <fullName>Option 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Option 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Option 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Phase__c</picklist>
+            <values>
+                <fullName>Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contrôle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de lancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de renouvellement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Justification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée - Dossier à 0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Phase_controle__c</picklist>
+            <values>
+                <fullName>Contrôle sur pièces</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contrôle sur place</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phase contentieuse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Procédure de rectification</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portee_controle__c</picklist>
+            <values>
+                <fullName>Eligibilité</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation comptable</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Statut_approbation__c</picklist>
+            <values>
+                <fullName>A corriger</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mission créée</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Soumise pour approbation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validée</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_CF__c</picklist>
+            <values>
+                <fullName>CF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demande renseignements</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UniteTempsDepensesPersonnel__c</picklist>
+            <values>
+                <fullName>Heures</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Jours</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>CIN</fullName>
+        <active>true</active>
+        <label>CIN</label>
+        <picklistValues>
+            <picklist>Etat_CF__c</picklist>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_DT__c</picklist>
+            <values>
+                <fullName>A faire</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_info_fin_recue__c</picklist>
+            <values>
+                <fullName>A faire</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_info_recue_DT__c</picklist>
+            <values>
+                <fullName>A lancer</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Besoin compléments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_remboursement__c</picklist>
+            <values>
+                <fullName>Effectué</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En attente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refusé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_valorisation__c</picklist>
+            <values>
+                <fullName>A faire</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Option_fiscale_retenue__c</picklist>
+            <values>
+                <fullName>Option 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Option 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Option 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Phase__c</picklist>
+            <values>
+                <fullName>Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contrôle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de lancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de renouvellement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Justification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée - Dossier à 0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Phase_controle__c</picklist>
+            <values>
+                <fullName>Contrôle sur pièces</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contrôle sur place</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phase contentieuse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Procédure de rectification</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portee_controle__c</picklist>
+            <values>
+                <fullName>Eligibilité</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation comptable</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Statut_approbation__c</picklist>
+            <values>
+                <fullName>A corriger</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mission créée</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Soumise pour approbation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validée</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_CF__c</picklist>
+            <values>
+                <fullName>CF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demande renseignements</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UniteTempsDepensesPersonnel__c</picklist>
+            <values>
+                <fullName>Heures</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Jours</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>CIR</fullName>
+        <active>true</active>
+        <label>CIR</label>
+        <picklistValues>
+            <picklist>Etat_CF__c</picklist>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_DT__c</picklist>
+            <values>
+                <fullName>A faire</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_info_fin_recue__c</picklist>
+            <values>
+                <fullName>A faire</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_info_recue_DT__c</picklist>
+            <values>
+                <fullName>A lancer</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Besoin compléments</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_remboursement__c</picklist>
+            <values>
+                <fullName>Effectué</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En attente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Refusé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Etat_valorisation__c</picklist>
+            <values>
+                <fullName>A faire</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>En cours</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>En validation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Option_fiscale_retenue__c</picklist>
+            <values>
+                <fullName>Option 1</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Option 2</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Option 3</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Phase__c</picklist>
+            <values>
+                <fullName>Audit</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contrôle</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de lancement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Inactif %2F en attente de renouvellement</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Justification</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Terminée - Dossier à 0</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Phase_controle__c</picklist>
+            <values>
+                <fullName>Contrôle sur pièces</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Contrôle sur place</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Phase contentieuse</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Procédure de rectification</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Portee_controle__c</picklist>
+            <values>
+                <fullName>Eligibilité</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Valorisation comptable</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Statut_approbation__c</picklist>
+            <values>
+                <fullName>A corriger</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Mission créée</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Soumise pour approbation</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Validée</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>Type_CF__c</picklist>
+            <values>
+                <fullName>CF</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Demande renseignements</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+        <picklistValues>
+            <picklist>UniteTempsDepensesPersonnel__c</picklist>
+            <values>
+                <fullName>Heures</fullName>
+                <default>true</default>
+            </values>
+            <values>
+                <fullName>Jours</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>Private</sharingModel>
+    <sharingReasons>
+        <fullName>Equipe_Consulting__c</fullName>
+        <label>Equipe Consulting</label>
+    </sharingReasons>
+    <validationRules>
+        <fullName>AppCIR_Date_deb_fin_agrement_saisissable</fullName>
+        <active>true</active>
+        <description>Vérifie que la date de début d&apos;agrément et que la date de fin d&apos;agrément ne sont pas remplis si la case Société agréé n&apos;est pas coché</description>
+        <errorConditionFormula>!Societe_agreee__c  &amp;&amp; ( !ISNULL( Date_debut_agrement__c ) || !ISNULL( Date_fin_agrement__c ) )</errorConditionFormula>
+        <errorMessage>Vous ne pouvez pas saisir de date de début/fin d&apos;agrément si la société n&apos;est pas agréée</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AppCIR_Date_relle_cloture</fullName>
+        <active>true</active>
+        <description>La date réelle de clôture mission ne peut pas être supérieure à aujourd’hui.</description>
+        <errorConditionFormula>Date_echeance_DT__c &gt; TODAY() &amp;&amp;  RecordType.DeveloperName != &apos;CIR&apos;</errorConditionFormula>
+        <errorMessage>La date réelle de clôture mission ne peut pas être supérieure à aujourd’hui.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>AppCIR_Date_rendu_DT</fullName>
+        <active>true</active>
+        <description>La date de rendu DT ne peut pas être supérieure à aujourd’hui.</description>
+        <errorConditionFormula>Date_rendu_DT__c &gt;  TODAY()</errorConditionFormula>
+        <errorMessage>La date de rendu DT ne peut pas être supérieure à aujourd’hui.</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>jours_estimes_sup_opportunite</fullName>
+        <active>false</active>
+        <errorConditionFormula>DATEVALUE(CreatedDate) &gt; Date(2016,05,31) &amp;&amp; ! !$User.ByPassValidationRules__c &amp;&amp; 
+!ISBLANK(Temps_theorique_opportunite__c) &amp;&amp;
+!ISNULL(Temps_theorique_opportunite__c) &amp;&amp;
+Temps_theorique_mission__c &gt; Temps_theorique_opportunite__c</errorConditionFormula>
+        <errorMessage>Le temps théorique de la mission ne peut pas être supérieur au temps théorique de l&apos;opportunité pour la première année de la mission.</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

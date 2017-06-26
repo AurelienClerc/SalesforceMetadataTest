@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Compte employeur</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Comptes employeur</value>
+    </caseValues>
+    <fields>
+        <label><!-- Etablissement concerné --></label>
+        <name>EtablissementConcerne__c</name>
+        <relationshipLabel><!-- Comptes employeur --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Mission --></label>
+        <name>Mission__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP1 --></label>
+        <name>ccmIP1__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP2 --></label>
+        <name>ccmIP2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP3 --></label>
+        <name>ccmIP3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IP4 --></label>
+        <name>ccmIP4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT1 --></label>
+        <name>ccmIT1__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT2 --></label>
+        <name>ccmIT2__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT3 --></label>
+        <name>ccmIT3__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT4 --></label>
+        <name>ccmIT4__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT5 --></label>
+        <name>ccmIT5__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCM IT6 --></label>
+        <name>ccmIT6__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCMIP --></label>
+        <name>formuleCCMIP__c</name>
+    </fields>
+    <fields>
+        <label><!-- CCMIT --></label>
+        <name>formuleCCMIT__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Présentation Compte employeur</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- L&apos;année doit être au format 20XX ou 19XX --></errorMessage>
+        <name>AppAT_CE_Annee</name>
+    </validationRules>
+</CustomObjectTranslation>

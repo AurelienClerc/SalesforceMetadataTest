@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>[OLD] Entité</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Entités</value>
+    </caseValues>
+    <fields>
+        <label><!-- Année de déclaration --></label>
+        <name>Annee_de_declaration__c</name>
+        <picklistValues>
+            <masterLabel>1ère année</masterLabel>
+            <translation><!-- 1ère année --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>2ème année</masterLabel>
+            <translation><!-- 2ème année --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>&gt; 3 ans</masterLabel>
+            <translation><!-- &gt; 3 ans --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- CA --></label>
+        <name>CA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires --></label>
+        <name>Commentaires__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contrat --></label>
+        <name>Contrat__c</name>
+        <relationshipLabel><!-- Entités --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date de clôture --></label>
+        <name>Date_de_cloture__c</name>
+    </fields>
+    <fields>
+        <label><!-- Effectif --></label>
+        <name>Effectif__c</name>
+    </fields>
+    <fields>
+        <label><!-- Intégration fiscale --></label>
+        <name>Integration_fiscale__c</name>
+        <relationshipLabel><!-- Entités --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date de clôture --></label>
+        <name>Jour_mois_de_cloture_fiscale__c</name>
+        <picklistValues>
+            <masterLabel>28 Février</masterLabel>
+            <translation><!-- 28 Février --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 Avril</masterLabel>
+            <translation><!-- 30 Avril --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 Juin</masterLabel>
+            <translation><!-- 30 Juin --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 Novembre</masterLabel>
+            <translation><!-- 30 Novembre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>30 Septembre</masterLabel>
+            <translation><!-- 30 Septembre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31 Août</masterLabel>
+            <translation><!-- 31 Août --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31 Décembre</masterLabel>
+            <translation><!-- 31 Décembre --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31 Janvier</masterLabel>
+            <translation><!-- 31 Janvier --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31 Juillet</masterLabel>
+            <translation><!-- 31 Juillet --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31 Mai</masterLabel>
+            <translation><!-- 31 Mai --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31 Mars</masterLabel>
+            <translation><!-- 31 Mars --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>31 Octobre</masterLabel>
+            <translation><!-- 31 Octobre --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Résultat NET --></label>
+        <name>Resultat_NET__c</name>
+    </fields>
+    <fields>
+        <label><!-- SIREN --></label>
+        <name>SIREN__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secteur d&apos;activité 1 --></label>
+        <name>Secteur_activite_1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secteur d&apos;activité 2 --></label>
+        <name>Secteur_activite_2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Secteur d&apos;activité 3 --></label>
+        <name>Secteur_activite_3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Tech clé unique --></label>
+        <name>TechCleUnique__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Entité</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <sharingReasons>
+        <label><!-- Equipe Consulting --></label>
+        <name>Equipe_Consulting</name>
+    </sharingReasons>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

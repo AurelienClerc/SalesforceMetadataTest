@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Contacto conectado</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Contactos conectado</value>
+    </caseValues>
+    <fields>
+        <label>Cuenta</label>
+        <name>Compte__c</name>
+        <relationshipLabel>Otros contactos conectados</relationshipLabel>
+    </fields>
+    <fields>
+        <label>Contacto</label>
+        <name>Contact__c</name>
+        <relationshipLabel>Conectado a otras cuentas</relationshipLabel>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Présentation Rattachement contact</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>N°</nameFieldLabel>
+</CustomObjectTranslation>

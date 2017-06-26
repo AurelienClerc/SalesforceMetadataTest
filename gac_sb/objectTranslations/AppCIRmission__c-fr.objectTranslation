@@ -1,0 +1,1335 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>[OLD] Mission CIR</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>[OLD] Missions CIR</value>
+    </caseValues>
+    <fields>
+        <label><!-- Année CIR --></label>
+        <name>Annee_CIR__c</name>
+    </fields>
+    <fields>
+        <label><!-- Contrôle Qualité INNO advance --></label>
+        <name>AppCIRcqInnoAdvance__c</name>
+        <relationshipLabel><!-- [OLD] Missions CIR --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Approbateur --></label>
+        <name>Approbateur__c</name>
+        <relationshipLabel><!-- [OLD] Missions CIR (Approbateur) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Auditeurs financiers --></label>
+        <name>Auditeurs_financiers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement - Audit --></label>
+        <name>Avancement_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement - Contrôle --></label>
+        <name>Avancement_Controle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement - Justif --></label>
+        <name>Avancement_Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement - Valo --></label>
+        <name>Avancement_Valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Avancement --></label>
+        <name>Avancement__c</name>
+    </fields>
+    <fields>
+        <label><!-- CII --></label>
+        <name>CII__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les DT --></label>
+        <name>Commentaires_DT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires --></label>
+        <name>Commentaires__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les DA de brevets --></label>
+        <name>Commentaires_amortissementBrevet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les DA --></label>
+        <name>Commentaires_amortissement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les avances remb. --></label>
+        <name>Commentaires_avanceRemboursable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les assu. de brevets --></label>
+        <name>Commentaires_brevetAssu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur défenses de brevets --></label>
+        <name>Commentaires_brevetDef__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les PM de brevets --></label>
+        <name>Commentaires_brevetPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les jeunes docteurs --></label>
+        <name>Commentaires_jeuneDocteur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les mises à disposition --></label>
+        <name>Commentaires_miseDisposition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur normalisations --></label>
+        <name>Commentaires_normalisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les prestataires --></label>
+        <name>Commentaires_prestataire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les projets --></label>
+        <name>Commentaires_projet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les remb. avances --></label>
+        <name>Commentaires_remboursementAvance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les salariés --></label>
+        <name>Commentaires_salarie__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur les subventions --></label>
+        <name>Commentaires_subvention__c</name>
+    </fields>
+    <fields>
+        <label><!-- Commentaires sur veilles --></label>
+        <name>Commentaires_veille__c</name>
+    </fields>
+    <fields>
+        <label><!-- Compte --></label>
+        <name>Compte__c</name>
+        <relationshipLabel><!-- [OLD] Missions CIR --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Consultants exterieurs --></label>
+        <name>Consultants_exterieurs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultants fiscalistes --></label>
+        <name>Consultants_fiscalistes__c</name>
+    </fields>
+    <fields>
+        <label><!-- Consultants scientifiques --></label>
+        <name>Consultants_scientifiques__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût de la mission (Estimé) --></label>
+        <name>Cout_mission_Estime__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût de la mission (Réelle) --></label>
+        <name>Cout_mission_Reelle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût de la mission (Théorique) --></label>
+        <name>Cout_mission_Theorique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Coût standard INNO advance --></label>
+        <name>Cout_standard_INNO_advance__c</name>
+        <relationshipLabel><!-- [OLD] Missions CIR --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- DT soumis à facturation --></label>
+        <name>DT_soumis_a_facturation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date Initiale Échéance DT --></label>
+        <name>Date_Initiale_echeance_DT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;approbation --></label>
+        <name>Date_approbation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date collecte info DT --></label>
+        <name>Date_collecte_info_DT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date début Audit --></label>
+        <name>Date_debut_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de début d&apos;agrément --></label>
+        <name>Date_debut_agrement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date début justification --></label>
+        <name>Date_debut_justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date début valorisation --></label>
+        <name>Date_debut_valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;échéance CERFA --></label>
+        <name>Date_echeance_CERFA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;échéance CF --></label>
+        <name>Date_echeance_CF__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;échéance DT --></label>
+        <name>Date_echeance_DT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;échéance estimations --></label>
+        <name>Date_echeance_estimations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;échéance validation périmètre --></label>
+        <name>Date_echeance_validation_perimetre__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;échéance valorisation --></label>
+        <name>Date_echeance_valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date d&apos;envoi valorisation --></label>
+        <name>Date_envoi_valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date facturation GAC --></label>
+        <name>Date_facturation_GAC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de fin d&apos;agrément --></label>
+        <name>Date_fin_agrement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de lancement de mission --></label>
+        <name>Date_lancement_mission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date réception doc DT --></label>
+        <name>Date_reception_doc_DT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date réception doc fin. --></label>
+        <name>Date_reception_doc_fin__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de rendu CERFA --></label>
+        <name>Date_rendu_CERFA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de rendu DT --></label>
+        <name>Date_rendu_DT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de rendu estimations --></label>
+        <name>Date_rendu_estimations__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date soumission --></label>
+        <name>Date_soumission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de validation DT par le client --></label>
+        <name>Date_validation_DT_par_client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de validation de périmètre --></label>
+        <name>Date_validation_perimetre__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de validation valo par le client --></label>
+        <name>Date_validation_valo_par_client__c</name>
+    </fields>
+    <fields>
+        <help><!-- PME au sens communautaire --></help>
+        <label><!-- Demande de remboursement anticipé --></label>
+        <name>Demande_de_remboursement_anticipe__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur DA de brevets --></label>
+        <name>Dossier_serveur_amortissementBrevet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur DA --></label>
+        <name>Dossier_serveur_amortissement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur avances remb. --></label>
+        <name>Dossier_serveur_avanceRemboursable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur assu. de brevets --></label>
+        <name>Dossier_serveur_brevetAssu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur défenses de brevets --></label>
+        <name>Dossier_serveur_brevetDef__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur PM de brevets --></label>
+        <name>Dossier_serveur_brevetPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur jeunes docteurs --></label>
+        <name>Dossier_serveur_jeuneDocteur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur mises à disposition --></label>
+        <name>Dossier_serveur_miseDisposition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur normalisations --></label>
+        <name>Dossier_serveur_normalisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur prestataires --></label>
+        <name>Dossier_serveur_prestataire__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur projets --></label>
+        <name>Dossier_serveur_projet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur remb. avances --></label>
+        <name>Dossier_serveur_remboursementAvance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur salariés --></label>
+        <name>Dossier_serveur_salarie__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur subventions --></label>
+        <name>Dossier_serveur_subvention__c</name>
+    </fields>
+    <fields>
+        <label><!-- Dossier serveur veilles --></label>
+        <name>Dossier_serveur_veille__c</name>
+    </fields>
+    <fields>
+        <label><!-- Entité --></label>
+        <name>Entite__c</name>
+        <relationshipLabel><!-- [OLD] Missions CIR --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Etat CF --></label>
+        <name>Etat_CF__c</name>
+        <picklistValues>
+            <masterLabel>En cours</masterLabel>
+            <translation><!-- En cours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminé</masterLabel>
+            <translation><!-- Terminé --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Etat DT --></label>
+        <name>Etat_DT__c</name>
+        <picklistValues>
+            <masterLabel>A faire</masterLabel>
+            <translation><!-- A faire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En cours</masterLabel>
+            <translation><!-- En cours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En validation</masterLabel>
+            <translation><!-- En validation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminé</masterLabel>
+            <translation><!-- Terminé --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Etat info fin. reçue --></label>
+        <name>Etat_info_fin_recue__c</name>
+        <picklistValues>
+            <masterLabel>A faire</masterLabel>
+            <translation><!-- A faire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En cours</masterLabel>
+            <translation><!-- En cours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminé</masterLabel>
+            <translation><!-- Terminé --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Etat info reçue DT --></label>
+        <name>Etat_info_recue_DT__c</name>
+        <picklistValues>
+            <masterLabel>A lancer</masterLabel>
+            <translation><!-- A lancer --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Besoin compléments</masterLabel>
+            <translation><!-- Besoin compléments --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En cours</masterLabel>
+            <translation><!-- En cours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validé</masterLabel>
+            <translation><!-- Validé --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Etat du remboursement --></label>
+        <name>Etat_remboursement__c</name>
+        <picklistValues>
+            <masterLabel>Effectué</masterLabel>
+            <translation><!-- Effectué --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En attente</masterLabel>
+            <translation><!-- En attente --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refusé</masterLabel>
+            <translation><!-- Refusé --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Etat valorisation --></label>
+        <name>Etat_valorisation__c</name>
+        <picklistValues>
+            <masterLabel>A faire</masterLabel>
+            <translation><!-- A faire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En cours</masterLabel>
+            <translation><!-- En cours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>En validation</masterLabel>
+            <translation><!-- En validation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminé</masterLabel>
+            <translation><!-- Terminé --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Honoraires N-1 à déduire option 1 --></label>
+        <name>Honoraires_N1_a_deduire_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Honoraires N-1 à déduire option 2 --></label>
+        <name>Honoraires_N1_a_deduire_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Honoraires N-1 à déduire option 3 --></label>
+        <name>Honoraires_N1_a_deduire_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Honoraires N-1 à déduire option retenue --></label>
+        <name>Honoraires_N1_a_deduire_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Honoraires N à déduire option 1 --></label>
+        <name>Honoraires_N_a_deduire_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Honoraires N à déduire option 2 --></label>
+        <name>Honoraires_N_a_deduire_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Honoraires N à déduire option 3 --></label>
+        <name>Honoraires_N_a_deduire_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Honoraires N à déduire option ret manuel --></label>
+        <name>Honoraires_N_a_deduire_optionFinaleManue__c</name>
+    </fields>
+    <fields>
+        <label><!-- Honoraires en jeux --></label>
+        <name>Honoraires_en_jeux__c</name>
+    </fields>
+    <fields>
+        <label><!-- Managers --></label>
+        <name>Managers__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mobilisation de créance --></label>
+        <name>Mobilisation_creance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant CIR N  (base de calcul) option 1 --></label>
+        <name>Montant_CIR_N_base_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant CIR N  (base de calcul) option 2 --></label>
+        <name>Montant_CIR_N_base_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant CIR N  (base de calcul) option 3 --></label>
+        <name>Montant_CIR_N_base_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant CIR N (base de calcul) opt reten --></label>
+        <name>Montant_CIR_N_base_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant du CIR définitif option 1 --></label>
+        <name>Montant_CIR_definitif_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant du CIR définitif option 2 --></label>
+        <name>Montant_CIR_definitif_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant du CIR définitif option 3 --></label>
+        <name>Montant_CIR_definitif_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant CIR définitif retenu(après dédu) --></label>
+        <name>Montant_CIR_definitif_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Chiffre d&apos;affaire --></label>
+        <name>Montant_remuneration_final__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant total dép. après dédu. opt 1 --></label>
+        <name>Montant_total_dep_apres_dedu_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant total dép. après dédu. opt 2 --></label>
+        <name>Montant_total_dep_apres_dedu_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant total dép. après dédu. opt 3 --></label>
+        <name>Montant_total_dep_apres_dedu_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant total dép. après dédu. opt reten --></label>
+        <name>Montant_total_dep_apres_dedu_optionFinal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant total des dépenses option 1 --></label>
+        <name>Montant_total_depenses_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant total des dépenses option 2 --></label>
+        <name>Montant_total_depenses_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant total des dépenses option 3 --></label>
+        <name>Montant_total_depenses_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant total dép. retenu (avant dédu) --></label>
+        <name>Montant_total_depenses_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant total des dépenses retenu --></label>
+        <name>Montant_total_depenses_optionFinale_old__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nom de l&apos;opportunité --></label>
+        <name>NomOpportunite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nom de la brigade --></label>
+        <name>Nom_brigade__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Audit --></label>
+        <name>Nombre_jours_programmes_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés-Consultant RO --></label>
+        <name>Nombre_jours_programmes_Consultant_RO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Consultant --></label>
+        <name>Nombre_jours_programmes_Consultant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Contrôle --></label>
+        <name>Nombre_jours_programmes_Controle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Justif --></label>
+        <name>Nombre_jours_programmes_Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Manager --></label>
+        <name>Nombre_jours_programmes_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Superviseur --></label>
+        <name>Nombre_jours_programmes_Superviseur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Total --></label>
+        <name>Nombre_jours_programmes_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours programmés - Valo --></label>
+        <name>Nombre_jours_programmes_Valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Audit --></label>
+        <name>Nombre_jours_theoriques_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques-Consultant RO --></label>
+        <name>Nombre_jours_theoriques_Consultant_RO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Consultant --></label>
+        <name>Nombre_jours_theoriques_Consultant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Contrôle --></label>
+        <name>Nombre_jours_theoriques_Controle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Justif --></label>
+        <name>Nombre_jours_theoriques_Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Manager --></label>
+        <name>Nombre_jours_theoriques_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Superviseur --></label>
+        <name>Nombre_jours_theoriques_Superviseur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Total --></label>
+        <name>Nombre_jours_theoriques_Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours théoriques - Valo --></label>
+        <name>Nombre_jours_theoriques_Valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Audit --></label>
+        <name>Nombre_jours_travailles_Audit__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés-Consultant RO --></label>
+        <name>Nombre_jours_travailles_Consultant_RO__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Consultant --></label>
+        <name>Nombre_jours_travailles_Consultant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Contrôle --></label>
+        <name>Nombre_jours_travailles_Controle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Justif --></label>
+        <name>Nombre_jours_travailles_Justification__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Manager --></label>
+        <name>Nombre_jours_travailles_Manager__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Superviseur --></label>
+        <name>Nombre_jours_travailles_Superviseur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Valo --></label>
+        <name>Nombre_jours_travailles_Valorisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de jours travaillés - Total --></label>
+        <name>Nombre_jours_travailles_total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Numero du contrat --></label>
+        <name>Numero_du_contrat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option fiscale retenue --></label>
+        <name>Option_fiscale_retenue__c</name>
+        <picklistValues>
+            <masterLabel>Option 1</masterLabel>
+            <translation><!-- Option 1 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Option 2</masterLabel>
+            <translation><!-- Option 2 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Option 3</masterLabel>
+            <translation><!-- Option 3 --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Option fiscale retenue Automatique --></label>
+        <name>Option_fiscale_retenue_auto__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue amortissements brevets --></label>
+        <name>Option_retenue_amortissementBrevet__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue amortissements --></label>
+        <name>Option_retenue_amortissement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue avances remboursables --></label>
+        <name>Option_retenue_avanceRemboursable__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue assurances de brevets --></label>
+        <name>Option_retenue_brevetAssu__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue défenses de brevets --></label>
+        <name>Option_retenue_brevetDef__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue PM brevets --></label>
+        <name>Option_retenue_brevetPM__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue honoraires N-1 --></label>
+        <name>Option_retenue_honoraires_N1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue jeunes docteurs --></label>
+        <name>Option_retenue_jeuneDocteur__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue mises à disposition --></label>
+        <name>Option_retenue_miseDisposition__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue normalisations --></label>
+        <name>Option_retenue_normalisation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue prestataires agréés --></label>
+        <name>Option_retenue_prestataire_agree__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue prestataires publics --></label>
+        <name>Option_retenue_prestataire_public__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue remboursements d&apos;avances --></label>
+        <name>Option_retenue_remboursementAvance__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue salariés --></label>
+        <name>Option_retenue_salarie__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue subventions --></label>
+        <name>Option_retenue_subvention__c</name>
+    </fields>
+    <fields>
+        <label><!-- Option retenue veilles --></label>
+        <name>Option_retenue_veille__c</name>
+    </fields>
+    <fields>
+        <label><!-- Phase --></label>
+        <name>Phase__c</name>
+        <picklistValues>
+            <masterLabel>Audit</masterLabel>
+            <translation><!-- Audit --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contrôle</masterLabel>
+            <translation><!-- Contrôle --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactif / en attente de lancement</masterLabel>
+            <translation><!-- Inactif / en attente de lancement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Inactif / en attente de renouvellement</masterLabel>
+            <translation><!-- Inactif / en attente de renouvellement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Justification</masterLabel>
+            <translation><!-- Justification --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminée</masterLabel>
+            <translation><!-- Terminée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Terminée - Dossier à 0</masterLabel>
+            <translation><!-- Terminée - Dossier à 0 --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valorisation</masterLabel>
+            <translation><!-- Valorisation --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Phase du contrôle --></label>
+        <name>Phase_controle__c</name>
+        <picklistValues>
+            <masterLabel>Contrôle sur pièces</masterLabel>
+            <translation><!-- Contrôle sur pièces --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Contrôle sur place</masterLabel>
+            <translation><!-- Contrôle sur place --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Phase contentieuse</masterLabel>
+            <translation><!-- Phase contentieuse --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Procédure de rectification</masterLabel>
+            <translation><!-- Procédure de rectification --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Portée du contrôle --></label>
+        <name>Portee_controle__c</name>
+        <picklistValues>
+            <masterLabel>Eligibilité</masterLabel>
+            <translation><!-- Eligibilité --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Valorisation comptable</masterLabel>
+            <translation><!-- Valorisation comptable --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Redressement --></label>
+        <name>Redressement__c</name>
+    </fields>
+    <fields>
+        <label><!-- Remboursement demandé --></label>
+        <name>Remboursement_demande__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rentabilité de la mission (Estimée) --></label>
+        <name>Rentabilite_mission_Estimee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rentabilité de la mission (Réelle) --></label>
+        <name>Rentabilite_mission_Reelle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rentabilité de la mission (Théorique) --></label>
+        <name>Rentabilite_mission_Theorique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Société agréée --></label>
+        <name>Societe_agreee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Soumetteur --></label>
+        <name>Soumetteur__c</name>
+        <relationshipLabel><!-- [OLD] Missions CIR (Soumetteur) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Statut --></label>
+        <name>Statut__c</name>
+    </fields>
+    <fields>
+        <label><!-- Statut d&apos;approbation --></label>
+        <name>Statut_approbation__c</name>
+        <picklistValues>
+            <masterLabel>A corriger</masterLabel>
+            <translation><!-- A corriger --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Mission créée</masterLabel>
+            <translation><!-- Mission créée --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soumise pour approbation</masterLabel>
+            <translation><!-- Soumise pour approbation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validée</masterLabel>
+            <translation><!-- Validée --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Superviseurs --></label>
+        <name>Superviseurs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux CIR --></label>
+        <name>Taux_CIR__c</name>
+    </fields>
+    <fields>
+        <label><!-- TECH - Clé reprise --></label>
+        <name>TechKey__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temps théorique plafond --></label>
+        <name>TempsTheoriquePlafond__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temps théorique initial --></label>
+        <name>Temps_theorique_mission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temps théorique sur l&apos;opportunité --></label>
+        <name>Temps_theorique_opportunite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total amortissements brevets option 1 --></label>
+        <name>Total_amortissementBrevet_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total amortissements brevets option 2 --></label>
+        <name>Total_amortissementBrevet_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total amortissements brevets option 3 --></label>
+        <name>Total_amortissementBrevet_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total amo. brevets option retenue --></label>
+        <name>Total_amortissementBrevet_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total amortissements option 1 --></label>
+        <name>Total_amortissement_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total amortissements option 1 --></label>
+        <name>Total_amortissement_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total amortissements option 3 --></label>
+        <name>Total_amortissement_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total amortissements option retenue --></label>
+        <name>Total_amortissement_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total avances remboursables option 1 --></label>
+        <name>Total_avanceRemboursable_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total avances remboursables option 1 --></label>
+        <name>Total_avanceRemboursable_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total avances remboursables option 1 --></label>
+        <name>Total_avanceRemboursable_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total avances remb. option retenue --></label>
+        <name>Total_avanceRemboursable_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total assurances de brevets option 1 --></label>
+        <name>Total_brevetAssu_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total assurances de brevets option 2 --></label>
+        <name>Total_brevetAssu_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total assurances de brevets option 3 --></label>
+        <name>Total_brevetAssu_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total assu. de brevets option retenue --></label>
+        <name>Total_brevetAssu_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total défenses de brevets option 1 --></label>
+        <name>Total_brevetDef_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total défenses de brevets option 2 --></label>
+        <name>Total_brevetDef_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total défenses de brevets option 3 --></label>
+        <name>Total_brevetDef_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total défenses de brevets option retenue --></label>
+        <name>Total_brevetDef_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets facture option 1 --></label>
+        <name>Total_brevetPM_facture_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets facture option 2 --></label>
+        <name>Total_brevetPM_facture_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets facture option 3 --></label>
+        <name>Total_brevetPM_facture_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets option 1 --></label>
+        <name>Total_brevetPM_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets option 2 --></label>
+        <name>Total_brevetPM_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets option 3 --></label>
+        <name>Total_brevetPM_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets option retenue --></label>
+        <name>Total_brevetPM_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets personnel option 1 --></label>
+        <name>Total_brevetPM_personnel_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets personnel option 2 --></label>
+        <name>Total_brevetPM_personnel_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total PM brevets personnel option 3 --></label>
+        <name>Total_brevetPM_personnel_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total frais de fonctionnement option 1 --></label>
+        <name>Total_frais_fonctionnement_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total frais de fonctionnement option 2 --></label>
+        <name>Total_frais_fonctionnement_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total frais de fonctionnement option 3 --></label>
+        <name>Total_frais_fonctionnement_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total frais de fonct. option retenue --></label>
+        <name>Total_frais_fonctionnement_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total heures R&amp;D option 1 --></label>
+        <name>Total_heures_RD_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total heures R&amp;D option 2 --></label>
+        <name>Total_heures_RD_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total heures R&amp;D option 3 --></label>
+        <name>Total_heures_RD_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total jeunes docteurs option 1 --></label>
+        <name>Total_jeuneDocteur_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total jeunes docteurs option 2 --></label>
+        <name>Total_jeuneDocteur_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total jeunes docteurs option 3 --></label>
+        <name>Total_jeuneDocteur_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total jeunes docteurs option retenue --></label>
+        <name>Total_jeuneDocteur_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total mises à disposition option 1 --></label>
+        <name>Total_miseDisposition_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total mises à disposition option 2 --></label>
+        <name>Total_miseDisposition_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total mises à disposition option 3 --></label>
+        <name>Total_miseDisposition_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total mises à disposition option retenue --></label>
+        <name>Total_miseDisposition_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total normalisations option 1 --></label>
+        <name>Total_normalisation_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total normalisations option 2 --></label>
+        <name>Total_normalisation_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total normalisations option 3 --></label>
+        <name>Total_normalisation_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total normalisations option retenue --></label>
+        <name>Total_normalisation_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires agréés option 1 --></label>
+        <name>Total_prestataire_agree_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires agréés option 2 --></label>
+        <name>Total_prestataire_agree_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires agréés option 3 --></label>
+        <name>Total_prestataire_agree_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total presta. agréés option retenue --></label>
+        <name>Total_prestataire_agree_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires option 1 --></label>
+        <name>Total_prestataire_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires option 2 --></label>
+        <name>Total_prestataire_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires option 3 --></label>
+        <name>Total_prestataire_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires option retenue --></label>
+        <name>Total_prestataire_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires publics option 1 --></label>
+        <name>Total_prestataire_public_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires publics option 2 --></label>
+        <name>Total_prestataire_public_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total prestataires publics option 3 --></label>
+        <name>Total_prestataire_public_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total presta. publics option retenue --></label>
+        <name>Total_prestataire_public_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total remboursements d&apos;avances option 1 --></label>
+        <name>Total_remboursementAvance_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total remboursements d&apos;avances option 2 --></label>
+        <name>Total_remboursementAvance_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total remboursements d&apos;avances option 3 --></label>
+        <name>Total_remboursementAvance_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total remb. d&apos;avances option retenue --></label>
+        <name>Total_remboursementAvance_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total salariés option 1 --></label>
+        <name>Total_salarie_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total salariés option 2 --></label>
+        <name>Total_salarie_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total salariés option 3 --></label>
+        <name>Total_salarie_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total salariés option retenue --></label>
+        <name>Total_salarie_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total subventions option 1 --></label>
+        <name>Total_subvention_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total subventions option 2 --></label>
+        <name>Total_subvention_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total subventions option 3 --></label>
+        <name>Total_subvention_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total subventions option retenue --></label>
+        <name>Total_subvention_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles facture option 1 --></label>
+        <name>Total_veille_facture_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles facture option 2 --></label>
+        <name>Total_veille_facture_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles facture option 3 --></label>
+        <name>Total_veille_facture_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles option 1 --></label>
+        <name>Total_veille_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles option 2 --></label>
+        <name>Total_veille_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles option 3 --></label>
+        <name>Total_veille_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles option retenue --></label>
+        <name>Total_veille_optionFinale__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles personnel option 1 --></label>
+        <name>Total_veille_personnel_option1__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles personnel option 2 --></label>
+        <name>Total_veille_personnel_option2__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total veilles personnel option 3 --></label>
+        <name>Total_veille_personnel_option3__c</name>
+    </fields>
+    <fields>
+        <label><!-- Type CF --></label>
+        <name>Type_CF__c</name>
+        <picklistValues>
+            <masterLabel>CF</masterLabel>
+            <translation><!-- CF --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Demande renseignements</masterLabel>
+            <translation><!-- Demande renseignements --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Unité de temps des dépenses de personnel --></label>
+        <name>UniteTempsDepensesPersonnel__c</name>
+        <picklistValues>
+            <masterLabel>Heures</masterLabel>
+            <translation><!-- Heures --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Jours</masterLabel>
+            <translation><!-- Jours --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Prestataire Avocat --></label>
+        <name>prestataireAvocat__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prestataire CAC --></label>
+        <name>prestataireCAC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Prestataire EC --></label>
+        <name>prestataireEC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre d&apos;interlocuteurs --></label>
+        <name>renta_nb_interlocuteurs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de projets à auditer --></label>
+        <name>renta_nb_proj__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de projets à rédiger --></label>
+        <name>renta_nb_redacs__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de sites --></label>
+        <name>renta_nb_sites__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nombre de valorisations --></label>
+        <name>renta_nb_valo__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Mission CIR</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+        <sections>
+            <label><!-- Phases --></label>
+            <section>Phases</section>
+        </sections>
+    </layouts>
+    <recordTypes>
+        <label><!-- AS --></label>
+        <name>AS</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CIN --></label>
+        <name>CIN</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- CIR --></label>
+        <name>CIR</name>
+    </recordTypes>
+    <sharingReasons>
+        <label><!-- Equipe Consulting --></label>
+        <name>Equipe_Consulting</name>
+    </sharingReasons>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Vous ne pouvez pas saisir de date de début/fin d&apos;agrément si la société n&apos;est pas agréée --></errorMessage>
+        <name>AppCIR_Date_deb_fin_agrement_saisissable</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- La date réelle de clôture mission ne peut pas être supérieure à aujourd’hui. --></errorMessage>
+        <name>AppCIR_Date_relle_cloture</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- La date de rendu DT ne peut pas être supérieure à aujourd’hui. --></errorMessage>
+        <name>AppCIR_Date_rendu_DT</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Le temps théorique de la mission ne peut pas être supérieur au temps théorique de l&apos;opportunité pour la première année de la mission. --></errorMessage>
+        <name>jours_estimes_sup_opportunite</name>
+    </validationRules>
+</CustomObjectTranslation>

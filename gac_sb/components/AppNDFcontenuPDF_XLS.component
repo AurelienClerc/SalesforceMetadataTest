@@ -1,0 +1,144 @@
+<apex:component controller="AppNDFrecapFullComponent">
+   
+   <apex:attribute name="oRecap" assignTo="{!oNDFrecap}" type="Note_De_Frais_Recap__c" description="récap"/>
+
+   <div class="headerTitre"><br />{!$Label.APPNDF_RecapitulatifMensuelDeNotesDefrais}</div>
+   <apex:variable var="currencySymbol" value="{!IF(oRecap.Pays__c=='FR','€', 'BRL')}"/>
+   <apex:panelGrid columns="4" columnClasses="col1,col2,col3,col4" rowClasses="row1,row2">
+          <apex:outputText value="{!$ObjectType.Note_De_Frais_Recap__c.fields.Collaborateur__c.Label}"/>
+          <apex:outputText value="{!oRecap.Collaborateur__r.Name}"/>
+          
+          <apex:outputText value="{!$ObjectType.Note_De_Frais_Recap__c.fields.Name.Label}"/>
+          <apex:outputText value="{!oRecap.Name}"/>
+          
+          <apex:outputText value="{!$ObjectType.Note_De_Frais_Recap__c.fields.Periode_label__c.Label}"/>
+          <apex:outputText value="{!oRecap.Periode_label__c}"/>
+          
+          <apex:outputText value=""/>
+          <apex:outputText value=""/>
+    </apex:panelGrid>
+
+    <table class="totaux" cellspacing="0" cellpadding="0">
+            <tr class="headerTotaux">
+               <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Train__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Taxi__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Avion__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Peage_Parking_Metro_Bus__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Parking__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Location_Vehicule__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Carburant__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Poste__c.Label, 'Total ', '')}</th>
+           </tr>
+           <tr height="35" class="lineTotaux">
+                <td>{!oRecap.Total_Train__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Taxi__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Avion__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Peage_Parking_Metro_Bus__c} {!currencySymbol}</td>
+               <td>{!oRecap.Total_Parking__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Location_Vehicule__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Carburant__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Poste__c} {!currencySymbol}</td>
+            </tr>
+            <tr class="headerTotaux">
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Hotel_Nuitee__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Petit_Dejeuner__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Dejeuner__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Diner__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Frais_Kilometrique__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Autres_HT__c.Label, 'Total ', '')}</th>
+                <th>{!SUBSTITUTE($ObjectType.Note_De_Frais_Recap__c.fields.Total_Autres_TTC__c.Label, 'Total ', '')}</th>
+                <th></th>
+            </tr>
+            <tr height="35" class="lineTotaux">
+                <td>{!oRecap.Total_Hotel_Nuitee__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Petit_Dejeuner__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Dejeuner__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Diner__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Frais_Kilometrique__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Autres_HT__c} {!currencySymbol}</td>
+                <td>{!oRecap.Total_Autres_TTC__c} {!currencySymbol}</td>
+                <td></td>
+            </tr>
+    </table>
+    
+    <apex:panelGrid columns="4" columnClasses="col1,col2,col3,col4" rowClasses="row1,row2">
+          <apex:outputText value="{!$ObjectType.Note_De_Frais_Recap__c.fields.Nombre_De_Dejeuners__c.Label}"/>
+          <apex:outputText value="{!oRecap.Nombre_De_Dejeuners__c}"/>
+          
+          <apex:outputText value="{!$ObjectType.Note_De_Frais_Recap__c.fields.Total_TVA__c.Label}" rendered="{!oRecap.Pays__c != 'BR'}"/>
+          <apex:outputText value="{!oRecap.Total_TVA__c} {!currencySymbol}" rendered="{!oRecap.Pays__c != 'BR'}"/>
+          
+          <apex:outputText value="" rendered="{!oRecap.Pays__c != 'BR'}"/>
+          <apex:outputText value="" rendered="{!oRecap.Pays__c != 'BR'}"/>
+
+          <apex:outputText value="{!$Label.APPNDF_TotalARembourser}"/>
+          <apex:outputText value="{!oRecap.Total__c}"/>
+    </apex:panelGrid>
+         
+    <div> 
+        <!-- Listes des dépenses -->
+        <br />
+        <div class="titre2">
+            {!$Label.APPNDF_ListeDesDepenses} :
+        </div>
+        <br />
+        <table class="depensesTable list">
+            <tr class="header">
+                <th width="70">{!$ObjectType.Note_De_Frais_Depense__c.fields.Name.Label}</th>
+                <th>{!$ObjectType.Note_De_Frais_Depense__c.fields.Nature_Depense__c.Label}</th>
+                <th width="170">{!$Label.APPNDF_Evenement}</th>
+                <th width="100">{!$Label.APPNDF_AttacheA}</th>
+                <th width="30">{!$ObjectType.Note_De_Frais_Depense__c.fields.Num_PJ__c.Label}</th>
+                <apex:outputPanel layout="none" rendered="{!oRecap.Pays__c != 'BR'}"><th>{!$ObjectType.Note_De_Frais_Depense__c.fields.Montant_HT__c.Label}</th></apex:outputPanel>
+                <th>{!$ObjectType.Note_De_Frais_Depense__c.fields.Montant_TTC__c.Label}</th>
+                <apex:outputPanel layout="none" rendered="{!oRecap.Pays__c != 'BR'}"><th>{!$ObjectType.Note_De_Frais_Depense__c.fields.Montant_TVA__c.Label}</th></apex:outputPanel>
+                <th width="80">{!$ObjectType.Note_De_Frais_Depense__c.fields.Description__c.Label}</th>
+                <!-- <th>Description dépense</th> -->
+            </tr>
+            <apex:repeat value="{!mpNDFdepense['Autre_Frais']}" var="depense">
+                <tr class="blue">
+                    <td>{!depense.Name}</td>
+                    <td>{!depense.Nature_Depense__r.Name}</td>
+                    <td>{!mpEvent[depense.Id]}</td>
+                    <td><apex:outputPanel rendered="{!depense.Note_de_frais__r.Objet_attache_type__c != null}">{!depense.Note_de_frais__r.Objet_attache_type__c} : {!depense.Note_de_frais__r.Objet_attache_libelle__c}</apex:outputPanel></td>
+                    <td>{!depense.Num_PJ__c}</td>
+                    <apex:outputPanel layout="none" rendered="{!oRecap.Pays__c != 'BR'}"><td>{!depense.Montant_HT__c}<apex:outputPanel rendered="{!IF(NOT(ISNULL(depense.Montant_HT__c)), true , false)}">&nbsp;{!currencySymbol}</apex:outputPanel></td></apex:outputPanel>
+                    <td>{!depense.Montant_TTC__c}<apex:outputPanel rendered="{!IF(NOT(ISNULL(depense.Montant_TTC__c)), true , false)}">&nbsp;{!currencySymbol}</apex:outputPanel></td>
+                    <apex:outputPanel layout="none" rendered="{!oRecap.Pays__c != 'BR'}"><td>{!depense.Montant_TVA__c}<apex:outputPanel rendered="{!IF(NOT(ISNULL(depense.Montant_TVA__c)), true , false)}">&nbsp;{!currencySymbol}</apex:outputPanel></td></apex:outputPanel>
+                    <!-- <td>{!depense.Note_De_Frais__r.Description__c}</td> -->
+                    <td>{!depense.Description__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+        <br />
+        <div class="titre2">
+            {!$Label.APPNDF_ListeKM} :
+        </div>
+        <br />
+        <table class="depensesTable list">
+            <tr class="header">
+                <th>{!$ObjectType.Note_De_Frais_Depense__c.fields.Name.Label}</th>
+                <th width="200">{!$Label.APPNDF_Evenement}</th>
+                <th>{!$ObjectType.Note_De_Frais_Depense__c.fields.Nombre_De_Kilometres__c.Label}</th>
+                <th>{!$ObjectType.Note_De_Frais_Depense__c.fields.Indemnites_Kilometriques__c.Label}</th>
+                <th>{!$ObjectType.Note_De_Frais_Depense__c.fields.Taux_Indemnites__c.Label}</th>
+                <th>{!$ObjectType.Note_De_Frais_Depense__c.fields.Description__c.Label}</th>
+                <!-- <th>Description frais</th> -->
+            </tr>
+            <apex:repeat value="{!mpNDFdepense['Frais_Kilometrique']}" var="depense">
+                <tr class="blue">
+                    <td>{!depense.Name}</td>
+                    <td>{!mpEvent[depense.Id]}</td>
+                    <td>{!depense.Nombre_De_Kilometres__c}</td>
+                    <td>{!depense.Indemnites_Kilometriques__c}<apex:outputPanel rendered="{!IF(NOT(ISNULL(depense.Indemnites_Kilometriques__c)), true , false)}">&nbsp;{!currencySymbol}</apex:outputPanel></td>
+                    <td>{!depense.Taux_Indemnites__c}</td>
+                    <!-- <td>{!depense.Note_De_Frais__r.Description__c}</td> -->
+                    <td>{!depense.Description__c}</td>
+                </tr>
+            </apex:repeat>
+        </table>
+    <!-- <c:AppNDFtableauPDF idR="{!oRecap.Id}"/> -->
+    </div>
+    
+
+</apex:component>

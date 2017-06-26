@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Économie Client</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Economies Client</value>
+    </caseValues>
+    <fields>
+        <label><!-- Masse salariale actuelle --></label>
+        <name>MasseSalarialeActuelle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mission --></label>
+        <name>Mission__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant de l&apos;économie Client --></label>
+        <name>MontantEconomieClient__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant économie pondérée --></label>
+        <name>MontantEconomiePonderee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Recours --></label>
+        <name>Recours__c</name>
+        <relationshipLabel><!-- Economies Client --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- TECH Année numéro --></label>
+        <name>TECH_Annee_numero__c</name>
+    </fields>
+    <fields>
+        <label><!-- TECH Ordre Economie client --></label>
+        <name>TECH_OrdreEconomieClient__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux Initial --></label>
+        <name>TauxInitial__c</name>
+    </fields>
+    <fields>
+        <label><!-- Taux rectifié --></label>
+        <name>TauxRectifie__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Simulation</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+    <validationRules>
+        <errorMessage><!-- L&apos;année doit être au format 20XX ou 19XX --></errorMessage>
+        <name>AppAT_Interet_fi_Annee</name>
+    </validationRules>
+</CustomObjectTranslation>

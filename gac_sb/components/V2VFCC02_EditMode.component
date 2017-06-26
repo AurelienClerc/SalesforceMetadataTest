@@ -1,0 +1,7 @@
+<apex:component >
+    <apex:attribute name="Obj" type="sObject" required="true" description="Objet" />
+    <apex:attribute name="Field" type="string" required="true" description="champ" />
+    <apex:attribute name="editMode" required="true" type="boolean" description="Champ"/>
+        <apex:outputField rendered="{!!editMode}" value="{!Obj[field]}"/>
+        <apex:inputField rendered="{!editMode}" value="{!Obj[field]}"/>
+</apex:component>

@@ -1,0 +1,1345 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Entente</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Ententes</value>
+    </caseValues>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Rôle des contacts de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_contact_role</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Devise de l&apos;entente</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_currency</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Champ personnalisé de l&apos;entente</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Champs personnalisés des ententes</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_custom_field</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Détail de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_detail</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Service des ententes</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_division</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Modification de l&apos;entente</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_edit</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Date de fin de l&apos;entente</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_end_date</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Champ de l&apos;entente</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Champs des ententes</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_field</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Historique de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_history</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Rapport sur l&apos;historique de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_history_report</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>ID de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Informations sur l&apos;entente</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_information</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Responsable de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_manager</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Nom de l&apos;entente</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Noms des ententes</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_name</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Numéro d&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_number</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Propriétaire de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_owner</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Alias du propriétaire de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_owner_alias</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Adresse e-mail du propriétaire de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_owner_email</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Rapport du propriétaire de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_owner_report</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Propriété de l&apos;entente</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_ownership</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Liste de sélection de l&apos;entente</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Listes de sélection des ententes</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_picklist</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Type d&apos;enregistrement des ententes</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Types d&apos;enregistrement des ententes</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_record_type</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>ID du type d&apos;enregistrement de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_record_type_id</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Rapport de l&apos;entente</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Rapports de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_report</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Paramètre de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_settings</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Date de début de l&apos;entente</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_start_date</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Statut de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_status</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Valeur de la liste de sélection des statuts de l&apos;entente</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Valeurs de la liste de sélection des statuts de l&apos;entente</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_status_picklist_value</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Ordre de tri des statuts de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_status_sort_order</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Durée de l&apos;entente</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_term</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Type de l&apos;entente</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>contract_type</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Vue d&apos;entente</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Vues d&apos;entente</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contract_view</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Page de détails des ententes</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>contracts_detail_page</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>BR - Contrat - CSL</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Contrat - CSL (Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Contrat - FIN</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Contrat - FIN (Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Contrat - FND</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Contrat - FND (Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Contrat - LDB</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>BR - Contrat - LDB (Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>CA - Contrat - CIR Canada</layout>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label>Informations complémentaires sur l&apos;entente</label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label>Informations sur le mandat</label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Contrat - Consulting</layout>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations facturation --></label>
+            <section>Informations facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Contrat - Consulting (Débloqué)</layout>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations facturation --></label>
+            <section>Informations facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Contrat - PATENT BOX</layout>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations facturation --></label>
+            <section>Informations facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Contrat - PATENT BOX (Débloqué)</layout>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations facturation --></label>
+            <section>Informations facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Contrat - R&amp;D Funding</layout>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations facturation --></label>
+            <section>Informations facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Contrat - R&amp;D Funding (Débloqué)</layout>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations facturation --></label>
+            <section>Informations facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Contrat - R&amp;D Tax Credit</layout>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations facturation --></label>
+            <section>Informations facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>ES - Contrat - R&amp;D Tax Credit (Débloqué)</layout>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations facturation --></label>
+            <section>Informations facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - ACS - Perf RH</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - ACS - Perf RH(Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - AS - Inno</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - AS - Inno (Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - CFI - Perf FI</layout>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - CFI - Perf FI (Débloqué)</layout>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - CIN - Inno</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - CIN - Inno (Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - CIR - Inno</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - CIR - Inno (Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - CRH - Perf RH</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - CRH - Perf RH (Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - DI - Inno</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - DI - Inno (débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - Default</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - Default (débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - IL - Perf FI</layout>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - IL - Perf FI (Débloqué)</layout>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - TAT - Perf RH</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - TAT - Perf RH (Débloqué)</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>FR - Contrat - VEILLE - Inno</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur la mission --></label>
+            <section>Informations complémentaires sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Contrat - CF</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Contrat - PF</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>SGP - Contrat - PIC</layout>
+        <sections>
+            <label><!-- Autres implantations monde --></label>
+            <section>Autres implantations monde</section>
+        </sections>
+        <sections>
+            <label><!-- Facturation --></label>
+            <section>Facturation</section>
+        </sections>
+        <sections>
+            <label><!-- Informations complémentaires sur le contrat --></label>
+            <section>Informations complémentaires sur le contrat</section>
+        </sections>
+        <sections>
+            <label><!-- Informations sur la mission --></label>
+            <section>Informations sur la mission</section>
+        </sections>
+        <sections>
+            <label><!-- Interlocuteurs --></label>
+            <section>Interlocuteurs</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

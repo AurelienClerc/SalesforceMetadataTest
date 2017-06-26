@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>[OLD] Section de Checklist</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Sections de Checklist</value>
+    </caseValues>
+    <fields>
+        <label><!-- Onglet --></label>
+        <name>Onglet__c</name>
+        <picklistValues>
+            <masterLabel>amortissement</masterLabel>
+            <translation><!-- amortissement --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>avanceRemboursable</masterLabel>
+            <translation><!-- avanceRemboursable --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>brevetPM</masterLabel>
+            <translation><!-- brevetPM --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>normalisation</masterLabel>
+            <translation><!-- normalisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>prestataire</masterLabel>
+            <translation><!-- prestataire --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>salarie</masterLabel>
+            <translation><!-- salarie --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>subvention</masterLabel>
+            <translation><!-- subvention --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>valorisation</masterLabel>
+            <translation><!-- valorisation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>veille</masterLabel>
+            <translation><!-- veille --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Ordre --></label>
+        <name>Ordre__c</name>
+    </fields>
+    <gender>Feminine</gender>
+    <layouts>
+        <layout>Présentation Section de Checklist</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

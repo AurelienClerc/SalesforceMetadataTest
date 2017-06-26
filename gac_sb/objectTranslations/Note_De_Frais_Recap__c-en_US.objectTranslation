@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Recap Expense</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Recap Expenses</value>
+    </caseValues>
+    <fields>
+        <label><!-- Approbateur 1 --></label>
+        <name>Approbateur_1__c</name>
+        <relationshipLabel><!-- Récap notes de frais (Approbateur 1) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Approbateur 2 --></label>
+        <name>Approbateur_2__c</name>
+        <relationshipLabel><!-- Récap notes de frais (Approbateur 2) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Approbateur 3 --></label>
+        <name>Approbateur_3__c</name>
+        <relationshipLabel><!-- Récap notes de frais (Approbateur 3) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Collaborateur --></label>
+        <name>Collaborateur__c</name>
+        <relationshipLabel><!-- Récap notes de frais (Collaborateur) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Date de validation --></label>
+        <name>Date_De_Validation__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date début de période --></label>
+        <name>Date_Debut_De_Periode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date de traitement comptabilité --></label>
+        <name>Date_de_traitement_comptabilite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Date fin de période --></label>
+        <name>Date_fin_de_periode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Etape --></label>
+        <name>Etape__c</name>
+        <picklistValues>
+            <masterLabel>En cours</masterLabel>
+            <translation><!-- En cours --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Refusé</masterLabel>
+            <translation><!-- Refusé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Soumis pour approbation</masterLabel>
+            <translation><!-- Soumis pour approbation --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Validé</masterLabel>
+            <translation><!-- Validé --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Nombre de déjeuners --></label>
+        <name>Nombre_De_Dejeuners__c</name>
+    </fields>
+    <fields>
+        <label><!-- Numéro Compte Autres TVA récupérable --></label>
+        <name>Numero_Compte_Autres_HT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Numéro Compte Autres TVA non récupérable --></label>
+        <name>Numero_Compte_Autres_TTC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pays --></label>
+        <name>Pays__c</name>
+        <picklistValues>
+            <masterLabel>BR</masterLabel>
+            <translation><!-- BR --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>FR</masterLabel>
+            <translation><!-- FR --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Période --></label>
+        <name>Periode__c</name>
+    </fields>
+    <fields>
+        <label><!-- Période label --></label>
+        <name>Periode_label__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total autres (TVA récupérable) --></label>
+        <name>Total_Autres_HT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total avion --></label>
+        <name>Total_Avion__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total carburant --></label>
+        <name>Total_Carburant__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total déjeuner --></label>
+        <name>Total_Dejeuner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total dîner --></label>
+        <name>Total_Diner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total frais kilométriques --></label>
+        <name>Total_Frais_Kilometrique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total HT --></label>
+        <name>Total_HT__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total hôtel (nuitée) --></label>
+        <name>Total_Hotel_Nuitee__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Invitation client --></label>
+        <name>Total_Invitation_client__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total location véhicule --></label>
+        <name>Total_Location_Vehicule__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total Parking, métro, bus --></label>
+        <name>Total_Parking__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total péage --></label>
+        <name>Total_Peage_Parking_Metro_Bus__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total petit déjeuner --></label>
+        <name>Total_Petit_Dejeuner__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total poste --></label>
+        <name>Total_Poste__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total TTC --></label>
+        <name>Total_TTC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total TVA --></label>
+        <name>Total_TVA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total taxi --></label>
+        <name>Total_Taxi__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total train --></label>
+        <name>Total_Train__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total remboursé --></label>
+        <name>Total__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total autres (TVA non récupérable) --></label>
+        <name>Total_autres_TTC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Traitement comptabilité --></label>
+        <name>Traitement_comptabilite__c</name>
+        <relationshipLabel><!-- Récap notes de frais (Traitement comptabilité) --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- Type approbation NDF --></label>
+        <name>Type_approbation_NDF__c</name>
+    </fields>
+    <layouts>
+        <layout>Note De Frais Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Num Recap</nameFieldLabel>
+    <startsWith>Consonant</startsWith>
+</CustomObjectTranslation>

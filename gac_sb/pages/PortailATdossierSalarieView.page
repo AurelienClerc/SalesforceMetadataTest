@@ -1,0 +1,142 @@
+<apex:page standardController="AppATdossiersSalaries__c" showHeader="false" sidebar="false"  applyHtmlTag="false">
+
+	
+	<apex:composition template="{!$Site.Template}">
+		<apex:define name="title">Dossiers salariés</apex:define>
+		
+		<apex:define name="header">
+			
+			
+			<style>
+				.table tr > td, .table tr > th{
+                	text-align: center;
+                }
+                
+                .table tr > td:first-child, .table tr > th:first-child{
+                	text-align: left;
+                }
+			</style>
+		</apex:define>
+			
+		<apex:define name="body">
+			<h2 >{!AppATdossiersSalaries__c.Name}</h2>
+			
+			<div class="row">
+				<!--<div class="col-md-6 form-horizontal">-->
+				<!--	<div class="form-group">-->
+				<!--		<label class="col-sm-3 control-label">Nom</label>-->
+				<!--		<div class="col-sm-9">-->
+				<!--			<p class="form-control-static">-->
+				<!--				<apex:outputField value="{!AppATdossiersSalaries__c.Nom__c}" />-->
+				<!--			</p>-->
+				<!--		</div>-->
+				<!--	</div>-->
+					
+				<!--	<div class="form-group">-->
+				<!--		<label class="col-sm-3 control-label">Nom</label>-->
+				<!--		<div class="col-sm-9">-->
+				<!--			<p class="form-control-static">-->
+				<!--				<apex:outputField value="{!AppATdossiersSalaries__c.Nom__c}" />-->
+				<!--			</p>-->
+				<!--		</div>-->
+				<!--	</div>-->
+				<!--</div>-->
+			
+				<apex:pageBlock mode="edit">
+					<apex:pageBlockSection title="Salarié">
+						<apex:outputField value="{!AppATdossiersSalaries__c.Nom__c}" />
+						<apex:outputField value="{!AppATdossiersSalaries__c.MontantEconomieGlobale__c}" />
+						
+						<apex:outputField value="{!AppATdossiersSalaries__c.Prenom__c}" />
+						<apex:outputField value="{!AppATdossiersSalaries__c.Interimaire__c}" rendered="{!AppATdossiersSalaries__c.Interimaire__c}"/>
+					</apex:pageBlockSection>
+					
+					<apex:pageBlockSection title="Dossier">
+						<apex:outputField value="{!AppATdossiersSalaries__c.Statut__c}" />
+						<apex:outputField value="{!AppATdossiersSalaries__c.RecordType.Name}" label="Type"/>
+						
+						<apex:pageBlockSectionItem >
+							<apex:outputLabel value="{!$ObjectType.AppATdossiersSalaries__c.fields.EtablissementConcerne__c.label}"/>
+							<apex:outputLink value="/PortailATetablissements?id={!AppATdossiersSalaries__c.EtablissementConcerne__c}" >{!AppATdossiersSalaries__c.EtablissementConcerne__r.Ville__c}{!IF(ISBLANK(AppATdossiersSalaries__c.EtablissementConcerne__r.Entite__c), '', ' - ' + AppATdossiersSalaries__c.EtablissementConcerne__r.Entite__c)}</apex:outputLink>
+						</apex:pageBlockSectionItem>
+						
+						<apex:outputField value="{!AppATdossiersSalaries__c.ActionsMenee__c}" rendered="{!AppATdossiersSalaries__c.RecordType.DeveloperName == 'Conseil'}"/>
+						<apex:pageBlockSectionItem rendered="{!AppATdossiersSalaries__c.RecordType.DeveloperName != 'Conseil'}"/>
+						
+						<apex:outputField value="{!AppATdossiersSalaries__c.DateDemandeClient__c}" />
+						<apex:outputField value="{!AppATdossiersSalaries__c.DateReceptionDossier__c}" />
+
+					</apex:pageBlockSection>
+					
+					<apex:pageBlockSection title="Sinistre">
+						<apex:outputField value="{!AppATdossiersSalaries__c.Type__c}" />
+						<apex:outputField value="{!AppATdossiersSalaries__c.DateAttributionTauxIPP__c}" />
+						
+						<apex:outputField value="{!AppATdossiersSalaries__c.DateSinistre__c}" />
+						<apex:outputField value="{!AppATdossiersSalaries__c.TauxIPP__c}" />
+						
+						<apex:outputField value="{!AppATdossiersSalaries__c.NDossier__c}" />
+
+					</apex:pageBlockSection>
+				</apex:pageBlock>
+				
+				<br />
+				<div class="well">
+					<h4>Imputations</h4>
+					<table id="etabs" class="table table-hover">
+						
+						<thead>
+							<tr>
+								<th>Année</th>
+								<th>CCM IT</th>
+								<th>CCM IP</th>
+								<th>Taux d'IPP</th>
+								<th>Imputations contestées</th>
+							</tr>
+						</thead>
+						<tbody>
+							<apex:repeat value="{!AppATdossiersSalaries__c.Imputations__r}" var="imput">
+								<tr>
+									<td>{!imput.Name}</td>
+									<td>{!imput.ccmIT__c}</td>
+									<td>{!imput.ccmIP__c}</td>
+									<td>{!imput.Taux_IPP__c}</td>
+									<td>{!imput.ImputationsContestees__c}</td>
+								</tr>
+							</apex:repeat>
+						</tbody>
+					</table>		
+				</div>
+				
+				<div class="well">
+					<h4>Recours</h4>
+					<table id="etabs" class="table table-hover">
+						
+						<thead>
+							<tr>
+								<th>Nom</th>
+								<th>Statut</th>
+								<th>Date dépôt recours</th>
+								<th>Date d'audience réelle</th>
+								<th>Date d'audience présumée</th>
+							</tr>
+						</thead>
+						<tbody>
+							<apex:repeat value="{!AppATdossiersSalaries__c.Recours__r}" var="recours">
+								<tr>
+									<td>{!recours.Name}</td>
+									<td>{!recours.Statut__c}</td>
+									<td><apex:outputField value="{!recours.DateDepotRecours__c}"/></td>
+									<td><apex:outputField value="{!recours.DateAudiencePassageReelle__c}"/></td>
+									<td><apex:outputField value="{!recours.DateAudiencePassagePresumee__c}" rendered="{!ISBLANK(recours.DateAudiencePassageReelle__c)}"/></td>
+								</tr>
+							</apex:repeat>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</apex:define>
+	</apex:composition>
+	
+	
+</apex:page>

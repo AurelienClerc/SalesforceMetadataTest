@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <description>AppNDF : dépense (type taxi, carburant) associée à une note de frais, qui est un ensemble de dépenses associées à un évènement par exemple</description>
+    <enableActivities>true</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Description__c</fullName>
+        <externalId>false</externalId>
+        <label>Description</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>TextArea</type>
+    </fields>
+    <fields>
+        <fullName>Indemnites_Kilometriques__c</fullName>
+        <externalId>false</externalId>
+        <label>Indémnités kilométriques</label>
+        <precision>7</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Index__c</fullName>
+        <externalId>false</externalId>
+        <label>Index</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Montant_HT__c</fullName>
+        <externalId>false</externalId>
+        <label>Montant HT</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_TTC__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>help montant</inlineHelpText>
+        <label>Montant TTC</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Montant_TVA__c</fullName>
+        <externalId>false</externalId>
+        <label>Montant TVA</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Nature_Depense_Categorie__c</fullName>
+        <externalId>false</externalId>
+        <label>Nature dépense catégorie</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Nature_Depense__c</fullName>
+        <deleteConstraint>Restrict</deleteConstraint>
+        <externalId>false</externalId>
+        <inlineHelpText>help!</inlineHelpText>
+        <label>Nature dépense</label>
+        <referenceTo>Note_De_Frais_Nature_Depense__c</referenceTo>
+        <relationshipLabel>Dépenses note de frais</relationshipLabel>
+        <relationshipName>Depenses_note_de_frais</relationshipName>
+        <required>true</required>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Lookup</type>
+    </fields>
+    <fields>
+        <fullName>Nombre_De_Kilometres__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Indiquer le nombre de kilomètres effectués avec votre voiture personnelle au titre d&apos;un déplacement professionnel. 
+L&apos;utilisation de votre véhicule personnel doit avoir été autorisé par votre responsable.</inlineHelpText>
+        <label>Nombre de kilomètres</label>
+        <precision>6</precision>
+        <required>false</required>
+        <scale>1</scale>
+        <trackHistory>true</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Note_De_Frais__c</fullName>
+        <externalId>false</externalId>
+        <label>Note de frais</label>
+        <referenceTo>Note_De_Frais__c</referenceTo>
+        <relationshipLabel>Dépenses note de frais</relationshipLabel>
+        <relationshipName>Depenses_note_de_frais</relationshipName>
+        <relationshipOrder>0</relationshipOrder>
+        <reparentableMasterDetail>true</reparentableMasterDetail>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>MasterDetail</type>
+        <writeRequiresMasterRead>false</writeRequiresMasterRead>
+    </fields>
+    <fields>
+        <fullName>Num_PJ__c</fullName>
+        <externalId>false</externalId>
+        <inlineHelpText>Chacune des pièces justificatives doit être numérotée et annexée à la note de frais</inlineHelpText>
+        <label>Num PJ</label>
+        <precision>3</precision>
+        <required>false</required>
+        <scale>0</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>StatutClientBR__c</fullName>
+        <externalId>false</externalId>
+        <label>Statut Client - BR</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <restricted>true</restricted>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>En attente</fullName>
+                    <default>false</default>
+                    <label>En attente</label>
+                </value>
+                <value>
+                    <fullName>Envoyé</fullName>
+                    <default>false</default>
+                    <label>Envoyé</label>
+                </value>
+                <value>
+                    <fullName>Payé</fullName>
+                    <default>false</default>
+                    <label>Payé</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Taux_Indemnites__c</fullName>
+        <externalId>false</externalId>
+        <formula>IF( AND(Nombre_De_Kilometres__c &gt; 0, Indemnites_Kilometriques__c  &gt;0),Indemnites_Kilometriques__c  /Nombre_De_Kilometres__c ,0)</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Taux Indemnités</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>3</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Number</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>Temp_Key__c</fullName>
+        <externalId>false</externalId>
+        <label>Temp Key</label>
+        <length>255</length>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Text</type>
+        <unique>false</unique>
+    </fields>
+    <fields>
+        <fullName>TotalCharges__c</fullName>
+        <externalId>false</externalId>
+        <formula>Montant_HT__c + Montant_TTC__c + Indemnites_Kilometriques__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>TotalCharges</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <fields>
+        <fullName>Total__c</fullName>
+        <externalId>false</externalId>
+        <formula>Indemnites_Kilometriques__c + Montant_HT__c +  Montant_TVA__c +  Montant_TTC__c</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>Total</label>
+        <precision>18</precision>
+        <required>false</required>
+        <scale>2</scale>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Currency</type>
+    </fields>
+    <gender>Feminine</gender>
+    <label>Dépense note de frais</label>
+    <listViews>
+        <fullName>All</fullName>
+        <columns>NAME</columns>
+        <columns>Nature_Depense_Categorie__c</columns>
+        <columns>Montant_HT__c</columns>
+        <columns>Montant_TTC__c</columns>
+        <columns>Montant_TVA__c</columns>
+        <columns>Total__c</columns>
+        <filterScope>Everything</filterScope>
+        <label>All</label>
+        <language>en_US</language>
+    </listViews>
+    <nameField>
+        <displayFormat>NDF-D-{00000}</displayFormat>
+        <label>Num Dépense</label>
+        <trackHistory>false</trackHistory>
+        <type>AutoNumber</type>
+    </nameField>
+    <pluralLabel>Dépenses note de frais</pluralLabel>
+    <recordTypeTrackHistory>false</recordTypeTrackHistory>
+    <recordTypes>
+        <fullName>Autre_Frais</fullName>
+        <active>true</active>
+        <label>Autre Frais</label>
+        <picklistValues>
+            <picklist>StatutClientBR__c</picklist>
+            <values>
+                <fullName>En attente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Envoyé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <recordTypes>
+        <fullName>Frais_Kilometrique</fullName>
+        <active>true</active>
+        <label>Frais kilométrique</label>
+        <picklistValues>
+            <picklist>StatutClientBR__c</picklist>
+            <values>
+                <fullName>En attente</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Envoyé</fullName>
+                <default>false</default>
+            </values>
+            <values>
+                <fullName>Payé</fullName>
+                <default>false</default>
+            </values>
+        </picklistValues>
+    </recordTypes>
+    <searchLayouts/>
+    <sharingModel>ControlledByParent</sharingModel>
+    <validationRules>
+        <fullName>Description_obligatoire_pour_autres</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(CONTAINS( Nature_Depense__r.Name, &apos;Autres&apos;) ,ISBLANK( Description__c ))</errorConditionFormula>
+        <errorDisplayField>Description__c</errorDisplayField>
+        <errorMessage>Le champ description est obligatoire pour les champs de type autres</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Indemnites_obligatoire</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL( Nature_Depense__r.Type__c , &apos;Frais kilométrique&apos;), OR(ISNULL(    Indemnites_Kilometriques__c ) ,Indemnites_Kilometriques__c  = 0))</errorConditionFormula>
+        <errorDisplayField>Indemnites_Kilometriques__c</errorDisplayField>
+        <errorMessage>Indémnités kilométriques obligatoires</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Montant_HT_obligatoire</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISPICKVAL(Nature_Depense__r.Type__c, &apos;HT&apos;) ,OR(ISNULL( Montant_HT__c ) , Montant_HT__c = 0))</errorConditionFormula>
+        <errorDisplayField>Montant_HT__c</errorDisplayField>
+        <errorMessage>Montant HT obligatoire</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Montant_TTC_obligatoire</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL( Nature_Depense__r.Type__c , &apos;TTC&apos;),OR(ISNULL( Montant_TTC__c ), Montant_TTC__c = 0))</errorConditionFormula>
+        <errorDisplayField>Montant_TTC__c</errorDisplayField>
+        <errorMessage>Montant TTC obligatoire</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Montant_TVA_obligatoire</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND( ISPICKVAL(Nature_Depense__r.Type__c, &apos;HT&apos;) ,ISNULL( Montant_TVA__c ) )</errorConditionFormula>
+        <errorDisplayField>Montant_TVA__c</errorDisplayField>
+        <errorMessage>Montant TVA obligatoire</errorMessage>
+    </validationRules>
+    <validationRules>
+        <fullName>Nb_Kilometres_obligatoire</fullName>
+        <active>true</active>
+        <errorConditionFormula>AND(ISPICKVAL(  Nature_Depense__r.Type__c  , &apos;Frais kilométrique&apos;), OR(ISNULL(   Nombre_De_Kilometres__c ) , Nombre_De_Kilometres__c = 0))</errorConditionFormula>
+        <errorDisplayField>Nombre_De_Kilometres__c</errorDisplayField>
+        <errorMessage>Nombre de kilomètres obligatoire</errorMessage>
+    </validationRules>
+    <visibility>Public</visibility>
+</CustomObject>

@@ -1,0 +1,447 @@
+<apex:page standardController="INNOmission__c" extensions="INNOmissionCtrl,INNOmissionCtrl_withoutSharing" action="{!checkParams}" sidebar="false" tabStyle="INNOmission__c" title="Mission {!INNOmission__c.Name}">
+	<apex:composition template="INNOmissionTemplate">
+		
+		
+		<apex:define name="body">
+			
+			<!--<apex:sectionHeader title="Mission INNO Advance" subtitle="{!INNOmission__c.Name}"/>-->
+			
+			<apex:variable var="isCir" value="{!INNOmission__c.RecordType.DeveloperName = 'CIR'}" />
+			
+			<apex:form >
+				<apex:pageBlock title="Informations relatives à la mission">
+	                <apex:pageBlockButtons location="top" rendered="{!missionReadWrite}">
+	                    <apex:commandButton action="{!URLFOR('/apex/INNOmissionEdit', null, [id = INNOmission__c.Id, missionId = INNOmission__c.Id])}" value="Modifier"/>
+	                    <apex:commandButton action="{!deleteMission}" value="Supprimer" rendered="{!userIsManager}" onclick="if(!confirm('Voulez-vous vraiment supprimer cette mission ainsi l\'ensemble de sa valorisation ?\n\nCette opération est risquée et irréversible.')) return false;"/>
+                        <apex:commandLink action="{!URLFOR($Action.INNOmission__c.View, INNOmission__c.Id, null, true)}" value="/!\ Détails Admin /!\" target="_blank" rendered="{!$User.Id == '005D0000001uZcDIAU' || $User.Id == '005D0000002ZDVbIAO' || $User.Id == '005D0000002DMkSIAW' || $User.Id == '005D0000002tZBfIAM' || $User.Id == '005D0000001w3NsIAI'}" />
+                    </apex:pageBlockButtons>
+	                
+	                <apex:pageBlockSection >
+	     
+	     				<apex:pageBlockSectionItem >
+	     					<apex:outputLabel value="Nom de l'opportunité" />
+	     					<apex:outputText value="{!INNOmission__c.Contrat__r.Opportunite__r.Name}"/>	
+	     				</apex:pageBlockSectionItem>
+	     				
+	     				<apex:pageBlockSectionItem >
+	                        <apex:outputLabel value="{!$ObjectType.INNOmission__c.Fields.Phase__c.Label}"/>
+	                        <apex:outputPanel style="color:{!IF(INNOmission__c.Statut__c == 'Inactive' || INNOmission__c.Statut__c == 'Terminée', 'red', 'black')}">
+	                            {!INNOmission__c.Phase__c}
+	                        </apex:outputPanel>
+	                    </apex:pageBlockSectionItem>
+	                    
+	     				<apex:outputField value="{!INNOmission__c.Taux_CIR__c}" rendered="{!isCir}"/>
+	     				<apex:outputField value="{!INNOmission__c.NombreCFenCours__c}" />
+	     				
+	     				<apex:outputField value="{!INNOmission__c.TauxCII__c}" rendered="{!isCir}"/>
+	     				<apex:outputField value="{!INNOmission__c.Groupe__c}"/>
+	     				
+	                </apex:pageBlockSection>
+	                
+	                <apex:pageBlockSection title="Avancement" columns="2">
+	                		
+	                    <apex:outputField value="{!INNOmission__c.TempsTheoriquePlafond__c}"/>
+	                    <apex:pageBlockSectionItem rendered="{!!isCir}">
+	                        <apex:outputLabel value="Estimation des durées (jours)" />
+	                        <apex:outputField value="{!INNOmission__c.Nombre_jours_theoriques_Audit__c}"/>    
+	                    </apex:pageBlockSectionItem>
+	                    
+	                    <apex:pageBlockSectionItem rendered="{!isCir}">
+	                        <apex:outputLabel value="Estimation des durées (jours)" />
+	                        <apex:outputPanel layout="none">
+	                            <table class="pageBlockSectionItemTable8Col">
+	                                <tr>
+	                                    <td>Audit:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_theoriques_Audit__c}"/></td>
+	                                    <td>Valo:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_theoriques_Valorisation__c}"/></td>
+	                                    <td>Justif:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_theoriques_Justification__c}"/></td>
+	                                    <td>Ctrl:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_theoriques_Controle__c}"/></td>
+	                                </tr>
+	                                <tr>
+	                                    <th>Total:</th>
+	                                    <th colspan="7"><apex:outputField value="{!INNOmission__c.Nombre_jours_theoriques_Total__c}"/></th>
+	                                </tr>
+	                            </table>
+	                        </apex:outputPanel>
+	                    </apex:pageBlockSectionItem>
+	                    
+	                    
+	                    <apex:outputField value="{!INNOmission__c.Temps_theorique_mission__c}" rendered="{!userIsManager && isCir}" />
+	                    <apex:pageBlockSectionItem rendered="{!!userIsManager || !isCir}"/>
+	                    
+	                    
+	                     <!--Durées passées -->
+	                    <apex:pageBlockSectionItem rendered="{!!isCir}">
+	                        <apex:outputLabel value="Durées passées (jours)" />
+	                        <apex:outputField value="{!INNOmission__c.Nombre_jours_travailles_Audit__c}"/>    
+	                    </apex:pageBlockSectionItem>
+	                    
+	                    <apex:pageBlockSectionItem rendered="{!isCir}">
+	                        <apex:outputLabel value="Durées passées (jours)"/>
+	                        <apex:outputPanel layout="none">
+	                        
+	                            <table class="pageBlockSectionItemTable8Col">
+	                                <tr>
+	                                    <td>Audit:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_travailles_Audit__c}"/></td>
+	                                    <td>Valo:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_travailles_Valorisation__c}"/></td>
+	                                    <td>Justif:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_travailles_Justification__c}"/></td>
+	                                    <td>Ctrl:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_travailles_Controle__c}"/></td>
+	                                </tr>
+	                                <tr>
+	                                    <th>Total:</th>
+	                                    <th colspan="7"><apex:outputField value="{!INNOmission__c.Nombre_jours_travailles_total__c}"/></th>
+	                                </tr>
+	                            </table>
+	                        </apex:outputPanel>
+	                    </apex:pageBlockSectionItem>
+	                    
+	                    
+	                    <apex:pageBlockSectionItem />
+	                    
+	                     <!--Durées programmées -->
+	                    <apex:pageBlockSectionItem rendered="{!!isCir}">
+	                        <apex:outputLabel value="Durées programmées (jours)" />
+	                        <apex:outputField value="{!INNOmission__c.Nombre_jours_programmes_Audit__c}"/>    
+	                    </apex:pageBlockSectionItem>
+	                    <apex:pageBlockSectionItem rendered="{!isCir}">
+	                        <apex:outputLabel value="Durées programmées (jours)"/>
+	                        <apex:outputPanel layout="none">
+	                        
+	                            <table class="pageBlockSectionItemTable8Col">
+	                                <tr>
+	                                    <td>Audit:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_programmes_Audit__c}"/></td>
+	                                    <td>Valo:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_programmes_Valorisation__c}"/></td>
+	                                    <td>Justif:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_programmes_Justification__c}"/></td>
+	                                    <td>Ctrl:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Nombre_jours_programmes_Controle__c}"/></td>
+	                                </tr>
+	                                <tr>
+	                                    <th>Total:</th>
+	                                    <th colspan="7"><apex:outputField value="{!INNOmission__c.Nombre_jours_programmes_Total__c}"/></th>
+	                                </tr>
+	                            </table>
+	                            
+	                        </apex:outputPanel>
+	                    </apex:pageBlockSectionItem>
+	                    
+	                    
+	                    <apex:pageBlockSectionItem />
+	                    <!--Avancement-->
+	                    <apex:pageBlockSectionItem rendered="{!!isCir}">
+	                        <apex:outputLabel value="Avancement" />
+	                        <apex:outputField value="{!INNOmission__c.Avancement_Audit__c}"/>    
+	                    </apex:pageBlockSectionItem>
+	                    <apex:pageBlockSectionItem rendered="{!isCir}">
+	                        <apex:outputLabel value="Avancement" />
+	                        <apex:outputPanel layout="none" >
+	                            <table class="pageBlockSectionItemTable8Col">
+	                                <tr>
+	                                    <td>Audit:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Avancement_Audit__c}"/></td>
+	                                    <td>Valo:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Avancement_Valorisation__c}"/></td>
+	                                    <td>Justif:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Avancement_Justification__c}"/></td>
+	                                    <td>Ctrl:</td>
+	                                    <td><apex:outputField value="{!INNOmission__c.Avancement_Controle__c}"/></td>
+	                                </tr>
+	                                <tr>
+	                                    <th>Total:</th>
+	                                    <th colspan="7"><apex:outputField value="{!INNOmission__c.Avancement__c}"/></th>
+	                                </tr>
+	                            </table>
+	                        </apex:outputPanel>
+	                        
+	                    </apex:pageBlockSectionItem>
+	                </apex:pageBlockSection>
+	                
+	                <!-- Section Equipe consulting -->
+	                <apex:pageBlockSection title="Equipe consulting" columns="1">
+	                    <apex:outputPanel layout="block" style="width: 100%;" rendered="{!userIsManager && INNOmission__c.Statut__c != 'Terminée'}">
+	                        <apex:commandButton action="{!URLFOR('/apex/INNOequipeConsultingEdit', null, [missionId = INNOmission__c.Id])}" value="Nouveau membre" style="margin-left: 30%;"/>
+	                    </apex:outputPanel>
+	                    
+	                    <apex:pageBlockTable value="{!INNOmission__c.EquipesConsulting__r}" var="membre" id="listeEquipeConsulting">
+	                        <apex:column width="95px" rendered="{!userIsManager}">
+	                            <apex:facet name="header">Action</apex:facet>
+	                           
+	                            <apex:outputLink value="/apex/INNOequipeConsultingEdit">
+	                                Modifier
+	                                <apex:param name="id" value="{!membre.id}"/>
+	                                <apex:param name="missionId" value="{!INNOmission__c.Id}"/>
+	                            </apex:outputLink>
+	                            
+	                        </apex:column>
+	                        <apex:column value="{!membre.Utilisateur__r.Name}"/>
+	                        
+	                        <apex:column >
+	                             <apex:facet name="header">Rôle</apex:facet>
+	                             {!membre.Role__c}
+	                            
+	                             <apex:inputHidden value="{!membre.Utilisateur__r.Email}"/>
+	                        </apex:column>
+	                         <apex:column >
+	                             <apex:facet name="header">Autorisation actuelle</apex:facet>
+	                                <span style="color:{!IF(missionAccessByUser[membre.Utilisateur__c] = 'Aucun accès', 'red', 'green')};">{!missionAccessByUser[membre.Utilisateur__c]}</span>
+	                                <span style="color:{!IF(membre.Actif__c, 'green', 'red')};"> {!IF(membre.Actif__c, '(Actif)', '(Inactif)')}</span>
+	                                
+	                        </apex:column>
+	                        
+	                        
+	                        
+	                        <!-- Colonnes pour les Managers -->
+	                        <apex:column styleClass="toggleColumn" headerClass="toggleColumn" width="210px" rendered="{!isCir}">
+	                             <apex:facet name="header">
+	                                Audit<br />
+	                                <span style="font-weight:normal"><span class="width50px">Théorique</span><span class="width50px">Réél</span><span class="width50px">Engagé</span>%</span>
+	                             </apex:facet>
+	                                 <span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_theoriques_Audit__c), 0.0, membre.Nombre_jours_theoriques_Audit__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_travailles_Audit__c), 0.0, membre.Nombre_jours_travailles_Audit__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_engages_Audit__c), 0.0, membre.Nombre_jours_engages_Audit__c)}</span>{!IF(ISBLANK(membre.Nombre_jours_theoriques_Audit__c) || membre.Nombre_jours_theoriques_Audit__c == 0 || ISBLANK(membre.Nombre_jours_travailles_Audit__c), 0, ROUND(membre.Nombre_jours_travailles_Audit__c / membre.Nombre_jours_theoriques_Audit__c * 100, 2))}%
+	                        </apex:column>
+	
+	                        <apex:column styleClass="toggleColumn" headerClass="toggleColumn" width="210px" rendered="{!isCir}">
+	                             <apex:facet name="header">
+	                                Valorisation<br />
+	                                <span style="font-weight:normal"><span class="width50px">Théorique</span><span class="width50px">Réél</span><span class="width50px">Engagé</span>%</span>
+	                             </apex:facet>
+	                                 <span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_theoriques_Valorisation__c), 0.0, membre.Nombre_jours_theoriques_Valorisation__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_travailles_Valorisation__c), 0.0, membre.Nombre_jours_travailles_Valorisation__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_engages_Valorisation__c), 0.0, membre.Nombre_jours_engages_Valorisation__c)}</span>{!IF(ISBLANK(membre.Nombre_jours_theoriques_Valorisation__c) || membre.Nombre_jours_theoriques_Valorisation__c == 0 || ISBLANK(membre.Nombre_jours_travailles_Valorisation__c), 0, ROUND(membre.Nombre_jours_travailles_Valorisation__c / membre.Nombre_jours_theoriques_Valorisation__c * 100, 2))}%
+	                        </apex:column>
+	                        
+	                        <apex:column styleClass="toggleColumn" headerClass="toggleColumn" width="210px" rendered="{!isCir}">
+	                             <apex:facet name="header">
+	                                Justification<br />
+	                                <span style="font-weight:normal"><span class="width50px">Théorique</span><span class="width50px">Réél</span><span class="width50px">Engagé</span>%</span>
+	                             </apex:facet>
+	                                 <span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_theoriques_Justification__c), 0.0, membre.Nombre_jours_theoriques_Justification__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_travailles_Justification__c), 0.0, membre.Nombre_jours_travailles_Justification__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_engages_Justif__c), 0.0, membre.Nombre_jours_engages_Justif__c)}</span>{!IF(ISBLANK(membre.Nombre_jours_theoriques_Justification__c) || membre.Nombre_jours_theoriques_Justification__c == 0 || ISBLANK(membre.Nombre_jours_travailles_Justification__c), 0, ROUND(membre.Nombre_jours_travailles_Justification__c / membre.Nombre_jours_theoriques_Justification__c * 100, 2))}%
+	                        </apex:column>
+	                        
+	                                                    
+	                        <apex:column styleClass="toggleColumn" headerClass="toggleColumn" width="210px" rendered="{!isCir}">
+	                             <apex:facet name="header">
+	                                Contrôle<br />
+	                                <span style="font-weight:normal"><span class="width50px">Théorique</span><span class="width50px">Réél</span><span class="width50px">Engagé</span>%</span>
+	                             </apex:facet>
+	                                 <span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_theoriques_Controle__c), 0.0, membre.Nombre_jours_theoriques_Controle__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_travailles_Controle__c), 0.0, membre.Nombre_jours_travailles_Controle__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_engages_Controle__c), 0.0, membre.Nombre_jours_engages_Controle__c)}</span>{!IF(ISBLANK(membre.Nombre_jours_theoriques_Controle__c) || membre.Nombre_jours_theoriques_Controle__c == 0 || ISBLANK(membre.Nombre_jours_travailles_Controle__c), 0, ROUND(membre.Nombre_jours_travailles_Controle__c / membre.Nombre_jours_theoriques_Controle__c * 100, 2))}%
+	                        </apex:column>
+	                        
+	                                                    
+	                        <apex:column width="210px">
+	                             <apex:facet name="header">
+	                                Temps Total <a href="" onclick="$$('table[id$=listeEquipeConsulting] .toggleColumn').toggle();return false;" class="actionLink" style="cursor: pointer; float:right;">[+ Détails]</a><br />
+	                                <span style="font-weight:normal"><span class="width50px">Théorique</span><span class="width50px">Réél</span><span class="width50px">Engagé</span>%</span>
+	                             </apex:facet>
+	                                 <span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_theoriques_Total__c), 0.0, membre.Nombre_jours_theoriques_Total__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_travailles_Total__c), 0.0, membre.Nombre_jours_travailles_Total__c)}</span><span class="width50px">{!IF(ISBLANK(membre.Nombre_jours_engages_Total__c), 0.0, membre.Nombre_jours_engages_Total__c)}</span>{!IF(ISBLANK(membre.Nombre_jours_theoriques_Total__c) || membre.Nombre_jours_theoriques_Total__c == 0 || ISBLANK(membre.Nombre_jours_travailles_Total__c), 0, ROUND(membre.Nombre_jours_travailles_Total__c / membre.Nombre_jours_theoriques_Total__c * 100, 2))}%
+	                        </apex:column>
+	
+	                    </apex:pageBlockTable>
+	                </apex:pageBlockSection>
+	                
+	                
+	                <!-- Section informations complémentaires sur la mission CIR -->
+                    <apex:pageBlockSection title="Informations complémentaires sur la mission" rendered="{!isCir}">
+                        
+                        <apex:outputField value="{!INNOmission__c.ChiffreAffaire__c}" />
+                        
+                        <apex:outputField value="{!INNOmission__c.renta_nb_proj__c}" />
+                        <apex:outputField value="{!INNOmission__c.renta_nb_interlocuteurs__c}" />
+                        <apex:outputField value="{!INNOmission__c.renta_nb_sites__c}" />
+                        
+                        <apex:outputField value="{!INNOmission__c.renta_nb_redacs__c}" />
+                        <apex:outputField value="{!INNOmission__c.renta_nb_valo__c}" />
+                        
+                    </apex:pageBlockSection>
+                    
+                    <!-- Section informations complémentaires sur la mission non CIR -->
+                    <apex:pageBlockSection title="Informations complémentaires sur la mission" rendered="{!!isCir}">
+                        
+                        <apex:pageBlockSectionItem >
+                            <apex:outputLabel value="Date d'échéance estimée"/>
+                            <apex:outputField value="{!INNOmission__c.Date_Initiale_echeance_DT__c}"/>
+                        </apex:pageBlockSectionItem>
+                        
+                    </apex:pageBlockSection>
+                    
+                    
+                    <!--Phases-->
+                    <apex:pageBlockSection title="Phases" rendered="{!!isCir}">
+                    
+                        <apex:outputField value="{!INNOmission__c.Date_debut_Audit__c}" label="Début" />
+                        <apex:outputField value="{!INNOmission__c.Date_fin_audit__c}" label="Fin" />
+
+                    </apex:pageBlockSection>
+                    <apex:pageBlockSection title="Phases" rendered="{!isCir}">
+                    
+                        <apex:outputField value="{!INNOmission__c.Date_debut_Audit__c}" label="AUDIT - Début" />
+                        <apex:outputField value="{!INNOmission__c.Date_fin_audit__c}" label="Fin" />
+                        
+                        <apex:outputField value="{!INNOmission__c.Date_debut_valorisation__c}" label="VALORISATION - Début" />
+                        <apex:outputField value="{!INNOmission__c.Date_fin_valorisation__c}" label="Fin" />
+                        
+                        <apex:outputField value="{!INNOmission__c.Date_debut_justification__c}" label="JUSTIFICATION - Début" />
+                        <apex:outputField value="{!INNOmission__c.Date_fin_justification_recap__c}" label="Fin" />
+                        
+                    </apex:pageBlockSection>
+                    
+                    
+                    
+                    <!-- Section valorisation -->
+                    <apex:pageBlockSection title="Valorisation" rendered="{!isCir}">
+                        
+                        <apex:outputField value="{!INNOmission__c.Date_lancement_mission__c}"/>
+                        <apex:pageBlockSectionItem />
+                        
+                        <apex:pageBlockSectionItem helpText="{!$ObjectType.INNOmission__c.Fields.Montant_total_depenses_option1__c.InlineHelpText}" >
+                            <apex:outputLabel value="Montant total des dépenses (avant déduction des honoraires)"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1"><c:Format currency="€" value="{!INNOmission__c.Montant_total_depenses_option1__c}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption2"><c:Format currency="€" value="{!INNOmission__c.Montant_total_depenses_option2__c}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption3"><c:Format currency="€" value="{!INNOmission__c.Montant_total_depenses_option3__c}"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem helpText="{!$ObjectType.INNOmission__c.Fields.Montant_CIR_definitif_option1__c.InlineHelpText}">
+                            <apex:outputLabel value="CIR {!INNOmission__c.Annee_CIR__c} définitif (après déduction des honoraires)"/>
+                            <apex:outputPanel layout="none">
+                                <span class="valueOption1"><c:Format currency="€" value="{!INNOmission__c.Montant_CIR_definitif_option1__c}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption2"><c:Format currency="€" value="{!INNOmission__c.Montant_CIR_definitif_option2__c}"/></span>&nbsp;/&nbsp;
+                                <span class="valueOption3"><c:Format currency="€" value="{!INNOmission__c.Montant_CIR_definitif_option3__c}"/></span>
+                            </apex:outputPanel>
+                        </apex:pageBlockSectionItem>
+                        
+                        <apex:pageBlockSectionItem helpText="{!$ObjectType.INNOmission__c.Fields.Montant_total_depenses_optionFinale__c.InlineHelpText}">
+                            <apex:outputLabel value="Montant total des dépenses retenu (avant déduction des honoraires)"/>
+                            <c:Format currency="€" value="{!INNOmission__c.Montant_total_depenses_optionFinale__c}" />
+                        </apex:pageBlockSectionItem>
+                        <apex:pageBlockSectionItem helpText="{!$ObjectType.INNOmission__c.Fields.Montant_CIR_definitif_optionFinale__c.InlineHelpText}">
+                            <apex:outputLabel value="Montant du CIR définitif retenu (après déduction des honoraires)"/>
+                            <c:Format currency="€" value="{!INNOmission__c.Montant_CIR_definitif_optionFinale__c}" />
+                        </apex:pageBlockSectionItem>
+                        
+                    </apex:pageBlockSection>
+                    
+                    
+                    <!-- Section Documentation technique -->
+                    <apex:pageBlockSection title="Documentation technique" rendered="{!isCir}">
+                        
+                        <apex:outputField value="{!INNOmission__c.Date_Initiale_echeance_DT__c}"/>
+                        <apex:outputField value="{!INNOmission__c.TousDTrendus__c}"/>
+                        
+                        <apex:pageBlockSectionItem helpText="{!$ObjectType.INNOmission__c.Fields.Date_fin_justification_recap__c.InlineHelpText}">
+                        	<apex:outputLabel value="Date d'échéance DT"/>
+                        	<apex:outputField value="{!INNOmission__c.Date_fin_justification_recap__c}"/>
+                        </apex:pageBlockSectionItem>
+                        <apex:outputField value="{!INNOmission__c.Date_dernier_DT_rendu__c}"/>
+                        
+                        <apex:outputField value="{!INNOmission__c.PrestataireCAC__c}"/>
+                        <apex:outputField value="{!INNOmission__c.PrestataireEC__c}"/>
+                        
+                        <apex:outputField value="{!INNOmission__c.PrestataireAvocat__c}"/>
+                        
+                    </apex:pageBlockSection>
+                    
+				</apex:pageBlock>
+			</apex:form>
+			
+			<!-- Bloc Contrat -->
+            <apex:pageBlock title="Informations relatives au contrat">
+            
+                <apex:pageBlockButtons location="top" >
+                    <apex:outputLink value="{!URLFOR('/apex/contrat_pdf_global', null, [id = contrat.champs['Id']['value']])}" target="_blank">Fiche de suivi client CIR</apex:outputLink>
+                </apex:pageBlockButtons>
+                
+                
+                <apex:variable var="yearContract" value="{!YEAR(contrat.champs['Date_de_reception_du_contrat__c']['value'])}"/>
+                <apex:pageBlockSection >
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="Contrat"/>
+                        <apex:outputLink value="/{!contrat.champs['Id']['value']}" target="_blank">{!contrat.champs['ContractNumber']['value']}</apex:outputLink>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!contrat.champs['Type_de_mission_multi__c']['label']}"/>
+                        <apex:outputText value="{!contrat.champs['Type_de_mission_multi__c']['value']}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!contrat.champs['Annees_concernees__c']['label']}"/>
+                        <apex:outputText value="{!contrat.champs['Annees_concernees__c']['value']}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!contrat.champs['Conditions_de_remuneration__c']['label']}"/>
+                        <apex:outputText value="{!contrat.champs['Conditions_de_remuneration__c']['value']}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!contrat.champs['Type_de_contrat__c']['label']}"/>
+                        <apex:outputText value="{!contrat.champs['Type_de_contrat__c']['value']}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!contrat.champs['CA_estime_' + TEXT(yearContract) + '__c']['label']}"/>
+                        <apex:outputText value="{!contrat.champs['CA_estime_' + TEXT(yearContract) + '__c']['value']}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!contrat.champs['CIR_Effectif_RD__c']['label']}"/>
+                        <apex:outputText value="{!contrat.champs['CIR_Effectif_RD__c']['value']}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!contrat.champs['CA_estime_' + TEXT(yearContract + 1) + '__c']['label']}"/>
+                        <apex:outputText value="{!contrat.champs['CA_estime_' + TEXT(yearContract + 1) + '__c']['value']}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                    <apex:pageBlockSectionItem >
+                        <apex:outputLabel value="{!contrat.champs['Date_de_cloture_exercice__c']['label']}"/>
+                        <apex:outputText value="{!contrat.champs['Date_de_cloture_exercice__c']['value']}"/>
+                    </apex:pageBlockSectionItem>
+                    
+                   
+                    
+                </apex:pageBlockSection>
+                
+                <br />
+
+                <apex:pageBlockSection columns="1" >
+                    <apex:relatedList subject="{!contrat.champs['Id']['value']}" list="CombinedAttachments">
+                        <apex:facet name="header"><h3 style="color:black;">Pièces jointes du contrat:</h3></apex:facet>
+                    </apex:relatedList>
+                </apex:pageBlockSection>
+            </apex:pageBlock>
+            
+            <!-- Bloc Autres missions du contrat -->
+            <apex:pageBlock title="Autres missions du contrat" rendered="{!isCir}">
+            
+                <apex:pageBlockSection columns="1">
+                
+                    <apex:pageBlockTable value="{!missionsSoeurs}" var="missionSoeur" id="listeMissionsSoeurs">
+                    
+                        <apex:column >
+                            <apex:facet name="header">Nom</apex:facet>
+                            <apex:outputLink value="{!URLFOR('/apex/INNOmissionView')}">
+                                {!missionSoeur.Name}
+                                <apex:param name="id" value="{!missionSoeur.Id}"/>
+                                <apex:param name="missionId" value="{!missionSoeur.Id}"/>
+                            </apex:outputLink>
+                        </apex:column>
+                        <apex:column value="{!missionSoeur.Taux_CIR__c}"/>
+                        <apex:column value="{!missionSoeur.Phase__c}"/>
+                    </apex:pageBlockTable>
+                    
+                </apex:pageBlockSection>
+                
+            </apex:pageBlock>
+            
+		</apex:define>
+	</apex:composition>
+</apex:page>

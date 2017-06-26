@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Faturamento anual</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>annual_revenue_account</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Cobrança - UF</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>billing_state_account</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Matriz</value>
+        </caseValues>
+        <caseValues>
+            <plural>true</plural>
+            <value>Contas pai</value>
+        </caseValues>
+        <gender>Feminine</gender>
+        <name>parent_account</name>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Entrega - UF</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>shipping_country_code_account</name>
+    </fields>
+    <layouts>
+        <layout>Account Layout Brasil</layout>
+        <sections>
+            <label>Descritivo</label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label>Estado da conta</label>
+            <section>Etat du compte</section>
+        </sections>
+        <sections>
+            <label>Identidade</label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label>Informações gerais</label>
+            <section>Informations générales</section>
+        </sections>
+        <sections>
+            <label><!-- Linkedin Account Profile --></label>
+            <section>Linkedin Account Profile</section>
+        </sections>
+        <sections>
+            <label>Segmentação</label>
+            <section>Segmentation</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout Canada</layout>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Etat du compte --></label>
+            <section>Etat du compte</section>
+        </sections>
+        <sections>
+            <label><!-- Identité --></label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label><!-- Informations générales --></label>
+            <section>Informations générales</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation --></label>
+            <section>Segmentation</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout International</layout>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Etat du compte --></label>
+            <section>Etat du compte</section>
+        </sections>
+        <sections>
+            <label><!-- Identité --></label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label><!-- Informations générales --></label>
+            <section>Informations générales</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation --></label>
+            <section>Segmentation</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout Sinpagore</layout>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Etat du compte --></label>
+            <section>Etat du compte</section>
+        </sections>
+        <sections>
+            <label><!-- Identité --></label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label><!-- Informations générales --></label>
+            <section>Informations générales</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation --></label>
+            <section>Segmentation</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout Spain</layout>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Etat du compte --></label>
+            <section>Etat du compte</section>
+        </sections>
+        <sections>
+            <label><!-- Identité --></label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label><!-- Informations générales --></label>
+            <section>Informations générales</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation --></label>
+            <section>Segmentation</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout Standard</layout>
+        <sections>
+            <label><!-- Ciblage NAF --></label>
+            <section>Ciblage NAF</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Etat des RDV pris --></label>
+            <section>Etat des RDV pris</section>
+        </sections>
+        <sections>
+            <label><!-- Etat du compte --></label>
+            <section>Etat du compte</section>
+        </sections>
+        <sections>
+            <label><!-- Identité --></label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label><!-- Informations générales --></label>
+            <section>Informations générales</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation --></label>
+            <section>Segmentation</section>
+        </sections>
+        <sections>
+            <label><!-- TAT --></label>
+            <section>TAT</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Account Layout Standard ADMIN</layout>
+        <sections>
+            <label><!-- Ciblage NAF --></label>
+            <section>Ciblage NAF</section>
+        </sections>
+        <sections>
+            <label><!-- Description --></label>
+            <section>Description</section>
+        </sections>
+        <sections>
+            <label><!-- Etat des RDV pris --></label>
+            <section>Etat des RDV pris</section>
+        </sections>
+        <sections>
+            <label><!-- Etat du compte --></label>
+            <section>Etat du compte</section>
+        </sections>
+        <sections>
+            <label><!-- Identité --></label>
+            <section>Identité</section>
+        </sections>
+        <sections>
+            <label><!-- Informations générales --></label>
+            <section>Informations générales</section>
+        </sections>
+        <sections>
+            <label><!-- Segmentation --></label>
+            <section>Segmentation</section>
+        </sections>
+        <sections>
+            <label><!-- TAT --></label>
+            <section>TAT</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

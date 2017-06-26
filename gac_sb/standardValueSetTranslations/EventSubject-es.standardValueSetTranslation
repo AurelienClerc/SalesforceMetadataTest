@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Autre</masterLabel>
+        <translation>Otro</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Face to face meeting</masterLabel>
+        <translation><!-- Face to face meeting --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Meeting</masterLabel>
+        <translation><!-- Meeting --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Meeting Call</masterLabel>
+        <translation><!-- Meeting Call --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Other</masterLabel>
+        <translation><!-- Other --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Rendez-vous</masterLabel>
+        <translation>Cita</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Réunion</masterLabel>
+        <translation>Reunión</translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

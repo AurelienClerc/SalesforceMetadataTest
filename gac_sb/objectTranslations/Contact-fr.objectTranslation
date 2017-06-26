@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Assistant Téléphone</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>asst_phone_contact</name>
+        <startsWith>Vowel</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Téléphone ligne directe</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>phone_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <fields>
+        <caseValues>
+            <plural>false</plural>
+            <value>Précision Titre</value>
+        </caseValues>
+        <gender>Masculine</gender>
+        <name>title_contact</name>
+        <startsWith>Consonant</startsWith>
+    </fields>
+    <layouts>
+        <layout>Contact Brasil</layout>
+        <sections>
+            <label><!-- Informations Complémentaires --></label>
+            <section>Informations Complémentaires</section>
+        </sections>
+        <sections>
+            <label><!-- LinkedIn Company Profile --></label>
+            <section>LinkedIn Company Profile</section>
+        </sections>
+        <sections>
+            <label><!-- Linkedi Member Profile --></label>
+            <section>Linkedi Member Profile</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contact Canada</layout>
+        <sections>
+            <label><!-- Informations Complémentaires --></label>
+            <section>Informations Complémentaires</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contact Layout</layout>
+        <sections>
+            <label><!-- Communication avec le contact --></label>
+            <section>Communication avec le contact</section>
+        </sections>
+        <sections>
+            <label><!-- Informations Complémentaires --></label>
+            <section>Informations Complémentaires</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contact Singapore</layout>
+        <sections>
+            <label><!-- Informations Complémentaires --></label>
+            <section>Informations Complémentaires</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contact Spain</layout>
+        <sections>
+            <label><!-- Informations Complémentaires --></label>
+            <section>Informations Complémentaires</section>
+        </sections>
+    </layouts>
+    <layouts>
+        <layout>Contact layout admin</layout>
+        <sections>
+            <label><!-- Communication avec le contact --></label>
+            <section>Communication avec le contact</section>
+        </sections>
+        <sections>
+            <label><!-- Informations Complémentaires --></label>
+            <section>Informations Complémentaires</section>
+        </sections>
+    </layouts>
+</CustomObjectTranslation>

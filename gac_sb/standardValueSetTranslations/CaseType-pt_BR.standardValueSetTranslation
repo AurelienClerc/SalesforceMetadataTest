@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<StandardValueSetTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <valueTranslation>
+        <masterLabel>Accès / Sécurité</masterLabel>
+        <translation><!-- Accès / Sécurité --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Achats</masterLabel>
+        <translation><!-- Achats --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Achats Equipements</masterLabel>
+        <translation><!-- Achats Equipements --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Anomalie</masterLabel>
+        <translation><!-- Anomalie --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Autres</masterLabel>
+        <translation><!-- Autres --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Contenu</masterLabel>
+        <translation><!-- Contenu --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Courrier</masterLabel>
+        <translation><!-- Courrier --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Demande IT</masterLabel>
+        <translation><!-- Demande IT --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Demande de fonctionnalité</masterLabel>
+        <translation>Solicitação de recurso</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Droits / Profils / Connexion</masterLabel>
+        <translation><!-- Droits / Profils / Connexion --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Dépannage Consommables</masterLabel>
+        <translation><!-- Dépannage Consommables --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Entrée/Sortie Collaborateur</masterLabel>
+        <translation><!-- Entrée/Sortie Collaborateur --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Espace Détente</masterLabel>
+        <translation><!-- Espace Détente --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>FTP</masterLabel>
+        <translation><!-- FTP --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Formation</masterLabel>
+        <translation><!-- Formation --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Impression</masterLabel>
+        <translation><!-- Impression --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Interface mobile patch office</masterLabel>
+        <translation><!-- Interface mobile patch office --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Logiciels</masterLabel>
+        <translation><!-- Logiciels --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Maintenance Immeuble</masterLabel>
+        <translation><!-- Maintenance Immeuble --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Mauvaise utilisation</masterLabel>
+        <translation><!-- Mauvaise utilisation --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Modification de champ</masterLabel>
+        <translation><!-- Modification de champ --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Poste de Travail</masterLabel>
+        <translation><!-- Poste de Travail --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Problème</masterLabel>
+        <translation>Problema</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Projet Salesforce Evolution</masterLabel>
+        <translation><!-- Projet Salesforce Evolution --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Propreté</masterLabel>
+        <translation><!-- Propreté --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Question</masterLabel>
+        <translation>Questão</translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Rapports / Tableaux de bords</masterLabel>
+        <translation><!-- Rapports / Tableaux de bords --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Réseaux</masterLabel>
+        <translation><!-- Réseaux --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Sécurité</masterLabel>
+        <translation><!-- Sécurité --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Travaux Divers</masterLabel>
+        <translation><!-- Travaux Divers --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Tâche</masterLabel>
+        <translation><!-- Tâche --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Téléphonie Fixe / Mobile</masterLabel>
+        <translation><!-- Téléphonie Fixe / Mobile --></translation>
+    </valueTranslation>
+    <valueTranslation>
+        <masterLabel>Véhicules</masterLabel>
+        <translation><!-- Véhicules --></translation>
+    </valueTranslation>
+</StandardValueSetTranslation>

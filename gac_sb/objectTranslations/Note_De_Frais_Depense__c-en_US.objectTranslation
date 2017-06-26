@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Item Expense</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Items Expense</value>
+    </caseValues>
+    <fields>
+        <label><!-- Description --></label>
+        <name>Description__c</name>
+    </fields>
+    <fields>
+        <label><!-- Indémnités kilométriques --></label>
+        <name>Indemnites_Kilometriques__c</name>
+    </fields>
+    <fields>
+        <label><!-- Index --></label>
+        <name>Index__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant HT --></label>
+        <name>Montant_HT__c</name>
+    </fields>
+    <fields>
+        <help><!-- help montant --></help>
+        <label><!-- Montant TTC --></label>
+        <name>Montant_TTC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Montant TVA --></label>
+        <name>Montant_TVA__c</name>
+    </fields>
+    <fields>
+        <label><!-- Nature dépense catégorie --></label>
+        <name>Nature_Depense_Categorie__c</name>
+    </fields>
+    <fields>
+        <help><!-- help! --></help>
+        <label><!-- Nature dépense --></label>
+        <name>Nature_Depense__c</name>
+        <relationshipLabel><!-- Dépenses note de frais --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Indiquer le nombre de kilomètres effectués avec votre voiture personnelle au titre d&apos;un déplacement professionnel. 
+L&apos;utilisation de votre véhicule personnel doit avoir été autorisé par votre responsable. --></help>
+        <label><!-- Nombre de kilomètres --></label>
+        <name>Nombre_De_Kilometres__c</name>
+    </fields>
+    <fields>
+        <label><!-- Note de frais --></label>
+        <name>Note_De_Frais__c</name>
+        <relationshipLabel><!-- Dépenses note de frais --></relationshipLabel>
+    </fields>
+    <fields>
+        <help><!-- Chacune des pièces justificatives doit être numérotée et annexée à la note de frais --></help>
+        <label><!-- Num PJ --></label>
+        <name>Num_PJ__c</name>
+    </fields>
+    <fields>
+        <label><!-- Statut Client - BR --></label>
+        <name>StatutClientBR__c</name>
+        <picklistValues>
+            <masterLabel>En attente</masterLabel>
+            <translation><!-- En attente --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Envoyé</masterLabel>
+            <translation><!-- Envoyé --></translation>
+        </picklistValues>
+        <picklistValues>
+            <masterLabel>Payé</masterLabel>
+            <translation><!-- Payé --></translation>
+        </picklistValues>
+    </fields>
+    <fields>
+        <label><!-- Taux Indemnités --></label>
+        <name>Taux_Indemnites__c</name>
+    </fields>
+    <fields>
+        <label><!-- Temp Key --></label>
+        <name>Temp_Key__c</name>
+    </fields>
+    <fields>
+        <label><!-- TotalCharges --></label>
+        <name>TotalCharges__c</name>
+    </fields>
+    <fields>
+        <label><!-- Total --></label>
+        <name>Total__c</name>
+    </fields>
+    <layouts>
+        <layout>Dépense note de frais Layout</layout>
+        <sections>
+            <label><!-- Custom Links --></label>
+            <section>Custom Links</section>
+        </sections>
+        <sections>
+            <label><!-- Detail --></label>
+            <section>Detail</section>
+        </sections>
+    </layouts>
+    <nameFieldLabel>Num Expense</nameFieldLabel>
+    <recordTypes>
+        <label><!-- Autre Frais --></label>
+        <name>Autre_Frais</name>
+    </recordTypes>
+    <recordTypes>
+        <label><!-- Frais kilométrique --></label>
+        <name>Frais_Kilometrique</name>
+    </recordTypes>
+    <startsWith>Consonant</startsWith>
+    <validationRules>
+        <errorMessage><!-- Le champ description est obligatoire pour les champs de type autres --></errorMessage>
+        <name>Description_obligatoire_pour_autres</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Indémnités kilométriques obligatoires --></errorMessage>
+        <name>Indemnites_obligatoire</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Montant HT obligatoire --></errorMessage>
+        <name>Montant_HT_obligatoire</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Montant TTC obligatoire --></errorMessage>
+        <name>Montant_TTC_obligatoire</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Montant TVA obligatoire --></errorMessage>
+        <name>Montant_TVA_obligatoire</name>
+    </validationRules>
+    <validationRules>
+        <errorMessage><!-- Nombre de kilomètres obligatoire --></errorMessage>
+        <name>Nb_Kilometres_obligatoire</name>
+    </validationRules>
+</CustomObjectTranslation>

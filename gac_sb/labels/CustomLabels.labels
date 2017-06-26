@@ -1,0 +1,2213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomLabels xmlns="http://soap.sforce.com/2006/04/metadata">
+    <labels>
+        <fullName>APPNDF_Action</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Action</shortDescription>
+        <value>Action</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Actualiser</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Actualiser</shortDescription>
+        <value>Actualiser</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_AjouterKM</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_AjouterKM</shortDescription>
+        <value>Ajouter des frais kilométriques</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_AjouterUneDepense</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_AjouterUneDepense</shortDescription>
+        <value>Ajouter une dépense</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Annuler</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Annuler</shortDescription>
+        <value>Annuler</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_ApprobateurActuel</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_ApprobateurActuel</shortDescription>
+        <value>Approbateur actuel</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Approuver</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Approuver</shortDescription>
+        <value>Approuver</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_AttacheA</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_AttacheA</shortDescription>
+        <value>Attaché à</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Collaborateur</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Collaborateur</shortDescription>
+        <value>Collaborateur</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Commentaire</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Commentaire</shortDescription>
+        <value>Commentaire</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_DateDeValidation</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_DateDeValidation</shortDescription>
+        <value>Date de validation</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_DelWithChildren</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_DelWithChildren</shortDescription>
+        <value>La suppression de cette note de frais et de toutes les dépenses associées est définitive</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Depenses</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Depenses</shortDescription>
+        <value>Dépenses</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Description</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_EnCours</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_EnCours</shortDescription>
+        <value>En cours</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Enregistrer</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Enregistrer</shortDescription>
+        <value>Enregistrer</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_EnregistrerEtFermer</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_EnregistrerEtFermer</shortDescription>
+        <value>Enregistrer et Fermer</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Etape</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Etape</shortDescription>
+        <value>Etape</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Etat</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Etat</shortDescription>
+        <value>Etat</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Evenement</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Evenement</shortDescription>
+        <value>Evènement</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Export</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Export</shortDescription>
+        <value>Export</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_FraisKilo</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_FraisKilo</shortDescription>
+        <value>Frais kilométriques</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_HistoriqueDesModifications</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_HistoriqueDesModifications</shortDescription>
+        <value>Historique des modifications</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_JSConfirmDelete</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_JSConfirmDelete</shortDescription>
+        <value>La suppression de cet élément est définitive</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_ListeDesDepenses</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_ListeDesDepenses</shortDescription>
+        <value>Liste des dépenses</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_ListeKM</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_ListeKM</shortDescription>
+        <value>Liste des frais kilométriques</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Modifier</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Modifier</shortDescription>
+        <value>Modifier</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_MontantTotal</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_MontantTotal</shortDescription>
+        <value>Montant Total</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Nom</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Nom</shortDescription>
+        <value>Nom</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_NoteLibre</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_NoteLibre</shortDescription>
+        <value>Ajouter une note de frais libre</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_NoteLibreTitle</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_NoteLibreTitle</shortDescription>
+        <value>Cette note de frais ne sera pourra pas être liée à un évènement en particulier</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Periode</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Periode</shortDescription>
+        <value>Période</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Proprietaire</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Proprietaire</shortDescription>
+        <value>Propriétaire</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_RAS</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_RAS</shortDescription>
+        <value>rien à afficher</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Recapitulatif</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Recapitulatif</shortDescription>
+        <value>Récapitulatif</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_RecapitulatifMensuelDeNotesDefrais</fullName>
+        <categories>APPNDF</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_RecapitulatifMensuelDeNotesDefrais</shortDescription>
+        <value>Récapitulatif Mensuel de Notes de frais</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_RecapitulatifsMensuels</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_RecapitulatifsMensuels</shortDescription>
+        <value>Récapitulatifs mensuels</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Refuse</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Refuse</shortDescription>
+        <value>Refusé</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Refuser</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Refuser</shortDescription>
+        <value>Refuser</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Rejeter</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Rejeter</shortDescription>
+        <value>Rejeter</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Soumis</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Soumis</shortDescription>
+        <value>Soumis pour approbation</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Supprimer</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Supprimer</shortDescription>
+        <value>Supprimer</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_TotalARembourser</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_TotalARembourser</shortDescription>
+        <value>Total à rembourser</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Tous</fullName>
+        <categories>APPNDF</categories>
+        <language>pt_BR</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Tous</shortDescription>
+        <value>Tous</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_Valide</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_Valide</shortDescription>
+        <value>Validé</value>
+    </labels>
+    <labels>
+        <fullName>APPNDF_frais_non_ajoutes</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>APPNDF_frais_non_ajoutes</shortDescription>
+        <value>Ces frais kilométriques n ont pas en encore été ajoutés à la note de frais</value>
+    </labels>
+    <labels>
+        <fullName>Active</fullName>
+        <categories>VFLabel, Common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Activé</shortDescription>
+        <value>Activé</value>
+    </labels>
+    <labels>
+        <fullName>Adresse</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Adresse</shortDescription>
+        <value>Adresse</value>
+    </labels>
+    <labels>
+        <fullName>Annule</fullName>
+        <categories>VFLabel, Common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Annulé</shortDescription>
+        <value>Annulé</value>
+    </labels>
+    <labels>
+        <fullName>Annule_a_reprendre</fullName>
+        <categories>VFLabel, Common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Annulé à reprendre</shortDescription>
+        <value>Annulé à reprendre</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceAmortissement</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceAmortissement</shortDescription>
+        <value>Cohérence des amortissements. Les amortissements suivants ne sont pas rattachés à un projet de la mission:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceHeuresTravaillees1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceHeuresTravaillees1</shortDescription>
+        <value>Cohérence des Heures travaillées (option 1). Les salariés suivants ont travaillés plus de 151.67 heures par mois:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceHeuresTravaillees2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceHeuresTravaillees2</shortDescription>
+        <value>Cohérence des Heures travaillées (option 2). Les salariés suivants ont travaillés plus de 151.67 heures par mois:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceHeuresTravaillees3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceHeuresTravaillees3</shortDescription>
+        <value>Cohérence des Heures travaillées (option 3). Les salariés suivants ont travaillés plus de 151.67 heures par mois:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherencePlafondPresta1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherencePlafondPresta1</shortDescription>
+        <value>Le total des prestataires privés suivants est supérieur à 3 fois le montant des dépenses totales (Option 1):</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherencePlafondPresta2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherencePlafondPresta2</shortDescription>
+        <value>Le total des prestataires privés suivants est supérieur à 3 fois le montant des dépenses totales (Option 2):</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherencePlafondPresta3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherencePlafondPresta3</shortDescription>
+        <value>Le total des prestataires privés suivants est supérieur à 3 fois le montant des dépenses totales (Option 3):</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherencePrestation</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherencePrestation</shortDescription>
+        <value>Cohérence des prestations. Les prestations suivantes ne sont pas rattachées à un projet de la mission:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceSalaire1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceSalaire1</shortDescription>
+        <value>Total des salaires (option 1)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceSalaire2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceSalaire2</shortDescription>
+        <value>Total des salaires (option 2)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceSalaire3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceSalaire3</shortDescription>
+        <value>Total des salaires (option 3)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceSalaireSalarie1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceSalaireSalarie1</shortDescription>
+        <value>Cohérence du salaire, les salariés suivants ont eu une variation de salaire supérieure à 10%(Option 1):</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceSalaireSalarie2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceSalaireSalarie2</shortDescription>
+        <value>Cohérence du salaire, les salariés suivants ont eu une variation de salaire supérieure a 10% (Option 2):</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceSalaireSalarie3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceSalaireSalarie3</shortDescription>
+        <value>Cohérence du salaire, les salariés suivants ont eu une variation de salaire supérieure a 10% (Option 3):</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_CoherenceSubvention</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_CoherenceSubvention</shortDescription>
+        <value>Cohérence des subventions. Les subventions suivantes ne sont pas rattachées à un projet de la mission:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_IsValidHeuresValorisees1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_IsValidHeuresValorisees1</shortDescription>
+        <value>Cohérence des heures valorisées (option 1). Il y a plus d&apos;heures valorisées (R&amp;D + autres) que d&apos;heures travaillées sur les salariés suivants:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_IsValidHeuresValorisees2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_IsValidHeuresValorisees2</shortDescription>
+        <value>Cohérence des heures valorisées (option 2). Il y a plus d&apos;heures valorisées (R&amp;D + autres) que d&apos;heures travaillées sur les salariés suivants:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_IsValidHeuresValorisees3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_IsValidHeuresValorisees3</shortDescription>
+        <value>Cohérence des heures valorisées (option 3). Il y a plus d&apos;heures valorisées (R&amp;D + autres) que d&apos;heures travaillées sur les salariés suivants:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_IsValidInge_Docteur</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_IsValidInge_Docteur</shortDescription>
+        <value>Il n&apos;y a pas d&apos;ingénieur/docteur sur les projets suivants:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_IsValidTauxRD1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_IsValidTauxRD1</shortDescription>
+        <value>Le taux de R&amp;D est supérieur a 100% (option 1) sur les salariés suivants:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_IsValidTauxRD2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_IsValidTauxRD2</shortDescription>
+        <value>Le taux de R&amp;D est supérieur a 100% (option 2) sur les salariés suivants:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_IsValidTauxRD3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_IsValidTauxRD3</shortDescription>
+        <value>Le taux de R&amp;D est supérieur a 100% (option 3) sur les salariés suivants:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_MontantTotalDA1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_MontantTotalDA1</shortDescription>
+        <value>Montant des DA (option 1)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_MontantTotalDA2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_MontantTotalDA2</shortDescription>
+        <value>Montant des DA (option 2)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_MontantTotalDA3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_MontantTotalDA3</shortDescription>
+        <value>Montant des DA (option 3)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_MontantTotalPresta1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_MontantTotalPresta1</shortDescription>
+        <value>Montant total des prestataires (option 1)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_MontantTotalPresta2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_MontantTotalPresta2</shortDescription>
+        <value>Montant total des prestataires (option 2)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_MontantTotalPresta3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_MontantTotalPresta3</shortDescription>
+        <value>Montant total des prestataires (option 3)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_ThesardHasSubvention</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_ThesardHasSubvention</shortDescription>
+        <value>Les salariés thésards suivants n&apos;ont pas de subvention rattachée:</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_tauxRD1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_tauxRD1</shortDescription>
+        <value>Taux R&amp;D (option 1)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_tauxRD2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_tauxRD2</shortDescription>
+        <value>Taux R&amp;D (option 2)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_tauxRD3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_tauxRD3</shortDescription>
+        <value>Taux R&amp;D (option 3)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_tauxhoraire1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_tauxhoraire1</shortDescription>
+        <value>Taux horaire moyen (option 1)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_tauxhoraire2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_tauxhoraire2</shortDescription>
+        <value>Taux horaire moyen (option 2)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_tauxhoraire3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_tauxhoraire3</shortDescription>
+        <value>Taux horaire moyen (option 3)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_totalheures1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_totalheures1</shortDescription>
+        <value>Total des heures travaillées (option 1)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_totalheures2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_totalheures2</shortDescription>
+        <value>Total des heures travaillées (option 2)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_totalheures3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_totalheures3</shortDescription>
+        <value>Total des heures travaillées (option 3)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_totalheuresRD1</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_totalheuresRD1</shortDescription>
+        <value>Total des heures R&amp;D (option 1)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_totalheuresRD2</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_totalheuresRD2</shortDescription>
+        <value>Total des heures R&amp;D (option 2)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_totalheuresRD3</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_totalheuresRD3</shortDescription>
+        <value>Total des heures R&amp;D (option 3)</value>
+    </labels>
+    <labels>
+        <fullName>AppCIR_Checker_totalsalarie</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIR_Checker_totalsalarie</shortDescription>
+        <value>Nombre de salariés valorisés</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRamortissement</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRamortissement</shortDescription>
+        <value>Dotation aux amortissements</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRamortissementBrevet</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRamortissementBrevet</shortDescription>
+        <value>Dotation aux amortissement de brevet</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRamortissementBrevetPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRamortissementBrevetPluriel</shortDescription>
+        <value>Dotations aux amortissements de brevets</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRamortissementPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRamortissementPluriel</shortDescription>
+        <value>Dotations aux amortissements</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRavanceRemboursable</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRavanceRemboursable</shortDescription>
+        <value>Avance remboursable</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRavanceRemboursablePluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRavanceRemboursablePluriel</shortDescription>
+        <value>Avances remboursables</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetAssuPrestation</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetAssuPrestation</shortDescription>
+        <value>Assurance de brevet</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetAssuPrestationPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetAssuPrestationPluriel</shortDescription>
+        <value>Assurances de brevets</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetDefPrestation</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetDefPrestation</shortDescription>
+        <value>Défense de brevet</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetDefPrestationPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetDefPrestationPluriel</shortDescription>
+        <value>Défenses de brevets</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetPM</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetPM</shortDescription>
+        <value>Prise et maintenance de brevet</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetPMPersonnel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetPMPersonnel</shortDescription>
+        <value>Prise et maintenance de brevet de type dépense de personnel</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetPMPersonnelPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetPMPersonnelPluriel</shortDescription>
+        <value>Prises et maintenances de brevets de type dépense de personnel</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetPMPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetPMPluriel</shortDescription>
+        <value>Prises et maintenances de brevets</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetPMPrestation</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetPMPrestation</shortDescription>
+        <value>Prise et maintenance de brevet de type facture</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRbrevetPMPrestationPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRbrevetPMPrestationPluriel</shortDescription>
+        <value>Prises et maintenances de brevets de type facture</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRjeuneDocteur</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRjeuneDocteur</shortDescription>
+        <value>Jeune docteur</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRjeuneDocteurPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRjeuneDocteurPluriel</shortDescription>
+        <value>Jeunes docteurs</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRmiseDisposition</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRmiseDisposition</shortDescription>
+        <value>Mise à disposition</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRmiseDispositionPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRmiseDispositionPluriel</shortDescription>
+        <value>Mises à disposition</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRnormalisation</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRnormalisation</shortDescription>
+        <value>Normalisation</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRnormalisationPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRnormalisationPluriel</shortDescription>
+        <value>Normalisations</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRprestatairePrestation</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRprestatairePrestation</shortDescription>
+        <value>Prestataire</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRprestatairePrestationPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRprestatairePrestationPluriel</shortDescription>
+        <value>Prestataires</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRremboursementAvance</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRremboursementAvance</shortDescription>
+        <value>Remboursement d&apos;avance</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRremboursementAvancePluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRremboursementAvancePluriel</shortDescription>
+        <value>Remboursements d&apos;avances</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRsalarie</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRsalarie</shortDescription>
+        <value>Salarié</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRsalariePluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRsalariePluriel</shortDescription>
+        <value>Salariés</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRsubvention</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRsubvention</shortDescription>
+        <value>Subvention</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRsubventionPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRsubventionPluriel</shortDescription>
+        <value>Subventions</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRveille</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRveille</shortDescription>
+        <value>Veille</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRveillePersonnel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRveillePersonnel</shortDescription>
+        <value>Veille de type dépense de personnel</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRveillePersonnelPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRveillePersonnelPluriel</shortDescription>
+        <value>Veilles de type dépense de personnel</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRveillePluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRveillePluriel</shortDescription>
+        <value>Veilles</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRveillePrestation</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRveillePrestation</shortDescription>
+        <value>Veille de type facture</value>
+    </labels>
+    <labels>
+        <fullName>AppCIRveillePrestationPluriel</fullName>
+        <categories>Application CIR</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppCIRveillePrestationPluriel</shortDescription>
+        <value>Veilles de type facture</value>
+    </labels>
+    <labels>
+        <fullName>AppNDF_ListeRecap</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>AppNDF_ListeRecap</shortDescription>
+        <value>Liste des récapitulatifs en cours</value>
+    </labels>
+    <labels>
+        <fullName>Aucun_RDV_effectue</fullName>
+        <categories>VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Aucun RDV effectué</shortDescription>
+        <value>Aucun rendez-vous effectué</value>
+    </labels>
+    <labels>
+        <fullName>Autres</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Autres</shortDescription>
+        <value>Autres</value>
+    </labels>
+    <labels>
+        <fullName>Binome</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Binôme</shortDescription>
+        <value>Binôme</value>
+    </labels>
+    <labels>
+        <fullName>CIR_Inconnu</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>CIR Inconnu</shortDescription>
+        <value>Inconnu</value>
+    </labels>
+    <labels>
+        <fullName>CIR_Non_communique</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>CIR Non communiqué</shortDescription>
+        <value>Non communiqué</value>
+    </labels>
+    <labels>
+        <fullName>CIR_Non_concerne</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>CIR Non concerné</shortDescription>
+        <value>Non concerné</value>
+    </labels>
+    <labels>
+        <fullName>Client_actif</fullName>
+        <categories>Compte, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Client actif</shortDescription>
+        <value>Client actif</value>
+    </labels>
+    <labels>
+        <fullName>Client_inactif</fullName>
+        <categories>Compte, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Client inactif</shortDescription>
+        <value>Client inactif</value>
+    </labels>
+    <labels>
+        <fullName>Clos</fullName>
+        <categories>VFLabel, Common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Clos</shortDescription>
+        <value>Clos</value>
+    </labels>
+    <labels>
+        <fullName>Erreur_opp_soeur</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Erreur opp soeur</shortDescription>
+        <value>L’événement n&apos;a pas pu être enregistré car l&apos;opportunité (ou une de ses opportunités sœurs) n&apos;est pas à jour. Corrigez l&apos;erreur suivante sur l&apos;opportunité avant de continuer :</value>
+    </labels>
+    <labels>
+        <fullName>Etat_global</fullName>
+        <categories>Compte, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Etat global</shortDescription>
+        <value>Etat global</value>
+    </labels>
+    <labels>
+        <fullName>Factu_Avoir</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_Avoir</shortDescription>
+        <value>Avoir</value>
+    </labels>
+    <labels>
+        <fullName>Factu_Cancel</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_Cancel</shortDescription>
+        <value>Annuler</value>
+    </labels>
+    <labels>
+        <fullName>Factu_Creance_Douteuse</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_Creance_Douteuse</shortDescription>
+        <value>Créance douteuse</value>
+    </labels>
+    <labels>
+        <fullName>Factu_CreateFacture</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_CreateFacture</shortDescription>
+        <value>Création de la facture</value>
+    </labels>
+    <labels>
+        <fullName>Factu_CreatePlanificationFirst</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_CreatePlanificationFirst</shortDescription>
+        <value>Aucune planification de facture prévue trouvée.
+Veuillez d&apos;abord créer une planification de facturation pour émettre une facture.</value>
+    </labels>
+    <labels>
+        <fullName>Factu_Facture</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_Facture</shortDescription>
+        <value>Facture</value>
+    </labels>
+    <labels>
+        <fullName>Factu_Next</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_Next</shortDescription>
+        <value>Suivant</value>
+    </labels>
+    <labels>
+        <fullName>Factu_Paiement</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_Paiement</shortDescription>
+        <value>Paiement</value>
+    </labels>
+    <labels>
+        <fullName>Factu_Periode</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_Periode</shortDescription>
+        <value>Période concernée</value>
+    </labels>
+    <labels>
+        <fullName>Factu_Recouvrement</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_Recouvrement</shortDescription>
+        <value>Recouvrement</value>
+    </labels>
+    <labels>
+        <fullName>Factu_Save</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_Save</shortDescription>
+        <value>Enregistrer</value>
+    </labels>
+    <labels>
+        <fullName>Factu_SelectPlanifRT</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_SelectPlanifRT</shortDescription>
+        <value>Choisissez le type de planification</value>
+    </labels>
+    <labels>
+        <fullName>Factu_SelectPlanifications</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_SelectPlanifications</shortDescription>
+        <value>Sélectionnez les planifications concernées pour créer une facture ou un avoir</value>
+    </labels>
+    <labels>
+        <fullName>Factu_amount</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_amount</shortDescription>
+        <value>Montant</value>
+    </labels>
+    <labels>
+        <fullName>Factu_content</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_content</shortDescription>
+        <value>Contenu</value>
+    </labels>
+    <labels>
+        <fullName>Factu_description</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_description</shortDescription>
+        <value>Description</value>
+    </labels>
+    <labels>
+        <fullName>Factu_devalider_facture_avec_avoir</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_devalider_facture_avec_avoir</shortDescription>
+        <value>Vous ne pouvez pas dé-valider une facture sur laquelle il existe un avoir.</value>
+    </labels>
+    <labels>
+        <fullName>Factu_erreur_supprimer_mission</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_erreur_supprimer_mission</shortDescription>
+        <value>Vous ne pouvez pas supprimer une mission sur laquelle il existe des factures/avoirs</value>
+    </labels>
+    <labels>
+        <fullName>Factu_header</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_header</shortDescription>
+        <value>Entête</value>
+    </labels>
+    <labels>
+        <fullName>Factu_ordre_virement</fullName>
+        <categories>Application Facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Factu_ordre_virement</shortDescription>
+        <value>Les virements sont à effectuer sur le compte bancaire suivant</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_AddQuestion</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Add Question</shortDescription>
+        <value>Add Question</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Anonymous</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Anonymous</shortDescription>
+        <value>Anonymous</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Answer_as</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Answer as</shortDescription>
+        <value>Answer as</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Cancel</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Cancel</shortDescription>
+        <value>Cancel</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Chatter</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Chatter</shortDescription>
+        <value>Chatter</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Chatter_Link</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Chatter Link</shortDescription>
+        <value>Chatter Link</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Community</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Community</shortDescription>
+        <value>Community</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_ContactWithCase</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Contact with Case</shortDescription>
+        <value>Contact with Case:</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_CurrentSurveys</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Current Surveys</shortDescription>
+        <value>Current Surveys</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Delete</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Delete</shortDescription>
+        <value>Delete</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Delete_Confirm</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Are you sure you want to delete this survey?</shortDescription>
+        <value>Are you sure you want to delete this survey?</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Edit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Edit</shortDescription>
+        <value>Edit</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Email_Link_Anonymous</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Link, Anonymous</shortDescription>
+        <value>Email Link, Anonymous</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Email_Link_w_Contact_Case_Merge</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Link w/ Contact &amp; Case Merge</shortDescription>
+        <value>Email Link w/ Contact &amp; Case Merge</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Email_Link_w_Contact_Merge</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Email Link w/ Contact Merge</shortDescription>
+        <value>Email Link w/ Contact Merge</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_EnterSurveyName</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Enter Survey Name</shortDescription>
+        <value>Enter Survey Name</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_External_Please_Create_Site</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>For external facing surveys, please create a site first.  You may still create i</shortDescription>
+        <value>For external facing surveys, please create a site first.  You may still create internal surveys without creating a site.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_For_community_assistance_with_Survey_Force</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>For community assistance with Survey Force</shortDescription>
+        <value>For community assistance with Survey Force</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Getting_Help</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Getting Help</shortDescription>
+        <value>Getting Help</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_HeaderAndThankYou</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Header and Thank You</shortDescription>
+        <value>Header, Thank You &amp; CSS</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Installation_Guide</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Installation Guide</shortDescription>
+        <value>Installation Guide</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Internal</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Internal</shortDescription>
+        <value>Internal</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_JustContact</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Just Contact</shortDescription>
+        <value>Just Contact</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Learn_More</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Learn More</shortDescription>
+        <value>Learn More</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_MakeANewSurvey</fullName>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>Make A New Survey</shortDescription>
+        <value>Make A New Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_MakeNewSurvey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Make New Survey</shortDescription>
+        <value>Make New Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Make_a_Sample_Survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Make a Sample Survey</shortDescription>
+        <value>Make a Sample Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Next_Steps</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Next Steps</shortDescription>
+        <value>Next Steps</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_PleaseEnterTheList</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Please enter the list</shortDescription>
+        <value>Please enter the list of answers/responses in the field below. Each value should be separated by a new line.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Question</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Question</shortDescription>
+        <value>Question</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Required</shortDescription>
+        <value>required</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_RequiredQuestion</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Required Question</shortDescription>
+        <value>Required Question</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Resources</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Resources</shortDescription>
+        <value>Resources</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Results</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Results</shortDescription>
+        <value>Results</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SELECTSITE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SELECT SITE</shortDescription>
+        <value>--SELECT SITE--</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SELECTTYPE</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>--SELECT--</shortDescription>
+        <value>--SELECT--</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Salesforce_Answers</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Salesforce Answers</shortDescription>
+        <value>Salesforce Answers</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Save</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save</shortDescription>
+        <value>Save</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SaveOrder</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Save Order</shortDescription>
+        <value>Save Order</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SelectQuestionType</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Question Type</shortDescription>
+        <value>Select Question Type</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SelectSitetodisplaySurvey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Select Site to display Survey</shortDescription>
+        <value>Select Site to display Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Share</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Share</shortDescription>
+        <value>Share</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Share_My_Survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Share My Survey</shortDescription>
+        <value>Share My Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Sharing_Options</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Sharing Options</shortDescription>
+        <value>Sharing Options</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SubmitSurvey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Submit Survey</shortDescription>
+        <value>Submit Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SurveyForceIsOpenSource</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>SurveyForceIsOpenSource</shortDescription>
+        <value>Survey Force is Open Source software.  We welcome your issue reports, ideas, documentation, code tweaks and all other participation.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_SurveyURLLink</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey URL Link</shortDescription>
+        <value>Survey URL Link</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Force_is_unsupported</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Force is unsupported</shortDescription>
+        <value>Survey Force is unsupported.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Force_on_Github</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Force on Github</shortDescription>
+        <value>Survey Force on Github</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Name_Is_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Name Is Required</shortDescription>
+        <value>Survey Name is Required</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Site_Is_Required</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Survey Site Is Required</shortDescription>
+        <value>Survey Site Is Required</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Survey_Submitted_Thank_you</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your survey has been submitted. Thank you for taking our survey.</shortDescription>
+        <value>Your survey has been submitted. Thank you for taking our survey.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_To_submit_ideas_or_issues</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>To submit ideas or issues</shortDescription>
+        <value>To submit ideas or issues</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_User_Guide</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>User Guide</shortDescription>
+        <value>User Guide</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_View_Results_In_New_Window</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Results In New Window</shortDescription>
+        <value>View Results In New Window</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_View_Sample_Survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>View Sample Survey</shortDescription>
+        <value>View Sample Survey</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Welcome_to_Survey_Force</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Welcome to Survey Force</shortDescription>
+        <value>Welcome to Survey Force</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_X1_Create_a_sample_survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>1. Create a sample survey by clicking the button below.</shortDescription>
+        <value>1. Create a sample survey by clicking the button below.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_X2_External_Setup_Site</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>2. Set up a site if you would like to have external-facing surveys.</shortDescription>
+        <value>2. Set up a site if you would like to have external-facing surveys.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_X3_Start_creating_your_first_survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>3. Start creating your first survey.</shortDescription>
+        <value>3. Start creating your first survey.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_You_have_already_taken_this_survey</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>You have already taken this survey!</shortDescription>
+        <value>You have already taken this survey!</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_Your_next_few_steps_are_easy</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>Your next few steps are easy.</shortDescription>
+        <value>Your next few steps are easy.</value>
+    </labels>
+    <labels>
+        <fullName>LABS_SF_please_visit</fullName>
+        <language>en_US</language>
+        <protected>true</protected>
+        <shortDescription>please visit</shortDescription>
+        <value>please visit</value>
+    </labels>
+    <labels>
+        <fullName>Libre_Frais_en_date_du_date</fullName>
+        <categories>APPNDF</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>LibreFraisEnDateDu</shortDescription>
+        <value>Libre (Frais en date du __date__)</value>
+    </labels>
+    <labels>
+        <fullName>MailModelTAT</fullName>
+        <categories>MailModelTAT</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>MailModelTAT</shortDescription>
+        <value>X2015_21_09_Test_TAT</value>
+    </labels>
+    <labels>
+        <fullName>MailModelTATRel</fullName>
+        <categories>MailModelTAT</categories>
+        <language>en_US</language>
+        <protected>false</protected>
+        <shortDescription>MailModelTATRel</shortDescription>
+        <value>TAT_Mail_rappel_TAT_Relance</value>
+    </labels>
+    <labels>
+        <fullName>Mission_CIR_Classique</fullName>
+        <categories>mission</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>CIR Classique</shortDescription>
+        <value>CIR Classique</value>
+    </labels>
+    <labels>
+        <fullName>Mission_CIR_Optimisation</fullName>
+        <categories>mission</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>CIR Optimisation</shortDescription>
+        <value>CIR Optimisation</value>
+    </labels>
+    <labels>
+        <fullName>Mois_28_F_vrier</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 28 Février</shortDescription>
+        <value>28 Février</value>
+    </labels>
+    <labels>
+        <fullName>Mois_30_Avril</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 30 Avril</shortDescription>
+        <value>30 Avril</value>
+    </labels>
+    <labels>
+        <fullName>Mois_30_Juin</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 30 Juin</shortDescription>
+        <value>30 Juin</value>
+    </labels>
+    <labels>
+        <fullName>Mois_30_Novembre</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 30 Novembre</shortDescription>
+        <value>30 Novembre</value>
+    </labels>
+    <labels>
+        <fullName>Mois_30_Septembre</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 30 Septembre</shortDescription>
+        <value>30 Septembre</value>
+    </labels>
+    <labels>
+        <fullName>Mois_31_Ao_t</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 31 Août</shortDescription>
+        <value>31 Août</value>
+    </labels>
+    <labels>
+        <fullName>Mois_31_D_cembre</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 31 Décembre</shortDescription>
+        <value>31 Décembre</value>
+    </labels>
+    <labels>
+        <fullName>Mois_31_Janvier</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 31 Janvier</shortDescription>
+        <value>31 Janvier</value>
+    </labels>
+    <labels>
+        <fullName>Mois_31_Juillet</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 31 Juillet</shortDescription>
+        <value>31 Juillet</value>
+    </labels>
+    <labels>
+        <fullName>Mois_31_Mai</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 31 Mai</shortDescription>
+        <value>31 Mai</value>
+    </labels>
+    <labels>
+        <fullName>Mois_31_Mars</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 31 Mars</shortDescription>
+        <value>31 Mars</value>
+    </labels>
+    <labels>
+        <fullName>Mois_31_Octobre</fullName>
+        <categories>dates</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois 31 Octobre</shortDescription>
+        <value>31 Octobre</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Aout</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Aout</shortDescription>
+        <value>Aout</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Avril</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Avril</shortDescription>
+        <value>Avril</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Decembre</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Décembre</shortDescription>
+        <value>Décembre</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Fevrier</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Février</shortDescription>
+        <value>Février</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Janvier</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Janvier</shortDescription>
+        <value>Janvier</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Juillet</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Juillet</shortDescription>
+        <value>Juillet</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Juin</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Juin</shortDescription>
+        <value>Juin</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Mai</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Mai</shortDescription>
+        <value>Mai</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Mars</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Mars</shortDescription>
+        <value>Mars</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Novembre</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Novembre</shortDescription>
+        <value>Novembre</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Octobre</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Octobre</shortDescription>
+        <value>Octobre</value>
+    </labels>
+    <labels>
+        <fullName>Mois_Septembre</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Mois Septembre</shortDescription>
+        <value>Septembre</value>
+    </labels>
+    <labels>
+        <fullName>Non_active</fullName>
+        <categories>VFLabel, Common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Non activé</shortDescription>
+        <value>Non activé</value>
+    </labels>
+    <labels>
+        <fullName>Process_AO</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Process_AO</shortDescription>
+        <value>Appel d&apos;offres</value>
+    </labels>
+    <labels>
+        <fullName>Process_concurrentiel</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Process_concurrentiel</shortDescription>
+        <value>Concurrentiel</value>
+    </labels>
+    <labels>
+        <fullName>Process_simple</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Process simple</shortDescription>
+        <value>Simple</value>
+    </labels>
+    <labels>
+        <fullName>Processus_d_approbation_en_cours</fullName>
+        <categories>VFLabel, Common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Processus d&apos;approbation en cours</shortDescription>
+        <value>Processus d&apos;approbation en cours</value>
+    </labels>
+    <labels>
+        <fullName>Prospect</fullName>
+        <categories>Compte, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Prospect</shortDescription>
+        <value>Prospect</value>
+    </labels>
+    <labels>
+        <fullName>RDV_Physique</fullName>
+        <categories>VFLabel, Common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>RDV Physique</shortDescription>
+        <value>RDV Physique</value>
+    </labels>
+    <labels>
+        <fullName>RDV_Telephonique</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>RDV Téléphonique</shortDescription>
+        <value>RDV Téléphonique</value>
+    </labels>
+    <labels>
+        <fullName>Reporte</fullName>
+        <categories>VFLabel, Common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Reporté</shortDescription>
+        <value>Reporté</value>
+    </labels>
+    <labels>
+        <fullName>RessourceURLgraphicPack</fullName>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>RessourceURLgraphicPack</shortDescription>
+        <value>1351009158000</value>
+    </labels>
+    <labels>
+        <fullName>Statut_En_attente</fullName>
+        <categories>Facture</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Statut En attente</shortDescription>
+        <value>En attente</value>
+    </labels>
+    <labels>
+        <fullName>Statut_Envoy_e</fullName>
+        <categories>Facture</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Statut Envoyée</shortDescription>
+        <value>Envoyée</value>
+    </labels>
+    <labels>
+        <fullName>Statut_Factur_e</fullName>
+        <categories>planification de facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Statut Facturée</shortDescription>
+        <value>Facturée</value>
+    </labels>
+    <labels>
+        <fullName>Statut_HGNF</fullName>
+        <categories>planification de facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Statut HGNF</shortDescription>
+        <value>HGNF</value>
+    </labels>
+    <labels>
+        <fullName>Statut_Rejetee</fullName>
+        <categories>planification de facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Statut Rejetée</shortDescription>
+        <value>Rejetée</value>
+    </labels>
+    <labels>
+        <fullName>Statut_Sold_e</fullName>
+        <categories>Facture</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Statut Soldé(e)</shortDescription>
+        <value>Soldé(e)</value>
+    </labels>
+    <labels>
+        <fullName>Statut_Valid_e</fullName>
+        <categories>Facture</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Statut Validée</shortDescription>
+        <value>Validée</value>
+    </labels>
+    <labels>
+        <fullName>Statut_pr_vue</fullName>
+        <categories>planification de facturation</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Statut prévue</shortDescription>
+        <value>prévue</value>
+    </labels>
+    <labels>
+        <fullName>Tel</fullName>
+        <categories>VFLabel, Common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Tél.</shortDescription>
+        <value>Tél.</value>
+    </labels>
+    <labels>
+        <fullName>Type_Compte_strategique</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Type Compte strategique</shortDescription>
+        <value>Compte stratégique</value>
+    </labels>
+    <labels>
+        <fullName>Type_ETI</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Type ETI</shortDescription>
+        <value>ETI</value>
+    </labels>
+    <labels>
+        <fullName>Type_GE</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Type GE</shortDescription>
+        <value>GE</value>
+    </labels>
+    <labels>
+        <fullName>Type_Microentreprise</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Type Microentreprise</shortDescription>
+        <value>Microentreprise</value>
+    </labels>
+    <labels>
+        <fullName>Type_PME</fullName>
+        <categories>common</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>Type PME</shortDescription>
+        <value>PME</value>
+    </labels>
+    <labels>
+        <fullName>VF_Client_actif_sur_autres_produits</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF_Client actif sur autres produits</shortDescription>
+        <value>Client actif sur autres produits</value>
+    </labels>
+    <labels>
+        <fullName>VF_FICHE_DE_SUIVI_CLIENT</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF FICHE DE SUIVI CLIENT</shortDescription>
+        <value>FICHE DE SUIVI CLIENT</value>
+    </labels>
+    <labels>
+        <fullName>VF_Filliales_concernees</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF Filliales concernées</shortDescription>
+        <value>Filliales concernées</value>
+    </labels>
+    <labels>
+        <fullName>VF_Information_Opportunit</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF Informations Opportunité</shortDescription>
+        <value>Informations Opportunité</value>
+    </labels>
+    <labels>
+        <fullName>VF_Information_mission</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF Information mission</shortDescription>
+        <value>Information mission</value>
+    </labels>
+    <labels>
+        <fullName>VF_Informations_contrat</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF Informations contrat</shortDescription>
+        <value>Informations contrat</value>
+    </labels>
+    <labels>
+        <fullName>VF_Informations_interlocuteurs</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF Informations interlocuteurs</shortDescription>
+        <value>Informations interlocuteurs</value>
+    </labels>
+    <labels>
+        <fullName>VF_Informations_societe</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF Informations société</shortDescription>
+        <value>Informations société</value>
+    </labels>
+    <labels>
+        <fullName>VF_Interlocuteur_mission</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF Interlocuteur mission</shortDescription>
+        <value>Interlocuteur mission</value>
+    </labels>
+    <labels>
+        <fullName>VF_Interlocuteur_signataire</fullName>
+        <categories>common, VFLabel</categories>
+        <language>fr</language>
+        <protected>false</protected>
+        <shortDescription>VF Interlocuteur signataire</shortDescription>
+        <value>Interlocuteur signataire</value>
+    </labels>
+</CustomLabels>

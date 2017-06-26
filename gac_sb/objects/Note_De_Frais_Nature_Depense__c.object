@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObject xmlns="http://soap.sforce.com/2006/04/metadata">
+    <actionOverrides>
+        <actionName>Accept</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>CancelEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Clone</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Delete</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Edit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>List</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>New</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>SaveEdit</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>Tab</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <actionOverrides>
+        <actionName>View</actionName>
+        <type>Default</type>
+    </actionOverrides>
+    <allowInChatterGroups>false</allowInChatterGroups>
+    <compactLayoutAssignment>SYSTEM</compactLayoutAssignment>
+    <deploymentStatus>Deployed</deploymentStatus>
+    <enableActivities>false</enableActivities>
+    <enableBulkApi>true</enableBulkApi>
+    <enableChangeDataCapture>false</enableChangeDataCapture>
+    <enableDivisions>false</enableDivisions>
+    <enableFeeds>false</enableFeeds>
+    <enableHistory>true</enableHistory>
+    <enableReports>true</enableReports>
+    <enableSearch>true</enableSearch>
+    <enableSharing>true</enableSharing>
+    <enableStreamingApi>true</enableStreamingApi>
+    <fields>
+        <fullName>Actif__c</fullName>
+        <defaultValue>true</defaultValue>
+        <externalId>false</externalId>
+        <label>Actif</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <fields>
+        <fullName>Aide__c</fullName>
+        <externalId>false</externalId>
+        <label>Aide</label>
+        <length>32768</length>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>LongTextArea</type>
+        <visibleLines>3</visibleLines>
+    </fields>
+    <fields>
+        <fullName>Categorie__c</fullName>
+        <externalId>false</externalId>
+        <label>Catégorie</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>true</sorted>
+                <value>
+                    <fullName>Autres (TVA non récupérable)</fullName>
+                    <default>false</default>
+                    <label>Autres (TVA non récupérable)</label>
+                </value>
+                <value>
+                    <fullName>Autres (TVA récupérable)</fullName>
+                    <default>false</default>
+                    <label>Autres (TVA récupérable)</label>
+                </value>
+                <value>
+                    <fullName>Avion</fullName>
+                    <default>false</default>
+                    <label>Avion</label>
+                </value>
+                <value>
+                    <fullName>Carburant</fullName>
+                    <default>false</default>
+                    <label>Carburant</label>
+                </value>
+                <value>
+                    <fullName>Déjeuner</fullName>
+                    <default>false</default>
+                    <label>Déjeuner</label>
+                </value>
+                <value>
+                    <fullName>Dîner</fullName>
+                    <default>false</default>
+                    <label>Dîner</label>
+                </value>
+                <value>
+                    <fullName>Frais kilométrique</fullName>
+                    <default>false</default>
+                    <label>Frais kilométrique</label>
+                </value>
+                <value>
+                    <fullName>Hotêl (nuitée)</fullName>
+                    <default>false</default>
+                    <label>Hotêl (nuitée)</label>
+                </value>
+                <value>
+                    <fullName>Location véhicule</fullName>
+                    <default>false</default>
+                    <label>Location véhicule</label>
+                </value>
+                <value>
+                    <fullName>Parking / Métro / Bus</fullName>
+                    <default>false</default>
+                    <label>Parking / Métro / Bus</label>
+                </value>
+                <value>
+                    <fullName>Péage</fullName>
+                    <default>false</default>
+                    <label>Péage</label>
+                </value>
+                <value>
+                    <fullName>Petit Déjeuner</fullName>
+                    <default>false</default>
+                    <label>Petit Déjeuner</label>
+                </value>
+                <value>
+                    <fullName>Poste</fullName>
+                    <default>false</default>
+                    <label>Poste</label>
+                </value>
+                <value>
+                    <fullName>Repas avec invités tiers</fullName>
+                    <default>false</default>
+                    <label>Repas avec invités tiers</label>
+                </value>
+                <value>
+                    <fullName>Taxi</fullName>
+                    <default>false</default>
+                    <label>Taxi</label>
+                </value>
+                <value>
+                    <fullName>Train</fullName>
+                    <default>false</default>
+                    <label>Train</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Pays__c</fullName>
+        <externalId>false</externalId>
+        <label>Pays</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>France</fullName>
+                    <default>false</default>
+                    <label>France</label>
+                </value>
+                <value>
+                    <fullName>Brésil</fullName>
+                    <default>false</default>
+                    <label>Brésil</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>Type__c</fullName>
+        <externalId>false</externalId>
+        <label>Type</label>
+        <required>false</required>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Picklist</type>
+        <valueSet>
+            <valueSetDefinition>
+                <sorted>false</sorted>
+                <value>
+                    <fullName>HT</fullName>
+                    <default>false</default>
+                    <label>HT</label>
+                </value>
+                <value>
+                    <fullName>TTC</fullName>
+                    <default>false</default>
+                    <label>TTC</label>
+                </value>
+                <value>
+                    <fullName>Frais kilométrique</fullName>
+                    <default>false</default>
+                    <label>Frais kilométrique</label>
+                </value>
+            </valueSetDefinition>
+        </valueSet>
+    </fields>
+    <fields>
+        <fullName>doInclude__c</fullName>
+        <externalId>false</externalId>
+        <formula>Actif__c &amp;&amp; 
+
+(ISPICKVAL( Pays__c , &apos;France&apos; ) &amp;&amp;  CONTAINS(&apos;FR&apos;, $Setup.AppNDFSetting__c.Pays__c)) ||
+(ISPICKVAL( Pays__c , &apos;Brésil&apos; ) &amp;&amp;  CONTAINS(&apos;BR&apos;, $Setup.AppNDFSetting__c.Pays__c))</formula>
+        <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+        <label>doInclude</label>
+        <trackHistory>false</trackHistory>
+        <trackTrending>false</trackTrending>
+        <type>Checkbox</type>
+    </fields>
+    <gender>Feminine</gender>
+    <label>Nature dépense</label>
+    <nameField>
+        <label>Libellé</label>
+        <trackHistory>false</trackHistory>
+        <type>Text</type>
+    </nameField>
+    <pluralLabel>Natures dépense</pluralLabel>
+    <searchLayouts/>
+    <sharingModel>ReadWrite</sharingModel>
+    <visibility>Public</visibility>
+</CustomObject>

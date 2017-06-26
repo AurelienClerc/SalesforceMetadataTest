@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Letterhead xmlns="http://soap.sforce.com/2006/04/metadata">
+    <available>true</available>
+    <backgroundColor>#CCCCCC</backgroundColor>
+    <bodyColor>#FFFFFF</bodyColor>
+    <bottomLine>
+        <color>#ffffFF</color>
+        <height>0</height>
+    </bottomLine>
+    <description>En-tête destiné aux mails envoyés en interne Grande Armée conseil</description>
+    <footer>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>100</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>Documents_marketing/damier_GAC.jpg</logo>
+        <verticalAlignment>Top</verticalAlignment>
+    </footer>
+    <header>
+        <backgroundColor>#FFFFFF</backgroundColor>
+        <height>55</height>
+        <horizontalAlignment>Left</horizontalAlignment>
+        <logo>Admin/Logo_GAC_Group.jpg</logo>
+        <verticalAlignment>Middle</verticalAlignment>
+    </header>
+    <middleLine>
+        <color>#ffffFF</color>
+        <height>0</height>
+    </middleLine>
+    <name>GAC Interne Grande Armée</name>
+    <topLine>
+        <color>#ffffff</color>
+        <height>5</height>
+    </topLine>
+</Letterhead>

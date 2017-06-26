@@ -1,0 +1,115 @@
+<apex:page controller="DebugTracker" sidebar="false">
+		
+	<apex:form >
+		<apex:outputPanel id="logsTableContainer" layout="block" >
+			<table id="logsTable" >
+				<apex:repeat value="{!logs}" var="log">
+					<tr class="logTitle {!IF(log.status == 'Success', 'debugSuccess' ,'debugError')}">
+						<td>{!log.page}</td>
+						<td style="text-align: right;">
+							<apex:outputText value="{0,time,HH:mm:ss}">
+								<apex:param value="{!log.startTime}" />
+							</apex:outputText>
+						</td>
+					</tr>
+					<tr class="logContent">
+						<td colspan="2">
+							<ul>
+								<apex:repeat value="{!log.debugMessages}" var="msg">
+									<li>
+										> {!msg}
+									</li>
+								</apex:repeat>
+							</ul>				
+						</td>
+					</tr>
+				</apex:repeat>
+			</table>
+		</apex:outputPanel>
+		<apex:commandButton value="refresh" action="{!searchNewLogs}" rerender="logsTableContainer"/>
+		
+		<iframe src="/setup/ui/listApexTraces.apexp?user_id={!$User.Id}&user_logging=true" width="0" height="0" frameborder="0"></iframe>
+	
+		<apex:actionFunction name="searchNewLogs" action="{!searchNewLogs}" rerender="logsTableContainer" oncomplete="initDebugTrackerDOM();" />
+	</apex:form>
+	
+	<script type="text/javascript">
+		searchNewLogs();
+	</script>
+	<style>
+	
+		#debugTracker{
+			font-size: 10px;
+			cursor: default;
+		}
+		
+		.debugMessageCountID{
+			padding: 1px;
+			min-width: 12px;
+			text-align: center;
+			font-weight: bold;
+			position: absolute; 
+			z-index: 1000;
+		}
+		
+		#debugTrackerContent{
+			width: 209px;
+			display: none;
+			position:absolute;
+			margin-top: 15px;
+			border: 1px solid #2a7396;
+			z-index: 1000;
+			background-color: #F1F7E2; 
+		}
+		
+		#logsTable{
+			width: 100%;
+			border-collapse: collapse;
+			border-spacing: 0;
+		}
+		
+		#logsTable .logTitle td{
+			border-top: 1px solid #2a7396;
+			border-bottom: 1px solid #2a7396;
+			color: #555555;
+		}
+		
+		#logsTable .logTitle.debugSuccess td{
+			background-color: #91d108; 
+		}
+		
+		#logsTable .logTitle.debugError td{
+			background-color: #ed6b5d; 
+		}
+		
+		#logsTable .logContent td{
+			background-color: #F1F7E2; 
+			color: #555555;
+		}
+		
+		#logsTable .logContent ul{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		
+		#logsTable .logContent li{
+			margin: 0;
+			padding: 0;
+		}
+		
+		
+		#logsTable .logContent .debugMessageMore{
+			display: none;
+			position: absolute;
+			margin-left: 205px;
+			width: 500px;
+			background-color: #F1F7E2; 
+			float: left;
+			padding: 10px;
+			border: 1px solid #2a7396;
+		}
+		
+		
+	</style>
+</apex:page>

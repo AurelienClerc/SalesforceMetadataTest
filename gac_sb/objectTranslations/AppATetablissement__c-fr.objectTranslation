@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomObjectTranslation xmlns="http://soap.sforce.com/2006/04/metadata">
+    <caseValues>
+        <plural>false</plural>
+        <value>Etablissement</value>
+    </caseValues>
+    <caseValues>
+        <plural>true</plural>
+        <value>Etablissements</value>
+    </caseValues>
+    <fields>
+        <label><!-- Alsace Moselle ? --></label>
+        <name>AlsaceMoselle__c</name>
+    </fields>
+    <fields>
+        <label><!-- Code risque --></label>
+        <name>CodeRisque__c</name>
+    </fields>
+    <fields>
+        <label><!-- Code postal --></label>
+        <name>Code_postal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Code unique --></label>
+        <name>Code_unique__c</name>
+    </fields>
+    <fields>
+        <label><!-- Entité --></label>
+        <name>Entite__c</name>
+    </fields>
+    <fields>
+        <label><!-- Etablissement principal --></label>
+        <name>Etablissement_principal__c</name>
+    </fields>
+    <fields>
+        <label><!-- Mission --></label>
+        <name>Mission__c</name>
+        <relationshipLabel><!-- Etablissements --></relationshipLabel>
+    </fields>
+    <fields>
+        <label><!-- N° de dossier GAC --></label>
+        <name>NGAC__c</name>
+    </fields>
+    <fields>
+        <label><!-- Pays --></label>
+        <name>Pays__c</name>
+    </fields>
+    <fields>
+        <label><!-- Rue --></label>
+        <name>Rue__c</name>
+    </fields>
+    <fields>
+        <label><!-- SIRET --></label>
+        <name>SIRET__c</name>
+    </fields>
+    <fields>
+        <label><!-- Section --></label>
+        <name>Section__c</name>
+    </fields>
+    <fields>
+        <label><!-- Ville --></label>
+        <name>Ville__c</name>
+    </fields>
+    <gender>Masculine</gender>
+    <layouts>
+        <layout>Présentation Etablissement concerné</layout>
+        <sections>
+            <label><!-- Liens Personnalisés --></label>
+            <section>Liens Personnalisés</section>
+        </sections>
+    </layouts>
+    <startsWith>Vowel</startsWith>
+</CustomObjectTranslation>

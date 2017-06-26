@@ -1,0 +1,92 @@
+<apex:component Controller="INNOvalorisationChecker">
+    
+    <script type="text/javascript">
+		$$ = jQuery.noConflict();
+		
+		function toggleWarnings(){
+			var $oMissionCheckerContainer = $$("#missionCheckerContainer");
+				
+			if($oMissionCheckerContainer.css('display') == 'none'){
+				$$(".toggleWarningsID").html('Cacher les avertissements');
+				$oMissionCheckerContainer.show('blind');
+			}
+			else{
+				$$(".toggleWarningsID").html('Afficher les avertissements');
+				$oMissionCheckerContainer.hide('blind');
+			}
+		}
+		
+		
+		function toggleWarningDetails(sCheckerPropertyName){
+			
+			var $oDetailsContainer = $$("#INNOcheckerDetails_" + sCheckerPropertyName);
+				
+			if($oDetailsContainer.css('display') == 'none'){
+				$$(".toggleWarningDetails_" + sCheckerPropertyName).html('Masquer les détails');
+				$oDetailsContainer.show('blind');
+			}
+			else{
+				$$(".toggleWarningDetails_" + sCheckerPropertyName).html('Afficher les détails');
+				$oDetailsContainer.hide('blind');
+			}
+			
+		}
+	</script>
+	
+	<apex:outputLink onclick="toggleWarnings();return false;" styleClass="toggleWarningsID">Afficher les avertissements</apex:outputLink>
+	
+	<br />
+	<br />
+	
+	<div id="missionCheckerContainer">
+		<ul id="missionCheckerErrors">
+			<apex:repeat var="erreurType" value="{!erreursByType}">
+				<li>
+					{!$label['APPCir_Checker_' + erreurType]}
+					<apex:outputPanel layout="none" rendered="{!erreurType == 'CoherenceAmortissement'}">
+						<br />
+						<apex:outputLink onclick="toggleWarningDetails('{!erreurType}');return false;" styleClass="toggleWarningDetails_{!erreurType}" >Afficher les détails</apex:outputLink>
+						<br />
+					</apex:outputPanel>
+					<ul id="INNOcheckerDetails_{!erreurType}" style="display: {!IF(erreurType == 'CoherenceAmortissement', 'none', 'block')};">
+						<apex:repeat var="erreur" value="{!erreursByType[erreurType]}">
+							<li><strong>{!erreur}</strong></li>
+						</apex:repeat>
+					</ul>
+				</li>
+			</apex:repeat>
+		</ul>
+		
+		<apex:outputPanel layout="none" rendered="{!infos.size > 0}">
+			<table id="missionCheckerInfosTable" class="valoTable">
+				<tr>
+					<th></th>
+					<th class="ui-widget-header">Informations</th>
+					<th class="ui-widget-header">
+						Valeur Année N
+					</th>
+					<th class="ui-widget-header">
+						Valeur Année N - 1
+					</th>
+				</tr>
+				<apex:repeat var="info" value="{!infos}">
+						<tr>
+							<td class="firstCol">
+								<apex:image value="{!URLFOR($Resource.icons, '001_11.png')}" rendered="{!info.alert == true}" width="16px" height="16px"/>
+							</td>
+							<td class="tableFirstCol">
+							    {!$label['APPCir_Checker_' + info.infoType]}
+							</td>
+							<td>
+								{!info.valueN}
+							</td>
+							<td>
+								{!info.valueN1}
+							</td>
+						</tr>
+				</apex:repeat>
+			</table>
+		</apex:outputPanel>
+	</div>
+    
+</apex:component>
