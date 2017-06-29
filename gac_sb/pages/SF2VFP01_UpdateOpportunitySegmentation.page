@@ -1,7 +1,0 @@
-<apex:page standardController="Opportunity" extensions="SF2VFP01_UpdateOpportunitySegmentation" action="{!populateAndRedirect}">
-<apex:sectionHeader title="Mise a jour de l'opportunité: des erreurs sont survenues" subtitle="{!Opportunity.Name}" />
-<apex:outputPanel layout="block" style="display:none">
-    {!Opportunity.AccountID}{!Opportunity.recordTypeId}{!Opportunity.Annee_segmentation__c}
-</apex:outputPanel>
-<apex:pageMessages />
-</apex:page>

@@ -1,8 +1,0 @@
-<apex:page controller="INNOtauxOccupationReelCtrl" sidebar="false" tabStyle="INNOmission__c" title="Taux d'occupation réel/planifié">
-	
-	<c:INNOtimeSheetSubMenu />
-	
-	<apex:sectionHeader title="Taux d'occupation réel/planifié" />
-    <c:INNOtauxOccupation myController="{!this}" />
-
-</apex:page>

@@ -1,5 +1,0 @@
-<apex:page showHeader="false" sidebar="false">
-    <script type="text/javascript">
-        window.close();
-    </script>
-</apex:page>

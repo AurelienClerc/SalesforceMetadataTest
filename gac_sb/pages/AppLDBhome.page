@@ -1,6 +1,0 @@
-<apex:page >
-    
-    <apex:enhancedList type="Mission__c" height="500" rowsPerPage="100" listId="00BD0000007zJT1" customizable="false" />
-    
-    
-</apex:page>
